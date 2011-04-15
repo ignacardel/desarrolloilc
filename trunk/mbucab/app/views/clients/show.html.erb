@@ -1,0 +1,38 @@
+<p>
+  <b>Account:</b>
+  <%=h @client.account %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%=h @client.firstname %>
+</p>
+
+<p>
+  <b>Middlename:</b>
+  <%=h @client.middlename %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%=h @client.lastname %>
+</p>
+
+<p>
+  <b>Surname:</b>
+  <%=h @client.surname %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%=h @client.birthday %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @client.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

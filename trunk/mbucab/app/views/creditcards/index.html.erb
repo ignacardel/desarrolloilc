@@ -1,0 +1,28 @@
+<h1>Listing creditcards</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Expdate</th>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Client</th>
+  </tr>
+
+<% @creditcards.each do |creditcard| %>
+  <tr>
+    <td><%=h creditcard.number %></td>
+    <td><%=h creditcard.expdate %></td>
+    <td><%=h creditcard.code %></td>
+    <td><%=h creditcard.name %></td>
+    <td><%=h creditcard.client_id %></td>
+    <td><%= link_to 'Show', creditcard %></td>
+    <td><%= link_to 'Edit', edit_creditcard_path(creditcard) %></td>
+    <td><%= link_to 'Destroy', creditcard, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New creditcard', new_creditcard_path %>
