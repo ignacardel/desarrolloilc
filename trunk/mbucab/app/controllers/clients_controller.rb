@@ -27,6 +27,25 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
 
+
+       request.query_string.split(/&/).inject({}) do |hash, setting|
+         key, val = setting.split(/=/)
+         if key == 'openid.ext1.value.firstname'
+          @nombre = val
+         end
+         if key == 'openid.ext1.value.lastname'
+          @apellido = val
+         end
+         if key == 'openid.ext1.value.email'
+          usuario, correo  = val.split(/%40/)
+          @email = usuario + '@' + correo
+         end
+       end
+
+    @client.account   = @email
+    @client.firstname = @nombre
+    @client.lastname  = @apellido
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @client }
