@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :clients
 
+  map.gotogoogle '/gotogoogle', :controller => 'application', :action => 'gotogoogle'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
