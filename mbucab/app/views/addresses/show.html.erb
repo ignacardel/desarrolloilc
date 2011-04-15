@@ -1,0 +1,58 @@
+<p>
+  <b>Street:</b>
+  <%=h @address.street %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @address.name %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%=h @address.number %>
+</p>
+
+<p>
+  <b>Zone:</b>
+  <%=h @address.zone %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @address.city %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @address.country %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @address.zip %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%=h @address.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%=h @address.longitude %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%=h @address.nickname %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%=h @address.client_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

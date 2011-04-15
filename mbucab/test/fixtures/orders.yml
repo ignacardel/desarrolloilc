@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2011-04-15 13:06:26
+  recipient: MyString
+  address: MyString
+  longitude: 1.5
+  latitude: 1.5
+  status: 1
+  collectiondate: 2011-04-15 13:06:26
+  deliverydate: 2011-04-15 13:06:26
+  address_id: 1
+  client_id: 1
+  creditcard_id: 1
+
+two:
+  date: 2011-04-15 13:06:26
+  recipient: MyString
+  address: MyString
+  longitude: 1.5
+  latitude: 1.5
+  status: 1
+  collectiondate: 2011-04-15 13:06:26
+  deliverydate: 2011-04-15 13:06:26
+  address_id: 1
+  client_id: 1
+  creditcard_id: 1

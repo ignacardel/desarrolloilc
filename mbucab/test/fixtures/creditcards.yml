@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  expdate: 2011-04-15
+  code: 1
+  name: MyString
+  client_id: 1
+
+two:
+  number: 1
+  expdate: 2011-04-15
+  code: 1
+  name: MyString
+  client_id: 1

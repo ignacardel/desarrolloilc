@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyString
+  weight: 1.5
+  price: 1.5
+  order_id: 1
+
+two:
+  description: MyString
+  weight: 1.5
+  price: 1.5
+  order_id: 1

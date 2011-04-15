@@ -1,0 +1,28 @@
+<p>
+  <b>Number:</b>
+  <%=h @creditcard.number %>
+</p>
+
+<p>
+  <b>Expdate:</b>
+  <%=h @creditcard.expdate %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @creditcard.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @creditcard.name %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%=h @creditcard.client_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_creditcard_path(@creditcard) %> |
+<%= link_to 'Back', creditcards_path %>
