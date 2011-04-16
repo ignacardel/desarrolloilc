@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  layout 'standard'
+  layout 'standardmapmarker'
   # GET /clients
   # GET /clients.xml
 
@@ -51,6 +51,8 @@ class ClientsController < ApplicationController
       @client.account   = @email
       @client.firstname = @nombre
       @client.lastname  = @apellido
+
+      @client.addresses.build
 
       respond_to do |format|
         format.html # new.html.erb
