@@ -18,11 +18,20 @@ Released for free under a Creative Commons Attribution 2.5 License
 	<h1>mail boxes ucab</h1>
 	<h2>Trust and speed in your shipments</h2>
         <% if session[:user] != nil %>
-	<ul>
-		<li><a href="#" accesskey="1" title="">Homepage</a></li>
-		<li><a href="#" accesskey="2" title="">My Blog</a></li>
-		<li><a href="#" accesskey="4" title="">Favorite Sites</a></li>
-	</ul>
+            <% if session[:user] != nil %>
+         	    <ul>
+		         <li><a href="#" accesskey="1" title="">Home</a></li>
+                         <li><a href="#" accesskey="2" title="">Orders</a></li>
+		         <li><a href="#" accesskey="3" title="">Address Book</a></li>
+		         <li><a href="#" accesskey="4" title="">My Info</a></li>
+	            </ul>
+            <%  else %>
+                    <ul>
+		         <li><a href="#" accesskey="1" title="">Menu admin1</a></li>
+		         <li><a href="#" accesskey="2" title="">Menu admin2</a></li>
+		         <li><a href="#" accesskey="4" title="">Menu admin3</a></li>
+	            </ul>
+            <%  end %>
         <% end %>
 </div>
 <div id="content">
@@ -36,6 +45,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 			</ul>
                    <% else %>
                         <ul>
+                                <li><%= session[:user] %></li>
                                 <li><%= link_to "Logout", :controller => :session, :action => :client_logout %></li>
                         </ul>
                   <% end %>
