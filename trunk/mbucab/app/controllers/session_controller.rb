@@ -14,6 +14,7 @@ class SessionController < ApplicationController
 
     if client
      session[:user] = client.account
+     session[:type] = "client"
      flash[:notice] = client.firstname + " " + client.lastname + " (" + session[:user] + ") has logged in!"
      redirect_to :controller => 'home', :action => 'index'
     else
@@ -25,6 +26,7 @@ class SessionController < ApplicationController
 
   def client_logout
     session[:user] = nil
+    session[:type] = nil
     flash[:notice] = 'You have successfully logged out'
     redirect_to :controller => 'home', :action => 'index'
 
