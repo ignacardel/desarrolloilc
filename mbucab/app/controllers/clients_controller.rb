@@ -2,6 +2,17 @@ class ClientsController < ApplicationController
   layout 'standard'
   # GET /clients
   # GET /clients.xml
+
+  #metodo abstracto para comprobar login
+  def self.authenticate(email)
+
+    usu= Client.find(params[:account])
+    return nil if usu.nil?
+    return usu if email == usu.email
+    nil
+  end
+
+
   def index
     @clients = Client.all
 
