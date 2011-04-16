@@ -3,17 +3,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.xml
 
-  #metodo abstracto para comprobar login
-  def self.authenticate(email)
-
-    usu= Client.find(params[:account])
-    return nil if usu.nil?
-    return usu if email == usu.email
-    nil
-  end
-
-
-  def index
+ def index
     @clients = Client.all
 
     respond_to do |format|
@@ -36,9 +26,7 @@ class ClientsController < ApplicationController
   # GET /clients/new
   # GET /clients/new.xml
   def new
-    @client = Client.new
-
-
+   
        request.query_string.split(/&/).inject({}) do |hash, setting|
          key, val = setting.split(/=/)
          if key == 'openid.ext1.value.firstname'
@@ -53,14 +41,23 @@ class ClientsController < ApplicationController
          end
        end
 
-    @client.account   = @email
-    @client.firstname = @nombre
-    @client.lastname  = @apellido
+    client= Client.find(:first, :conditions => [" account = ?", @email ])
+    
+    if client     
+     flash[:notice] = "\"" + @email + "\" is already registered!"
+     redirect_to :controller => 'home', :action => 'index'
+    else
+      @client = Client.new
+      @client.account   = @email
+      @client.firstname = @nombre
+      @client.lastname  = @apellido
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @client }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @client }
+      end
     end
+
   end
 
   # GET /clients/1/edit
