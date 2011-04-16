@@ -9,6 +9,8 @@ class Address < ActiveRecord::Base
   validates_presence_of  :country
   validates_presence_of  :zip
   validates_presence_of  :nickname
+  validates_presence_of :latitude, :longitude, :message=> 'must be set by picking a location in the map'
+
 
   validates_numericality_of :zip,:greater_than => 0
 

@@ -1,26 +1,30 @@
-<h1>New client</h1>
+<h1>New user registration</h1>
+
 
 <% form_for(@client) do |f| %>
   <%= f.error_messages %>
+
+ 
+<h4>Personal info</h4>
 
   <p>
     <%= f.label :account %><br />
     <%= f.text_field :account,:readonly => true %>
   </p>
   <p>
-    <%= f.label :firstname %><br />
+    <%= f.label :first_name %><br />
     <%= f.text_field :firstname,:readonly => true %>
   </p>
   <p>
-    <%= f.label :middlename %><br />
+    <%= f.label :middle_name %><br />
     <%= f.text_field :middlename %>
   </p>
   <p>
-    <%= f.label :lastname %><br />
+    <%= f.label :last_name %><br />
     <%= f.text_field :lastname,:readonly => true %>
   </p>
   <p>
-    <%= f.label :surname %><br />
+    <%= f.label :sur_name %><br />
     <%= f.text_field :surname %>
   </p>
   <p>
@@ -28,9 +32,49 @@
     <%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %>
   </p>
   <p>
-    <%= f.label :phone %><br />
+    <%= f.label :phone_no %>.<br />
     <%= f.text_field :phone %>
   </p>
+
+  <h4>Address info</h4>
+  <% f.fields_for :addresses do |a| %>
+    <p>
+      <%= a.label :avenue %>/<%= a.label :street %><br />
+      <%= a.text_field :street %>
+    </p>
+    <p>
+      <%= a.label :residence%>/<%= a.label :house %><br />
+      <%= a.text_field :name %>
+    </p>
+    <p>
+      <%= a.label :number%><br />
+      <%= a.text_field :number %>
+    </p>
+    <p>
+      <%= a.label :urbanization%><br />
+      <%= a.text_field :zone %>
+    </p>
+    <p>
+      <%= a.label :city%><br />
+      <%= a.text_field :city %>
+    </p>
+    <p>
+      <%= a.label :zip_code%><br />
+      <%= a.text_field :zip %>
+    </p>
+    <p>
+      <%= a.label :country%><br />
+      <%= a.text_field :country %>
+    </p>
+    <p>
+      <%= a.label :unique_address_nickname%><br />
+      <%= a.text_field :nickname %>
+    </p>
+   
+ <%= a.label :map_coordinates%><br/><br/>
+ 	<%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
+ <div  id="map_canvas" style="width:100%; height:50%"> </div>
+  <%end%>
   <p>
     <%= f.submit 'Create' %>
   </p>
