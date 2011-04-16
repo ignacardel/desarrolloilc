@@ -1,0 +1,58 @@
+<p>
+  <b>Date:</b>
+  <%=h @order.date %>
+</p>
+
+<p>
+  <b>Recipient:</b>
+  <%=h @order.recipient %>
+</p>
+
+<p>
+  <b>Fulladdress:</b>
+  <%=h @order.fulladdress %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%=h @order.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%=h @order.latitude %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @order.status %>
+</p>
+
+<p>
+  <b>Collectiondate:</b>
+  <%=h @order.collectiondate %>
+</p>
+
+<p>
+  <b>Deliverydate:</b>
+  <%=h @order.deliverydate %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @order.address_id %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%=h @order.client_id %>
+</p>
+
+<p>
+  <b>Creditcard:</b>
+  <%=h @order.creditcard_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
