@@ -25,7 +25,7 @@ class SessionController < ApplicationController
 
   def client_logout
     session[:user] = nil
-    flash[:notice] = 'Logged out'
+    flash[:notice] = 'You have successfully logged out'
     redirect_to :controller => 'home', :action => 'index'
 
   end

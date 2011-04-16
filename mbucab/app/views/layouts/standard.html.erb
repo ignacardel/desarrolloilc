@@ -7,7 +7,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Mail Boxes Ucab - Shipping - Freight - Delivery Services</title>
+<title>Mail Boxes Ucab</title>
 <meta name="Keywords" content="" />
 <meta name="Description" content="" />
 <%= stylesheet_link_tag "scaffold" %>
@@ -17,20 +17,28 @@ Released for free under a Creative Commons Attribution 2.5 License
 <div id="header">
 	<h1>mail boxes ucab</h1>
 	<h2>Trust and speed in your shipments</h2>
+        <% if session[:user] != nil %>
 	<ul>
 		<li><a href="#" accesskey="1" title="">Homepage</a></li>
 		<li><a href="#" accesskey="2" title="">My Blog</a></li>
 		<li><a href="#" accesskey="4" title="">Favorite Sites</a></li>
 	</ul>
+        <% end %>
 </div>
 <div id="content">
 	<div id="colOne">
 		<h3>Customers</h3>
 		<div class="bg1">
+                  <% if session[:user] == nil %>
 			<ul>
-				<li><a href="http://localhost:3000/gotogoogle">Register</a></li>
+                                <li><%= link_to "Register", :controller => :application, :action => :gotogoogle %></li>
 				<li><%= link_to "Login", :controller => :application, :action => :clientgotogoogle %></li>
 			</ul>
+                   <% else %>
+                        <ul>
+                                <li><%= link_to "Logout", :controller => :session, :action => :client_logout %></li>
+                        </ul>
+                  <% end %>
 		</div>
 		<h3>Track a Shipment</h3>
 		<div class="bg1">
