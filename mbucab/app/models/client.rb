@@ -15,4 +15,16 @@ class Client < ActiveRecord::Base
   has_many :orders
 
   accepts_nested_attributes_for :addresses, :allow_destroy => true
+
+  #El siguiente codigo permite definir el nombre que
+  #un atributo mostrara en los mensajes de error del formulario
+
+  HUMAN_ATTRIBUTES = {
+    :phone => "Phone no."
+    }
+
+  def self.human_attribute_name(attr)
+    HUMAN_ATTRIBUTES[attr.to_sym] || super
+  end
+
 end

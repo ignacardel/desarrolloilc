@@ -2,13 +2,14 @@
 
 
 <% form_for(@client) do |f| %>
-  <%= f.error_messages %>
+  <%#= f.error_messages %>
 
- 
+ <%= error_messages_for 'client', :header_message => "Please review and correct the following errors:" %>
+
 <h4>Personal info</h4>
 
   <p>
-    <%= f.label :account %><br />
+    <%= f.label(:account,"Gmail account") %><br />
     <%= f.text_field :account,:readonly => true %>
   </p>
   <p>
@@ -32,26 +33,26 @@
     <%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %>
   </p>
   <p>
-    <%= f.label :phone_no %>.<br />
+    <%= f.label(:phone,"Phone no.") %>.<br />
     <%= f.text_field :phone %>
   </p>
 
   <h4>Address info</h4>
   <% f.fields_for :addresses do |a| %>
     <p>
-      <%= a.label :avenue %>/<%= a.label :street %><br />
+      <%= a.label(:street,"Avenue/Street") %><br />
       <%= a.text_field :street %>
     </p>
     <p>
-      <%= a.label :residence%>/<%= a.label :house %><br />
+      <%= a.label(:name,"Residence/House name") %><br />
       <%= a.text_field :name %>
     </p>
     <p>
-      <%= a.label :number%><br />
+      <%= a.label(:number,"Apartment/House number") %><br />
       <%= a.text_field :number %>
     </p>
     <p>
-      <%= a.label :urbanization%><br />
+      <%= a.label(:zone,"Urbanization") %><br />
       <%= a.text_field :zone %>
     </p>
     <p>
@@ -59,7 +60,7 @@
       <%= a.text_field :city %>
     </p>
     <p>
-      <%= a.label :zip_code%><br />
+      <%= a.label(:zip,"Zip code") %><br />
       <%= a.text_field :zip %>
     </p>
     <p>
@@ -67,13 +68,14 @@
       <%= a.text_field :country %>
     </p>
     <p>
-      <%= a.label :unique_address_nickname%><br />
+      <%= a.label(:nickname,"Unique address nickname") %><br />
       <%= a.text_field :nickname %>
     </p>
    
- <%= a.label :map_coordinates%><br/><br/>
- 	<%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
+ <%= a.label :address_coordinates%><br/><br/>
+ 
  <div  id="map_canvas" style="width:100%; height:50%"> </div>
+ <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
   <%end%>
   <p>
     <%= f.submit 'Create' %>
