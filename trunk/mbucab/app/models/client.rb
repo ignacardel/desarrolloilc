@@ -10,18 +10,19 @@ class Client < ActiveRecord::Base
   validates_inclusion_of :phone, :in => 1000000..999999999, :message=> 'must have 7 digits'
   validates_numericality_of :phone
   #Relations
-  has_many :creditcards
   has_many :addresses
+  has_many :creditcards
   has_many :orders
 
   accepts_nested_attributes_for :addresses, :allow_destroy => true
+  accepts_nested_attributes_for :creditcards, :allow_destroy => true
 
   #El siguiente codigo permite definir el nombre que
   #un atributo mostrara en los mensajes de error del formulario
 
   HUMAN_ATTRIBUTES = {
     :phone => "Phone no."
-    }
+  }
 
   def self.human_attribute_name(attr)
     HUMAN_ATTRIBUTES[attr.to_sym] || super

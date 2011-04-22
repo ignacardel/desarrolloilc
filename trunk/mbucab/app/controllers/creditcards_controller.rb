@@ -1,9 +1,11 @@
 class CreditcardsController < ApplicationController
+  before_filter :require_login
   layout 'standard'
   # GET /creditcards
   # GET /creditcards.xml
   def index
-    @creditcards = Creditcard.all
+    @creditcards = Creditcard.find(:all, :conditions => [" client_id = ?", session[:id] ])
+    #@creditcards=Creditcard.all
 
     respond_to do |format|
       format.html # index.html.erb
