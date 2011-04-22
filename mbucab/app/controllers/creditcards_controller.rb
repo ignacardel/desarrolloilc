@@ -44,7 +44,7 @@ class CreditcardsController < ApplicationController
   # POST /creditcards.xml
   def create
     @creditcard = Creditcard.new(params[:creditcard])
-
+    @creditcard.client_id=session[:id]
     respond_to do |format|
       if @creditcard.save
         flash[:notice] = 'Creditcard was successfully created.'

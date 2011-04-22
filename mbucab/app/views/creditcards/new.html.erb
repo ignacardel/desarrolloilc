@@ -1,27 +1,24 @@
-<h1>New creditcard</h1>
+<h1>New credit or debit card</h1>
 
 <% form_for(@creditcard) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :number %><br />
-    <%= f.text_field :number %>
-  </p>
-  <p>
-    <%= f.label :expdate %><br />
-    <%= f.date_select :expdate, :discard_day => true %>
-  </p>
-  <p>
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
+    <%= f.label(:name,"Cardholder's Name") %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :client_id %><br />
-    <%= f.text_field :client_id %>
+    <%= f.label(:number,"Credit or debit card number") %><br />
+    <%= f.text_field(:number, :maxlength =>10) %><br />
+    <%= image_tag "creditcards.tiff" %>
+  </p>
+  <p>
+    <%= f.label(:expdate,"Expiration date") %><br />
+    <%= f.date_select :expdate, :discard_day => true %>
+  </p>
+  <p>
+    <%= f.label(:code,"Security code") %><br />
+    <%= f.password_field(:code, :maxlength => 4) %>
   </p>
   <p>
     <%= f.submit 'Create' %>
