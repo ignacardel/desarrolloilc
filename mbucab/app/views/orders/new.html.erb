@@ -4,8 +4,8 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.label :collect_address%><br />
+    <%= collection_select(:order ,:address_id ,@addresses , :id, :name) %>
   </p>
   <p>
     <%= f.label :recipient %><br />
@@ -15,38 +15,23 @@
     <%= f.label :fulladdress %><br />
     <%= f.text_field :fulladdress %>
   </p>
+     <%= f.label :address_coordinates%><br/><br/>
+     <div  id="map_canvas" style="width:100%; height:50%"> </div>
+     <%= f. hidden_field(:longitude) %><%= f. hidden_field(:latitude)%>
   <p>
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
+    <%= f.label :Creditcard%><br />
+    <%= collection_select(:order ,:creditcard_id ,@creditcards , :id, :name) %>
   </p>
-  <p>
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </p>
-  <p>
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </p>
-  <p>
-    <%= f.label :collectiondate %><br />
-    <%= f.datetime_select :collectiondate %>
-  </p>
-  <p>
-    <%= f.label :deliverydate %><br />
-    <%= f.datetime_select :deliverydate %>
-  </p>
-  <p>
-    <%= f.label :address_id %><br />
-    <%= f.text_field :address_id %>
-  </p>
-  <p>
-    <%= f.label :client_id %><br />
-    <%= f.text_field :client_id %>
-  </p>
-  <p>
-    <%= f.label :creditcard_id %><br />
-    <%= f.text_field :creditcard_id %>
-  </p>
+
+     <h4>Packages info</h4>
+     <% f.fields_for :packages do |a| %>
+
+     <%= render 'package_fields', :f => a %>
+
+     <%end%>
+
+     <p><%= link_to_add_fields "add package", f, :packages %></p>
+     
   <p>
     <%= f.submit 'Create' %>
   </p>
