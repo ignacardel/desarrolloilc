@@ -14,6 +14,7 @@ class SessionController < ApplicationController
 
     if client
      session[:user] = client.account
+     session[:id]= client.id
      session[:type] = "client"
      flash[:notice] = client.firstname + " " + client.lastname + " (" + session[:user] + ") has logged in!"
      redirect_to :controller => 'home', :action => 'index'
