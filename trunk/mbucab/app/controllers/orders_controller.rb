@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  layout 'standard'
+  layout 'standardmapmarkerorders'
   # GET /orders
   # GET /orders.xml
   def index
@@ -27,6 +27,13 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
 
+    client = Client.first(:conditions => [" account = ? ", session[:user]])
+    @addresses = Address.all(:conditions =>["client_id = ?", client.id])
+    @creditcards = Creditcard.all(:conditions =>["client_id = ?", client.id])
+
+    1.times {@order.packages.build}
+
+   
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @order }
@@ -42,6 +49,9 @@ class OrdersController < ApplicationController
   # POST /orders.xml
   def create
     @order = Order.new(params[:order])
+    @order.client_id = session[:id]
+    @order.status    = 0
+    @order.date      = Date.current
 
     respond_to do |format|
       if @order.save
