@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.xml
 
- def index
+  def index
     @clients = Client.all
 
     respond_to do |format|
@@ -27,25 +27,25 @@ class ClientsController < ApplicationController
   # GET /clients/new.xml
   def new
    
-       request.query_string.split(/&/).inject({}) do |hash, setting|
-         key, val = setting.split(/=/)
-         if key == 'openid.ext1.value.firstname'
-          @nombre = val
-         end
-         if key == 'openid.ext1.value.lastname'
-          @apellido = val
-         end
-         if key == 'openid.ext1.value.email'
-          usuario, correo  = val.split(/%40/)
-          @email = usuario + '@' + correo
-         end
-       end
+    request.query_string.split(/&/).inject({}) do |hash, setting|
+      key, val = setting.split(/=/)
+      if key == 'openid.ext1.value.firstname'
+        @nombre = val
+      end
+      if key == 'openid.ext1.value.lastname'
+        @apellido = val
+      end
+      if key == 'openid.ext1.value.email'
+        usuario, correo  = val.split(/%40/)
+        @email = usuario + '@' + correo
+      end
+    end
 
     client= Client.find(:first, :conditions => [" account = ?", @email ])
     
     if client     
-     flash[:notice] = "\"" + @email + "\" is already registered!"
-     redirect_to :controller => 'home', :action => 'index'
+      flash[:notice] = "\"" + @email + "\" is already registered!"
+      redirect_to :controller => 'home', :action => 'index'
     else
       @client = Client.new
       @client.account   = @email
@@ -53,7 +53,8 @@ class ClientsController < ApplicationController
       @client.lastname  = @apellido
 
       @client.addresses.build
-
+      @client.creditcards.build
+      
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @client }

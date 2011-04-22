@@ -4,9 +4,9 @@
 <% form_for(@client) do |f| %>
   <%#= f.error_messages %>
 
- <%= error_messages_for 'client', :header_message => "Please review and correct the following errors:" %>
+  <%= error_messages_for 'client', :header_message => "Please review and correct the following errors:" %>
 
-<h4>Personal info</h4>
+  <h4>Personal info</h4>
 
   <p>
     <%= f.label(:account,"Gmail account") %><br />
@@ -33,10 +33,10 @@
     <%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %>
   </p>
   <p>
-    <%= f.label(:phone,"Phone no.") %>.<br />
+    <%= f.label(:phone,"Phone no.") %><br />
     <%= f.text_field :phone %>
   </p>
-
+  <br />
   <h4>Address info</h4>
   <% f.fields_for :addresses do |a| %>
     <p>
@@ -71,11 +71,33 @@
       <%= a.label(:nickname,"Unique address nickname") %><br />
       <%= a.text_field :nickname %>
     </p>
-   
- <%= a.label :address_coordinates%><br/><br/>
- 
- <div  id="map_canvas" style="width:100%; height:50%"> </div>
- <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
+
+    <%= a.label :address_coordinates%><br/><br/>
+
+    <div  id="map_canvas" style="width:100%; height:50%"> </div>
+    <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
+    <br />
+  <%end%><br />
+
+  <h4>Payment Method info</h4>
+  <% f.fields_for :creditcards do |c| %>
+    <p>
+      <%= c.label(:name,"Cardholder's Name") %><br />
+      <%= c.text_field :name %>
+    </p>
+    <p>
+      <%= c.label(:number,"Credit or debit card number") %><br />
+      <%= c.text_field(:number, :maxlength =>10) %><br />
+      <%= image_tag "creditcards.tiff" %>
+    </p>
+    <p>
+      <%= c.label(:expdate,"Expiration date") %><br />
+      <%= c.date_select :expdate, :discard_day => true %>
+    </p>
+    <p>
+      <%= c.label(:code,"Security code") %><br />
+      <%= c.password_field(:code, :maxlength => 4) %>
+    </p>
   <%end%>
   <p>
     <%= f.submit 'Create' %>

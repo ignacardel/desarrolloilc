@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-     def gotogoogle
+  def gotogoogle
 
     redirect_to "https://www.google.com/accounts/o8/ud
 ?openid.ns=http://specs.openid.net/auth/2.0
@@ -27,9 +27,9 @@ class ApplicationController < ActionController::Base
 &openid.ax.type.lastname=http://axschema.org/namePerson/last
 &openid.ax.required=email,language,firstname,lastname"
 
-   end
+  end
 
-   def clientgotogoogle
+  def clientgotogoogle
 
     redirect_to "https://www.google.com/accounts/o8/ud
 ?openid.ns=http://specs.openid.net/auth/2.0
@@ -51,7 +51,15 @@ class ApplicationController < ActionController::Base
 &openid.ax.type.lastname=http://axschema.org/namePerson/last
 &openid.ax.required=email,language,firstname,lastname"
 
-   end
+  end
+
+  private
+
+  def require_login
+    if(session[:user]==nil)
+      redirect_to :controller => 'home', :action => 'index'
+    end
+  end
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 end
