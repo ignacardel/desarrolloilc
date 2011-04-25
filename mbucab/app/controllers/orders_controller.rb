@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     client      = Client.first(:conditions => [" id = ? ", @order.client_id])
     @name       = client.firstname + " " + client.lastname
     #aqui se pone el ip y el metodo para hacer lo del codigo qr
-    @qr = "http://localhost:3000/orders/" + @order.id.to_s
+    @qr = "http://"+request.host_with_port+"/orders/" + @order.id.to_s
 
     respond_to do |format|
       format.html # show.html.erb
