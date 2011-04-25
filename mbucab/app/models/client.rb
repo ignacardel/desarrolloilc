@@ -7,7 +7,7 @@ class Client < ActiveRecord::Base
   validates_presence_of :birthday
   validates_presence_of :phone
 
-  validates_inclusion_of :phone, :in => 1000000..999999999, :message=> 'must have 7 digits'
+  validates_inclusion_of :phone, :in => 1000000000..9999999999, :message=> 'must have 10 digits'
   validates_numericality_of :phone
   #Relations
   has_many :addresses

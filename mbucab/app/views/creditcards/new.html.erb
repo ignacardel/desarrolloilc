@@ -14,7 +14,7 @@
   </p>
   <p>
     <%= f.label(:expdate,"Expiration date") %><br />
-    <%= f.date_select :expdate, :discard_day => true %>
+    <%= f.date_select :expdate, :discard_day => true, :start_year => Date.current.year, :end_year => 2037  %>
   </p>
   <p>
     <%= f.label(:code,"Security code") %><br />

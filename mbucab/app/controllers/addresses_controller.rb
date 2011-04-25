@@ -1,16 +1,18 @@
 class AddressesController < ApplicationController
-layout 'standard'
+  before_filter :require_login
+  layout 'standardmapmarker'
   # GET /addresses
   # GET /addresses.xml
   def index
-    @addresses = Address.all
+    @addresses = Address.find(:all, :conditions => [" client_id = ?", session[:id] ])
+    #@addresses = Address.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @addresses }
     end
   end
-
+  
   # GET /addresses/1
   # GET /addresses/1.xml
   def show
@@ -26,7 +28,7 @@ layout 'standard'
   # GET /addresses/new.xml
   def new
     @address = Address.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @address }
@@ -42,7 +44,7 @@ layout 'standard'
   # POST /addresses.xml
   def create
     @address = Address.new(params[:address])
-
+    @address.client_id=session[:id]
     respond_to do |format|
       if @address.save
         flash[:notice] = 'Address was successfully created.'

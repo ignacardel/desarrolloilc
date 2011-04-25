@@ -16,7 +16,6 @@ class Address < ActiveRecord::Base
 
   validates_numericality_of :number
 
-  #validar nick pero para el solo
 
   #Relations
   belongs_to :client
@@ -37,6 +36,13 @@ class Address < ActiveRecord::Base
 
   def self.human_attribute_name(attr)
     HUMAN_ATTRIBUTES[attr.to_sym] || super
-  end  
+  end
+
+  #Valida que el nickname de la direccion no se repita para un mismo usuario
+  def validate
+    address= Address.find(:first, :conditions => [" nickname = ? AND client_id =?", nickname,client_id])
+    errors.add(:nickname, "has already been taken") if address
+  end
+  
 
 end
