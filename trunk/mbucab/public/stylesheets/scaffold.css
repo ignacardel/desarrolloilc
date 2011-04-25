@@ -80,7 +80,7 @@ a:hover {
 /* Header */
 
 #header {
-	width: 892px;
+	width: 1042px;
 	height: 160px;
 	margin: 0 auto;
 }
@@ -130,13 +130,13 @@ a:hover {
 /* Content */
 
 #content {
-	width: 892px;
+	width: 1042px;
 	margin: 0 auto;
 }
 
 #colOne {
 	float: left;
-	width: 186px;
+	width: 190px;
 }
 
 #colOne ul {
@@ -154,15 +154,20 @@ a:hover {
 }
 
 #colTwo {
+        float: left;
+	width: 700px;
+}
+
+#colThree {
 	float: right;
-	width: 686px;
+	width: 152px;
 }
 
 /* Footer */
 
 #footer {
 	clear: both;
-	width: 892px;
+	width: 1042px;
 	margin: 0 auto;
 	padding: 30px 0;
 	background: url(../images/img7.gif) repeat-x
