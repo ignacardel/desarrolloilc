@@ -29,6 +29,7 @@ skip_before_filter :require_login
   def client_logout
     session[:user] = nil
     session[:type] = nil
+    session[:id] = nil
     flash[:notice] = 'You have successfully logged out'
     redirect_to :controller => 'home', :action => 'index'
 

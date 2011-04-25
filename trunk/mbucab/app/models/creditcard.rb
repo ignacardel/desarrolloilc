@@ -11,7 +11,7 @@ class Creditcard < ActiveRecord::Base
   validates_inclusion_of :number, :in => 1000000000..9999999999, :message=> 'must have 10 digits'
   
   validates_numericality_of :code
-  validates_inclusion_of :code, :in => 1000..9999, :message=> 'must have 4 digits'
+  validates_inclusion_of :code, :in => 100..999, :message=> 'must have 3 digits'
  
 
   
