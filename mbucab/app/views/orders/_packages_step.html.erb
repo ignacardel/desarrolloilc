@@ -1,0 +1,27 @@
+
+  <p>
+    <%= f.label :collect_address%><br />
+    <%= collection_select(:order ,:address_id ,@addresses , :id, :name) %>
+  </p>
+  <p>
+    <%= f.label :recipient %><br />
+    <%= f.text_field :recipient %>
+  </p>
+  <p>
+    <%= f.label :fulladdress %><br />
+    <%= f.text_field :fulladdress %>
+  </p>
+     <%= f.label :address_coordinates%><br/><br/>
+     <div  id="map_canvas" style="width:640px; height:480px"> </div>
+     <%= f. hidden_field(:longitude) %><%= f. hidden_field(:latitude)%>
+
+
+
+     <h4>Packages info</h4>
+     <% f.fields_for :packages do |a| %>
+
+     <%= render 'package_fields', :f => a %>
+
+     <%end%>
+
+     <p><%= link_to_add_fields "add package", f, :packages %></p>

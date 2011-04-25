@@ -1,15 +1,5 @@
 <p>
-<h1>Online Bill</h1>
-
-<p>
-  <b>Billing #:</b>
-  <%=h @order.id %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%=h @order.created_at %>
-</p>
+<h4>Confirmation</h4>
 
 <p>
   <b>Client:</b>
@@ -35,6 +25,7 @@
   <b>Creditcard:</b>
   <%=h @creditcard.name %>
 </p>
+
   <b>Packages list:</b>
   <ol>
     <%for package in @order.packages %>
@@ -44,10 +35,7 @@
     <% end %>
   </ol>
 
-  <p>
-    <img src=http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=<%= @qr %>>
-  </p>
-
+ <p>
+   <b>Total Price: </b> <%= @total %>
+ </p>
 </p>
-
-<%= link_to 'Finish', orders_path %>

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  layout 'standardmapmarkerorders'
+  layout 'standardmapmarker'
   # GET /orders
   # GET /orders.xml
   def index
@@ -15,6 +15,12 @@ class OrdersController < ApplicationController
   # GET /orders/1.xml
   def show
     @order = Order.find(params[:id])
+    @address    = Address.first(:conditions =>["id = ?", @order.address_id])
+    @creditcard = Creditcard.first(:conditions =>["id = ?", @order.creditcard_id])
+    client      = Client.first(:conditions => [" id = ? ", @order.client_id])
+    @name       = client.firstname + " " + client.lastname
+    #aqui se pone el ip y el metodo para hacer lo del codigo qr
+    @qr = "http://localhost:3000/orders/" + @order.id.to_s
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,11 +32,12 @@ class OrdersController < ApplicationController
   # GET /orders/new.xml
   def new
     @order = Order.new
+    session[:order_params] = nil
+    session[:order_params] ||= {}
+    session[:order_step]   = nil
 
     client = Client.first(:conditions => [" account = ? ", session[:user]])
     @addresses = Address.all(:conditions =>["client_id = ?", client.id])
-    @creditcards = Creditcard.all(:conditions =>["client_id = ?", client.id])
-
     1.times {@order.packages.build}
 
    
@@ -48,20 +55,52 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.xml
   def create
-    @order = Order.new(params[:order])
-    @order.client_id = session[:id]
-    @order.status    = 0
-    @order.date      = Date.current
+    session[:order_params].deep_merge!(params[:order]) if params[:order]
+    @order = Order.new(session[:order_params])
+    @order.current_step = session[:order_step]
 
-    respond_to do |format|
-      if @order.save
-        flash[:notice] = 'Order was successfully created.'
-        format.html { redirect_to(@order) }
-        format.xml  { render :xml => @order, :status => :created, :location => @order }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
-      end
+     if @order.current_step == "confirmation"
+       @order.client_id = session[:id]
+       @order.status    = 0
+       @order.packages.each do |package|
+               #poner aqui la regla para el precio y iva y cambiarlo a una funcion aparte para no sobrecargar aqui
+               actual = package.weight * 2
+               package.price = actual
+       end
+       @order.save
+       session[:order_step] = nil
+       session[:order_params] = nil
+     else
+       @order.next_step
+       session[:order_step] = @order.current_step
+       @total = 0
+       if @order.current_step == "payment"
+             @order.packages.each do |package|
+               #poner aqui la regla para el precio y iva y cambiarlo a una funcion aparte para no sobrecargar aqui
+               actual = package.weight * 2
+               @total = @total + actual
+               package.price = actual
+             end
+             @creditcards = Creditcard.all(:conditions =>["client_id = ?", session[:id]])
+       end
+       if @order.current_step == "confirmation"
+             @address    = Address.first(:conditions =>["id = ?", @order.address_id])
+             @creditcard = Creditcard.first(:conditions =>["id = ?", @order.creditcard_id])
+             client      = Client.first(:conditions => [" account = ? ", session[:user]])
+             @name       = client.firstname + " " + client.lastname
+             @order.packages.each do |package|
+               #poner aqui la regla para el precio y iva y cambiarlo a una funcion aparte para no sobrecargar aqui
+               actual = package.weight * 2
+               @total = @total + actual
+               package.price = actual
+             end
+       end
+     end
+
+    if @order.new_record?
+      render "new"
+    else
+      redirect_to @order
     end
   end
 

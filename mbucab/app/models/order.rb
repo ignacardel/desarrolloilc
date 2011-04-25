@@ -13,4 +13,18 @@ class Order < ActiveRecord::Base
   belongs_to :creditcard
 
   accepts_nested_attributes_for :packages,  :allow_destroy => true
+
+  attr_writer :current_step
+
+  def current_step
+    @current_step || steps.first    
+  end
+
+  def steps
+    %w[packages payment confirmation]
+  end
+
+  def next_step
+    self.current_step = steps[steps.index(current_step)+1]
+  end
 end
