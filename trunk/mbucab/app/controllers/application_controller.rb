@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 &openid.ns.pape=http://specs.openid.net/extensions/pape/1.0
 &openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select
 &openid.identity=http://specs.openid.net/auth/2.0/identifier_select
-&openid.return_to=http://localhost:3000/clients/new
-&openid.realm=http://localhost:3000/
+&openid.return_to=http://"+request.host_with_port+"clients/new
+&openid.realm=http://"+request.host_with_port+"/
 &openid.assoc_handle=ABSmpf6DNMw
 &openid.mode=checkid_setup
 &openid.ui.ns=http://specs.openid.net/extensions/ui/1.0
@@ -36,8 +36,8 @@ class ApplicationController < ActionController::Base
 &openid.ns.pape=http://specs.openid.net/extensions/pape/1.0
 &openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select
 &openid.identity=http://specs.openid.net/auth/2.0/identifier_select
-&openid.return_to=http://localhost:3000/session/client_login
-&openid.realm=http://localhost:3000/
+&openid.return_to=http://"+request.host_with_port+"/session/client_login
+&openid.realm=http://"+request.host_with_port+"/
 &openid.assoc_handle=ABSmpf6DNMw
 &openid.mode=checkid_setup
 &openid.ui.ns=http://specs.openid.net/extensions/ui/1.0
