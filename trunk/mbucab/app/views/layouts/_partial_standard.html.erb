@@ -4,10 +4,10 @@
   <% if session[:user] != nil %>
     <% if session[:user] != nil %>
       <ul>
-        <li><a href="#" accesskey="1" title="">Home</a></li>
-        <li><a href="#" accesskey="2" title="">Orders</a></li>
-        <li><a href="#" accesskey="3" title="">Address Book</a></li>
-        <li><a href="#" accesskey="4" title="">Payments</a></li>
+        <li><a href="/home/index" accesskey="1" title="">Home</a></li>
+        <li><a href="/orders" accesskey="2" title="">Orders</a></li>
+        <li><a href="/addresses" accesskey="3" title="">Address Book</a></li>
+        <li><a href="/creditcards" accesskey="4" title="">Payments</a></li>
         <li><a href="#" accesskey="5" title="">My Info</a></li>
       </ul>
     <%  else %>
