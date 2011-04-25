@@ -10,7 +10,7 @@
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%=h order.date %></td>
+    <td><%=h order.created_at %></td>
     <td><%=h order.recipient %></td>
     <td><%=h order.fulladdress %></td>
     <td><%=h order.status %></td>

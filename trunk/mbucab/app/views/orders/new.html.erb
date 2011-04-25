@@ -1,37 +1,59 @@
+<%content_for :googlemaps do %>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+  var stockholm = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+  var parliament = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+  var marker;
+  var map;
+  var point;
+
+  function initialize() {
+    var mapOptions = {
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: stockholm
+    };
+
+    map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+
+    marker = new google.maps.Marker({
+      map:map,
+      draggable:true,
+      animation: google.maps.Animation.DROP,
+      position: parliament
+    });
+    google.maps.event.addListener(marker, 'click', toggleBounce);
+    google.maps.event.addListener(marker, 'dragend', coordinates);
+  }
+
+  function toggleBounce() {
+    if (marker.getAnimation() != null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
+
+  function coordinates() {
+      var point = new google.maps.LatLng(marker.getPosition().lat(),marker.getPosition().lng(),true);
+      map.panTo(point);
+      document.getElementById("order_latitude").value = point.lat();
+      document.getElementById("order_longitude").value = point.lng();
+  }
+
+</script>
+
+<%  end %>
+
+
 <h1>New order</h1>
 
 <% form_for(@order) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :collect_address%><br />
-    <%= collection_select(:order ,:address_id ,@addresses , :id, :name) %>
-  </p>
-  <p>
-    <%= f.label :recipient %><br />
-    <%= f.text_field :recipient %>
-  </p>
-  <p>
-    <%= f.label :fulladdress %><br />
-    <%= f.text_field :fulladdress %>
-  </p>
-     <%= f.label :address_coordinates%><br/><br/>
-     <div  id="map_canvas" style="width:640px; height:480px"> </div>
-     <%= f. hidden_field(:longitude) %><%= f. hidden_field(:latitude)%>
-  <p>
-    <%= f.label :Creditcard%><br />
-    <%= collection_select(:order ,:creditcard_id ,@creditcards , :id, :name) %>
-  </p>
+  <%= render "#{@order.current_step}_step", :f => f %>
 
-     <h4>Packages info</h4>
-     <% f.fields_for :packages do |a| %>
-
-     <%= render 'package_fields', :f => a %>
-
-     <%end%>
-
-     <p><%= link_to_add_fields "add package", f, :packages %></p>
-     
   <p>
     <%= f.submit 'Create' %>
   </p>

@@ -1,0 +1,22 @@
+<p>
+<h4>Payment</h4>
+<p>
+<b>Packages list:</b>
+  
+  <ol>
+    <%for package in @order.packages %>
+     <li>Description: <%=h package.description %>
+       <br />Weight: <%=h package.weight %>
+       <br />Price: <%=h package.price %></li>
+    <% end %>
+  </ol>
+</p>
+
+  <p>
+   <b>Total Price: </b> <%= @total %>
+  </p>
+  <p>
+    <b>Creditcard: </b><br />
+    <%= collection_select(:order ,:creditcard_id ,@creditcards , :id, :name) %>
+  </p>
+</p>
