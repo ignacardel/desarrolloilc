@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.all
+    @orders = Order.find(:all, :conditions => [" client_id = ?", session[:id] ])
+  #@orders = Order.all
 
     respond_to do |format|
       format.html # index.html.erb
