@@ -4,7 +4,8 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
+  require 'socket'
+  
   def gotogoogle
 
     redirect_to "https://www.google.com/accounts/o8/ud
@@ -51,6 +52,16 @@ class ApplicationController < ActionController::Base
 &openid.ax.type.lastname=http://axschema.org/namePerson/last
 &openid.ax.required=email,language,firstname,lastname"
 
+  end
+
+  def local_ip
+    orig, Socket.do_not_reverse_lookup = Socket.do_not_reverse_lookup, true  # turn off reverse DNS resolution temporarily
+    UDPSocket.open do |s|
+      s.connect '64.233.187.99', 1
+      s.addr.last
+    end
+  ensure
+    Socket.do_not_reverse_lookup = orig
   end
 
   private
