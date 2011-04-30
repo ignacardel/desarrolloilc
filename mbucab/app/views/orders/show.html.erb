@@ -45,9 +45,9 @@
   </ol>
 
   <p>
-    <img src=http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=<%= @qr %>>
+    <img src=<%= @qr %>>
   </p>
-
+  <a href="/orders/<%= @order.id %>.pdf" target ="blank">PDF Version</a>
 </p>
 
 <%= link_to 'Finish', orders_path %>

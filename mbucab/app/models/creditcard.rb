@@ -40,4 +40,8 @@ class Creditcard < ActiveRecord::Base
   def validate
     errors.add(:expdate, "has passed") if expdate.month < Date.current.month
   end
+
+  def four_numbers
+    @four_numbers = "******" + number.to_s.from(6)
+  end
 end

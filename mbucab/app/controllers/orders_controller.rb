@@ -21,14 +21,16 @@ class OrdersController < ApplicationController
     client      = Client.first(:conditions => [" id = ? ", @order.client_id])
     @name       = client.firstname + " " + client.lastname
     #aqui se pone el ip y el metodo para hacer lo del codigo qr
-    @qr = "http://"+request.host_with_port+"/orders/" + @order.id.to_s
+
+    @qr = "http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=http://"+local_ip+"/orders/" + @order.id.to_s
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @order }
+      format.pdf  { render :layout => false }
     end
   end
-
+  
   # GET /orders/new
   # GET /orders/new.xml
   def new
