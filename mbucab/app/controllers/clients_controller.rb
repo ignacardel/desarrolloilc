@@ -4,7 +4,8 @@ class ClientsController < ApplicationController
   # GET /clients.xml
 
   def index
-    @clients = Client.all
+    @clients = Client.find(:all, :conditions => [" id = ?", session[:id] ])
+    #@clients = Client.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,14 +16,17 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.xml
   def show
-    @client = Client.find(params[:id])
+    if(session[:id].to_s!=params[:id].to_s)
+      redirect_to :controller => 'home', :action => 'index'
+    else
+      @client = Client.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @client }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @client }
+      end
     end
   end
-
   # GET /clients/new
   # GET /clients/new.xml
   def new

@@ -8,7 +8,7 @@
         <li><a href="/orders" accesskey="2" title="">Orders</a></li>
         <li><a href="/addresses" accesskey="3" title="">Address Book</a></li>
         <li><a href="/creditcards" accesskey="4" title="">Payments</a></li>
-        <li><a href="#" accesskey="5" title="">My Info</a></li>
+        <li><a href="/clients/<%= session[:id] %>" accesskey="5" title="">My Info</a></li>
       </ul>
     <%  else %>
       <ul>
@@ -50,8 +50,8 @@
     </div>
   </div>
   <div id="colThree">
-    <img src="../images/ucab.jpg" width="152px" height="164px" alt="boxes" align="right"></img>
-    <img src="../images/boxes.jpg" width="152px" height="202px" alt="boxes"></img>
+    <img src="/images/ucab.jpg" width="152px" height="164px" alt="boxes" align="right"></img>
+    <img src="/images/boxes.jpg" width="152px" height="202px" alt="boxes"></img>
   </div>
   <div id="colTwo">
     <div class="bg2">
