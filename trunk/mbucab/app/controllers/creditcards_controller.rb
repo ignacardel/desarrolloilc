@@ -1,6 +1,6 @@
 class CreditcardsController < ApplicationController
   before_filter :require_login
-  layout 'standard'
+  layout 'standard',:except => [:code]
   # GET /creditcards
   # GET /creditcards.xml
   def index
@@ -84,5 +84,9 @@ class CreditcardsController < ApplicationController
       format.html { redirect_to(creditcards_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def code
+    render :template => 'creditcards/code'
   end
 end

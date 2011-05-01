@@ -1,15 +1,11 @@
-<h1>New credit or debit card</h1>
+<h1>New credit card</h1>
 
 <% form_for(@creditcard) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label(:name,"Cardholder's Name") %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label(:number,"Credit or debit card number") %><br />
-    <%= f.text_field(:number, :maxlength =>10) %><br />
+    <%= f.label(:number,"Credit card number") %><br />
+    <%= f.text_field(:number, :maxlength =>16, :size =>20) %><br />
     <%= image_tag "creditcards.jpg" %>
   </p>
   <p>
@@ -19,6 +15,11 @@
   <p>
     <%= f.label(:code,"Security code") %><br />
     <%= f.password_field(:code, :maxlength => 3) %>
+    <a href="/creditcards/code/1" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a>
+  </p>
+  <p>
+    <%= f.label(:name,"Cardholder's Name") %><br />
+    <%= f.text_field :name %>
   </p>
   <p>
     <%= f.submit 'Create' %>
