@@ -8,7 +8,7 @@ class Creditcard < ActiveRecord::Base
 
   validates_numericality_of :number
   validates_uniqueness_of :number
-  validates_inclusion_of :number, :in => 1000000000..9999999999, :message=> 'must have 10 digits'
+  validates_inclusion_of :number, :in => 1000000000000000..9999999999999999, :message=> 'is invalid'
   
   validates_numericality_of :code
   validates_inclusion_of :code, :in => 100..999, :message=> 'must have 3 digits'
@@ -25,7 +25,7 @@ class Creditcard < ActiveRecord::Base
 
   HUMAN_ATTRIBUTES = {
     :name => "Cardholder's Name",
-    :number => "Credit or debit card number",
+    :number => "Credit card number",
     :expdate => "Card expiration date",
     :code => "Security code"
 
@@ -41,7 +41,8 @@ class Creditcard < ActiveRecord::Base
     errors.add(:expdate, "has passed") if expdate.month < Date.current.month
   end
 
+  #Metodo que imprime solo los ultimos 4 digitos de la tarjeta
   def four_numbers
-    @four_numbers = "******" + number.to_s.from(6)
+    @four_numbers = "**********" + number.to_s.from(12)
   end
 end

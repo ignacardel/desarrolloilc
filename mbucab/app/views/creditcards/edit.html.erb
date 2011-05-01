@@ -1,28 +1,24 @@
-<h1>Editing creditcard</h1>
+<h1>Editing credit card</h1>
 
 <% form_for(@creditcard) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :number %><br />
-    <%= f.text_field :number %>
-  </p>
-  <p>
-    <%= f.label :expdate %><br />
-    <%= f.date_select :expdate %>
-  </p>
-  <p>
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
+    <p>
+    <%= f.label(:name,"Cardholder's Name") %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :client_id %><br />
-    <%= f.text_field :client_id %>
+    <%= f.label(:number,"Credit card number") %><br />
+    <%= f.label @creditcard.four_numbers %><br />
   </p>
+  <p>
+    <%= f.label(:expdate,"Expiration date") %><br />
+    <%= f.date_select :expdate, :discard_day => true, :start_year => Date.current.year, :end_year => 2037  %>
+  </p>
+  <%#*<p>%>
+    <%#= f.label(:code,"Security code") %><br />
+    <%#= f.password_field(:code, :maxlength => 3) %>
+  <%#*</p>%>
   <p>
     <%= f.submit 'Update' %>
   </p>
