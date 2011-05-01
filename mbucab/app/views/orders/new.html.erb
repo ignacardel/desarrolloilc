@@ -55,8 +55,13 @@
   <%= render "#{@order.current_step}_step", :f => f %>
 
   <p>
-    <%= f.submit 'Create' %>
+    <%  if  @order.current_step != "confirmation" %>
+      <%= f.submit 'Continue' %>
+    <% else  %>
+      <%= f.submit 'Confirm Order' %>
+    <% end %>
+    <%= f.submit 'Back' , :name => "back_button" unless @order.first_step? %>
   </p>
 <% end %>
 
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Cancel', orders_path %>

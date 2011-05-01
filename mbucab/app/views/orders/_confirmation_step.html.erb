@@ -23,19 +23,22 @@
 
 <p>
   <b>Creditcard:</b>
-  <%=h @creditcard.name %>
+  <%=h @creditcard.four_numbers %>
 </p>
 
-  <b>Packages list:</b>
+<b>Packages list:</b>
+
   <ol>
     <%for package in @order.packages %>
      <li>Description: <%=h package.description %>
-       <br />Weight: <%=h package.weight %>
-       <br />Price: <%=h package.price %></li>
+       <br />Weight: <%=h package.weight %> Kg
+       <br />Price: $ <%=h package.price %> </li>
     <% end %>
   </ol>
 
- <p>
-   <b>Total Price: </b> <%= @total %>
- </p>
+  <p>
+   <b>Price: </b>$ <%= @total %> <br />
+   <b>Taxes: </b>$ <%= @total * 0.1 %> <br />
+   <b>Total Price: </b>$ <%= @total + (@total * 0.1) %> 
+  </p>
 </p>

@@ -6,14 +6,16 @@
   <ol>
     <%for package in @order.packages %>
      <li>Description: <%=h package.description %>
-       <br />Weight: <%=h package.weight %>
-       <br />Price: <%=h package.price %></li>
+       <br />Weight: <%=h package.weight %> Kg
+       <br />Price: $ <%=h package.price %> </li>
     <% end %>
   </ol>
 </p>
 
   <p>
-   <b>Total Price: </b> <%= @total %>
+   <b>Price: </b> $ <%= @total %><br />
+   <b>Taxes: </b> $ <%= @total * 0.1 %><br />
+   <b>Total Price: </b> $ <%= @total + (@total * 0.1) %>
   </p>
   <p>
     <b>Creditcard: </b><br />
