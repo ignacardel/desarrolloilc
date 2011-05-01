@@ -24,6 +24,12 @@ class OrdersController < ApplicationController
 
     @qr = "http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=http://"+local_ip+"/orders/" + @order.id.to_s
 
+     @total = 0
+     @order.packages.each do |package|
+       actual = package.weight * 5
+       @total = @total + actual
+     end
+     
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @order }
@@ -58,29 +64,46 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.xml
   def create
+    if session[:order_step] == "packages" and !params[:back_button]
+     session[:order_params] = nil
+     session[:order_params] ||= {}
+    end
     session[:order_params].deep_merge!(params[:order]) if params[:order]
     @order = Order.new(session[:order_params])
     @order.current_step = session[:order_step]
 
-     if @order.current_step == "confirmation"
+     if @order.current_step == "confirmation" and !params[:back_button]
        @order.client_id = session[:id]
        @order.status    = 0
        @order.packages.each do |package|
                #poner aqui la regla para el precio y iva y cambiarlo a una funcion aparte para no sobrecargar aqui
-               actual = package.weight * 2
+               actual = package.weight * 5
                package.price = actual
        end
        @order.save
        session[:order_step] = nil
        session[:order_params] = nil
      else
-       @order.next_step
+
+      if @order.valid?
+
+        if params[:back_button]
+         @order.back_step
+        else
+         @order.next_step
+        end
+      end
        session[:order_step] = @order.current_step
        @total = 0
+       if @order.current_step == "packages"
+          client = Client.first(:conditions => [" account = ? ", session[:user]])
+          @addresses = Address.all(:conditions =>["client_id = ?", client.id])
+          #1.times {@order.packages.build}
+       end
        if @order.current_step == "payment"
              @order.packages.each do |package|
                #poner aqui la regla para el precio y iva y cambiarlo a una funcion aparte para no sobrecargar aqui
-               actual = package.weight * 2
+               actual = package.weight * 5
                @total = @total + actual
                package.price = actual
              end
@@ -93,7 +116,7 @@ class OrdersController < ApplicationController
              @name       = client.firstname + " " + client.lastname
              @order.packages.each do |package|
                #poner aqui la regla para el precio y iva y cambiarlo a una funcion aparte para no sobrecargar aqui
-               actual = package.weight * 2
+               actual = package.weight * 5
                @total = @total + actual
                package.price = actual
              end
@@ -135,4 +158,5 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

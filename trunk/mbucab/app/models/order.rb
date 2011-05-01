@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   #Validations
-  validates_presence_of :recipient
-  validates_presence_of :fulladdress
+  validates_presence_of :recipient , :if => lambda { |o| o.current_step == "packages" }
+  validates_presence_of :fulladdress , :if => lambda { |o| o.current_step == "packages" }
 
 
 
@@ -27,4 +27,24 @@ class Order < ActiveRecord::Base
   def next_step
     self.current_step = steps[steps.index(current_step)+1]
   end
+
+  def back_step
+    self.current_step = steps[steps.index(current_step)-1]
+  end
+
+  def first_step?
+    current_step == steps.first
+  end
+  
+  def actual_status
+
+    case status
+     when 0
+      @actual_status = "Waiting"
+     when 1
+      @actual_status = "Collected"
+    end
+   
+  end
+
 end
