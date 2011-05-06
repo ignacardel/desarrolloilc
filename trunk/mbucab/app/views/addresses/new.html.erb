@@ -83,7 +83,10 @@
     <%= f.text_field :nickname %>
   </p>
 
-  <%= f.label :address_coordinates%><br/><br/>
+  <%= f.label :address_coordinates%><br/>
+  (Drag the marker to a location approximate to your address in the map below)
+  <br />
+  <br />
 
   <div  id="map_canvas" style="width:640px; height:480px"> </div>
   <%= f. hidden_field(:longitude) %><%= f. hidden_field(:latitude)%>

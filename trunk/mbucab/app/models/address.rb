@@ -40,7 +40,7 @@ class Address < ActiveRecord::Base
 
   #Valida que el nickname de la direccion no se repita para un mismo usuario
   def validate
-    address= Address.find(:first, :conditions => [" nickname = ? AND client_id =?", nickname,client_id])
+    address= Address.find(:first, :conditions => [" nickname =? AND client_id =? AND id !=?", nickname,client_id,id])
     errors.add(:nickname, "has already been taken") if address
   end
   
