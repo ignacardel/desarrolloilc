@@ -1,52 +1,96 @@
+<% content_for :googlemaps do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+  var stockholm = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+  var parliament = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+  var marker;
+  var map;
+  var point;
+
+  function initialize() {
+    var mapOptions = {
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: stockholm
+    };
+
+    map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+
+    marker = new google.maps.Marker({
+      map:map,
+      draggable:true,
+      animation: google.maps.Animation.DROP,
+      position: parliament
+    });
+    google.maps.event.addListener(marker, 'click', toggleBounce);
+    google.maps.event.addListener(marker, 'dragend', coordinates);
+  }
+
+  function toggleBounce() {
+    if (marker.getAnimation() != null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
+
+  function coordinates() {
+      var point = new google.maps.LatLng(marker.getPosition().lat(),marker.getPosition().lng(),true);
+      map.panTo(point);
+      document.getElementById("address_latitude").value = point.lat();
+      document.getElementById("address_longitude").value = point.lng();
+  }
+
+</script>
+<% end %>
+
 <h1>Editing address</h1>
 
 <% form_for(@address) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :street %><br />
+    <%= f.label(:street,"Avenue/Street") %><br />
     <%= f.text_field :street %>
   </p>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label(:name,"Residence/House name") %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :number %><br />
+    <%= f.label(:number,"Apartment/House number") %><br />
     <%= f.text_field :number %>
   </p>
   <p>
-    <%= f.label :zone %><br />
+    <%= f.label(:zone,"Urbanization") %><br />
     <%= f.text_field :zone %>
   </p>
   <p>
-    <%= f.label :city %><br />
+    <%= f.label :city%><br />
     <%= f.text_field :city %>
   </p>
   <p>
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </p>
-  <p>
-    <%= f.label :zip %><br />
+    <%= f.label(:zip,"Zip code") %><br />
     <%= f.text_field :zip %>
   </p>
   <p>
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
+    <%= f.label :country%><br />
+    <%= f.text_field :country %>
   </p>
   <p>
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </p>
-  <p>
-    <%= f.label :nickname %><br />
+    <%= f.label(:nickname,"Unique address nickname") %><br />
     <%= f.text_field :nickname %>
   </p>
-  <p>
-    <%= f.label :client_id %><br />
-    <%= f.text_field :client_id %>
-  </p>
+
+  <%= f.label :address_coordinates%><br/>
+  (Drag the marker to a location approximate to your address in the map below)
+  <br />
+  <br />
+
+  <div  id="map_canvas" style="width:640px; height:480px"> </div>
+  <%= f. hidden_field(:longitude) %><%= f. hidden_field(:latitude)%>
+  <br />
   <p>
     <%= f.submit 'Update' %>
   </p>

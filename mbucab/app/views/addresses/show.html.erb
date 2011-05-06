@@ -22,22 +22,22 @@
   </script>
 <% end %>
 <p>
-  <b>Street:</b>
+  <b>Avenue/Street:</b>
   <%=h @address.street %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>Residence/House name:</b>
   <%=h @address.name %>
 </p>
 
 <p>
-  <b>Number:</b>
+  <b>Apartment/House number:</b>
   <%=h @address.number %>
 </p>
 
 <p>
-  <b>Zone:</b>
+  <b>Urbanization:</b>
   <%=h @address.zone %>
 </p>
 
@@ -45,39 +45,20 @@
   <b>City:</b>
   <%=h @address.city %>
 </p>
-
+<p>
+  <b>Zip code:</b>
+  <%=h @address.zip %>
+</p>
 <p>
   <b>Country:</b>
   <%=h @address.country %>
 </p>
-
 <p>
-  <b>Zip:</b>
-  <%=h @address.zip %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%=h @address.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%=h @address.longitude %>
-</p>
-
-<p>
-  <b>Nickname:</b>
+  <b>Unique address nickname:</b>
   <%=h @address.nickname %>
 </p>
-
-<p>
-  <b>Client:</b>
-  <%=h @address.client_id %>
-</p>
-
+<b>Address Coordinates</b><br/>
 <div  id="map_canvas" style="width:640px; height:480px"> </div>
-
-
+<br/>
 <%= link_to 'Edit', edit_address_path(@address) %> |
 <%= link_to 'Back', addresses_path %>

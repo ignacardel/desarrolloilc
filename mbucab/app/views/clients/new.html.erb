@@ -118,7 +118,10 @@
       <%= a.text_field :nickname %>
     </p>
 
-    <%= a.label :address_coordinates%><br/><br/>
+    <%= a.label :address_coordinates%><br/>
+  (Drag the marker to a location approximate to your address in the map below)
+  <br />
+  <br />
 
     <div  id="map_canvas" style="width:640px; height:480px"> </div>
     <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
@@ -132,8 +135,8 @@
       <%= c.text_field :name %>
     </p>
     <p>
-      <%= c.label(:number,"Credit or debit card number") %><br />
-      <%= c.text_field(:number, :maxlength =>10) %><br />
+      <%= c.label(:number,"Credit card number") %><br />
+      <%= f.text_field(:number, :maxlength =>16, :size =>20) %><br />
       <%= image_tag "creditcards.jpg" %>
     </p>
     <p>
@@ -143,6 +146,7 @@
     <p>
       <%= c.label(:code,"Security code") %><br />
       <%= c.password_field(:code, :maxlength => 3) %>
+      <a href="/creditcards/code/1" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a>
     </p>
   <%end%>
   <p>
