@@ -16,11 +16,16 @@ class CreditcardsController < ApplicationController
   # GET /creditcards/1
   # GET /creditcards/1.xml
   def show
-    @creditcard = Creditcard.find(params[:id])
+    creditcard = Creditcard.find(:first, :conditions => [" id = ?", params[:id] ])
+    if(session[:id].to_s!= creditcard.client_id.to_s)
+      redirect_to :controller => 'home', :action => 'index'
+    else
+      @creditcard = Creditcard.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @creditcard }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @creditcard }
+      end
     end
   end
 
@@ -37,7 +42,12 @@ class CreditcardsController < ApplicationController
 
   # GET /creditcards/1/edit
   def edit
-    @creditcard = Creditcard.find(params[:id])
+    creditcard = Creditcard.find(:first, :conditions => [" id = ?", params[:id] ])
+    if(session[:id].to_s!= creditcard.client_id.to_s)
+      redirect_to :controller => 'home', :action => 'index'
+    else
+      @creditcard = Creditcard.find(params[:id])
+    end
   end
 
   # POST /creditcards

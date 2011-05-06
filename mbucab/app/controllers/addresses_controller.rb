@@ -16,11 +16,16 @@ class AddressesController < ApplicationController
   # GET /addresses/1
   # GET /addresses/1.xml
   def show
-    @address = Address.find(params[:id])
+    adress = Address.find(:first, :conditions => [" id = ?", params[:id] ])
+    if(session[:id].to_s!= adress.client_id.to_s)
+      redirect_to :controller => 'home', :action => 'index'
+    else
+      @address = Address.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @address }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @address }
+      end
     end
   end
 
@@ -37,7 +42,12 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
-    @address = Address.find(params[:id])
+    adress = Address.find(:first, :conditions => [" id = ?", params[:id] ])
+    if(session[:id].to_s!= adress.client_id.to_s)
+      redirect_to :controller => 'home', :action => 'index'
+    else
+      @address = Address.find(params[:id])
+    end
   end
 
   # POST /addresses
