@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :clients
 
+  map.code '/code', :controller => 'creditcards', :action => 'code'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
