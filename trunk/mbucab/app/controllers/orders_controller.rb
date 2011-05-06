@@ -107,7 +107,8 @@ class OrdersController < ApplicationController
                @total = @total + actual
                package.price = actual
              end
-             @creditcards = Creditcard.all(:conditions =>["client_id = ?", session[:id]])
+             @creditcards = Creditcard.all(:conditions =>["client_id = ? AND expdate > ?", session[:id], Date.current])
+
        end
        if @order.current_step == "confirmation"
              @address    = Address.first(:conditions =>["id = ?", @order.address_id])
