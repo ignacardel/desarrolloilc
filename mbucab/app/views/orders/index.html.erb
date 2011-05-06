@@ -2,20 +2,36 @@
 
 <table>
   <tr>
-    <th>Date             </th>
+    <th>Order #</th>
+    <th>    </th>
+    <th>Order Placed   </th>
+    <th>    </th>
     <th>Recipient</th>
-    <th>Fulladdress</th>
+    <th>    </th>
     <th>Status</th>
+    <th>    </th>
+    <th>Total</th>
+    <th>    </th>
+
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%=h order.created_at %></td>
+    <td><%=h order.id %></td>
+    <td>    </td>
+    <td><%=h order.created_at.year %>-<%=h order.created_at.month %>-<%=h order.created_at.day %></td>
+    <td>    </td>
     <td><%=h order.recipient %></td>
-    <td><%=h order.fulladdress %></td>
+    <td>    </td>
     <td><%=h order.actual_status %></td>
+    <td>    </td>
+        <%  total = 0 %>
+        <%for package in order.packages %>
+         <% total = package.price + total %>
+        <% end %>
+    <td>$ <%=h total + (total * 0.1 )%></td>
+    <td>    </td>
     <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
   </tr>
 <% end %>
 </table>
