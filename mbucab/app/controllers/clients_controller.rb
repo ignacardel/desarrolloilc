@@ -80,10 +80,10 @@ class ClientsController < ApplicationController
   # POST /clients.xml
   def create
     @client = Client.new(params[:client])
-
+    @client.active=1
     respond_to do |format|
       if @client.save
-        flash[:notice] = 'Client was successfully created.'
+        flash[:notice] = 'You have successfully registered!'
         format.html { redirect_to(@client) }
         format.xml  { render :xml => @client, :status => :created, :location => @client }
       else
@@ -100,7 +100,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        flash[:notice] = 'Client was successfully updated.'
+        flash[:notice] = 'You have successfully updated your info.'
         format.html { redirect_to(@client) }
         format.xml  { head :ok }
       else

@@ -1,5 +1,5 @@
 class CreditcardsController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login,:except => [:code]
   layout 'standard',:except => [:code]
   # GET /creditcards
   # GET /creditcards.xml
