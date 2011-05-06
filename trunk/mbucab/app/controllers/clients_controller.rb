@@ -114,11 +114,12 @@ class ClientsController < ApplicationController
   # DELETE /clients/1.xml
   def destroy
     @client = Client.find(params[:id])
-    @client.destroy
+    @client.active = 0;
 
     respond_to do |format|
-      format.html { redirect_to(clients_url) }
-      format.xml  { head :ok }
+      @client.update_attributes(params[:client])
+      format.html { redirect_to(:controller => :session, :action => :client_deactivate) }
     end
   end
+
 end
