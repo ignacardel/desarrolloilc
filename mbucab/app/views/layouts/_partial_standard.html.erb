@@ -42,12 +42,14 @@
         <li><a href="/orders/">Search</a></li>
       </ul>
     </div>
+    <% if session[:user] == nil %>
     <h3>Administration</h3>
     <div class="bg1">
       <ul>
         <li><%= link_to "Login"%></li>
       </ul>
     </div>
+    <%  end %>
   </div>
   <div id="colThree">
     <img src="/images/ucab.jpg" width="152px" height="164px" alt="boxes" align="right"></img>
@@ -62,5 +64,5 @@
 
 </div>
 <div id="footer">
-  <div class="bg2"><p>Copyright © 2011 www.mailboxesucab.com. All Rights Reserved. Designed by ILC</p></div>
+  <div class="bg2"><p>Copyright © 2011. www.mailboxesucab.com. All Rights Reserved. Designed by ILC. </p></div>
 </div>

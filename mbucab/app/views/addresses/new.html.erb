@@ -1,94 +1,95 @@
 <% content_for :googlemaps do %>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript">
-  var stockholm = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
-  var parliament = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
-  var marker;
-  var map;
-  var point;
+    var stockholm = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+    var parliament = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+    var marker;
+    var map;
+    var point;
 
-  function initialize() {
-    var mapOptions = {
-      zoom: 14,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      center: stockholm
-    };
+    function initialize() {
+      var mapOptions = {
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: stockholm
+      };
 
-    map = new google.maps.Map(document.getElementById("map_canvas"),
-            mapOptions);
+      map = new google.maps.Map(document.getElementById("map_canvas"),
+      mapOptions);
 
-    marker = new google.maps.Marker({
-      map:map,
-      draggable:true,
-      animation: google.maps.Animation.DROP,
-      position: parliament
-    });
-    google.maps.event.addListener(marker, 'click', toggleBounce);
-    google.maps.event.addListener(marker, 'dragend', coordinates);
-  }
-
-  function toggleBounce() {
-    if (marker.getAnimation() != null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
+      marker = new google.maps.Marker({
+        map:map,
+        draggable:true,
+        animation: google.maps.Animation.DROP,
+        position: parliament
+      });
+      google.maps.event.addListener(marker, 'click', toggleBounce);
+      google.maps.event.addListener(marker, 'dragend', coordinates);
     }
-  }
 
-  function coordinates() {
+    function toggleBounce() {
+      if (marker.getAnimation() != null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
+    function coordinates() {
       var point = new google.maps.LatLng(marker.getPosition().lat(),marker.getPosition().lng(),true);
       map.panTo(point);
       document.getElementById("address_latitude").value = point.lat();
       document.getElementById("address_longitude").value = point.lng();
-  }
+    }
 
-</script>
+  </script>
 <% end %>
 
 <h1>New address</h1>
 
 <% form_for(@address) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label(:street,"Avenue/Street") %><br />
-    <%= f.text_field :street %>
-  </p>
-  <p>
-    <%= f.label(:name,"Residence/House name") %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label(:number,"Apartment/House number") %><br />
-    <%= f.text_field :number %>
-  </p>
-  <p>
-    <%= f.label(:zone,"Urbanization") %><br />
-    <%= f.text_field :zone %>
-  </p>
-  <p>
-    <%= f.label :city%><br />
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label(:zip,"Zip code") %><br />
-    <%= f.text_field :zip %>
-  </p>
-  <p>
-    <%= f.label :country%><br />
-    <%= f.text_field :country %>
-  </p>
-  <p>
-    <%= f.label(:nickname,"Unique address nickname") %><br />
-    <%= f.text_field :nickname %>
-  </p>
+  <table border="0">
+  <tr>
+    <td><%= f.label(:street,"Avenue/Street") %></td>
+    <td><%= f.text_field :street %></td>
+  </tr>
+  <tr>
+    <td><%= f.label(:name,"Residence/House name") %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label(:number,"Apartment/House number") %></td>
+    <td><%= f.text_field :number %></td>
+  </tr>
+  <tr>
+    <td><%= f.label(:zone,"Urbanization") %></td>
+    <td><%= f.text_field :zone %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :city%></td>
+    <td><%= f.text_field :city %></td>
+  </tr>
+  <tr>
+    <td><%= f.label(:zip,"Zip code") %></td>
+    <td><%= f.text_field :zip %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :country%></td>
+    <td><%= f.text_field :country %></td>
+  </tr>
+  <tr>
+    <td><%= f.label(:nickname,"Unique address nickname") %></td>
+    <td><%= f.text_field :nickname %></td>
+  </tr>
+  </table>
 
   <%= f.label :address_coordinates%><br/>
   (Drag the marker to a location approximate to your address in the map below)
   <br />
   <br />
 
-  <div  id="map_canvas" style="width:640px; height:480px"> </div>
+  <div  id="map_canvas" style="width:440px; height:280px"> </div>
   <%= f. hidden_field(:longitude) %><%= f. hidden_field(:latitude)%>
   <br />
   <p>
