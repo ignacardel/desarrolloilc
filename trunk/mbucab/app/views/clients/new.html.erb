@@ -53,101 +53,109 @@
   <%= error_messages_for 'client', :header_message => "Please review and correct the following errors:" %>
 
   <h4>Personal info</h4>
-
-  <p>
-    <%= f.label(:account,"Gmail account") %><br />
-    <%= f.text_field :account,:readonly => true %>
-  </p>
-  <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :firstname,:readonly => true %>
-  </p>
-  <p>
-    <%= f.label :middle_name %><br />
-    <%= f.text_field :middlename %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :lastname,:readonly => true %>
-  </p>
-  <p>
-    <%= f.label :sur_name %><br />
-    <%= f.text_field :surname %>
-  </p>
-  <p>
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %>
-  </p>
-  <p>
-    <%= f.label(:phone,"Phone no.") %><br />
-    <%= f.text_field :phone %>
-  </p>
+  <table border="0">
+    <tr>
+      <td><%= f.label(:account,"Gmail account") %></td>
+      <td><%= f.text_field :account,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :first_name %></td>
+      <td><%= f.text_field :firstname,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :middle_name %></td>
+      <td><%= f.text_field :middlename %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :last_name %></td>
+      <td><%= f.text_field :lastname,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :sur_name %></td>
+      <td><%= f.text_field :surname %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :birthday %></td>
+      <td><%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:phone,"Phone no.") %></td>
+      <td><%= f.text_field :phone %></td>
+    </tr>
+  </table>
   <br />
   <h4>Address info</h4>
   <% f.fields_for :addresses do |a| %>
-    <p>
-      <%= a.label(:street,"Avenue/Street") %><br />
-      <%= a.text_field :street %>
-    </p>
-    <p>
-      <%= a.label(:name,"Residence/House name") %><br />
-      <%= a.text_field :name %>
-    </p>
-    <p>
-      <%= a.label(:number,"Apartment/House number") %><br />
-      <%= a.text_field :number %>
-    </p>
-    <p>
-      <%= a.label(:zone,"Urbanization") %><br />
-      <%= a.text_field :zone %>
-    </p>
-    <p>
-      <%= a.label :city%><br />
-      <%= a.text_field :city %>
-    </p>
-    <p>
-      <%= a.label(:zip,"Zip code") %><br />
-      <%= a.text_field :zip %>
-    </p>
-    <p>
-      <%= a.label :country%><br />
-      <%= a.text_field :country %>
-    </p>
-    <p>
-      <%= a.label(:nickname,"Unique address nickname") %><br />
-      <%= a.text_field :nickname %>
-    </p>
+    <table border="0">
+      <tr>
+        <td><%= a.label(:street,"Avenue/Street") %></td>
+        <td><%= a.text_field :street %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:name,"Residence/House name") %></td>
+        <td><%= a.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:number,"Apartment/House number") %></td>
+        <td><%= a.text_field :number %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:zone,"Urbanization") %></td>
+        <td><%= a.text_field :zone %></td>
+      </tr>
+      <tr>
+        <td><%= a.label :city%></td>
+        <td><%= a.text_field :city %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:zip,"Zip code") %></td>
+        <td><%= a.text_field :zip %></td>
+      </tr>
+      <tr>
+        <td><%= a.label :country%></td>
+        <td><%= a.text_field :country %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:nickname,"Unique address nickname") %></td>
+        <td><%= a.text_field :nickname %></td>
+      </tr>
+    </table>
 
     <%= a.label :address_coordinates%><br/>
-  (Drag the marker to a location approximate to your address in the map below)
-  <br />
-  <br />
+    (Drag the marker to a location approximate to your address in the map below)
+    <br />
+    <br />
 
-    <div  id="map_canvas" style="width:640px; height:480px"> </div>
+    <div  id="map_canvas" style="width:440px; height:280px"> </div>
     <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
     <br />
   <%end%><br />
 
   <h4>Payment Method info</h4>
   <% f.fields_for :creditcards do |c| %>
-    <p>
-      <%= c.label(:name,"Cardholder's Name") %><br />
-      <%= c.text_field :name %>
-    </p>
-    <p>
-      <%= c.label(:number,"Credit card number") %><br />
-      <%= c.text_field(:number, :maxlength =>16, :size =>20) %><br />
-      <%= image_tag "creditcards.jpg" %>
-    </p>
-    <p>
-      <%= c.label(:expdate,"Expiration date") %><br />
-      <%= c.date_select :expdate, :discard_day => true, :start_year => Date.current.year, :end_year => 2037 %>
-    </p>
-    <p>
-      <%= c.label(:code,"Security code") %><br />
-      <%= c.password_field(:code, :maxlength => 3) %>
-      <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a>
-    </p>
+    <table border="0">
+      <tr>
+        <td><%= c.label(:name,"Cardholder's Name") %></td>
+        <td><%= c.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= c.label(:number,"Credit card number") %></td>
+        <td><%= c.text_field(:number, :maxlength =>16, :size =>20) %><br /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= image_tag "creditcards.jpg" %></td>
+      </tr>
+      <tr>
+        <td><%= c.label(:expdate,"Expiration date") %></td>
+        <td><%= c.date_select :expdate, :discard_day => true, :start_year => Date.current.year, :end_year => 2037 %></td>
+      </tr>
+      <tr>
+        <td><%= c.label(:code,"Security code") %></td>
+        <td><%= c.password_field(:code, :maxlength => 3) %>
+        <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a></td>
+      </tr>
+    </table>
   <%end%>
   <p>
     <%= f.submit 'Create' %>
