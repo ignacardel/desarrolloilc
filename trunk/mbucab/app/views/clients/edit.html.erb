@@ -2,25 +2,25 @@
 
 <% form_for(@client) do |f| %>
   <%= f.error_messages %>
-  <table border="0">
+  <table class="sample" border="0">
     <tr>
-      <td><%= f.label :account %></td>
+      <td><%= f.label(:account,"Gmail account") %></td>
       <td><%= f.text_field :account,:readonly => true %></td>
     </tr>
     <tr>
-      <td><%= f.label :firstname %></td>
+      <td><%= f.label :first_name %></td>
       <td><%= f.text_field :firstname,:readonly => true %></td>
     </tr>
     <tr>
-      <td><%= f.label :middlename %></td>
+      <td><%= f.label :middle_name %></td>
       <td><%= f.text_field :middlename %></td>
     </tr>
     <tr>
-      <td><%= f.label :lastname %></td>
+      <td><%= f.label :last_name %></td>
       <td><%= f.text_field :lastname,:readonly => true %></td>
     </tr>
     <tr>
-      <td><%= f.label :surname %></td>
+      <td><%= f.label :sur_name %></td>
       <td><%= f.text_field :surname %></td>
     </tr>
     <tr>
@@ -28,7 +28,7 @@
       <td><%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %></td>
     </tr>
     <tr>
-      <td><%= f.label :phone %></td>
+      <td><%= f.label(:phone,"Phone no.") %></td>
       <td><%= f.text_field :phone %></td>
     </tr>
   </table>

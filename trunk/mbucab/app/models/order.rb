@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   #Validations
   validates_presence_of :recipient , :if => lambda { |o| o.current_step == "packages" }
   validates_presence_of :fulladdress , :if => lambda { |o| o.current_step == "packages" }
-
+  validates_presence_of :latitude, :message=> 'must be set by picking a location in the map'
 
 
 
@@ -12,6 +12,16 @@ class Order < ActiveRecord::Base
   belongs_to :address
   belongs_to :creditcard
 
+  #El siguiente codigo permite definir el nombre que
+  #un atributo mostrara en los mensajes de error del formulario
+
+  HUMAN_ATTRIBUTES = {
+    :latitude => "Address coordinates"
+  }
+
+  def self.human_attribute_name(attr)
+    HUMAN_ATTRIBUTES[attr.to_sym] || super
+  end
   accepts_nested_attributes_for :packages,  :allow_destroy => true
 
   attr_writer :current_step
@@ -39,9 +49,9 @@ class Order < ActiveRecord::Base
   def actual_status
 
     case status
-     when 0
+    when 0
       @actual_status = "Waiting"
-     when 1
+    when 1
       @actual_status = "Collected"
     end
    

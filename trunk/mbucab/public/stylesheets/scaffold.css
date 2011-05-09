@@ -184,6 +184,7 @@ a:hover {
   padding: 2px;
   background-color: #06F;
   display: table;
+  text-align: center;
 }
 
 #errorExplanation {
@@ -214,4 +215,29 @@ a:hover {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+}
+
+table.sample {
+	border-width: 1px;
+	border-spacing: 4px;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+}
+table.sample th {
+	border-width: 4px;
+	padding: 4px;
+	border-style: none;
+	border-color: gray;
+	background-color: white;
+}
+table.sample td {
+	border-width: 4px;
+	padding: 4px;
+	border-style: none;
+	border-color: gray;
+	background-color: white;
+        text-align: left;
+        font-weight: bold;
 }
