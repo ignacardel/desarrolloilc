@@ -44,7 +44,7 @@
   </script>
 <% end %>
 
-<h1>New user registration</h1>
+
 
 
 <% form_for(@client) do |f| %>
@@ -52,8 +52,8 @@
 
   <%= error_messages_for 'client', :header_message => "Please review and correct the following errors:" %>
 
-  <h4>Personal info</h4>
-  <table border="0">
+  <h1>Personal info</h1>
+  <table class="sample" border="0">
     <tr>
       <td><%= f.label(:account,"Gmail account") %></td>
       <td><%= f.text_field :account,:readonly => true %></td>
@@ -83,10 +83,9 @@
       <td><%= f.text_field :phone %></td>
     </tr>
   </table>
-  <br />
-  <h4>Address info</h4>
+  <h1>Address info</h1>
   <% f.fields_for :addresses do |a| %>
-    <table border="0">
+    <table class="sample" border="0">
       <tr>
         <td><%= a.label(:street,"Avenue/Street") %></td>
         <td><%= a.text_field :street %></td>
@@ -119,21 +118,19 @@
         <td><%= a.label(:nickname,"Unique address nickname") %></td>
         <td><%= a.text_field :nickname %></td>
       </tr>
+      <tr>
+        <td colspan="2"> <%= a.label(:latitude,"Address Coordinates") %><br/>(Drag the marker to a location approximate to your address in the map below)</td>
+      </tr>
+      <tr>
+        <td colspan="2"><div  id="map_canvas" style="width:440px; height:280px"> </div></td>
+      </tr>
     </table>
-
-    <%= a.label :address_coordinates%><br/>
-    (Drag the marker to a location approximate to your address in the map below)
-    <br />
-    <br />
-
-    <div  id="map_canvas" style="width:440px; height:280px"> </div>
     <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
-    <br />
-  <%end%><br />
+  <%end%>
 
-  <h4>Payment Method info</h4>
+  <h1>Payment Method info</h1>
   <% f.fields_for :creditcards do |c| %>
-    <table border="0">
+    <table class="sample" border="0">
       <tr>
         <td><%= c.label(:name,"Cardholder's Name") %></td>
         <td><%= c.text_field :name %></td>
@@ -153,10 +150,10 @@
       <tr>
         <td><%= c.label(:code,"Security code") %></td>
         <td><%= c.password_field(:code, :maxlength => 3) %>
-        <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a></td>
+          <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a></td>
       </tr>
     </table>
-  <%end%>
+  <%end%><br />
   <p>
     <%= f.submit 'Create' %>
   </p>
