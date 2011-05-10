@@ -29,7 +29,7 @@
     </tr>
     <tr>
       <td><%= f.label(:phone,"Phone no.") %></td>
-      <td><%= f.text_field :phone %></td>
+      <td><%= f.text_field(:phone ,:maxlength => 10) %> (E.g. 2128888888)</td>
     </tr>
   </table>
   <p>
