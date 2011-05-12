@@ -20,3 +20,8 @@ ejecutar los siguientes comandos:
 
 Copiar el archivo sqlite3.def y slite3.dll en la carpeta 
 "C:\Ruby187\bin"
+
+Para iniciar el servidor, en la consola de ruby nos ubicamos en la carpeta del proyecto y luego ejecutar el comando: 
+ruby script/server
+
+Luego en algun explorador colocamos la direccion, localhost:3000 y listo.
