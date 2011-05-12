@@ -18,9 +18,9 @@ pdf.text "Order #: #{@order.id}"
 pdf.text "Tracking-id: #{@order.id}",:style=> :bold
 pdf.text "Order Placed: #{@order.created_at}"
 pdf.text "Client: #{@name}"
-pdf.text "Address: #{@address.nickname}"
+pdf.text "Pickup Address: #{@address.nickname}"
 pdf.text "Recipient: #{@order.recipient}"
-pdf.text "Full address: #{@order.fulladdress}"
+pdf.text "Delivery address: #{@order.fulladdress}"
 pdf.text " "
 pdf.text "Packages List", :size => 13, :style => :bold
          cont = 1

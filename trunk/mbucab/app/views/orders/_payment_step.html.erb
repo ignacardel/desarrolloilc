@@ -13,12 +13,12 @@
 </p>
 
   <p>
-   <b>Price: </b> $ <%= @total %><br />
+   <b>Total before Taxes: </b> $ <%= @total %><br />
    <b>Taxes: </b> $ <%= @total * 0.1 %><br />
-   <b>Total Price: </b> $ <%= @total + (@total * 0.1) %>
+   <b>Grand Total: </b> $ <%= @total + (@total * 0.1) %>
   </p>
   <p>
-    <b>Creditcard: </b><br />
+    <b>Credit card: </b><br />
     <%= collection_select(:order ,:creditcard_id ,@creditcards , :id, :four_numbers) %>
   </p>
 </p>

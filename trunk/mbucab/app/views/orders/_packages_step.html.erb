@@ -1,6 +1,6 @@
 <table border="0" class="sample"
        <tr>
-    <td><%= f.label :collect_address%></td>
+    <td><%= f.label :pickup_address%></td>
     <td><%= collection_select(:order ,:address_id ,@addresses , :id, :nickname) %></td>
   </tr>
   <tr>
@@ -8,7 +8,7 @@
     <td><%= f.text_field :recipient %></td>
   </tr>
   <tr>
-    <td><%= f.label :fulladdress %></td>
+    <td><%= f.label(:fulladdress,"Delivery Address") %></td>
     <td><%= f.text_field :fulladdress %></td>
   </tr>
   <tr>
