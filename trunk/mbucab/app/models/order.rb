@@ -55,7 +55,7 @@ class Order < ActiveRecord::Base
     when 0
       @actual_status = "Waiting for pickup"
     when 1
-      @actual_status = "Pickup complete."
+      @actual_status = "Pickup complete"
     end
    
   end

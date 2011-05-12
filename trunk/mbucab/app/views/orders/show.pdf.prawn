@@ -2,7 +2,7 @@ require "open-uri"
 pdf.fill_color "0000ff"
 pdf.font "Courier"
 pdf.text "Mail Boxes Ucab", :size => 16, :style => :bold
-pdf.text "Orinoco Avenue, between Mucuchies y Perijá", :size => 8
+pdf.text "Orinoco Avenue, between Mucuchies & Perijá", :size => 8
 pdf.text "L&M Tower, PH", :size => 8
 pdf.text "Las Mercedes", :size => 8
 pdf.text "Rif J-304181981", :size => 8
