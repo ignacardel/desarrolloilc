@@ -25,3 +25,6 @@ Para iniciar el servidor, en la consola de ruby nos ubicamos en la carpeta del p
 ruby script/server
 
 Luego en algun explorador colocamos la direccion, localhost:3000 y listo.
+
+Nota: Al estar usando el manejador de base de datos SqLite, la misma reside en el archivo development.sqlite3 de la carpeta /db
+por lo cual no es necesario generarla. Sin embargo se puede encontrar una copia de los scripts de la base de datos en misma carpeta

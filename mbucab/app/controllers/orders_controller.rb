@@ -3,7 +3,7 @@
 #Clase que contiene todos los metodos para las operaciones con
 #ordenes de servicio. Ej: Crear, Modificar, Eliminar, Mostrar.
 class OrdersController < ApplicationController
-  before_filter :require_login,:except => [:show]
+  before_filter :require_login,:except => [:show,:pickup]
   layout 'standardmapmarker'
   # GET /orders
   # GET /orders.xml
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
     @name       = client.firstname + " " + client.lastname
     #aqui se pone el ip y el metodo para hacer lo del codigo qr
 
-    @qr = "http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=http://"+local_ip+"/orders/" + @order.id.to_s
+    @qr = "http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=http://"+local_ip+"/pickup/" + @order.id.to_s
 
     @total = 0
     @order.packages.each do |package|
@@ -177,4 +177,20 @@ class OrdersController < ApplicationController
     end
   end
 
+  def pickup
+    @order = Order.find(params[:id])
+    @order.status=1
+    @order.collectiondate=Time.now
+    @order.save
+    respond_to do |format|
+      format.xml
+    end
+
+    # format.xml { render :text => @order.to_xml }
+    #    respond_to do |format|
+    #      format.xml { render :text => @order.to_xml}
+    #      render :layout => false
+    #    end
+  end
+  
 end
