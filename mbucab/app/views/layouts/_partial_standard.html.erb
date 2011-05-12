@@ -8,7 +8,7 @@
         <li><a href="/orders" accesskey="2" title="">Orders</a></li>
         <li><a href="/addresses" accesskey="3" title="">Address Book</a></li>
         <li><a href="/creditcards" accesskey="4" title="">Payments</a></li>
-        <li><a href="/clients/<%= session[:id] %>" accesskey="5" title="">My Info</a></li>
+        <li><a href="/clients/<%= session[:id] %>" accesskey="5" title="">Account</a></li>
       </ul>
     <%  else %>
       <ul>
@@ -31,7 +31,7 @@
       <% else %>
         <ul>
           <li><%= session[:user] %></li>
-          <li><%= link_to "Logout", :controller => :session, :action => :client_logout %></li>
+          <li><a href="#" onclick="openlogout()">Logout</a></li>
         </ul>
       <% end %>
     </div>
@@ -43,17 +43,23 @@
       </ul>
     </div>
     <% if session[:user] == nil %>
-    <h3>Administration</h3>
-    <div class="bg1">
-      <ul>
-        <li><%= link_to "Login"%></li>
-      </ul>
-    </div>
+      <h3>Employees</h3>
+      <div class="bg1">
+        <ul>
+          <li><%= link_to "Login"%></li>
+        </ul>
+      </div>
     <%  end %>
   </div>
   <div id="colThree">
     <img src="/images/ucab.jpg" width="152px" height="164px" alt="boxes" align="right"></img>
     <img src="/images/boxes.jpg" width="152px" height="202px" alt="boxes"></img>
+    <% if session[:user]!=nil %>
+      <img style="display:none;"
+           onerror="not_logged_in_to_gmail()"
+           src="https://mail.google.com/mail/photos/static/AD34hIhNx1pdsCxEpo6LavSR8dYSmSi0KTM1pGxAjRio47pofmE9RH7bxPwelO8tlvpX3sbYkNfXT7HDAZJM_uf5qU2cvDJzlAWxu7-jaBPbDXAjVL8YGpI"
+           />
+         <% end %>
   </div>
   <div id="colTwo">
     <div class="bg2">

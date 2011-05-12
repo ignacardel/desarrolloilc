@@ -1,7 +1,9 @@
-<h1>Editing client</h1>
+<h1>Edit account settings</h1>
 
 <% form_for(@client) do |f| %>
-  <%= f.error_messages %>
+  <%#= f.error_messages %>
+
+  <%= error_messages_for 'client', :header_message => nil %>
   <table class="sample" border="0">
     <tr>
       <td><%= f.label(:account,"Gmail account") %></td>

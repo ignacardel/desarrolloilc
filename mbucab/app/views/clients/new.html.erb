@@ -21,6 +21,7 @@
         map:map,
         draggable:true,
         animation: google.maps.Animation.DROP,
+        icon: "/images/car.png",
         position: parliament
       });
       google.maps.event.addListener(marker, 'click', toggleBounce);
@@ -50,9 +51,9 @@
 <% form_for(@client) do |f| %>
   <%#= f.error_messages %>
 
-  <%= error_messages_for 'client', :header_message => "Please review and correct the following errors:" %>
+  <%= error_messages_for 'client', :header_message => nil %>
 
-  <h1>Personal info</h1>
+  <h1>Account settings</h1>
   <table class="sample" border="0">
     <tr>
       <td><%= f.label(:account,"Gmail account") %></td>

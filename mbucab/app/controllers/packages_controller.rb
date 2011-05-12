@@ -1,3 +1,7 @@
+# Author:: Ignacio Cardenas, Leonardo Fraile, Ramses Velasquez
+#
+#Clase que contiene todos los metodos para las operaciones con
+#paquetes. Sus metodos no son empleados directamente.
 class PackagesController < ApplicationController
   layout 'standard'
   # GET /packages

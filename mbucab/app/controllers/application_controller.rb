@@ -1,3 +1,7 @@
+# Author:: Ignacio Cardenas, Leonardo Fraile, Ramses Velasquez
+#
+#Clase que contiene los metodos que pueden ser llamados desde cualquier
+#otro controlador. Ej.: Metodos de redireccion al API de Google OpenID,etc.
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
@@ -5,7 +9,10 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   require 'socket'
-  
+
+  #Metodo que redirecciona al API de Google OpenID cuando se trata de
+  #un usuario nuevo. Si la autenticacion con Google es exitosa, redirecciona
+  #a un formulario de nuevo usuario.
   def gotogoogle
 
     redirect_to "https://www.google.com/accounts/o8/ud
@@ -29,7 +36,11 @@ class ApplicationController < ActionController::Base
 &openid.ax.required=email,language,firstname,lastname"
 
   end
-
+  
+  #Metodo que redirecciona al API de Google OpenID cuando se trata del
+  #login de un usuario existente. Si la autenticacion con Google es exitosa,
+  #redirecciona al home y le da acceso al usuario a las funcionalidades de
+  #usuario
   def clientgotogoogle
 
     redirect_to "https://www.google.com/accounts/o8/ud
@@ -53,7 +64,8 @@ class ApplicationController < ActionController::Base
 &openid.ax.required=email,language,firstname,lastname"
 
   end
-
+  
+  #Metodo que devuelve el IP del servidor
   def local_ip
     orig, Socket.do_not_reverse_lookup = Socket.do_not_reverse_lookup, true  # turn off reverse DNS resolution temporarily
     UDPSocket.open do |s|
@@ -66,6 +78,8 @@ class ApplicationController < ActionController::Base
 
   private
 
+  #Metodo que redirecciona al home en caso de que un usuario intente
+  #ingresar una funcionalidad sin haber iniciado sesion
   def require_login
     if(session[:user]==nil)
       redirect_to :controller => 'home', :action => 'index'

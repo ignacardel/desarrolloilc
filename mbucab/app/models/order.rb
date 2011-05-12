@@ -26,6 +26,8 @@ class Order < ActiveRecord::Base
 
   attr_writer :current_step
 
+  #Los siguientes metodos controlan la logica del formulario
+  #por pasos cuando se crea una nueva orden.
   def current_step
     @current_step || steps.first    
   end
@@ -50,9 +52,9 @@ class Order < ActiveRecord::Base
 
     case status
     when 0
-      @actual_status = "Waiting"
+      @actual_status = "Waiting for pickup"
     when 1
-      @actual_status = "Collected"
+      @actual_status = "Pickup complete."
     end
    
   end

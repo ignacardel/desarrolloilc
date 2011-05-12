@@ -38,7 +38,7 @@ class Creditcard < ActiveRecord::Base
   #Valida que la fecha de expiracion de la tarjeta
   #de credito sea mayor a la actual
   def validate
-    errors.add(:expdate, "has passed") if expdate.month < Date.current.month
+    errors.add(:expdate, "has passed") if (expdate.month < Date.current.month)&&(expdate.year==Date.current.year)
   end
 
   #Metodo que imprime solo los ultimos 4 digitos de la tarjeta
