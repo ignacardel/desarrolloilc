@@ -7,7 +7,7 @@
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>Pickup Address:</b>
   <%=h @address.nickname %>
 </p>
 
@@ -17,12 +17,12 @@
 </p>
 
 <p>
-  <b>Fulladdress:</b>
+  <b>Delivery address:</b>
   <%=h @order.fulladdress %>
 </p>
 
 <p>
-  <b>Creditcard:</b>
+  <b>Credit card:</b>
   <%=h @creditcard.four_numbers %>
 </p>
 
@@ -37,8 +37,8 @@
   </ol>
 
   <p>
-   <b>Price: </b>$ <%= @total %> <br />
+   <b>Total before Taxes: </b>$ <%= @total %> <br />
    <b>Taxes: </b>$ <%= @total * 0.1 %> <br />
-   <b>Total Price: </b>$ <%= @total + (@total * 0.1) %> 
+   <b>Grand Total: </b>$ <%= @total + (@total * 0.1) %>
   </p>
 </p>

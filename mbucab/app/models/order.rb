@@ -16,7 +16,8 @@ class Order < ActiveRecord::Base
   #un atributo mostrara en los mensajes de error del formulario
 
   HUMAN_ATTRIBUTES = {
-    :latitude => "Address coordinates"
+    :latitude => "Address coordinates",
+    :fulladdress => "Delivery address"
   }
 
   def self.human_attribute_name(attr)
