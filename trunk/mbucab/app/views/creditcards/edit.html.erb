@@ -1,7 +1,9 @@
 <h1>Editing credit card</h1>
 
 <% form_for(@creditcard) do |f| %>
-  <%= f.error_messages %>
+  <%#= f.error_messages %>
+
+  <%= error_messages_for 'creditcard', :header_message => nil %>
   <table class="sample"  border="0">
     <tr>
       <td><%= f.label(:name,"Cardholder's Name") %></td>

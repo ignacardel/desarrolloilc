@@ -1,7 +1,9 @@
 <h1>New credit card</h1>
 
 <% form_for(@creditcard) do |f| %>
-  <%= f.error_messages %>
+  <%#= f.error_messages %>
+
+  <%= error_messages_for 'creditcard', :header_message => nil %>
   <table class="sample" border="0">
     <tr>
       <td><%= f.label(:number,"Credit card number") %></td>
@@ -18,7 +20,7 @@
     <tr>
       <td><%= f.label(:code,"Security code") %></td>
       <td><%= f.password_field(:code, :maxlength => 3) %>
-      <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a></td>
+        <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a></td>
     </tr>
     <tr>
       <td><%= f.label(:name,"Cardholder's Name") %></td>

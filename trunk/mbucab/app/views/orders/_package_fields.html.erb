@@ -1,20 +1,12 @@
-<table border="0" class="sample"
-       <p class ="fields">
-  <tr>
-    <td><%= f.label :description %></td>
-    <td><%= f.text_field :description %></td>
-  </tr>
-  <tr>
-    <td><%= f.label(:weight,"Weight in kg") %></td>
-    <td><%= f.text_field :weight %></td>
-  </tr>
+<p class ="fields">
+  <%= f.label :description %><br />
+  <%= f.text_field :description %><br />
+  <%= f.label :weight_in_kg %><br />
+  <%= f.text_field :weight %><br />
   <% if @cont != nil %>
     <%= f.hidden_field :_destroy %>
-  <tr>
-    <td colspan="2"><%= link_to_function "remove package", "remove_fields(this)" %></td>
-  </tr>
+    <%= link_to_function "remove package", "remove_fields(this)" %>
   <%  end %>
   <%  @cont = 1 %>
-  <%= f.hidden_field :price, :value => 0 %>
+<%= f.hidden_field :price, :value => 0 %>
 </p>
-</table>

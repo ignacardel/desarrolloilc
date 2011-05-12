@@ -1,5 +1,5 @@
 <p>
-<h1>Online Bill</h1>
+<h1>Order Details</h1>
 
 <p>
   <b>Order #:</b>
@@ -27,12 +27,12 @@
 </p>
 
 <p>
-  <b>Fulladdress:</b>
+  <b>Full address:</b>
   <%=h @order.fulladdress %>
 </p>
 
 <p>
-  <b>Creditcard:</b>
+  <b>Credit card:</b>
   <%=h @creditcard.four_numbers %>
 </p>
 <b>Packages list:</b>
@@ -47,15 +47,15 @@
 </p>
 
   <p>
-   <b>Price: </b>$ <%= @total %><br />
+   <b>Total before Taxes: </b>$ <%= @total %><br />
    <b>Taxes: </b>$ <%= @total * 0.1 %><br />
-   <b>Total Price:  </b>$ <%= @total + (@total * 0.1) %>
+   <b>Grand Total:  </b>$ <%= @total + (@total * 0.1) %>
   </p>
 
   <p>
     <img src=<%= @qr %>>
   </p>
-  <a href="/orders/<%= @order.id %>.pdf" target ="blank">PDF Version</a>
+  <a href="/orders/<%= @order.id %>.pdf" target ="blank">Print Invoice</a>
 </p>
 
-<%= link_to 'Finish', orders_path %>
+<%= link_to 'Back', orders_path %>

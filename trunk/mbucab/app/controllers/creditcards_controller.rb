@@ -1,8 +1,13 @@
+# Author:: Ignacio Cardenas, Leonardo Fraile, Ramses Velasquez
+#
+#Clase que contiene todos los metodos para las operaciones con
+#tarjetas de credito. Ej: Crear, Modificar, Eliminar, Mostrar.
 class CreditcardsController < ApplicationController
   before_filter :require_login,:except => [:code]
   layout 'standard',:except => [:code]
   # GET /creditcards
   # GET /creditcards.xml
+  #Metodo que se encarga de mostrar todas las tarjetas de credito
   def index
     @creditcards = Creditcard.find(:all, :conditions => [" client_id = ?", session[:id] ])
     #@creditcards=Creditcard.all
@@ -15,6 +20,8 @@ class CreditcardsController < ApplicationController
 
   # GET /creditcards/1
   # GET /creditcards/1.xml
+  # Renderiza la vista para mostrar toda la informacion de una tarjeta
+  # de credito de un usuario
   def show
     creditcard = Creditcard.find(:first, :conditions => [" id = ?", params[:id] ])
     if(session[:id].to_s!= creditcard.client_id.to_s)
@@ -31,6 +38,7 @@ class CreditcardsController < ApplicationController
 
   # GET /creditcards/new
   # GET /creditcards/new.xml
+  # Renderiza el formulario para crear una nueva tarjeta de credito
   def new
     @creditcard = Creditcard.new
 
@@ -41,6 +49,7 @@ class CreditcardsController < ApplicationController
   end
 
   # GET /creditcards/1/edit
+  # Renderiza la vista para editar una tarjeta de credito
   def edit
     creditcard = Creditcard.find(:first, :conditions => [" id = ?", params[:id] ])
     if(session[:id].to_s!= creditcard.client_id.to_s)
@@ -52,6 +61,9 @@ class CreditcardsController < ApplicationController
 
   # POST /creditcards
   # POST /creditcards.xml
+  # Metodo llamado despues de crear una tarjeta de credito nueva.
+  # De no poder crearse da un mensaje de error
+  #  y se redirige al formulario de creacion.
   def create
     @creditcard = Creditcard.new(params[:creditcard])
     @creditcard.client_id=session[:id]
@@ -69,6 +81,9 @@ class CreditcardsController < ApplicationController
 
   # PUT /creditcards/1
   # PUT /creditcards/1.xml
+  # Metodo llamado despues de editar la informacion de una tarjeta de credito.
+  # Si la modificacion fue exitosa, se recibe un mensaje de confirmacion,
+  # de lo contrario, se recibe un error.
   def update
     @creditcard = Creditcard.find(params[:id])
 
@@ -86,6 +101,8 @@ class CreditcardsController < ApplicationController
 
   # DELETE /creditcards/1
   # DELETE /creditcards/1.xml
+  # Metodo que se encarga de eliminar una tarjeta de credito en especifico
+  # No se utiliza en mail boxes ucab
   def destroy
     @creditcard = Creditcard.find(params[:id])
     @creditcard.destroy

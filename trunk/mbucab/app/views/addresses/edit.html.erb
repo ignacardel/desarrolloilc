@@ -21,6 +21,7 @@
         map:map,
         draggable:true,
         animation: google.maps.Animation.DROP,
+        icon: "/images/car.png",
         position: parliament
       });
       google.maps.event.addListener(marker, 'click', toggleBounce);
@@ -48,7 +49,9 @@
 <h1>Editing address</h1>
 
 <% form_for(@address) do |f| %>
-  <%= f.error_messages %>
+  <%#= f.error_messages %>
+
+  <%= error_messages_for 'address', :header_message => nil %>
   <table class="sample" border="0">
     <tr>
       <td><%= f.label(:street,"Avenue/Street") %></td>

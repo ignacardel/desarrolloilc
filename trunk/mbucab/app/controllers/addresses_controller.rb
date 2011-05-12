@@ -1,8 +1,13 @@
+# Author:: Ignacio Cardenas, Leonardo Fraile, Ramses Velasquez
+#
+#Clase que contiene todos los metodos para las operaciones con
+#direcciones. Ej: Crear, Modificar, Eliminar, Mostrar.
 class AddressesController < ApplicationController
   before_filter :require_login
   layout 'standardmapmarker'
   # GET /addresses
   # GET /addresses.xml
+  #Metodo que se encarga de mostrar todas las direcciones
   def index
     @addresses = Address.find(:all, :conditions => [" client_id = ?", session[:id] ])
     #@addresses = Address.all
@@ -15,6 +20,7 @@ class AddressesController < ApplicationController
   
   # GET /addresses/1
   # GET /addresses/1.xml
+  # Renderiza la vista para mostrar toda la informacion de la direccion de un usuario
   def show
     adress = Address.find(:first, :conditions => [" id = ?", params[:id] ])
     if(session[:id].to_s!= adress.client_id.to_s)
@@ -31,6 +37,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/new
   # GET /addresses/new.xml
+  # Renderiza el formulario para crear una nueva direccion
   def new
     @address = Address.new
     
@@ -41,6 +48,7 @@ class AddressesController < ApplicationController
   end
 
   # GET /addresses/1/edit
+  # Renderiza la vista para editar una direccion
   def edit
     adress = Address.find(:first, :conditions => [" id = ?", params[:id] ])
     if(session[:id].to_s!= adress.client_id.to_s)
@@ -52,6 +60,9 @@ class AddressesController < ApplicationController
 
   # POST /addresses
   # POST /addresses.xml
+  # Metodo llamado despues de crear una direccion nueva.
+  # De no poder crearse la direccion da un mensaje de error
+  #  y se redirige al formulario de creacion.
   def create
     @address = Address.new(params[:address])
     @address.client_id=session[:id]
@@ -69,6 +80,9 @@ class AddressesController < ApplicationController
 
   # PUT /addresses/1
   # PUT /addresses/1.xml
+  # Metodo llamado despues de editar la informacion de una direccion.
+  # Si la modificacion fue exitosa, se recibe un mensaje de confirmacion,
+  # de lo contrario, se recibe un error.
   def update
     @address = Address.find(params[:id])
 
@@ -86,6 +100,8 @@ class AddressesController < ApplicationController
 
   # DELETE /addresses/1
   # DELETE /addresses/1.xml
+  # Metodo que se encarga de eliminar una direccion en especifico
+  # No se utiliza en mail boxes ucab
   def destroy
     @address = Address.find(params[:id])
     @address.destroy

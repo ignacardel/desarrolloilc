@@ -1,3 +1,7 @@
+# Author:: Ignacio Cardenas, Leonardo Fraile, Ramses Velasquez
+#
+#Clase que contiene todos los metodos para las operaciones con
+#empleados. Aun no se ha empleado.
 class EmployeesController < ApplicationController
   layout 'standard'
   # GET /employees
