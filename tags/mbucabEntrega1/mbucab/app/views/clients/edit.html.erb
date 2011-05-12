@@ -1,0 +1,43 @@
+<h1>Edit account settings</h1>
+
+<% form_for(@client) do |f| %>
+  <%#= f.error_messages %>
+
+  <%= error_messages_for 'client', :header_message => nil %>
+  <table class="sample" border="0">
+    <tr>
+      <td><%= f.label(:account,"Gmail account") %></td>
+      <td><%= f.text_field :account,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :first_name %></td>
+      <td><%= f.text_field :firstname,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :middle_name %></td>
+      <td><%= f.text_field :middlename %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :last_name %></td>
+      <td><%= f.text_field :lastname,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :sur_name %></td>
+      <td><%= f.text_field :surname %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :birthday %></td>
+      <td><%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:phone,"Phone no.") %></td>
+      <td><%= f.text_field(:phone ,:maxlength => 10) %> (E.g. 2128888888)</td>
+    </tr>
+  </table>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @client %> |
+<a href="/clients/<%= session[:id] %>" >Back</a>

@@ -1,0 +1,39 @@
+<p>
+  <b>Gmail account:</b>
+  <%=h @client.account %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @client.firstname %>
+</p>
+<% if @client.middlename != "" %>
+<p>
+  <b>Middle name:</b>
+  <%=h @client.middlename %>
+</p>
+<%  end %>
+<p>
+  <b>Last name:</b>
+  <%=h @client.lastname %>
+</p>
+<% if @client.surname != "" %>
+<p>
+  <b>Sur name:</b>
+  <%=h @client.surname %>
+</p>
+<%  end %>
+<p>
+  <b>Birthday:</b>
+  <%=h @client.birthday %>
+</p>
+
+<p>
+  <b>Phone no.:</b>
+  <%=h @client.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Deactivate Account', @client, :confirm => 'Are you sure?', :method => :delete %> |
+<a href="/home/index" >Back</a>

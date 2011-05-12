@@ -1,0 +1,12 @@
+<p class ="fields">
+  <%= f.label :description %><br />
+  <%= f.text_field :description %><br />
+  <%= f.label(:weight,"Weight in kg") %><br />
+  <%= f.text_field :weight %><br />
+  <% if @cont != nil %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_function "remove package", "remove_fields(this)" %>
+  <%  end %>
+  <%  @cont = 1 %>
+<%= f.hidden_field :price, :value => 0 %>
+</p>

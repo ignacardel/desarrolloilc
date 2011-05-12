@@ -1,0 +1,16 @@
+<p>
+  <b>Number:</b>
+  <%=h @creditcard.four_numbers %>
+</p>
+
+<p>
+  <b>Expiration date:</b>
+  <%=h @creditcard.expdate.month %>/<%=h @creditcard.expdate.year %>
+</p>
+<p>
+  <b>Cardholder's Name:</b>
+  <%=h @creditcard.name %>
+</p>
+
+<%= link_to 'Edit', edit_creditcard_path(@creditcard) %> |
+<%= link_to 'Back', creditcards_path %>

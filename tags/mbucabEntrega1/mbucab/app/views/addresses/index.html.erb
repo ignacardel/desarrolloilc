@@ -1,0 +1,31 @@
+<h1>My address book</h1>
+
+<table>
+  <% @addresses.each do |address| %>
+    <tr>
+      <th><%=h address.nickname %></th>
+    </tr>
+    <tr>
+      <td><%=h address.street %> <%=h address.name %> <%=h address.number %></td>
+    </tr>
+    <tr>
+      <td><%=h address.zone %></td>
+    </tr>
+    <tr>
+      <td><%=h address.city %> <%=h address.zip %></td>
+    </tr>
+    <tr>
+      <td><%=h address.country %></td>
+      <td><%= link_to 'Show', address %></td>
+      <td><%= link_to 'Edit', edit_address_path(address) %></td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New address', new_address_path %>

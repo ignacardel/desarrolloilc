@@ -1,0 +1,35 @@
+<h1>Editing credit card</h1>
+
+<% form_for(@creditcard) do |f| %>
+  <%#= f.error_messages %>
+
+  <%= error_messages_for 'creditcard', :header_message => nil %>
+  <table class="sample"  border="0">
+    <tr>
+      <td><%= f.label(:name,"Cardholder's Name") %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:number,"Credit card number") %></td>
+      <td><%= f.label @creditcard.four_numbers %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= image_tag "creditcards.jpg" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:expdate,"Expiration date") %></td>
+      <td><%= f.date_select :expdate, :discard_day => true, :start_year => Date.current.year, :end_year => 2037  %></td>
+    </tr>
+  </table>
+  <%#*<p>%>
+  <%#= f.label(:code,"Security code") %>
+  <%#= f.password_field(:code, :maxlength => 3) %>
+  <%#*</p>%>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @creditcard %> |
+<%= link_to 'Back', creditcards_path %>

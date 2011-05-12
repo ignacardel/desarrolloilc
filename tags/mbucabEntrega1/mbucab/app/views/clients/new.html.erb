@@ -1,0 +1,163 @@
+<% content_for :googlemaps do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+    var stockholm = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+    var parliament = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+    var marker;
+    var map;
+    var point;
+
+    function initialize() {
+      var mapOptions = {
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: stockholm
+      };
+
+      map = new google.maps.Map(document.getElementById("map_canvas"),
+      mapOptions);
+
+      marker = new google.maps.Marker({
+        map:map,
+        draggable:true,
+        animation: google.maps.Animation.DROP,
+        icon: "/images/car.png",
+        position: parliament
+      });
+      google.maps.event.addListener(marker, 'click', toggleBounce);
+      google.maps.event.addListener(marker, 'dragend', coordinates);
+    }
+
+    function toggleBounce() {
+      if (marker.getAnimation() != null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
+    function coordinates() {
+      var point = new google.maps.LatLng(marker.getPosition().lat(),marker.getPosition().lng(),true);
+      map.panTo(point);
+      document.getElementById("client_addresses_attributes_0_latitude").value = point.lat();
+      document.getElementById("client_addresses_attributes_0_longitude").value = point.lng();
+    }
+  </script>
+<% end %>
+
+
+
+
+<% form_for(@client) do |f| %>
+  <%#= f.error_messages %>
+
+  <%= error_messages_for 'client', :header_message => nil %>
+
+  <h1>Account settings</h1>
+  <table class="sample" border="0">
+    <tr>
+      <td><%= f.label(:account,"Gmail account") %></td>
+      <td><%= f.text_field :account,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :first_name %></td>
+      <td><%= f.text_field :firstname,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :middle_name %></td>
+      <td><%= f.text_field :middlename %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :last_name %></td>
+      <td><%= f.text_field :lastname,:readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :sur_name %></td>
+      <td><%= f.text_field :surname %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :birthday %></td>
+      <td><%= f.date_select :birthday,:start_year => Date.current.year, :end_year => 1920 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:phone,"Phone no.") %></td>
+      <td><%= f.text_field(:phone ,:maxlength => 10) %> (E.g. 2128888888)</td>
+    </tr>
+  </table>
+  <h1>Address info</h1>
+  <% f.fields_for :addresses do |a| %>
+    <table class="sample" border="0">
+      <tr>
+        <td><%= a.label(:street,"Avenue/Street") %></td>
+        <td><%= a.text_field :street %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:name,"Residence/House name") %></td>
+        <td><%= a.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:number,"Apartment/House number") %></td>
+        <td><%= a.text_field :number %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:zone,"Urbanization") %></td>
+        <td><%= a.text_field :zone %></td>
+      </tr>
+      <tr>
+        <td><%= a.label :city%></td>
+        <td><%= a.text_field :city %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:zip,"Zip code") %></td>
+        <td><%= a.text_field :zip %></td>
+      </tr>
+      <tr>
+        <td><%= a.label :country%></td>
+        <td><%= a.text_field :country %></td>
+      </tr>
+      <tr>
+        <td><%= a.label(:nickname,"Unique address nickname") %></td>
+        <td><%= a.text_field :nickname %></td>
+      </tr>
+      <tr>
+        <td colspan="2"> <%= a.label(:latitude,"Address Coordinates") %><br/>(Drag the marker to a location approximate to your address in the map below)</td>
+      </tr>
+      <tr>
+        <td colspan="2"><div  id="map_canvas" style="width:440px; height:280px"> </div></td>
+      </tr>
+    </table>
+    <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
+  <%end%>
+
+  <h1>Payment Method info</h1>
+  <% f.fields_for :creditcards do |c| %>
+    <table class="sample" border="0">
+      <tr>
+        <td><%= c.label(:name,"Cardholder's Name") %></td>
+        <td><%= c.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= c.label(:number,"Credit card number") %></td>
+        <td><%= c.text_field(:number, :maxlength =>16, :size =>20) %><br /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= image_tag "creditcards.jpg" %></td>
+      </tr>
+      <tr>
+        <td><%= c.label(:expdate,"Expiration date") %></td>
+        <td><%= c.date_select :expdate, :discard_day => true, :start_year => Date.current.year, :end_year => 2037 %></td>
+      </tr>
+      <tr>
+        <td><%= c.label(:code,"Security code") %></td>
+        <td><%= c.password_field(:code, :maxlength => 3) %>
+          <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a></td>
+      </tr>
+    </table>
+  <%end%><br />
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<a href="/home/index" >Cancel</a>
