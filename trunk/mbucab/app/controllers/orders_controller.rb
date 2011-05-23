@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
     @name       = client.firstname + " " + client.lastname
     #aqui se pone el ip y el metodo para hacer lo del codigo qr
 
-    @qr = "http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=http://"+local_ip+"/pickup/" + @order.id.to_s
+    @qr = "http://chart.apis.google.com/chart?chs=220x220&cht=qr&chl=http://"+local_ip+":3000/pickup/" + @order.id.to_s
 
     @total = 0
     @order.packages.each do |package|
