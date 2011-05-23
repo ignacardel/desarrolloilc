@@ -80,7 +80,7 @@ a:hover {
 /* Header */
 
 #header {
-	width: 1042px;
+	width: 1142px;
 	height: 160px;
 	margin: 0 auto;
 }
@@ -130,7 +130,7 @@ a:hover {
 /* Content */
 
 #content {
-	width: 1042px;
+	width: 1142px;
 	margin: 0 auto;
 }
 
@@ -156,7 +156,7 @@ a:hover {
 #colTwo {
         margin-left:200px;
 
-	width: 700px;
+	width: 800px;
 }
 
 #colThree {
@@ -168,7 +168,7 @@ a:hover {
 
 #footer {
 	clear: both;
-	width: 1042px;
+	width: 1142px;
 	margin: 0 auto;
 	padding: 30px 0;
 	background: url(../images/img7.gif) repeat-x
@@ -181,18 +181,18 @@ a:hover {
 }
 
 .fieldWithErrors {
-  padding: 2px;
+  padding: 0px;
   background-color: #06F;
   display: table;
-  text-align: center;
+  text-align: left;
 }
 
 #errorExplanation {
   width: 400px;
   border: 2px solid blue;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
+  padding: 4px;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
   background-color: #f0f0f0;
 }
 
@@ -209,32 +209,32 @@ a:hover {
 #errorExplanation p {
   color: #333;
   margin-bottom: 0;
-  padding: 5px;
+  padding: 0px;
 }
 
 #errorExplanation ul li {
   font-size: 12px;
-  list-style: square;
+  list-style: square
 }
 
 table.sample {
 	border-width: 1px;
-	border-spacing: 4px;
+	border-spacing: 3px;
 	border-style: outset;
 	border-color: gray;
 	border-collapse: separate;
 	background-color: white;
 }
 table.sample th {
-	border-width: 4px;
-	padding: 4px;
+	border-width: 3px;
+	padding: 3px;
 	border-style: none;
 	border-color: gray;
 	background-color: white;
 }
 table.sample td {
-	border-width: 4px;
-	padding: 4px;
+	border-width: 3px;
+	padding: 1px;
 	border-style: none;
 	border-color: gray;
 	background-color: white;

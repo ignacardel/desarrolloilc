@@ -22,44 +22,38 @@
    
   </script>
 <% end %>
-<p>
-  <b>Avenue/Street:</b>
-  <%=h @address.street %>
-</p>
-
-<p>
-  <b>Residence/House name:</b>
-  <%=h @address.name %>
-</p>
-
-<p>
-  <b>Apartment/House number:</b>
-  <%=h @address.number %>
-</p>
-
-<p>
-  <b>Urbanization:</b>
-  <%=h @address.zone %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%=h @address.city %>
-</p>
-<p>
-  <b>Zip code:</b>
-  <%=h @address.zip %>
-</p>
-<p>
-  <b>Country:</b>
-  <%=h @address.country %>
-</p>
-<p>
-  <b>Unique address nickname:</b>
-  <%=h @address.nickname %>
-</p>
-<b>Address Coordinates</b><br/><br/>
-<div  id="map_canvas" style="width:440px; height:280px"> </div>
+<h2><%=h @address.nickname %></h2>
+<table border="0"
+<tr>
+    <td><b>Avenue/Street:</b>
+  <%=h @address.street %></td>
+</tr>
+<tr>
+  <td><b>Residence/House name:</b>
+  <%=h @address.name %></td>
+</tr>
+<tr>
+  <td><b>Apartment/House number:</b>
+  <%=h @address.number %></td>
+</tr>
+<tr>
+  <td><b>Urbanization:</b>
+  <%=h @address.zone %></td>
+</tr>
+<tr>
+  <td><b>City:</b>
+  <%=h @address.city %></td>
+</tr>
+<tr>
+  <td><b>Zip code:</b>
+  <%=h @address.zip %></td>
+</tr>
+<tr>
+  <td><b>Country:</b>
+  <%=h @address.country %></td>
+</tr>
+</table>
+<div id="map_canvas" style="width:400px; height:210px"></div>
 <br/>
-<%= link_to 'Edit', edit_address_path(@address) %> |
-<%= link_to 'Back', addresses_path %>
+<%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), addresses_path %>          
+<%= link_to image_tag("/images/edit.png", :title => "Edit Address", :border=>0), edit_address_path(@address) %>

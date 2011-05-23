@@ -1,10 +1,12 @@
-<h1>New credit card</h1>
 
 <% form_for(@creditcard) do |f| %>
   <%#= f.error_messages %>
 
   <%= error_messages_for 'creditcard', :header_message => nil %>
   <table class="sample" border="0">
+    <tr>
+        <td colspan="2"><h3>New credit card</h3></td>
+      </tr>
     <tr>
       <td><%= f.label(:number,"Credit card number") %></td>
       <td><%= f.text_field(:number, :maxlength =>16, :size =>20) %></td>
@@ -28,8 +30,7 @@
     </tr>
   </table>
   <p>
-    <%= f.submit 'Create' %>
+    <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), creditcards_path %>
+    <%= image_submit_tag("/images/new.png", :title => "Create Credit Card", :border=>0) %>
   </p>
 <% end %>
-
-<%= link_to 'Back', creditcards_path %>

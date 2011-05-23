@@ -1,10 +1,14 @@
-<h1>Edit account settings</h1>
+<script type="text/javascript" src="/javascripts/dhtmlgoodies_calendar.js"></script>
 
 <% form_for(@client) do |f| %>
   <%#= f.error_messages %>
 
   <%= error_messages_for 'client', :header_message => nil %>
+
   <table class="sample" border="0">
+    <tr>
+      <td colspan="4"><h3>Edit account settings</h3></td>
+    </tr>
     <tr>
       <td><%= f.label(:account,"Gmail account") %></td>
       <td><%= f.text_field :account,:readonly => true %></td>
@@ -35,9 +39,9 @@
     </tr>
   </table>
   <p>
-    <%= f.submit 'Update' %>
+    <a href="/clients/<%= session[:id] %>" ><img src="/images/back.png" title="Back" </img></a>
+    <%= image_submit_tag("/images/edit.png", :title => "Update Account", :border=>0) %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @client %> |
-<a href="/clients/<%= session[:id] %>" >Back</a>
+

@@ -1,16 +1,21 @@
 <p>
+<h2><%=h @creditcard.name %></h2>
+</p>
+<p>
   <b>Number:</b>
   <%=h @creditcard.four_numbers %>
 </p>
-
+<p>
+  <%= image_tag "creditcards.jpg" %>
+</p>
 <p>
   <b>Expiration date:</b>
   <%=h @creditcard.expdate.month %>/<%=h @creditcard.expdate.year %>
 </p>
-<p>
-  <b>Cardholder's Name:</b>
-  <%=h @creditcard.name %>
-</p>
+<br />
+<br />
+<br />
+<br />
 
-<%= link_to 'Edit', edit_creditcard_path(@creditcard) %> |
-<%= link_to 'Back', creditcards_path %>
+<%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), creditcards_path %>
+<%= link_to image_tag("/images/edit.png", :title => "Edit Credit Card", :border=>0), edit_creditcard_path(@creditcard) %>

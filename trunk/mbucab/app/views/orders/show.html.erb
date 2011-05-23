@@ -55,7 +55,5 @@
   <p>
     <img src=<%= @qr %>>
   </p>
-  <a href="/orders/<%= @order.id %>.pdf" target ="blank">Print Invoice</a>
-</p>
-
-<%= link_to 'Back', orders_path %>
+  <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), orders_path %>
+<a href="/orders/<%= @order.id %>.pdf" target ="blank"><img src="/images/pdf.png" title="Print Invoice"</img></a>
