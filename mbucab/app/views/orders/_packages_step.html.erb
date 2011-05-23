@@ -1,5 +1,8 @@
 <table border="0" class="sample"
-       <tr>
+  <tr>
+        <td colspan="2"><h3>New order</h3></td>
+  </tr>
+  <tr>
     <td><%= f.label :pickup_address%></td>
     <td><%= collection_select(:order ,:address_id ,@addresses , :id, :nickname) %></td>
   </tr>
@@ -15,7 +18,7 @@
     <td colspan="2"><%= f.label(:latitude,"Address Coordinates")%><br/>(Drag the marker to a location approximate to your address in the map below)</td>
   </tr>
   <tr>
-    <td colspan="2"><div  id="map_canvas" style="width:440px; height:280px"></div></td>
+    <td colspan="2"><div  id="map_canvas" style="width:420px; height:210px"></div></td>
   </tr>
   <%= f.hidden_field(:longitude) %><%= f.hidden_field(:latitude)%>
 </table>

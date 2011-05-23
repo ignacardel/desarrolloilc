@@ -1,25 +1,19 @@
-<h1>My credit cards</h1>
+<h1><%= link_to image_tag("/images/new.png", :title => "New Credit Card", :border=>0), new_creditcard_path %>
+  My credit cards</h1>
 
 <table>
-  <tr>
-    <th>Number</th>
-    <th>Exp. date</th>
-    <%#*<th>Code</th>%>
-    <th>Cardholder's Name</th>
-  </tr>
-
 <% @creditcards.each do |creditcard| %>
   <tr>
-    <td><%=h creditcard.four_numbers %></td>
-    <td><%=h creditcard.expdate.month %>/<%=h creditcard.expdate.year %></td>
-    <!--<td><%#=h creditcard.code %></td>-->
-    <td><%=h creditcard.name %></td>
-    <td><%= link_to 'Show', creditcard %></td>
-    <td><%= link_to 'Edit', edit_creditcard_path(creditcard) %></td>
+    <td><h2><%=h creditcard.name %></h2></td>
+  </tr>
+  <tr>
+    <td>Number: <%=h creditcard.four_numbers %></td>
+  </tr>
+  <tr>
+    <td>Expiration date: <%=h creditcard.expdate.month %>/<%=h creditcard.expdate.year %></td>
+    <td><%= link_to image_tag("/images/good.png", :title => "Show Credit Card", :border=>0), creditcard %></td>
+    <td><%= link_to image_tag("/images/edit.png", :title => "Edit Credit Card", :border=>0), edit_creditcard_path(creditcard) %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
-
-<%= link_to 'New credit card', new_creditcard_path %>

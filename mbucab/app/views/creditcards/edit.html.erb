@@ -1,10 +1,11 @@
-<h1>Editing credit card</h1>
-
 <% form_for(@creditcard) do |f| %>
   <%#= f.error_messages %>
 
   <%= error_messages_for 'creditcard', :header_message => nil %>
   <table class="sample"  border="0">
+    <tr>
+      <td colspan="2"><h3>Editing credit card</h3></td>
+    </tr>
     <tr>
       <td><%= f.label(:name,"Cardholder's Name") %></td>
       <td><%= f.text_field :name %></td>
@@ -26,10 +27,10 @@
   <%#= f.label(:code,"Security code") %>
   <%#= f.password_field(:code, :maxlength => 3) %>
   <%#*</p>%>
+  <br/>
+  <br/>
   <p>
-    <%= f.submit 'Update' %>
+    <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), creditcards_path %>
+    <%= image_submit_tag("/images/edit.png", :title => "Update Credit Card", :border=>0) %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @creditcard %> |
-<%= link_to 'Back', creditcards_path %>

@@ -1,9 +1,9 @@
-<h1>My address book</h1>
-
+<h1><%= link_to image_tag("/images/new.png", :title => "New Address", :border=>0), new_address_path %>
+My address book</h1>
 <table>
   <% @addresses.each do |address| %>
     <tr>
-      <th><%=h address.nickname %></th>
+      <td><h2><%=h address.nickname %></h2></td>
     </tr>
     <tr>
       <td><%=h address.street %> <%=h address.name %> <%=h address.number %></td>
@@ -16,16 +16,8 @@
     </tr>
     <tr>
       <td><%=h address.country %></td>
-      <td><%= link_to 'Show', address %></td>
-      <td><%= link_to 'Edit', edit_address_path(address) %></td>
+      <td><%= link_to image_tag("/images/good.png", :title => "Show Address", :border=>0), address %></td>
+      <td><%= link_to image_tag("/images/edit.png", :title => "Edit Address", :border=>0), edit_address_path(address) %></td>
     </tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
   <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New address', new_address_path %>

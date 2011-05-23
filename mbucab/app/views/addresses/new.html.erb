@@ -46,7 +46,7 @@
   </script>
 <% end %>
 
-<h1>New address</h1>
+
 
 <% form_for(@address) do |f| %>
   <%#= f.error_messages %>
@@ -54,8 +54,13 @@
   <%= error_messages_for 'address', :header_message => nil %>
   <table class="sample" border="0">
     <tr>
+      <td colspan="3"><h3>New address</h3></td>
+    </tr>
+    <tr>
       <td><%= f.label(:street,"Avenue/Street") %></td>
       <td><%= f.text_field :street %></td>
+      <td rowspan="8"><%= f.label(:latitude,"Address Coordinates")%><br/>(Drag the marker to a location approximate to your address in the map below)
+        <div  id="map_canvas" style="width:400px; height:210px"> </div></td>
     </tr>
     <tr>
       <td><%= f.label(:name,"Residence/House name") %></td>
@@ -85,18 +90,11 @@
       <td><%= f.label(:nickname,"Unique address nickname") %></td>
       <td><%= f.text_field :nickname %></td>
     </tr>
-    <tr>
-      <td colspan="2"> <%= f.label(:latitude,"Address Coordinates")%><br/>(Drag the marker to a location approximate to your address in the map below)</td>
-    </tr>
-    <tr>
-      <td colspan="2"><div  id="map_canvas" style="width:440px; height:280px"> </div></td>
-    </tr>
   </table>
   <%= f. hidden_field(:longitude) %><%= f. hidden_field(:latitude)%>
-  <br />
   <p>
-    <%= f.submit 'Create' %>
+    <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), addresses_path %>
+    <%= image_submit_tag("/images/new.png", :title => "Create Address", :border=>0) %>
   </p>
 <% end %>
 
-<%= link_to 'Back', addresses_path %>
