@@ -2,21 +2,13 @@
   <h1>mail boxes ucab</h1>
   <h2>Trust and speed in your shipments</h2>
   <% if session[:user] != nil %>
-    <% if session[:user] != nil %>
-      <ul>
-        <li><a href="/home/index" accesskey="1" title="">Home</a></li>
-        <li><a href="/orders" accesskey="2" title="">Orders</a></li>
-        <li><a href="/addresses" accesskey="3" title="">Address Book</a></li>
-        <li><a href="/creditcards" accesskey="4" title="">Payments</a></li>
-        <li><a href="/clients/<%= session[:id] %>" accesskey="5" title="">Account</a></li>
-      </ul>
-    <%  else %>
-      <ul>
-        <li><a href="#" accesskey="1" title="">Menu admin1</a></li>
-        <li><a href="#" accesskey="2" title="">Menu admin2</a></li>
-        <li><a href="#" accesskey="4" title="">Menu admin3</a></li>
-      </ul>
-    <%  end %>
+    <ul>
+      <li><a href="/home/index" accesskey="1" title="">Home</a></li>
+      <li><a href="/orders" accesskey="2" title="">Orders</a></li>
+      <li><a href="/addresses" accesskey="3" title="">Address Book</a></li>
+      <li><a href="/creditcards" accesskey="4" title="">Payments</a></li>
+      <li><a href="/clients/<%= session[:id] %>" accesskey="5" title="">Account</a></li>
+    </ul>
   <% end %>
 </div>
 <div id="content">
@@ -42,14 +34,6 @@
         <li><a href="/orders/">Search</a></li>
       </ul>
     </div>
-    <% if session[:user] == nil %>
-      <h3>Employees</h3>
-      <div class="bg1">
-        <ul>
-          <li><%= link_to "Login"%></li>
-        </ul>
-      </div>
-    <%  end %>
   </div>
   <div id="colThree">
     <img src="/images/ucab.jpg" width="152px" height="164px" alt="boxes" align="right"></img>
@@ -64,6 +48,7 @@
   <div id="colTwo">
     <div class="bg2">
       <p style="color: green"><%= flash[:notice] %></p>
+      <p style="color: red"><%= flash[:error] %></p>
       <%= yield -%>
     </div>
   </div>
