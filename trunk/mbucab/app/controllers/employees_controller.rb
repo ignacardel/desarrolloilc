@@ -3,7 +3,7 @@
 #Clase que contiene todos los metodos para las operaciones con
 #empleados. Aun no se ha empleado.
 class EmployeesController < ApplicationController
-  layout 'standard'
+  layout 'operationsmapmarker'
   # GET /employees
   # GET /employees.xml
   def index
@@ -46,7 +46,7 @@ class EmployeesController < ApplicationController
   # POST /employees.xml
   def create
     @employee = Employee.new(params[:employee])
-
+    @employee.password=Digest::SHA1.hexdigest(@employee.password)
     respond_to do |format|
       if @employee.save
         flash[:notice] = 'Employee was successfully created.'

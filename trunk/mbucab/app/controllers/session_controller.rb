@@ -1,7 +1,7 @@
 # Author:: Ignacio Cardenas, Leonardo Fraile, Ramses Velasquez
 #
 #Clase que contiene todos los metodos para las operaciones
-#de sesion de usuario
+#de sesion de usuario o empleados
 
 class SessionController < ApplicationController
   skip_before_filter :require_login
@@ -45,7 +45,7 @@ class SessionController < ApplicationController
           redirect_to :controller => 'home', :action => 'index'
         end
       else
-        flash[:notice] = "\"" + @email + "\" is not in registered!"
+        flash[:error] = "\"" + @email + "\" is not in registered!"
         redirect_to :controller => 'home', :action => 'index'
       end
     end
@@ -54,14 +54,14 @@ class SessionController < ApplicationController
 
   #Metodo que finaliza la sesion del usuario cuando este hace logout
   def client_logout
-#    if session[:user]!=nil
-      session[:user] = nil
-      session[:type] = nil
-      session[:id] = nil
-      flash[:notice] = 'You have successfully logged out'
-      redirect_to :controller => 'home', :action => 'index'
-#    else
-#    end
+    #    if session[:user]!=nil
+    session[:user] = nil
+    session[:type] = nil
+    session[:id] = nil
+    flash[:notice] = 'You have successfully logged out'
+    redirect_to :controller => 'home', :action => 'index'
+    #    else
+    #    end
   end
 
   #Metodo que finaliza la sesion del usuario cuando este desactiva su cuenta
@@ -71,5 +71,37 @@ class SessionController < ApplicationController
     session[:id] = nil
     flash[:notice] = 'Your account has been deactivated. <br /> To reactivate your account, log in using your Gmail account.'
     redirect_to :controller => 'home', :action => 'index'
+  end
+
+  #Metodo que recibe los parametros devueltos por el login box de
+  #la pagina principal de operaciones para validar que el usuario exista cuando
+  #intenta hacer login. Si existe, inicia sesion y se le concede acceso a
+  #las funcionalidades que le corresponden a su rol
+  def employee_login
+
+    @hash=Digest::SHA1.hexdigest(params[:password])
+    puts(@hash)
+    employee= Employee.find(:first, :conditions => [" account = ? AND password = ?", params[:account],@hash])
+
+    if employee
+  
+      session[:employee] = employee.account
+      session[:employeeid]= employee.id
+      flash[:notice] = employee.name + " " + employee.lastname + " (" + session[:employee] + ") has logged in!"
+      redirect_to :controller => 'operations', :action => 'index'
+     
+    else
+      flash[:error] = "Login failed"
+      redirect_to :controller => 'operations', :action => 'index'
+    end
+
+  end
+
+  #Metodo que finaliza la sesion del empleado cuando este hace logout
+  def employee_logout
+    session[:employee] = nil
+    session[:employeeid] = nil
+    flash[:notice] = 'You have successfully logged out'
+    redirect_to :controller => 'operations', :action => 'index'
   end
 end
