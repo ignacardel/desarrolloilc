@@ -1,6 +1,5 @@
 <script type="text/javascript" src="/javascripts/dhtmlgoodies_calendar.js"></script>
 <link href="/stylesheets/dhtmlgoodies_calendar.css" rel="stylesheet" type="text/css" />
-<form name="form1" method="post" action="#">
 
   <% form_for(@client) do |f| %>
   <%#= f.error_messages %>
@@ -37,7 +36,7 @@
       </tr>
       <tr>
         <td></td>
-        <td><a href="#" onClick="displayCalendar(document.forms[0].client_birthday,'yyyy-mm-dd',this)">Calendar</a></td>
+        <td><a href="#" onClick="displayCalendar(document.forms[0].client_birthday,'yyyy-mm-dd',this)"><img src="/images/calendar.png"></img></a></td>
       </tr>
       <tr>
         <td><%= f.label(:phone,"Phone no.") %></td>
@@ -49,5 +48,4 @@
       <%= image_submit_tag("/images/edit.png", :title => "Update Account", :border=>0) %>
     </p>
   <% end %>
-</form>
 

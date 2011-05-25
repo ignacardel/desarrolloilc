@@ -3,6 +3,7 @@
 #Clase que contiene todos los metodos para las operaciones con
 #empleados. Aun no se ha empleado.
 class EmployeesController < ApplicationController
+  before_filter :require_admin
   layout 'operationsmapmarker'
   # GET /employees
   # GET /employees.xml
@@ -85,6 +86,17 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(employees_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  private
+
+  #Metodo que redirecciona al home en caso de que un usuario intente
+  #ingresar una funcionalidad sin haber iniciado sesion
+  def require_admin
+    if(session[:role]!=1)
+      flash[:error]="Unauthorized access"
+      redirect_to :controller => 'operations', :action => 'index'
     end
   end
 end

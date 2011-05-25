@@ -124,7 +124,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        flash[:notice] = 'You have successfully updated your info.'
+        flash[:notice] = 'You have successfully updated your account settings!'
         format.html { redirect_to(@client) }
         format.xml  { head :ok }
       else

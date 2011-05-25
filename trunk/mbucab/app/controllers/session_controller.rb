@@ -87,6 +87,7 @@ class SessionController < ApplicationController
   
       session[:employee] = employee.account
       session[:employeeid]= employee.id
+      session[:role]=employee.role
       flash[:notice] = employee.name + " " + employee.lastname + " (" + session[:employee] + ") has logged in!"
       redirect_to :controller => 'operations', :action => 'index'
      
@@ -101,6 +102,7 @@ class SessionController < ApplicationController
   def employee_logout
     session[:employee] = nil
     session[:employeeid] = nil
+    session[:role] = nil
     flash[:notice] = 'You have successfully logged out'
     redirect_to :controller => 'operations', :action => 'index'
   end
