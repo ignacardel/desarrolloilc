@@ -17,13 +17,13 @@
     <div class="bg1">
       <% if session[:user] == nil %>
         <ul>
-          <li><%= link_to "Register", :controller => :application, :action => :gotogoogle %></li>
-          <li><%= link_to "Login", :controller => :application, :action => :clientgotogoogle %></li>
+          <li><img alt="key"  src="/images/googlekey.png" width="25px" height="25px"></img> <%= link_to "Register", :controller => :application, :action => :gotogoogle %></li>
+          <li><img alt="key"  src="/images/googlekey.png" width="25px" height="25px"></img> <%= link_to "Login", :controller => :application, :action => :clientgotogoogle %></li>
         </ul>
       <% else %>
         <ul>
           <li><%= session[:user] %></li>
-          <li><a href="#" onclick="openlogout()">Logout</a></li>
+          <li align="center"><a href="#" onclick="openlogout()"><img src="/images/logout.png" width="40px" height="40px" title="Logout"></img></a></li>
         </ul>
       <% end %>
     </div>
