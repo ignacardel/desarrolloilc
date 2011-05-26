@@ -47,9 +47,9 @@ class EmployeesController < ApplicationController
   # POST /employees.xml
   def create
     @employee = Employee.new(params[:employee])
-    @employee.password=Digest::SHA1.hexdigest(@employee.password)
     respond_to do |format|
       if @employee.save
+        @employee.password=Digest::SHA1.hexdigest(@employee.password)
         flash[:notice] = 'Employee was successfully created.'
         format.html { redirect_to(@employee) }
         format.xml  { render :xml => @employee, :status => :created, :location => @employee }
