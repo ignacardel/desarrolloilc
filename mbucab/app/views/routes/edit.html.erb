@@ -1,0 +1,16 @@
+<h1>Editing route</h1>
+
+<% form_for(@route) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :employee_id %><br />
+    <%= f.text_field :employee_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @route %> |
+<%= link_to 'Back', routes_path %>
