@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+  layout 'operationsmapmarker'
   # GET /routes
   # GET /routes.xml
   def index
@@ -25,7 +26,7 @@ class RoutesController < ApplicationController
   # GET /routes/new.xml
   def new
     @route = Route.new
-
+    @addresses = Address.find_by_sql("select addresses.latitude,addresses.longitude,orders.id,orders.created_at,clients.firstname,clients.lastname from addresses, orders, clients where orders.address_id=addresses.id and orders.status=0 and orders.client_id = clients.id ")
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @route }
