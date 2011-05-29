@@ -8,8 +8,8 @@
     <%= f.text_field :account %>
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.label (:password,"New Password") %><br />
+    <%= f.password_field :password %>
   </p>
   <p>
     <%= f.label :name %><br />
@@ -21,7 +21,7 @@
   </p>
   <p>
     <%= f.label :role %><br />
-    <%= f.text_field :role %>
+    <%= f.select(:role, [['Administrator', 1], ['Mail Carrier', 2], ['Dispatcher', 3]]) %>
   </p>
   <p>
     <%= f.submit 'Update' %>

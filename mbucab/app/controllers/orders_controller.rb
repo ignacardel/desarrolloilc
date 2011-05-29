@@ -179,18 +179,35 @@ class OrdersController < ApplicationController
 
   def pickup
     @order = Order.find(params[:id])
-    @order.status=1
-    @order.collectiondate=Time.now
-    @order.save
+    if @order.status==2
+      @order.status=1
+      @order.collectiondate=Time.now
+      @order.save
+    end
     respond_to do |format|
       format.xml
     end
+  end
 
-    # format.xml { render :text => @order.to_xml }
-    #    respond_to do |format|
-    #      format.xml { render :text => @order.to_xml}
-    #      render :layout => false
-    #    end
+  def notify
+    @order = Order.first(:conditions => [" id = ? ", params[:id]])
+    if @order
+      if @order.status==2
+        @order.status=1
+        @order.collectiondate=Time.now
+        @order.save
+        flash[:notice] = "Order #"+@order.id.to_s+" has been picked up at "+@order.collectiondate.to_s
+      end
+      if @order.status==1
+        flash[:notice] = "Order #"+@order.id.to_s+" has already been picked up"
+      end
+      if @order.status==0
+        flash[:error] = "Order #"+@order.id.to_s+" has not been assigned for pickup yet"
+      end
+    else
+      flash[:error] = "Order not found"
+    end
+    redirect_to :controller => 'operations', :action => 'index'
   end
   
 end
