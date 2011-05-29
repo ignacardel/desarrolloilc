@@ -41,19 +41,21 @@ class EmployeesController < ApplicationController
   # GET /employees/1/edit
   def edit
     @employee = Employee.find(params[:id])
+    @employee.password=""
   end
 
   # POST /employees
   # POST /employees.xml
   def create
     @employee = Employee.new(params[:employee])
+    @employee.password=Digest::SHA1.hexdigest(@employee.password) if !(@employee.password.blank?)
     respond_to do |format|
       if @employee.save
-        @employee.password=Digest::SHA1.hexdigest(@employee.password)
         flash[:notice] = 'Employee was successfully created.'
         format.html { redirect_to(@employee) }
         format.xml  { render :xml => @employee, :status => :created, :location => @employee }
       else
+        @employee.password=""
         format.html { render :action => "new" }
         format.xml  { render :xml => @employee.errors, :status => :unprocessable_entity }
       end
@@ -64,13 +66,15 @@ class EmployeesController < ApplicationController
   # PUT /employees/1.xml
   def update
     @employee = Employee.find(params[:id])
-
+    params[:employee].delete(:password) if params[:employee][:password].blank?
+    params[:employee][:password]=Digest::SHA1.hexdigest(params[:employee][:password]) if !(params[:employee][:password].blank?)
     respond_to do |format|
       if @employee.update_attributes(params[:employee])
         flash[:notice] = 'Employee was successfully updated.'
         format.html { redirect_to(@employee) }
         format.xml  { head :ok }
       else
+        @employee.password=""
         format.html { render :action => "edit" }
         format.xml  { render :xml => @employee.errors, :status => :unprocessable_entity }
       end

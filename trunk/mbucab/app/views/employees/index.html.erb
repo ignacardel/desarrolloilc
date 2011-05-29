@@ -3,19 +3,17 @@
 <table>
   <tr>
     <th>Account</th>
-    <th>Password</th>
     <th>Name</th>
-    <th>Lastname</th>
+    <th>Last name</th>
     <th>Role</th>
   </tr>
 
 <% @employees.each do |employee| %>
   <tr>
     <td><%=h employee.account %></td>
-    <td><%=h employee.password %></td>
     <td><%=h employee.name %></td>
     <td><%=h employee.lastname %></td>
-    <td><%=h employee.role %></td>
+    <td><%=h employee.actual_role %></td>
     <td><%= link_to 'Show', employee %></td>
     <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
     <td><%= link_to 'Destroy', employee, :confirm => 'Are you sure?', :method => :delete %></td>
