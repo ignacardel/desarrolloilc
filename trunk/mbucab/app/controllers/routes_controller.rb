@@ -42,9 +42,9 @@ class RoutesController < ApplicationController
   # POST /routes.xml
   def create
     @route = Route.new(params[:route])
-
     respond_to do |format|
       if @route.save
+        Order.update_all(["route_id=?",@route.id],:id=>params[:order_id])
         flash[:notice] = 'Route was successfully created.'
         format.html { redirect_to(@route) }
         format.xml  { render :xml => @route, :status => :created, :location => @route }

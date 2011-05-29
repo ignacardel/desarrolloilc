@@ -43,7 +43,7 @@
       }
       $(markers).each(function(i,marker){
         $("<li />")
-        .html("<input type='checkbox' name='order_id[]' id='order_id[]' value="+document.getElementById("orderId"+i).value+"/> #"+document.getElementById("orderId"+i).value+" "+document.getElementById("date"+i).value+" "+document.getElementById("name"+i).value)
+        .html("<input type='checkbox' name='order_id[]' id='order_id[]' value="+document.getElementById("orderId"+i).value+"> #"+document.getElementById("orderId"+i).value+" "+document.getElementById("date"+i).value+" "+document.getElementById("name"+i).value)
         .click(function(){
           displayPoint(marker, i);
         })
