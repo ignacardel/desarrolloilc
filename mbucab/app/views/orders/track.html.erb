@@ -1,0 +1,56 @@
+<p>
+<h1>Order Details</h1>
+
+<p>
+  <b>Order #:</b>
+  <%=h @order.id %>
+</p>
+
+<p>
+  <b>Order Placed:</b>
+  <%=h @order.created_at %>
+</p>
+
+<p>
+  <b>Delivery address:</b>
+  <%=h @order.fulladdress %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @order.actual_status %>
+</p>
+
+
+<% if @order.status == 1 %>
+<p>
+  <b>Detailed Results</b>
+</p>
+<p>
+  - <%=h @address1%><br/>
+  - <%=h @address2%><br/>
+</p>
+<% end %>
+
+<% if @order.status == 2 %>
+<p>
+  <b>Detailed Results</b>
+</p>
+<p>
+  - <%=h @address1%><br/>
+</p>
+<% end %>
+
+<% if @order.status == 3 %>
+<p>
+  <b>Detailed Results</b>
+</p>
+<p>
+  - <%=h @address1%><br/>
+  - <%=h @address2%><br/>
+  - <%=h @address3%><br/>
+</p>
+<% end %>
+
+
+</p>

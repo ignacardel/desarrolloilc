@@ -56,8 +56,11 @@ class Order < ActiveRecord::Base
       @actual_status = "Waiting for pickup"
     when 1
       @actual_status = "Pickup complete"
+    when 2
+      @actual_status = "Assigned for pickup"
+    when 3
+      @actual_status = "Delivered"
     end
-   
-  end
 
+  end
 end
