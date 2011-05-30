@@ -23,8 +23,12 @@
     $(document).ready(function(){
       var map = new GMap2($("#map").get(0));
       map.enableScrollWheelZoom();
-      var venezuelan = new GLatLng(10.463536424076864, -66.97718103149418);
-      map.setCenter(venezuelan, 10);
+      var venezuelan = new GLatLng(document.getElementById("latitude0").value,document.getElementById("longitude0").value);
+      var Icon = new GIcon(G_DEFAULT_ICON);
+      Icon.image="http://maps.google.com/mapfiles/ms/micons/blue-dot.png";
+      var sizeIcon = new GSize(32,32);
+      Icon.iconSize = sizeIcon;
+      map.setCenter(venezuelan, 11);
 
       var markers = [];
       var count = document.getElementById("count").value;
@@ -35,7 +39,7 @@
         var name = document.getElementById("name"+i).value;
 
         var point = new GLatLng(latitude,longitude);
-        marker = new GMarker(point);
+        marker = new GMarker(point,Icon);
         marker.title = name;
         marker.icon = "/images/car.png";
         map.addOverlay(marker);
@@ -75,30 +79,32 @@
   </script>
 
   <style type="text/css" media="screen">
-    #map { float:right; width:350px; height:250px; }
+    #map { float:left; width:400px; height:280px; }
     #messages { position:absolute; padding:10px; background:#555; color:#fff; width:75px; }
-    #list { float:left; width:200px; background:#FFF; list-style:none; padding:0; }
+    #list { float:left; width:360px; background:#FFF; list-style:none; padding:0; }
     #list li { padding:1px; }
     #list li:hover { background:#06c; color:#fff; cursor:pointer;}
   </style>
 
-  <h1>New route</h1>
+  <h3>New route</h3>
+  <div id="map"></div>
   <ul id="list">
-    <table class="sample">
+    <table border="0">
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td>#</td>
         <td>&nbsp;</td>
-        <td>Date</td>
+        <td><strong>#</strong></td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td><strong>Date</strong></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td>Client</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><strong>Client</strong></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -107,13 +113,14 @@
       </tr>
     </table>
   </ul>
-  <div id="map"></div>
   <div id="message" class="messages" style="display:none;">
   </div>
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <p>
-    <%= f.submit 'Create' %>
+  <h1 align="right"><%= f.label :employee %><%= f.text_field :employee %></h1>
+  </p>
+  <p>
+    <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), routes_path %>
+    <%= image_submit_tag("/images/new.png", :title => "Create Route", :border=>0) %>
   </p>
 <% end %>
-
-<%= link_to 'Back', routes_path %>

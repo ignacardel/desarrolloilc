@@ -1,32 +1,33 @@
-<h1>Editing employee</h1>
-
 <% form_for(@employee) do |f| %>
   <%= f.error_messages %>
 
+<table align="center" class="sample" border="0">
+      <tr>
+        <td colspan="2"><h3>Editing employee</h3></td>
+      </tr>
+      <tr>
+        <td><%= f.label :account %></td>
+        <td><%= f.text_field :account %></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:password,"New Password") %></td>
+        <td><%= f.password_field :password %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :name %></td>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :lastname %></td>
+        <td><%= f.text_field :lastname %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :role %></td>
+        <td><%= f.select(:role, [['Administrator', 1], ['Mail Carrier', 2], ['Dispatcher', 3]]) %></td>
+      </tr>
+</table>
   <p>
-    <%= f.label :account %><br />
-    <%= f.text_field :account %>
-  </p>
-  <p>
-    <%= f.label (:password,"New Password") %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </p>
-  <p>
-    <%= f.label :role %><br />
-    <%= f.select(:role, [['Administrator', 1], ['Mail Carrier', 2], ['Dispatcher', 3]]) %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
+    <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), employees_path %>
+    <%= image_submit_tag("/images/edit.png", :title => "Update Employee", :border=>0) %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @employee %> |
-<%= link_to 'Back', employees_path %>

@@ -1,20 +1,27 @@
-<h1>Listing routes</h1>
+<h1><%= link_to image_tag("/images/new.png", :title => "New Route", :border=>0), new_route_path %>
+  Assign Routes</h1>
 
 <table>
   <tr>
-    <th>Employee</th>
+    <th align="center"><h2>#</h2></th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th align="center"><h2>Created at</h2></th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th align="center"><h2>Employee</h2></th>
   </tr>
 
 <% @routes.each do |route| %>
   <tr>
-    <td><%=h route.employee_id %></td>
-    <td><%= link_to 'Show', route %></td>
-    <td><%= link_to 'Edit', edit_route_path(route) %></td>
-    <td><%= link_to 'Destroy', route, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="center"><%=h route.id %></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td align="center"><%=h route.created_at.year %>-<%=h route.created_at.month %>-<%=h route.created_at.day %></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td align="center"><%= link_to image_tag("/images/good.png", :title => "Show Route", :border=>0), route %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New route', new_route_path %>
