@@ -13,6 +13,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :clients
 
+  map.resources :web_services
+
   map.code '/code', :controller => 'creditcards', :action => 'code'
 
   map.xml 'pickup/:id' , :controller => 'orders', :action => 'pickup', :via => 'get'

@@ -5,6 +5,9 @@
 class OrdersController < ApplicationController
   before_filter :require_login,:except => [:show,:pickup]
   layout 'standardmapmarker'
+
+  require 'xmlsimple'
+  
   # GET /orders
   # GET /orders.xml
   #Metodo que se encarga de mostrar todas las ordenes
@@ -120,7 +123,7 @@ class OrdersController < ApplicationController
           @total = @total + actual
           package.price = actual
         end
-        @creditcards = Creditcard.all(:conditions =>["client_id = ? AND expdate > ?", session[:id], Date.current])
+        @creditcards = Creditcard.all(:conditions =>["client_id = ? AND strftime('%Y',expdate) >= ? AND strftime('%m',expdate) >= ?", session[:id], Date.current.month, Date.current.year])
 
       end
       if @order.current_step == "confirmation"
@@ -209,5 +212,52 @@ class OrdersController < ApplicationController
     end
     redirect_to :controller => 'operations', :action => 'index'
   end
+
+
+  def track
+ 
+
+    @order = Order.first(:conditions => ["id =?", params[:trackid]])
+
+    if @order
+      # hacer que solo muestre el detail dependiendo del status
+
+      a0 = "Assigned for Pickup"
+      a1 = "Arrival at Montalban UCAB Office"
+      a2 = "Arrival at Los Teques UCAB Office"
+      a3 = "Arrival at San Ignacio UCAB Office"
+
+      if (@order.id.to_s.end_with?("0") || @order.id.to_s.end_with?("3") || @order.id.to_s.end_with?("6") || @order.id.to_s.end_with?("9"))
+        sede = a1 end
+      if (@order.id.to_s.end_with?("1") || @order.id.to_s.end_with?("4") || @order.id.to_s.end_with?("7"))
+        sede = a2 end
+      if (@order.id.to_s.end_with?("2") || @order.id.to_s.end_with?("5") || @order.id.to_s.end_with?("8"))
+        sede = a3 end
+
+      case @order.status
+      when 1   #@actual_status = "Pickup complete"
+        route = Route.first(:conditions => ["id =?", @order.route_id])
+        @address1 = a0+" ,"+ route.created_at
+        @address2 = sede+" ,"+ @order.collectiondate.date # traer solo la fecha del dia en que se busco el paquete
+      when 2   #@actual_status = "Assigned for pickup"
+        route = Route.first(:conditions => ["id =?", @order.route_id])
+        @address1 = a0+" ,"+ route.created_at
+      when 3   #@actual_status = "Delivered"
+        route = Route.first(:conditions => ["id =?", @order.route_id])
+        @address1 = a0+" ,"+ route.created_at
+        @address2 = sede+" ,"+ @order.collectiondate.date
+        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate
+      end
+
+      respond_to do |format|
+        format.html # show.html.erb
+      end
+
+    else
+      flash[:error] = "Order not found"
+      redirect_to :controller => 'home', :action => 'index'
+    end
+  end
+
   
 end
