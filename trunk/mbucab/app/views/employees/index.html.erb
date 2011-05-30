@@ -1,26 +1,28 @@
-<h1>Listing employees</h1>
+<h1><%= link_to image_tag("/images/new.png", :title => "New Employee", :border=>0), new_employee_path %>
+  Listing Employees</h1>
 
 <table>
-  <tr>
-    <th>Account</th>
-    <th>Name</th>
-    <th>Last name</th>
-    <th>Role</th>
+   <tr>
+    <th align="center"><h2>Account</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Name</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Last name</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Role</h2></th>
   </tr>
-
 <% @employees.each do |employee| %>
   <tr>
-    <td><%=h employee.account %></td>
-    <td><%=h employee.name %></td>
-    <td><%=h employee.lastname %></td>
-    <td><%=h employee.actual_role %></td>
-    <td><%= link_to 'Show', employee %></td>
-    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Destroy', employee, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="center"><%=h employee.account %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h employee.name %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h employee.lastname %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h employee.actual_role %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%= link_to image_tag("/images/good.png", :title => "Show Employee", :border=>0), employee %></td>
+    <td align="center"><%= link_to image_tag("/images/edit.png", :title => "Edit Employee", :border=>0), edit_employee_path(employee) %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New employee', new_employee_path %>
