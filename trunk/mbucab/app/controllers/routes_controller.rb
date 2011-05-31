@@ -3,8 +3,7 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.xml
   def index
-    @routes = Route.all
-
+    @routes = Route.find_by_sql("SELECT * from routes r, employees e on r.employee_id = e.id ")
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @routes }
@@ -17,7 +16,6 @@ class RoutesController < ApplicationController
     @route = Route.find(params[:id])
     @addresses = Address.find_by_sql("select addresses.latitude, addresses.longitude, orders.id,orders.created_at, clients.firstname, clients.lastname from routes, orders, addresses, clients where orders.route_id="+@route.id.to_s+" and orders.address_id=addresses.id and orders.client_id = clients.id limit 10")
     @employee = Employee.find_by_sql("select employees.* from routes, employees where routes.employee_id=employees.id limit 1")
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @route }
@@ -29,6 +27,7 @@ class RoutesController < ApplicationController
   def new
     @route = Route.new
     @addresses = Address.find_by_sql("select addresses.latitude,addresses.longitude,orders.id,orders.created_at,clients.firstname,clients.lastname from addresses, orders, clients where orders.address_id=addresses.id and orders.status=0 and orders.client_id = clients.id limit 10")
+    @employees = Employee.find_by_sql("select * from employees")
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @route }
@@ -47,6 +46,7 @@ class RoutesController < ApplicationController
     respond_to do |format|
       if @route.save
         Order.update_all(["route_id=?",@route.id],:id=>params[:order_id])
+        Order.update_all(["status=?",2],:id=>params[:order_id])
         flash[:notice] = 'Route was successfully created.'
         format.html { redirect_to(@route) }
         format.xml  { render :xml => @route, :status => :created, :location => @route }
