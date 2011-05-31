@@ -23,5 +23,9 @@ class Employee < ActiveRecord::Base
       @actual_role="Dispatcher"
     end
   end
+
+  def fullname
+    return name + ' ' + lastname
+  end
   
 end

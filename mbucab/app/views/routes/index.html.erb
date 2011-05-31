@@ -20,7 +20,7 @@
     <td align="center"><%=h route.created_at.year %>-<%=h route.created_at.month %>-<%=h route.created_at.day %></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td align="center"><%=h route.employee.fullname %></td>
     <td align="center"><%= link_to image_tag("/images/good.png", :title => "Show Route", :border=>0), route %></td>
   </tr>
 <% end %>
