@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110526202501) do
+ActiveRecord::Schema.define(:version => 20110531224731) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(:version => 20110526202501) do
   create_table "orders", :force => true do |t|
     t.datetime "date"
     t.string   "recipient"
-    t.string   "fulladdress"
     t.float    "longitude"
     t.float    "latitude"
     t.integer  "status"
@@ -75,6 +74,17 @@ ActiveRecord::Schema.define(:version => 20110526202501) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "route_id"
+    t.string   "street"
+    t.string   "name"
+    t.integer  "number"
+    t.string   "zone"
+    t.string   "city"
+    t.string   "country"
+    t.integer  "zip"
+    t.integer  "type"
+    t.float    "extra"
+    t.integer  "company_id"
+    t.integer  "external"
   end
 
   create_table "packages", :force => true do |t|

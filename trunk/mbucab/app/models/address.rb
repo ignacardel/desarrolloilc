@@ -14,7 +14,7 @@ class Address < ActiveRecord::Base
 
   validates_numericality_of :zip,:greater_than => 0
 
-  validates_numericality_of :number
+
 
 
   #Relations

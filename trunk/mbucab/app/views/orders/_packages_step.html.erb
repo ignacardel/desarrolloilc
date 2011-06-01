@@ -10,10 +10,34 @@
     <td><%= f.label :recipient %></td>
     <td><%= f.text_field :recipient %></td>
   </tr>
-  <tr>
-    <td><%= f.label(:fulladdress,"Delivery Address") %></td>
-    <td><%= f.text_field :fulladdress %></td>
-  </tr>
+    <tr>
+      <td><%= f.label(:name,"Residence/House name") %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:number,"Apartment/House number") %></td>
+      <td><%= f.text_field :number %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:street) %></td>
+      <td><%= f.text_field :street %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:zone,"Urbanization") %></td>
+      <td><%= f.text_field :zone %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :city%></td>
+      <td><%= f.text_field :city %></td>
+    </tr>
+    <tr>
+      <td><%= f.label(:zip,"Zip code") %></td>
+      <td><%= f.text_field :zip %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :country%></td>
+      <td><%= f.text_field :country %></td>
+    </tr>
   <tr>
     <td colspan="2"><%= f.label(:latitude,"Address Coordinates")%><br/>(Drag the marker to a location approximate to your address in the map below)</td>
   </tr>
