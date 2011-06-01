@@ -1,10 +1,18 @@
 class Order < ActiveRecord::Base
   #Validations
   validates_presence_of :recipient , :if => lambda { |o| o.current_step == "packages" }
-  validates_presence_of :fulladdress , :if => lambda { |o| o.current_step == "packages" }
+  #validates_presence_of :fulladdress , :if => lambda { |o| o.current_step == "packages" }
   validates_presence_of :latitude, :message=> 'must be set by picking a location in the map'
+  validates_presence_of :street, :if => lambda { |o| o.current_step == "packages" }
+  validates_presence_of :name, :if => lambda { |o| o.current_step == "packages" }
+  validates_presence_of :number, :if => lambda { |o| o.current_step == "packages" }
+  validates_presence_of :zone, :if => lambda { |o| o.current_step == "packages" }
+  validates_presence_of :city, :if => lambda { |o| o.current_step == "packages" }
+  validates_presence_of :country, :if => lambda { |o| o.current_step == "packages" }
+  validates_presence_of :zip, :if => lambda { |o| o.current_step == "packages" }
 
 
+  validates_numericality_of :zip,:greater_than => 0
 
   #Relations
   has_many :packages
@@ -17,7 +25,12 @@ class Order < ActiveRecord::Base
 
   HUMAN_ATTRIBUTES = {
     :latitude => "Address coordinates",
-    :fulladdress => "Delivery address"
+    :street    => "Avenue/Street",
+    :name => "Residence/House name",
+    :number => "Apartment/House number",
+    :zone => "Urbanization",
+    :zip => "Zip code",
+    :nickname => "Unique address nickname",
   }
 
   def self.human_attribute_name(attr)
@@ -30,7 +43,7 @@ class Order < ActiveRecord::Base
   #Los siguientes metodos controlan la logica del formulario
   #por pasos cuando se crea una nueva orden.
   def current_step
-    @current_step || steps.first    
+    @current_step || steps.first
   end
 
   def steps
@@ -48,7 +61,7 @@ class Order < ActiveRecord::Base
   def first_step?
     current_step == steps.first
   end
-  
+
   def actual_status
 
     case status
@@ -63,4 +76,9 @@ class Order < ActiveRecord::Base
     end
 
   end
+
+  def fulladdress
+    @fulladdress=street+" "+name+" "+number.to_s+", "+zone+", "+city+" "+zip.to_s+", "+country
+  end
+
 end
