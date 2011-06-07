@@ -5,15 +5,13 @@ class WebServiceController < ApplicationController
     require 'open-uri'
 
   def show
-
-
     respond_to do |format|
       format.xml #show.xml.builder
     end
   end
 
 
-    def prueba #solicita
+    def prueba #solicita GET
 
     #    begin
     #      xml_result_set = Net::HTTP.get_response(URI.parse("http://192.168.1.100:3000/personas.xml"))
@@ -32,7 +30,7 @@ class WebServiceController < ApplicationController
   end
 
 
-  def pruebapost #manda
+  def pruebapost #manda POST
 
 
     data = "<recurso><name>prueba nombressss</nombre></persona>"
@@ -74,28 +72,62 @@ class WebServiceController < ApplicationController
       case @order.status
       when 1   #@actual_status = "Pickup complete"
         route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at
-        @address2 = sede+" ,"+ @order.collectiondate.date # traer solo la fecha del dia en que se busco el paquete
+        @address1 = a0+" ,"+ route.created_at.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.date.to_s # traer solo la fecha del dia en que se busco el paquete
       when 2   #@actual_status = "Assigned for pickup"
         route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at
+        @address1 = a0+" ,"+ route.created_at.to_s
       when 3   #@actual_status = "Delivered"
         route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at
-        @address2 = sede+" ,"+ @order.collectiondate.date
-        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate
+        @address1 = a0+" ,"+ route.created_at.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.date.to_s
+        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
       end
 
       respond_to do |format|
         format.xml 
       end
 
+      # cambiar aqui q cuando no se encutre muestra en xml en vez de la pagina index con not found
     else
       flash[:error] = "Order not found"
       redirect_to :controller => 'home', :action => 'index'
     end
   end
 
+
+  def support_request  # revisar si el cliente ya existe para no crearlo de nuevo y verificar los datos.
+    xml = params[:support_request]
+
+    @client = Client.new(xml["client"])
+    @client.active=1
+    @client.save
+
+    @creditcard = Creditcard.new(xml["creditcard"])
+    @creditcard.client_id=@client.id
+    @creditcard.save
+
+    @address = Address.new(xml["address"])
+    @address.client_id=@client.id
+    @address.save
+
+    @order = Order.new(xml["order"])
+    @order.client_id = @client.id
+    @order.address_id = @address.id
+    #@order.company_id
+    @order.creditcard_id = @creditcard.id
+    @order.status = 0
+    @order.save
+
+    @package = Package.new(xml["package"])
+    @package.order_id = @order.id
+    @package.price = @package.weight * 5
+    @package.save
+
+    respond_to do |format|
+        format.xml
+    end
+  end
 
 
 end

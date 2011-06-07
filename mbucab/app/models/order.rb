@@ -73,6 +73,8 @@ class Order < ActiveRecord::Base
       @actual_status = "Assigned for pickup"
     when 3
       @actual_status = "Delivered"
+    when 4
+      @actual_status = "Waiting for external pickup"
     end
 
   end
