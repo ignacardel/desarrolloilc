@@ -4,6 +4,10 @@
   <p align="center"><img src="/images/anim.gif"></img></p>
 <%  else %>
   <h1>Welcome to mail boxes ucab!</h1>
+
+  <% if @number > 0 %>
+  <p><a href='/orders/notification/1'>You have <%=h @number%> notification(s)!</a></p>
+  <%end%>
   <p>Ship Online from Start to Finish</p>
   <p>- Plan a Shipment</p>
   <p>- Manage your Address Book</p>

@@ -3,7 +3,7 @@
 #Clase que contiene todos los metodos para las operaciones con
 #ordenes de servicio. Ej: Crear, Modificar, Eliminar, Mostrar.
 class OrdersController < ApplicationController
-  before_filter :require_login,:except => [:show,:pickup]
+  before_filter :require_login,:except => [:show,:pickup,:notify,:track]
   layout 'standardmapmarker'
 
   require 'xmlsimple'
@@ -195,18 +195,19 @@ class OrdersController < ApplicationController
   def notify
     @order = Order.first(:conditions => [" id = ? ", params[:id]])
     if @order
+       if @order.status==1
+        flash[:notice] = "Order #"+@order.id.to_s+" has already been picked up"
+      end
+      if @order.status==0
+        flash[:error] = "Order #"+@order.id.to_s+" has not been assigned for pickup yet"
+      end
       if @order.status==2
         @order.status=1
         @order.collectiondate=Time.now
         @order.save
         flash[:notice] = "Order #"+@order.id.to_s+" has been picked up at "+@order.collectiondate.to_s
       end
-      if @order.status==1
-        flash[:notice] = "Order #"+@order.id.to_s+" has already been picked up"
-      end
-      if @order.status==0
-        flash[:error] = "Order #"+@order.id.to_s+" has not been assigned for pickup yet"
-      end
+     
     else
       flash[:error] = "Order not found"
     end
@@ -237,16 +238,17 @@ class OrdersController < ApplicationController
       case @order.status
       when 1   #@actual_status = "Pickup complete"
         route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at
-        @address2 = sede+" ,"+ @order.collectiondate.date # traer solo la fecha del dia en que se busco el paquete
+        @address1 = a0+" ,"+ route.created_at.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.to_s
+          #@order.collectiondate.year.to_s+"-"+@order.collectiondate.month.to_s+"-"+@order.collectiondate.day.to_s # traer solo la fecha del dia en que se busco el paquete
       when 2   #@actual_status = "Assigned for pickup"
         route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at
+        @address1 = a0+" ,"+ route.created_at.to_s
       when 3   #@actual_status = "Delivered"
         route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at
-        @address2 = sede+" ,"+ @order.collectiondate.date
-        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate
+        @address1 = a0+" ,"+ route.created_at.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.to_s
+        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
       end
 
       respond_to do |format|
@@ -257,6 +259,15 @@ class OrdersController < ApplicationController
       flash[:error] = "Order not found"
       redirect_to :controller => 'home', :action => 'index'
     end
+  end
+
+  def notification
+    @orders =  Order.all(:conditions =>["client_id = ? AND status = ?", session[:id],4])
+  end
+
+  def accept_charge
+        flash[:notice] = "Order #"+params[:id]
+    render "home"
   end
 
   
