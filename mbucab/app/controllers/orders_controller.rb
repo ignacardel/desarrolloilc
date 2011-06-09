@@ -262,13 +262,48 @@ class OrdersController < ApplicationController
   end
 
   def notification
-    @orders =  Order.all(:conditions =>["client_id = ? AND status = ?", session[:id],4])
+     @orders =  Order.all(:conditions =>["client_id = ? AND order_type = ? OR  order_type = ? OR  order_type = ?", session[:id],1,2,3])
   end
 
   def accept_charge
-        flash[:notice] = "Order #"+params[:id]
-    render "home"
+
+    @order = Order.find(params[:id])
+
+    if params[:option] == "1"
+        @order.update_attribute(:order_type, 2)
+        flash[:notice] = "New price for Order #"+params[:id]+ " Accepted!"
+    else
+        @order.update_attribute(:order_type, 3)
+        flash[:notice] = "New price for Order #"+params[:id]+ " Rejected"
+    end
+    @order.save
+
+
+    redirect_to :controller => 'orders', :action => 'notification' ,:id =>1
   end
 
+  def simulate
+    @order = Order.first(:conditions => [" id = ? ", params[:id]])
+    if @order
+      case @order.status
+      when 1
+       @order.update_attribute(:status, 3)
+       @order.deliverydate=Time.now
+       @order.save
+       flash[:notice] = "Order #" + params[:id]+ " has been successfully delivered!"
+      when 0
+       flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
+      when 2
+       flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
+      when 4
+       flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
+      when 3
+       flash[:notice] = "Order #" + params[:id]+ " has already been delivered!"
+      end
+    else
+    flash[:error] = "Order #" + params[:id]+ " not found!"
+    end
+    redirect_to :controller => 'operations', :action => 'index'
+  end
   
 end

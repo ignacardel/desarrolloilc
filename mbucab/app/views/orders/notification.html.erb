@@ -1,3 +1,4 @@
+<% if @orders.length > 0 %>
 <h1>Notifications</h1>
 
 <table>
@@ -34,7 +35,23 @@
     <td align="center">&nbsp;</td>
     <td align="center">$ <%=h order.extra + total + (total * 0.1 )%></td>
     <td align="center">&nbsp;</td>
-    <td align="center"><%= link_to "Accept", :controller => :orders, :action => :accept_charge, :id => order.id %></td>
+       <% if order.order_type == 1  %>
+    <td align="center"><%= link_to "Accept", :controller => :orders, :action => :accept_charge, :id => order.id, :option => 1 %></td>
+    <td align="center"><%= link_to "Reject", :controller => :orders, :action => :accept_charge, :id => order.id, :option => 2 %></td>
+       <% else  %>
+          <% if order.order_type == 2  %>
+           <td align="center">Accepted</td>
+          <% else  %>
+           <td align="center">Rejected</td>
+          <% end  %>
+          
+       
+       <%  end  %>
   </tr>
 <% end %>
 </table>
+
+<%  else %>
+<h1>No More Notifications</h1>
+
+<%  end  %>

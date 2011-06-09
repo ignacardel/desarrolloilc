@@ -14,6 +14,8 @@ class Order < ActiveRecord::Base
 
   validates_numericality_of :zip,:greater_than => 0
 
+  #type 0 = Apoyo a otra empresa , 1 = solicitud , 2 = aceptado, 3 = rechazado
+
   #Relations
   has_many :packages
   belongs_to :client
