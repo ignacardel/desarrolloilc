@@ -52,19 +52,25 @@ class OrdersController < ApplicationController
   # GET /orders/new.xml
   # Renderiza el formulario para crear una nueva orden
   def new
-    @order = Order.new
-    session[:order_params] = nil
-    session[:order_params] ||= {}
-    session[:order_step]   = nil
+    @creditcards=Creditcard.find_by_sql("SELECT  * FROM CREDITCARDS WHERE STRFTIME('%Y-%m',expdate) >= strftime('%Y-%m',date('now')) and client_id="+session[:id].to_s)
+    if @creditcards.size>0
+      @order = Order.new
+      session[:order_params] = nil
+      session[:order_params] ||= {}
+      session[:order_step]   = nil
 
-    client = Client.first(:conditions => [" account = ? ", session[:user]])
-    @addresses = Address.all(:conditions =>["client_id = ?", client.id])
-    1.times {@order.packages.build}
+      client = Client.first(:conditions => [" account = ? ", session[:user]])
+      @addresses = Address.all(:conditions =>["client_id = ?", client.id])
+      1.times {@order.packages.build}
 
    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @order }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @order }
+      end
+    else
+      flash[:error] = "All of your credit cards have expired"
+      redirect_to :controller => 'orders', :action => 'index'
     end
   end
 
@@ -123,8 +129,7 @@ class OrdersController < ApplicationController
           @total = @total + actual
           package.price = actual
         end
-        @creditcards = Creditcard.all(:conditions =>["client_id = ? AND strftime('%Y',expdate) >= ? AND strftime('%m',expdate) >= ?", session[:id], Date.current.month, Date.current.year])
-
+        @creditcards=Creditcard.find_by_sql("SELECT  * FROM CREDITCARDS WHERE STRFTIME('%Y-%m',expdate) >= strftime('%Y-%m',date('now')) and client_id="+session[:id].to_s)
       end
       if @order.current_step == "confirmation"
         @address    = Address.first(:conditions =>["id = ?", @order.address_id])
@@ -195,7 +200,7 @@ class OrdersController < ApplicationController
   def notify
     @order = Order.first(:conditions => [" id = ? ", params[:id]])
     if @order
-       if @order.status==1
+      if @order.status==1
         flash[:notice] = "Order #"+@order.id.to_s+" has already been picked up"
       end
       if @order.status==0
@@ -240,7 +245,7 @@ class OrdersController < ApplicationController
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
         @address2 = sede+" ,"+ @order.collectiondate.to_s
-          #@order.collectiondate.year.to_s+"-"+@order.collectiondate.month.to_s+"-"+@order.collectiondate.day.to_s # traer solo la fecha del dia en que se busco el paquete
+        #@order.collectiondate.year.to_s+"-"+@order.collectiondate.month.to_s+"-"+@order.collectiondate.day.to_s # traer solo la fecha del dia en que se busco el paquete
       when 2   #@actual_status = "Assigned for pickup"
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
@@ -262,7 +267,7 @@ class OrdersController < ApplicationController
   end
 
   def notification
-     @orders =  Order.all(:conditions =>["client_id = ? AND order_type = ? OR  order_type = ? OR  order_type = ?", session[:id],1,2,3])
+    @orders =  Order.all(:conditions =>["client_id = ? AND order_type = ? OR  order_type = ? OR  order_type = ?", session[:id],1,2,3])
   end
 
   def accept_charge
@@ -270,11 +275,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     if params[:option] == "1"
-        @order.update_attribute(:order_type, 2)
-        flash[:notice] = "New price for Order #"+params[:id]+ " Accepted!"
+      @order.update_attribute(:order_type, 2)
+      flash[:notice] = "New price for Order #"+params[:id]+ " Accepted!"
     else
-        @order.update_attribute(:order_type, 3)
-        flash[:notice] = "New price for Order #"+params[:id]+ " Rejected"
+      @order.update_attribute(:order_type, 3)
+      flash[:notice] = "New price for Order #"+params[:id]+ " Rejected"
     end
     @order.save
 
@@ -287,21 +292,21 @@ class OrdersController < ApplicationController
     if @order
       case @order.status
       when 1
-       @order.update_attribute(:status, 3)
-       @order.deliverydate=Time.now
-       @order.save
-       flash[:notice] = "Order #" + params[:id]+ " has been successfully delivered!"
+        @order.update_attribute(:status, 3)
+        @order.deliverydate=Time.now
+        @order.save
+        flash[:notice] = "Order #" + params[:id]+ " has been successfully delivered!"
       when 0
-       flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
+        flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
       when 2
-       flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
+        flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
       when 4
-       flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
+        flash[:notice] = "Order #" + params[:id]+ " has not been picked up!"
       when 3
-       flash[:notice] = "Order #" + params[:id]+ " has already been delivered!"
+        flash[:notice] = "Order #" + params[:id]+ " has already been delivered!"
       end
     else
-    flash[:error] = "Order #" + params[:id]+ " not found!"
+      flash[:error] = "Order #" + params[:id]+ " not found!"
     end
     redirect_to :controller => 'operations', :action => 'index'
   end
