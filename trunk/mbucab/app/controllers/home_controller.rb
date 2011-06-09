@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   #Renderiza la vista del home
   def index
 
-    @orders =  Order.all(:conditions =>["client_id = ? AND status = ?", session[:id],4])
+    @orders =  Order.all(:conditions =>["client_id = ? AND order_type = ?", session[:id],1])
     if @orders 
      @number =  @orders.size
     end
