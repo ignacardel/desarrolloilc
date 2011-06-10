@@ -1,4 +1,4 @@
-<% form_for(@route) do |f| %>
+<% form_for(@route,:html => {:name => 'new_route'}) do |f| %>
   <%= f.error_messages %>
 
   <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAZBe7uHI90ESk2XAmWRL3RxR6u04U0tImA3bfwZ3-HKdEno7z2xRk2YE6OkudtBX5qy0vLrgbf1DUCg"></script>
@@ -25,7 +25,7 @@
       map.enableScrollWheelZoom();
       var venezuelan = new GLatLng(document.getElementById("latitude0").value,document.getElementById("longitude0").value);
       var Icon = new GIcon(G_DEFAULT_ICON);
-      Icon.image="http://maps.google.com/mapfiles/ms/micons/blue-dot.png";
+      Icon.image="/images/car.png";
       var sizeIcon = new GSize(32,32);
       Icon.iconSize = sizeIcon;
       map.setCenter(venezuelan, 11);
@@ -77,7 +77,27 @@
       }
     });
   </script>
+  <script type="text/javascript">
+    function validate()
+    {
+      var order_ids=document.getElementsByName("order_id[]");
+      var checks=false;
+      for(var i=0; i<order_ids.length; i++)
+      {
+        if (order_ids[i].checked)
+        {
+          checks=true;
+        }
+      }
 
+      if (!(checks))
+      {
+        alert("Select at least one(1) order!");
+        return 0;
+      }
+      document.new_route.submit();
+    }
+  </script>
   <style type="text/css" media="screen">
     #map { float:left; width:400px; height:280px; }
     #messages { position:absolute; padding:10px; background:#555; color:#fff; width:75px; }
@@ -117,11 +137,11 @@
   </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <p>
-  <h1><%= f.label :employee_id %>
-<%= collection_select(:route ,:employee_id ,@employees, :id, :fullname) %></h1>
+  <h1><%= f.label :employee_id,"Assigned Carrier:" %>
+    <%= collection_select(:route ,:employee_id ,@employees, :id, :fullname) %></h1>
   </p>
   <p>
     <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), routes_path %>
-    <%= image_submit_tag("/images/new.png", :title => "Create Route", :border=>0) %>
+    <a href="#" onclick="validate()"><img src="/images/new.png" title="Create Route"></img></a>
   </p>
 <% end %>

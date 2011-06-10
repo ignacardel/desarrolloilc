@@ -3,7 +3,7 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.xml
   def index
-    @routes = Route.find_by_sql("SELECT * from routes r, employees e on r.employee_id = e.id ")
+    @routes = Route.find_by_sql("SELECT r.id, r.created_at,e.name,e.lastname from routes r, employees e where r.employee_id = e.id")
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @routes }
@@ -14,8 +14,8 @@ class RoutesController < ApplicationController
   # GET /routes/1.xml
   def show
     @route = Route.find(params[:id])
-    @addresses = Address.find_by_sql("select addresses.latitude, addresses.longitude, orders.id,orders.created_at, clients.firstname, clients.lastname from routes, orders, addresses, clients where orders.route_id="+@route.id.to_s+" and orders.address_id=addresses.id and orders.client_id = clients.id limit 10")
-    @employee = Employee.find_by_sql("select employees.* from routes, employees where routes.employee_id=employees.id limit 1")
+    @addresses = Address.find_by_sql("select addresses.latitude, addresses.longitude, orders.id,orders.created_at,orders.status,clients.firstname, clients.lastname from orders, addresses, clients where orders.route_id="+@route.id.to_s+" and orders.address_id=addresses.id and orders.client_id = clients.id")
+    @employee = Employee.find_by_sql("select employees.* from routes, employees where routes.employee_id=employees.id and routes.id="+@route.id.to_s)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @route }
@@ -27,10 +27,20 @@ class RoutesController < ApplicationController
   def new
     @route = Route.new
     @addresses = Address.find_by_sql("select addresses.latitude,addresses.longitude,orders.id,orders.created_at,clients.firstname,clients.lastname from addresses, orders, clients where orders.address_id=addresses.id and orders.status=0 and orders.client_id = clients.id limit 10")
-    @employees = Employee.find_by_sql("select * from employees")
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @route }
+    @employees = Employee.find_by_sql("select * from employees e where e.id not in (select r.employee_id from routes r,orders o where r.employee_id=e.id and o.status=2 and o.route_id=r.id)")
+    if @employees.size>0
+      if @addresses.size>0
+        respond_to do |format|
+          format.html # new.html.erb
+          format.xml  { render :xml => @route }
+        end
+      else
+        flash[:error] = "There are no orders waiting for pickup"
+        redirect_to :controller => 'routes', :action => 'index'
+      end
+    else
+      flash[:error] = "There are no carriers available"
+      redirect_to :controller => 'routes', :action => 'index'
     end
   end
 

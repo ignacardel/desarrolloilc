@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  layout 'operationsmapmarker'
   # GET /companies
   # GET /companies.xml
   def index
