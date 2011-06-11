@@ -5,13 +5,13 @@
   <% if session[:employee] != nil %>
     <ul>
       <% if session[:role] == 1 %>
-        <li><%= link_to "Employee Administration", :controller => :employees, :action => :index %></li>
+        <li><%= link_to "Employee Management", :controller => :employees, :action => :index %></li>
       <%end%>
       <% if session[:role] == 1 || session[:role] == 2 %>
-        <li><%= link_to "Carriers"%></li>
+        <li><%= link_to "My Assigned Route", :controller => :routes, :action => :my_route%></li>
       <%end%>
       <% if session[:role] == 1 || session[:role] == 3%>
-        <li><%= link_to "Dispatchers"%></li>
+        <li><%= link_to "Route Management", :controller => :routes, :action => :index%></li>
       <%end%>
       <li><a href="/employees/<%= session[:employeeid] %>">Account</a></li>
     </ul>

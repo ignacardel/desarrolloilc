@@ -1,17 +1,20 @@
-<h1>My Operations</h1>
+<h1>Mail Boxes Operations</h1>
 <% if session[:role] == 1 %>
-  <p>As an administrator you can:</p>
+  <p>As an Administrator you can:</p>
   <p>- Manage routes</p>
-  <p>- Edit your account or manage other employees account</p>
+  <p>- Manage employees</p>
+  <p>- Notify an order's pickup</p>
+  <p>- Simulate an order's delivery</p>
 <%end%>
 <% if session[:role] == 2 %>
-  <p>As a carrier you can:</p>
-  <p>- Collect routes orders</p>
-  <p>- Edit your account</p>
+  <p>As a Carrier you can:</p>
+  <p>- View your assigned route</p>
+  <p>- Notify an order's pickup</p>
 <%end%>
 <% if session[:role] == 3%>
-  <p>As a dispatcher you can:</p>
-  <p>- Create routes</p>
-  <p>- Edit your account</p>
+  <p>As a Dispatcher you can:</p>
+  <p>- Manage routes</p>
+  <p>- Simulate an order's delivery </p>
 <%end%>
+<p><img src="http://news.van.fedex.com/files/images/Hub_10.jpg.preview.jpg"></img></p>
 

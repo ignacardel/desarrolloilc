@@ -1,4 +1,7 @@
 class RoutesController < ApplicationController
+  before_filter :require_dispatcher,:except => :my_route
+  before_filter :require_carrier,:only => :my_route
+  before_filter :require_admin,:except=> :my_route
   layout 'operationsmapmarker'
   # GET /routes
   # GET /routes.xml
@@ -42,7 +45,7 @@ class RoutesController < ApplicationController
   def new
     @route = Route.new
     @addresses = Address.find_by_sql("select addresses.latitude,addresses.longitude,orders.id,orders.created_at,clients.firstname,clients.lastname from addresses, orders, clients where orders.address_id=addresses.id and orders.status=0 and orders.client_id = clients.id limit 10")
-    @employees = Employee.find_by_sql("select * from employees e where e.id not in (select r.employee_id from routes r,orders o where r.employee_id=e.id and o.status=2 and o.route_id=r.id)")
+    @employees = Employee.find_by_sql("select * from employees e where (e.role=2 or e.role=1) and e.id not in (select r.employee_id from routes r,orders o where r.employee_id=e.id and o.status=2 and o.route_id=r.id)")
     if @employees.size>0
       if @addresses.size>0
         respond_to do |format|

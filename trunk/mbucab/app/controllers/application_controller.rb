@@ -85,6 +85,24 @@ class ApplicationController < ActionController::Base
       redirect_to :controller => 'home', :action => 'index'
     end
   end
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+
+  def require_admin
+    if(session[:role]!=1)
+      flash[:error]="Unauthorized access"
+      redirect_to :controller => 'operations', :action => 'index'
+    end
+  end
+  def require_dispatcher
+    if(session[:role]==2)
+      flash[:error]="Unauthorized access"
+      redirect_to :controller => 'operations', :action => 'index'
+    end
+  end
+
+  def require_carrier
+    if(session[:role]==3)
+      flash[:error]="Unauthorized access"
+      redirect_to :controller => 'operations', :action => 'index'
+    end
+  end
 end
