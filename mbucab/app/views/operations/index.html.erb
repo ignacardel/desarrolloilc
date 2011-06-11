@@ -1,2 +1,17 @@
-<h1>Operations#index</h1>
-<p>Find me in app/views/operations/index.html.erb</p>
+<h1>My Operations</h1>
+<% if session[:role] == 1 %>
+  <p>As an administrator you can:</p>
+  <p>- Manage routes</p>
+  <p>- Edit your account or manage other employees account</p>
+<%end%>
+<% if session[:role] == 2 %>
+  <p>As a carrier you can:</p>
+  <p>- Collect routes orders</p>
+  <p>- Edit your account</p>
+<%end%>
+<% if session[:role] == 3%>
+  <p>As a dispatcher you can:</p>
+  <p>- Create routes</p>
+  <p>- Edit your account</p>
+<%end%>
+

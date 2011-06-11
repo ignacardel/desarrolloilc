@@ -1,28 +1,20 @@
-<h1>Listing companies</h1>
-
+<h1><%= link_to image_tag("/images/new.png", :title => "New Company", :border=>0), new_company_path %>
+  Affiliated Companies</h1>
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Rif</th>
-    <th>Phone</th>
-    <th>Fax</th>
-    <th>Address</th>
-  </tr>
-
-<% @companies.each do |company| %>
-  <tr>
-    <td><%=h company.name %></td>
-    <td><%=h company.rif %></td>
-    <td><%=h company.phone %></td>
-    <td><%=h company.fax %></td>
-    <td><%=h company.address %></td>
-    <td><%= link_to 'Show', company %></td>
-    <td><%= link_to 'Edit', edit_company_path(company) %></td>
-    <td><%= link_to 'Destroy', company, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @companies.each do |company| %>
+    <tr>
+      <td><h2><%=h company.name %></h2></td>
+    </tr>
+    <tr>
+      <td>Rif: <%=h company.rif %></td>
+    </tr>
+    <tr>
+      <td>Phone no. <%=h company.phone %> / Fax no. <%=h company.fax %></td>
+    </tr>
+    <tr>
+      <td>Adress: <%=h company.address %></td>
+      <td><%= link_to image_tag("/images/good.png", :title => "Show Company", :border=>0), company %></td>
+      <td><%= link_to image_tag("/images/edit.png", :title => "Edit Company", :border=>0), edit_company_path(company) %></td>
+    </tr>
+  <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New company', new_company_path %>
