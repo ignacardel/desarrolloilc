@@ -13,6 +13,7 @@
       <% if session[:role] == 1 || session[:role] == 3%>
         <li><%= link_to "Dispatchers"%></li>
       <%end%>
+      <li><a href="/employees/<%= session[:employeeid] %>">Account</a></li>
     </ul>
   <%end%>
 

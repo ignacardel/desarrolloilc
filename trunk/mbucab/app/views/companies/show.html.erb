@@ -1,28 +1,26 @@
 <p>
-  <b>Name:</b>
-  <%=h @company.name %>
+<h2><%=h @company.name %></h2>
 </p>
-
 <p>
   <b>Rif:</b>
   <%=h @company.rif %>
 </p>
-
 <p>
   <b>Phone:</b>
   <%=h @company.phone %>
 </p>
-
 <p>
   <b>Fax:</b>
   <%=h @company.fax %>
 </p>
-
 <p>
   <b>Address:</b>
   <%=h @company.address %>
 </p>
-
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<br />
+<br />  
+<br />
+<br />
+<br />
+<%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), companies_path %>
+<%= link_to image_tag("/images/edit.png", :title => "Edit Company", :border=>0), edit_company_path(@company) %>

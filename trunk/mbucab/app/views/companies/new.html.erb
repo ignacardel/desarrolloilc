@@ -1,31 +1,32 @@
-<h1>New company</h1>
-
 <% form_for(@company) do |f| %>
   <%= f.error_messages %>
-
+  <table align="center" class="sample" border="0">
+    <tr>
+      <td colspan="2"><h3>New company</h3></td>
+    </tr>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :rif %></td>
+      <td><%= f.text_field :rif %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :phone %></td>
+      <td><%= f.text_field :phone %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :fax %></td>
+      <td><%= f.text_field :fax %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :address %></td>
+      <td><%= f.text_field :address %></td>
+    </tr>
+  </table>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :rif %><br />
-    <%= f.text_field :rif %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax %>
-  </p>
-  <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
+    <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), companies_path %>
+    <%= image_submit_tag("/images/new.png", :title => "Create Company", :border=>0) %>
   </p>
 <% end %>
-
-<%= link_to 'Back', companies_path %>

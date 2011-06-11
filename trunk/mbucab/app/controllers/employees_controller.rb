@@ -3,7 +3,7 @@
 #Clase que contiene todos los metodos para las operaciones con
 #empleados. Aun no se ha empleado.
 class EmployeesController < ApplicationController
-  before_filter :require_admin
+  before_filter :require_admin,:only => :index
   layout 'operationsmapmarker'
   # GET /employees
   # GET /employees.xml
