@@ -22,6 +22,21 @@ class RoutesController < ApplicationController
     end
   end
 
+  def my_route
+    @route=Route.last(:conditions => ["employee_id = ?", session[:employeeid]])
+    if (@route)
+      @addresses = Address.find_by_sql("select addresses.latitude, addresses.longitude, orders.id,orders.created_at,orders.status,clients.firstname, clients.lastname from orders, addresses, clients where orders.route_id="+@route.id.to_s+" and orders.address_id=addresses.id and orders.client_id = clients.id")
+      @employee = Employee.find_by_sql("select employees.* from employees where employees.id="+session[:employeeid].to_s)
+      respond_to do |format|
+        format.html # my_route.html.erb
+        format.xml  { render :xml => @route }
+      end
+    else
+      flash[:error] = "You have no assigned routes at the moment"
+      redirect_to :controller => 'operations', :action => 'index'
+    end
+  end
+
   # GET /routes/new
   # GET /routes/new.xml
   def new

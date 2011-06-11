@@ -1,0 +1,113 @@
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAZBe7uHI90ESk2XAmWRL3RxR6u04U0tImA3bfwZ3-HKdEno7z2xRk2YE6OkudtBX5qy0vLrgbf1DUCg"></script>
+<script type="text/javascript">
+  google.load("jquery", '1.3');
+google.load("maps", "2.x");
+</script>
+<html>
+  <% @count = 0 %>
+  <% @addresses.each do |address| %>
+    <input id="name<%=h @count%>" type="hidden" value="<%=h address.firstname %> <%=h address.lastname %> <% if address.status != "2" %>✔<% end -%>" />
+    <input id="date<%=h @count%>" type="hidden" value="<%=h address.created_at.year %>-<%=h address.created_at.month %>-<%=h address.created_at.day %>" />
+    <input id="orderId<%=h @count%>" type="hidden" value="<%=h address.id %>" />
+    <input id="longitude<%=h @count%>" type="hidden" value="<%=h address.longitude %>" />
+    <input id="latitude<%=h @count%>" type="hidden" value="<%=h address.latitude %>" />
+    <input id="status<%=h @count%>" type="hidden" value="<%=h address.status %>" />
+    <% @count = @count + 1 %>
+  <% end %>
+  <input id="count" type="hidden" value="<%=h @count%>" />
+</html>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+  var map = new GMap2($("#map").get(0));
+  map.enableScrollWheelZoom();
+  var venezuelan = new GLatLng(document.getElementById("latitude0").value,document.getElementById("longitude0").value);
+  map.setCenter(venezuelan, 11);
+  var markers = [];
+  var count = document.getElementById("count").value;
+  for (var i = 0; i < count; i++) {
+
+    var longitude = document.getElementById("longitude"+i).value;
+    var latitude = document.getElementById("latitude"+i).value;
+    var name = document.getElementById("name"+i).value;
+
+    var point = new GLatLng(latitude,longitude);
+    var Icon = new GIcon(G_DEFAULT_ICON);
+    if (document.getElementById("status"+i).value==2)
+      Icon.image="http://maps.google.com/mapfiles/ms/micons/red-dot.png";
+    else
+      Icon.image="http://maps.google.com/mapfiles/ms/micons/green-dot.png";
+    var sizeIcon = new GSize(32,32);
+    Icon.iconSize = sizeIcon;
+    marker = new GMarker(point,Icon);
+    marker.title = name;
+    marker.icon = "/images/car.png";
+    map.addOverlay(marker);
+    markers[i] = marker;
+  }
+  $(markers).each(function(i,marker){
+    $("<li />")
+    .html(document.getElementById("orderId"+i).value+" "+document.getElementById("date"+i).value+" "+document.getElementById("name"+i).value)
+    .click(function(){
+      displayPoint(marker, i);
+    })
+    .appendTo("#list");
+
+    GEvent.addListener(marker, "click", function(){
+      displayPoint(marker, i);
+    });
+  });
+
+$("#message").appendTo(map.getPane(G_MAP_FLOAT_SHADOW_PANE));
+
+function displayPoint(marker, index){
+
+
+  $("#message").hide();
+
+  var moveEnd = GEvent.addListener(map, "moveend", function(){
+    var markerOffset = map.fromLatLngToDivPixel(marker.getLatLng());
+    $("#message")
+    .fadeIn()
+    .css({ top:markerOffset.y, left:markerOffset.x });
+
+    GEvent.removeListener(moveEnd);
+  });
+  map.panTo(marker.getLatLng());
+}
+});
+</script>
+
+<style type="text/css" media="screen">
+  #map { float:left; width:400px; height:280px; }
+  #messages { position:absolute; padding:10px; background:#555; color:#fff; width:75px; }
+  #list { float:left; width:360px; background:#FFF; list-style:none; padding:0; }
+  #list li { padding:1px; }
+  #list li:hover { background:#06c; color:#fff; cursor:pointer;}
+</style>
+<h3>Route #<%=h @route.id %></h3>
+<div id="map"></div>
+<ul id="list">
+  <table border="0">
+    <tr>
+      <td><strong>#</strong></td>
+      <td>&nbsp;</td>
+      <td><strong>Date</strong></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><strong>Client</strong></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</ul>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<h1>Assigned Carrier: <%=h @employee[0].name %> <%=h @employee[0].lastname %></h1>
+<%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), operations_path %>
