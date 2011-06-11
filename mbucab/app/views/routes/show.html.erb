@@ -6,7 +6,7 @@ google.load("maps", "2.x");
 <html>
   <% @count = 0 %>
   <% @addresses.each do |address| %>
-    <input id="name<%=h @count%>" type="hidden" value="<%=h address.firstname %> <%=h address.lastname %> <% if address.status != "2" %>✔<% end -%>" />
+    <input id="name<%=h @count%>" type="hidden" value="<%=h address.firstname %> <%=h address.lastname %> <% if address.status.to_s != 2.to_s %>✔<% end %>" />
     <input id="date<%=h @count%>" type="hidden" value="<%=h address.created_at.year %>-<%=h address.created_at.month %>-<%=h address.created_at.day %>" />
     <input id="orderId<%=h @count%>" type="hidden" value="<%=h address.id %>" />
     <input id="longitude<%=h @count%>" type="hidden" value="<%=h address.longitude %>" />
