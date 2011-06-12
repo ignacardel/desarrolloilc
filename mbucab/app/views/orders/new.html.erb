@@ -56,14 +56,14 @@
 
   <%= render "#{@order.current_step}_step", :f => f %>
 
+
   <p>
+    <% if !(@order.first_step?) %> <input src="/images/back.png" id="order_submit" title="Back" name="back_button" type="image" value="Back" /><% end %>
+    <%= link_to image_tag("/images/delete.png", :title => "Cancel", :border=>0), orders_path %>
     <%  if  @order.current_step != "confirmation" %>
-      <%= f.submit 'Continue' %>
+      <%= image_submit_tag("/images/forward.png", :title => "Continue", :border=>0) %>
     <% else  %>
-      <%= f.submit 'Confirm Order' %>
+      <%= image_submit_tag("/images/good.png", :title => "Confirm Order", :border=>0) %>
     <% end %>
-    <%= f.submit 'Back' , :name => "back_button" unless @order.first_step? %>
   </p>
 <% end %>
-
-<%= link_to 'Cancel', orders_path %>
