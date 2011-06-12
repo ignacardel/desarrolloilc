@@ -19,13 +19,17 @@ ActionController::Routing::Routes.draw do |map|
 
   map.code '/code', :controller => 'creditcards', :action => 'code'
 
-  map.code '/my_route', :controller => 'routes', :action => 'my_route'
+  map.my_route '/my_route', :controller => 'routes', :action => 'my_route'
+
+  map.simulation '/simulation',:controller => 'orders', :action =>'simulation'
 
   map.xml 'support_request' , :controller => 'web_service', :action => 'support_request', :via => 'post'
 
   map.xml 'pickup/:id' , :controller => 'orders', :action => 'pickup', :via => 'get'
 
   map.track '/track/:trackid' , :controller => 'orders', :action => 'track', :via=> 'get'
+
+  map.simulate '/simulate/:id' , :controller => 'orders', :action => 'simulate', :via=> 'get'
   
   map.operations '/operations', :controller => 'operations'
   # The priority is based upon order of creation: first created -> highest priority.

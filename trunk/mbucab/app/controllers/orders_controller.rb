@@ -3,8 +3,10 @@
 #Clase que contiene todos los metodos para las operaciones con
 #ordenes de servicio. Ej: Crear, Modificar, Eliminar, Mostrar.
 class OrdersController < ApplicationController
-  before_filter :require_login,:except => [:show,:pickup,:notify,:track]
-  layout 'standardmapmarker'
+  before_filter :require_login,:except => [:show,:pickup,:notify,:track,:simulate,:simulation]
+  before_filter :require_admin,:only => [:simulate,:simulation]
+  layout 'standardmapmarker',:except => [:simulation]
+  layout 'operationsmapmarker', :only => [:simulation]
 
   require 'xmlsimple'
   
@@ -285,6 +287,19 @@ class OrdersController < ApplicationController
 
 
     redirect_to :controller => 'orders', :action => 'notification' ,:id =>1
+  end
+
+  def simulation
+    @orders = Order.all(:conditions => [" status = ?", 1 ])
+    if @orders.size>0
+      respond_to do |format|
+        format.html # simulation.html.erb
+        format.xml  { render :xml => @orders }
+      end
+    else
+      flash[:error] = "There are no orders available for simulation"
+      redirect_to :controller => 'operations', :action => 'index'
+    end
   end
 
   def simulate
