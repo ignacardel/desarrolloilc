@@ -5,8 +5,7 @@
 class OrdersController < ApplicationController
   before_filter :require_login,:except => [:show,:pickup,:notify,:track,:simulate,:simulation]
   before_filter :require_admin,:only => [:simulate,:simulation]
-  layout 'standardmapmarker',:except => [:simulation]
-  layout 'operationsmapmarker', :only => [:simulation]
+  layout :choose_layout
 
   require 'xmlsimple'
   
@@ -324,6 +323,17 @@ class OrdersController < ApplicationController
       flash[:error] = "Order #" + params[:id]+ " not found!"
     end
     redirect_to :controller => 'operations', :action => 'index'
+  end
+  
+   private
+
+  def choose_layout
+    case action_name
+    when "simulation"
+      "operationsmapmarker"
+    else
+      "standardmapmarker"
+    end
   end
   
 end
