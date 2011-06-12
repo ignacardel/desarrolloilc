@@ -2,10 +2,10 @@
   <%= f.label :description %><br />
   <%= f.text_field :description %><br />
   <%= f.label(:weight,"Weight in kg") %><br />
-  <%= f.text_field :weight %><br />
+  <%= f.text_field :weight %>
   <% if @cont != nil %>
     <%= f.hidden_field :_destroy %>
-    <%= link_to_function "remove package", "remove_fields(this)" %>
+   <a href="#" onclick="remove_fields(this)"><img src="http://icons.iconarchive.com/icons/gakuseisean/ivista/24/Minus-icon.png" title="Remove package"></img></a>
   <%  end %>
   <%  @cont = 1 %>
 <%= f.hidden_field :price, :value => 0 %>
