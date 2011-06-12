@@ -32,6 +32,7 @@
     <td align="center">$ <%=h total + (total * 0.1 )%></td>
     <td align="center">&nbsp;</td>
     <td align="center"><%= link_to image_tag("/images/good.png", :title => "Show Order", :border=>0), order %></td>
+    <td align="center"><a href="/track/<%=h order.id %>"><img alt="Zoom-icon" border="0"src="/images/Zoom-icon.png" title="Track"/></a></td>
   </tr>
 <% end %>
 </table>
