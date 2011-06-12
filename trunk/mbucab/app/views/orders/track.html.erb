@@ -1,56 +1,55 @@
-<p>
-<h1>Order Details</h1>
-
-<p>
-  <b>Order #:</b>
-  <%=h @order.id %>
-</p>
-
-<p>
-  <b>Order Placed:</b>
-  <%=h @order.created_at %>
-</p>
-
-<p>
-  <b>Delivery address:</b>
-  <%=h @order.fulladdress %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%=h @order.actual_status %>
-</p>
-
-
-<% if @order.status == 1 %>
-  <p>
-    <b>Detailed Results</b>
-  </p>
-  <p>
-    - <%=h @address1%><br/>
-    - <%=h @address2%><br/>
-  </p>
-<% end %>
-
-<% if @order.status == 2 %>
-  <p>
-    <b>Detailed Results</b>
-  </p>
-  <p>
-    - <%=h @address1%><br/>
-  </p>
-<% end %>
-
-<% if @order.status == 3 %>
-  <p>
-    <b>Detailed Results</b>
-  </p>
-  <p>
-    - <%=h @address1%><br/>
-    - <%=h @address2%><br/>
-    - <%=h @address3%><br/>
-  </p>
-<% end %>
+<h1 align="center">Track Shipments</h1>
+<table align="center" class="sample"  border="0">
+  <tr>
+    <td colspan="2"><h3>Detailed Results</h3></td>
+  </tr>
+  <tr>
+    <td>Tracking number: </td>
+    <td><%=h @order.id %></td>
+  </tr>
+  <tr>
+    <td>Ship date:</td>
+    <td><%=h @order.created_at %></td>
+  </tr>
+  <tr>
+    <td>Delivery address:</td>
+    <td><%=h @order.fulladdress %></td>
+  </tr>
+  <tr>
+    <td>Status:</td>
+    <td>- <%=h @order.actual_status %></td>
+  </tr>
+  <% if @order.status == 1 %>
+    <tr>
+      <td>Detailed Results</td>
+      <td>- <%=h @address1%></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>- <%=h @address2%></td>
+    </tr>
+  <% end %>
+  <% if @order.status == 2 %>
+    <tr>
+      <td>Detailed Results</td>
+      <td>- <%=h @address1%></td>
+    </tr>
+  <% end %>
+  <% if @order.status == 3 %>
+    <tr>
+      <td>Detailed Results</td>
+      <td>- <%=h @address1%></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>- <%=h @address2%></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>- <%=h @address3%></td>
+    </tr>
+  <% end %>
+</table>
 <br/>
 <br/>
 <% if session[:id] != nil %>
@@ -58,4 +57,4 @@
 <%else%>
   <a href="/" ><img src="/images/back.png" title="Back" </img></a>
 <% end %>
-</p>
+<a href=javascript:window.print();><img src="http://icons.iconarchive.com/icons/iconshock/real-vista-text/32/print-icon.png" title="Printable Version" </img></a>
