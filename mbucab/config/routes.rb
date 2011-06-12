@@ -24,6 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   map.xml 'support_request' , :controller => 'web_service', :action => 'support_request', :via => 'post'
 
   map.xml 'pickup/:id' , :controller => 'orders', :action => 'pickup', :via => 'get'
+
+  map.track '/track/:trackid' , :controller => 'orders', :action => 'track', :via=> 'get'
   
   map.operations '/operations', :controller => 'operations'
   # The priority is based upon order of creation: first created -> highest priority.

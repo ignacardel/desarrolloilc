@@ -23,34 +23,39 @@
 
 
 <% if @order.status == 1 %>
-<p>
-  <b>Detailed Results</b>
-</p>
-<p>
-  - <%=h @address1%><br/>
-  - <%=h @address2%><br/>
-</p>
+  <p>
+    <b>Detailed Results</b>
+  </p>
+  <p>
+    - <%=h @address1%><br/>
+    - <%=h @address2%><br/>
+  </p>
 <% end %>
 
 <% if @order.status == 2 %>
-<p>
-  <b>Detailed Results</b>
-</p>
-<p>
-  - <%=h @address1%><br/>
-</p>
+  <p>
+    <b>Detailed Results</b>
+  </p>
+  <p>
+    - <%=h @address1%><br/>
+  </p>
 <% end %>
 
 <% if @order.status == 3 %>
-<p>
-  <b>Detailed Results</b>
-</p>
-<p>
-  - <%=h @address1%><br/>
-  - <%=h @address2%><br/>
-  - <%=h @address3%><br/>
-</p>
+  <p>
+    <b>Detailed Results</b>
+  </p>
+  <p>
+    - <%=h @address1%><br/>
+    - <%=h @address2%><br/>
+    - <%=h @address3%><br/>
+  </p>
 <% end %>
-
-
+<br/>
+<br/>
+<% if session[:id] != nil %>
+  <a href="/orders/" ><img src="/images/back.png" title="Back" </img></a>
+<%else%>
+  <a href="/" ><img src="/images/back.png" title="Back" </img></a>
+<% end %>
 </p>
