@@ -4,10 +4,9 @@
   <% if session[:user] != nil %>
     <ul>
       <li><a href="/home/index" accesskey="1" title="">Home</a></li>
-      <li><a href="/orders" accesskey="2" title="">Orders</a></li>
-      <li><a href="/addresses" accesskey="3" title="">Address Book</a></li>
-      <li><a href="/creditcards" accesskey="4" title="">Payments</a></li>
-      <li><a href="/clients/<%= session[:id] %>" accesskey="5" title="">Account</a></li>
+      <li><a href="/orders" accesskey="2" title="">My Shipment Orders</a></li>
+      <li><a href="/addresses" accesskey="3" title="">My Address Book</a></li>
+      <li><a href="/creditcards" accesskey="4" title="">My Credit Cards</a></li>
     </ul>
   <% end %>
 </div>
@@ -22,7 +21,7 @@
         </ul>
       <% else %>
         <ul>
-          <li><%= session[:user] %></li>
+          <li align="center"><a href="/clients/<%= session[:id] %>"><%= session[:user] %></li>
           <li align="center"><a href="#" onclick="openlogout()"><img src="/images/logout.png" width="40px" height="40px" title="Logout"></img></a></li>
         </ul>
       <% end %>
