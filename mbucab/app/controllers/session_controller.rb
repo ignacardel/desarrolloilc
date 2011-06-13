@@ -29,6 +29,7 @@ class SessionController < ApplicationController
       client= Client.find(:first, :conditions => [" account = ?", @email ])
 
       if client
+        logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Customer '+client.account+' has succesfully logged in! at '+Time.now.to_s
         if client.active == 0
           client.active = 1;
           client.update_attributes(params[:client])
@@ -42,12 +43,11 @@ class SessionController < ApplicationController
           session[:id]= client.id
           session[:type] = "client"
           flash[:notice] = client.firstname + " " + client.lastname + " (" + session[:user] + ") has logged in!"
-          logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Failed customer login attempt from '+@email+' at '+Time.now.to_s
           redirect_to :controller => 'home', :action => 'index'
         end
       else
         flash[:error] = "\"" + @email + "\" is not in registered!"
-        logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Customer '+client.account+' has succesfully logged in! at '+Time.now.to_s
+        logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Failed customer login attempt from '+@email+' at '+Time.now.to_s
         redirect_to :controller => 'home', :action => 'index'
       end
     end
