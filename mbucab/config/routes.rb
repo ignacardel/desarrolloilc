@@ -21,6 +21,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.my_route '/my_route', :controller => 'routes', :action => 'my_route'
 
+  map.index_support_request '/index_support_request', :controller => 'orders', :action => 'index_support_request'
+
+  map.new_support_request '/new_support_request', :controller => 'orders', :action => 'new_support_request'
+
   map.simulation '/simulation',:controller => 'orders', :action =>'simulation'
 
   map.xml 'support_request' , :controller => 'web_service', :action => 'support_request', :via => 'post'

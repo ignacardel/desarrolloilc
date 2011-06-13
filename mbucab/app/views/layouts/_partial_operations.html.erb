@@ -11,7 +11,7 @@
         <li><%= link_to "Delivery Simulation", :controller => :orders, :action => :simulation %></li>
       <%end%>
       <% if session[:role] == 1 %>
-        <li><a href="/orders/index_support_request/1" accesskey="1" title="">Support Request</a></li>
+        <li><%= link_to "Support Request", :controller => :orders, :action => :index_support_request %></li>
       <%end%>
       <% if session[:role] == 1 || session[:role] == 3%>
         <li><%= link_to "Routes", :controller => :routes, :action => :index%></li>
