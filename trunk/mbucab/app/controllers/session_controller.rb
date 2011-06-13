@@ -42,10 +42,12 @@ class SessionController < ApplicationController
           session[:id]= client.id
           session[:type] = "client"
           flash[:notice] = client.firstname + " " + client.lastname + " (" + session[:user] + ") has logged in!"
+          logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Failed customer login attempt from '+@email+' at '+Time.now.to_s
           redirect_to :controller => 'home', :action => 'index'
         end
       else
         flash[:error] = "\"" + @email + "\" is not in registered!"
+        logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Customer '+client.account+' has succesfully logged in! at '+Time.now.to_s
         redirect_to :controller => 'home', :action => 'index'
       end
     end
@@ -55,6 +57,7 @@ class SessionController < ApplicationController
   #Metodo que finaliza la sesion del usuario cuando este hace logout
   def client_logout
     #    if session[:user]!=nil
+    logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Customer '+session[:user]+' has succesfully logged out! at '+Time.now.to_s
     session[:user] = nil
     session[:type] = nil
     session[:id] = nil
@@ -66,6 +69,7 @@ class SessionController < ApplicationController
 
   #Metodo que finaliza la sesion del usuario cuando este desactiva su cuenta
   def client_deactivate
+    logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Customer '+session[:user]+' has successfully deactivated his/her account! at '+Time.now.to_s
     session[:user] = nil
     session[:type] = nil
     session[:id] = nil
@@ -90,9 +94,10 @@ class SessionController < ApplicationController
       session[:role]=employee.role
       flash[:notice] = employee.name + " " + employee.lastname + " (" + session[:employee] + ") has logged in!"
       redirect_to :controller => 'operations', :action => 'index'
-     
+      logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Employee '+employee.account+' has succesfully logged in! at '+Time.now.to_s
     else
       flash[:error] = "Login failed"
+      logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Failed employee login attempt from '+params[:account]+' at '+Time.now.to_s
       redirect_to :controller => 'operations', :action => 'index'
     end
 
@@ -100,6 +105,7 @@ class SessionController < ApplicationController
 
   #Metodo que finaliza la sesion del empleado cuando este hace logout
   def employee_logout
+    logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Employee '+session[:employee]+' has succesfully logged out! at '+Time.now.to_s
     session[:employee] = nil
     session[:employeeid] = nil
     session[:role] = nil
