@@ -30,23 +30,22 @@ class WebServiceController < ApplicationController
   end
 
 
-  def pruebapost #manda POST
+  def perra #manda POST
+    @a=  params[:order_support_request_id].to_s+params[:company_support_request_id].to_s
+    data = "xml"#data variable donde va el xml
 
-    data = "xml"
-    #data variable donde va el xml
-
-    uri = URI.parse("http://192.168.1.2:3000/web_service/support_request")
-    http = Net::HTTP.new(uri.host, uri.port)
-    headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
-    post = Net::HTTP::Post.new(uri.path, headers)
-    response = http.request post, data
-
-      xmlresponse = Hash.from_xml(response.body)
-      case response
-      when Net::HTTPCreated; @a = "Created a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-      when Net::HTTPSuccess; @a = "succes a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-      else response.error!   @a = "error"
-      end
+#    uri = URI.parse("http://192.168.1.2:3000/web_service/support_request")
+#    http = Net::HTTP.new(uri.host, uri.port)
+#    headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
+#    post = Net::HTTP::Post.new(uri.path, headers)
+#    response = http.request post, data
+#
+#      xmlresponse = Hash.from_xml(response.body)
+#      case response
+#      when Net::HTTPCreated; @a = "Created a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
+#      when Net::HTTPSuccess; @a = "succes a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
+#      else response.error!   @a = "error"
+#      end
 
 
 

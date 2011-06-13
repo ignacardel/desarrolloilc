@@ -22,6 +22,30 @@ class OrdersController < ApplicationController
     end
   end
 
+  # GET /orders
+  # GET /orders.xml
+  #Metodo que se encarga de mostrar todas las ordenes
+  def index_support_request
+    @orders = Order.find_by_sql("select orders.*,companies.name FROM  orders, companies where (orders.order_type=1 or orders.order_type=2 or orders.order_type=3) and orders.company_id = companies.id")
+    respond_to do |format|
+      format.html # index_support_request.html.erb
+      format.xml  { render :xml => @orders }
+    end
+  end
+
+  # GET /orders/new
+  # GET /orders/new.xml
+  # Renderiza el formulario para crear una nueva orden
+  def new_support_request
+    @orders = Order.find_by_sql("Select * from orders where status=0 and company_id is null")
+    @companies = Company.find_by_sql("Select * from companies")
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @order }
+    end
+  end
+
   # GET /orders/1
   # GET /orders/1.xml
   # Renderiza la vista para mostrar toda la informacion de una orden de un usuario.
@@ -325,11 +349,11 @@ class OrdersController < ApplicationController
     redirect_to :controller => 'operations', :action => 'index'
   end
   
-   private
+  private
 
   def choose_layout
     case action_name
-    when "simulation"
+    when "simulation","index_support_request","new_support_request"
       "operationsmapmarker"
     else
       "standardmapmarker"

@@ -1,0 +1,35 @@
+<% form_tag :controller => "web_service", :action => "perra",:html => {:id => 'main_input' }, :method => "get" do -%>
+  <table align="center" class="sample" border="0">
+    <tr>
+      <td colspan="4"><h3>New Support Request</h3></td>
+    </tr>
+    <tr>
+      <td>Company</td>
+      <td>
+        <select id="company_support_request_id" name="company_support_request_id">
+          <% @companies.each do |company|  %>
+            <option value="<%=h company.id%>"><%=h company.name%></option>
+          <% end %>
+        </select>
+      </td>
+      <td>Order</td>
+      <td>
+        <select id="order_support_request_id" name="order_support_request_id">
+          <% @orders.each do |order|  %>
+            <option value="<%=h order.id%>"><%=h order.id%> <%=h order.created_at.year %>-<%=h order.created_at.month %>-<%=h order.created_at.day %> </option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <p>
+    <a href="/orders/index_support_request/1" ><img src="/images/back.png" title="Back" </img></a>
+    <%= image_submit_tag("/images/new.png", :title => "Create New Support Request", :border=>0) %>
+  </p>
+<% end %>
