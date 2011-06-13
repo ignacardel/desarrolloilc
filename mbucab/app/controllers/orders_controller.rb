@@ -3,8 +3,8 @@
 #Clase que contiene todos los metodos para las operaciones con
 #ordenes de servicio. Ej: Crear, Modificar, Eliminar, Mostrar.
 class OrdersController < ApplicationController
-  before_filter :require_login,:except => [:show,:pickup,:notify,:track,:simulate,:simulation]
-  before_filter :require_admin,:only => [:simulate,:simulation]
+  before_filter :require_login,:except => [:show,:pickup,:notify,:track,:simulate,:simulation,:index_support_request,:new_support_request]
+  before_filter :require_admin,:only => [:simulate,:simulation,:index_support_request,:new_support_request]
   layout :choose_layout
 
   require 'xmlsimple'
