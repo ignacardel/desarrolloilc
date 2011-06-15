@@ -8,6 +8,7 @@ one:
   surname: MyString
   birthday: 2011-04-15
   phone: 1
+  active: 1
 
 two:
   account: MyString
@@ -17,3 +18,17 @@ two:
   surname: MyString
   birthday: 2011-04-15
   phone: 1
+  active: 1
+
+usuario:
+  id: 1
+  account: usuario@prueba.com
+  firstname: usu
+  middlename: ario
+  lastname: pru
+  surname: eba
+  birthday: 2011-04-15
+  phone: 1234567890
+  active: 1
+
+

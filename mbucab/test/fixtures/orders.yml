@@ -3,7 +3,6 @@
 one:
   date: 2011-04-16 13:56:05
   recipient: MyString
-  fulladdress: MyString
   longitude: 1.5
   latitude: 1.5
   status: 1
@@ -12,11 +11,19 @@ one:
   address_id: 1
   client_id: 1
   creditcard_id: 1
+  street: calle
+  name: nombre
+  number: 1
+  zone: zona
+  city: ciudad
+  country: pais
+  zip: 1111
+  extra: 10
 
-two:
+testorder:
+  id: 1
   date: 2011-04-16 13:56:05
-  recipient: MyString
-  fulladdress: MyString
+  recipient: destinatario prueba
   longitude: 1.5
   latitude: 1.5
   status: 1
@@ -25,3 +32,11 @@ two:
   address_id: 1
   client_id: 1
   creditcard_id: 1
+  street: calle
+  name: nombre
+  number: 1
+  zone: zona
+  city: ciudad
+  country: pais
+  zip: 1111
+  extra: 10
