@@ -4,58 +4,38 @@ class WebServiceController < ApplicationController
     require 'net/https'
     require 'open-uri'
 
-  def show
-    respond_to do |format|
-      format.xml #show.xml.builder
-    end
-  end
 
+    skip_before_filter :check_request_exception # filter the plugin installed
 
-    def prueba #solicita GET
-
-    #    begin
-    #      xml_result_set = Net::HTTP.get_response(URI.parse("http://192.168.1.100:3000/personas.xml"))
-    #    rescue Exception => e
-    #      puts 'Connection error: ' + e.message
-    #    end
-
-    data = open("http://localhost:3001/recursos/show/5.xml").read
-
-    #@a = xml_result_set.body
-
-    @a = data
-    respond_to do |format|
-      format.html
-    end
-  end
-
+  
 
   def perra #manda POST
-    @a=  params[:order_support_request_id].to_s+params[:company_support_request_id].to_s
-    data = "xml"#data variable donde va el xml
-
-#    uri = URI.parse("http://192.168.1.2:3000/web_service/support_request")
-#    http = Net::HTTP.new(uri.host, uri.port)
-#    headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
-#    post = Net::HTTP::Post.new(uri.path, headers)
-#    response = http.request post, data
-#
-#      xmlresponse = Hash.from_xml(response.body)
-#      case response
-#      when Net::HTTPCreated; @a = "Created a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-#      when Net::HTTPSuccess; @a = "succes a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-#      else response.error!   @a = "error"
-#      end
-
-
+    ord_id = params[:order_support_request_id]
+    comp = params[:company_support_request_id]
+    u = Ucab.new
+    @a = u.solicitar_servicio(ord_id, comp)
 
     render "show"
   end
 
+
   def track_id
 
+
+#    @error = true
+#    if re = request_exception
+#      re_name = re.name.to_s
+#      if re_name == "REXML::ParseException"
+#        xml = nil
+#      else
+#        xml = params[:support_request]
+#      end
+#    end
+
+
+
     @order = Order.first(:conditions => ["id =?", params[:id]])
-    if @order
+    if @order and params[:id] != nil
       # hacer que solo muestre el detail dependiendo del status
 
       a0 = "Assigned for Pickup"
@@ -85,50 +65,102 @@ class WebServiceController < ApplicationController
         @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
       end
 
+      @error = false
       respond_to do |format|
-        format.xml 
+        format.xml { render :status => 200 }
       end
 
-      # cambiar aqui q cuando no se encutre muestra en xml en vez de la pagina index con not found
     else
-      flash[:error] = "Order not found"
-      redirect_to :controller => 'home', :action => 'index'
+
+      if params[:id] == nil
+       @mensaje = "ID param is missing!"
+      else
+       @mensaje = "Order "+ params[:id] + " not found!"
+      end
+
+      @error = true
+      respond_to do |format|
+        format.xml{ render :status => 500 }
+      end
     end
   end
 
 
   def support_request  # revisar si el cliente ya existe para no crearlo de nuevo y verificar los datos.
-    xml = params[:support_request]
-
-    @client = Client.new(xml["client"])
-    @client.active=1
-    @client.save
-
-    @creditcard = Creditcard.new(xml["creditcard"])
-    @creditcard.client_id=@client.id
-    @creditcard.save
-
-    @address = Address.new(xml["address"])
-    @address.client_id=@client.id
-    @address.save
-
-    @order = Order.new(xml["order"])
-    @order.client_id = @client.id
-    @order.address_id = @address.id
-    #@order.company_id
-    @order.creditcard_id = @creditcard.id
-    @order.status = 0
-    @order.save
-
-    @package = Package.new(xml["package"])
-    @package.order_id = @order.id
-    @package.price = @package.weight * 5
-    @package.save
-
-    respond_to do |format|
-        format.xml {render :status => :created}
+    
+    @error = true
+    if re = request_exception
+      re_name = re.name.to_s
+      if re_name == "REXML::ParseException"
+        xml = nil
+      else
+        xml = params[:support_request]
+      end
     end
+      if xml != nil
+        @client = Client.new(xml["client"])
+        @client.active=1
+        Order.transaction do
+          if @client.save
+              @creditcard = Creditcard.new(xml["creditcard"])
+              @creditcard.client_id=@client.id
+              if @creditcard.save
+                  @address = Address.new(xml["address"])
+                  @address.client_id=@client.id
+                  if @address.save
+                      @order = Order.new(xml["order"])
+                      @order.client_id = @client.id
+                      @order.address_id = @address.id
+                      @order.creditcard_id = @creditcard.id
+                      @order.status = 0
+                      if @order.save
+                          @package = Package.new(xml["package"])
+                          @package.order_id = @order.id
+                          @package.price = @package.weight * 5
+                          if @package.save
+                              @package.price = @package.weight * 5
+                              @package.save
+                              if xml["total"] != nil and xml["total"].to_f > 0
+                                @t = xml["total"]
+                                @ourtotal = @package.price + ( @package.price * 0.1 )
+                                @total = @t.to_f + @ourtotal
+                                @error = false
+                              end
+                          end
+                      end
+                  end
+              end
+          end
+          if @error == true
+             raise ActiveRecord::Rollback
+          end
+        end
+
+     end
+
+     respond_to do |format|
+       if @error == true
+         format.xml {render :status => 500}
+       else
+         format.xml {render :status => :created}
+       end
+     end
+    
   end
 
+
+  def support_request_format
+
+    if re = request_exception 
+      r = re.name.to_s
+      if r == "REXML::ParseException"
+      #puts "fue un error de tipo " + r
+      end    
+    end
+    respond_to do |format|
+      format.xml{ render :status => 200 }
+    end
+   
+  end
 
 end

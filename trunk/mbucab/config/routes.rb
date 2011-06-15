@@ -29,6 +29,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.xml 'support_request' , :controller => 'web_service', :action => 'support_request', :via => 'post'
 
+  map.xml 'track_id/:id' , :controller => 'web_service', :action => 'track_id', :via => 'get'
+
   map.xml 'pickup/:id' , :controller => 'orders', :action => 'pickup', :via => 'get'
 
   map.track '/track/:trackid' , :controller => 'orders', :action => 'track', :via=> 'get'

@@ -1,0 +1,1446 @@
+# Logfile created on Sat Jun 11 20:13:07 -0430 2011  [4;36;1mOrder Load (0.4ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mOrder Load (0.5ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mOrder Load (0.5ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mOrder Load (0.6ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mOrder Load (0.6ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mOrder Load (0.6ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;35;1mOrder Create (0.4ms)[0m   [0mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 01:06:01', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 01:06:01', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 1, 1, NULL, NULL, 1.5, 1, NULL, NULL, 1, NULL)[0m
+  [4;36;1mOrder Load (0.4ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 980190963) [0m
+  [4;35;1mOrder Update (0.1ms)[0m   [0mUPDATE "orders" SET "updated_at" = '2011-06-12 01:06:01', "recipient" = 'recipient nuevo' WHERE "id" = 980190963[0m
+  [4;36;1mOrder Destroy (0.1ms)[0m   [0;1mDELETE FROM "orders" WHERE "id" = 980190963[0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:29:14) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:33:35) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:41:21) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:42:45) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (1.1ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:44:13) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:45:19) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:45:53) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:46:47) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:47:09) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:48:16) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:50:04) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:51:07) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:51:48) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:54:51) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:55:52) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:56:36) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:57:09) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 21:57:37) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-11 22:02:43) [GET]
+  Parameters: {"get"=>{"id"=>1}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/show?get%5Bid%5D=1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:02:32) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:04:23) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:05:48) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:06:48) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:10:59) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:15:02) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:16:04) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:16:28) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:18:05) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:18:20) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:18:42) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:20:51) [GET]
+  Parameters: {"ido"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/show?ido=1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:22:27) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:27:51) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:28:25) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:37:51) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 02:38:14) [GET]
+  Parameters: {"id"=>"2"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/2]
+
+
+Processing ClientsController#destroy (for 0.0.0.0 at 2011-06-12 14:03:57) [DELETE]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#destroy (for 0.0.0.0 at 2011-06-12 14:05:00) [DELETE]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 14:08:09) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 18:46:02', '2011-06-12 18:46:02', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 980190963) [0m
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 18:46:40', '2011-06-12 18:46:40', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 980190963) [0m
+  [4;35;1mClient Update (0.1ms)[0m   [0mUPDATE "clients" SET "updated_at" = '2011-06-12 18:46:40', "account" = 'nuevo@correo.com' WHERE "id" = 980190963[0m
+  [4;36;1mClient Destroy (0.1ms)[0m   [0;1mDELETE FROM "clients" WHERE "id" = 980190963[0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 14:18:49) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 14:22:42) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 14:26:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (4.6ms)
+Completed in 65ms (View: 61, DB: 3) | 200 OK [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 14:27:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (4.1ms)
+Completed in 15ms (View: 12, DB: 3) | 200 OK [http://test.host/clients/1]
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 14:28:01) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 14:46:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.5ms)
+Completed in 13ms (View: 10, DB: 4) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:11:33) [GET]
+  Parameters: {"client"=>#<Client id: nil, account: "usuario@prueba.com", firstname: "usu", middlename: "ario", lastname: "pru", surname: "eba", birthday: "2011-04-15", phone: 1234567890, created_at: nil, updated_at: nil, active: nil>}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/clients/show?client=]
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:11:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mClient Load (0.2ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.3ms)
+Completed in 12ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:11:54) [POST]
+  Parameters: {"client"=>#<Client id: nil, account: "usuario@prueba.com", firstname: "usu", middlename: "ario", lastname: "pru", surname: "eba", birthday: "2011-04-15", phone: 1234567890, created_at: nil, updated_at: nil, active: nil>}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:11:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mClient Load (0.8ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.5ms)
+Completed in 12ms (View: 10, DB: 4) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:15:32) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 19:45:32', '2011-06-12 19:45:32', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 6ms (DB: 3) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:15:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.2ms)
+Completed in 11ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:17:30) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 19:47:30', '2011-06-12 19:47:30', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 7ms (DB: 3) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:17:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.1ms)
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:23:46) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 19:53:46', '2011-06-12 19:53:46', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 6ms (DB: 3) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:23:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.2ms)
+Completed in 11ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:24:32) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 19:54:32', '2011-06-12 19:54:32', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 7ms (DB: 3) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:24:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.6ms)
+Completed in 11ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:25:32) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 19:55:32', '2011-06-12 19:55:32', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 7ms (DB: 3) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:25:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.0ms)
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.6ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:29:51) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 19:59:51', '2011-06-12 19:59:51', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 6ms (DB: 3) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:29:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.1ms)
+Completed in 11ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:34:28) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:04:28', '2011-06-12 20:04:28', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 7ms (DB: 4) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:34:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.4ms)
+Completed in 11ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-12 15:44:12) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:14:12', '2011-06-12 20:14:12', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 6ms (DB: 4) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-12 15:44:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.1ms)
+Completed in 11ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+
+
+Processing ClientsController#support_request (for 0.0.0.0 at 2011-06-12 15:49:52) [POST]
+  Parameters: {"support_request"=>"<support_request>\n<client>\n<account>prueba@gmail.com</account>\n<birthday>1988-05-12</birthday>\n<firstname>prueba</firstname>\n<lastname>PRUEBA</lastname>\n<middlename></middlename>\n<phone>4142542019</phone>\n<surname></surname>\n</client>\n<address>\n<city>Caracas</city>\n<country>Venezuela</country>\n<latitude>10.4493563318414</latitude>\n<longitude>-66.8719526074219</longitude>\n<name>edi prueba</name>\n<nickname>Mi Casa</nickname>\n<number>1</number>\n<street>calle prueba</street>\n<zip>1023</zip>\n<zone>PRUEBAS</zone>\n</address>\n<creditcard>\n<code>111</code>\n<expdate>2013-05-01</expdate>\n<name>Senor Prueba</name>\n<number>5555555555555555</number>\n</creditcard>\n<order>\n<city>Caracas</city>\n<country>Venezuela</country>\n<latitude>10.4713014381042</latitude>\n<longitude>-66.9612165234375</longitude>\n<name>Edf. Paez</name>\n<number>0</number>\n<recipient>Marco Velasquez</recipient>\n<street>Calle La Deliciosa</street>\n<zip>1080</zip>\n<zone>Montalban III</zone>\n<extra>10</extra>\n</order>\n<package>\n<description>Kit del Caracas FC</description>\n<weight>3.0</weight>\n</package>\n</support_request>"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 20) | 302 Found [http://test.host/clients/support_request?support_request=%3Csupport_request%3E%0A%3Cclient%3E%0A%3Caccount%3Eprueba%40gmail.com%3C%2Faccount%3E%0A%3Cbirthday%3E1988-05-12%3C%2Fbirthday%3E%0A%3Cfirstname%3Eprueba%3C%2Ffirstname%3E%0A%3Clastname%3EPRUEBA%3C%2Flastname%3E%0A%3Cmiddlename%3E%3C%2Fmiddlename%3E%0A%3Cphone%3E4142542019%3C%2Fphone%3E%0A%3Csurname%3E%3C%2Fsurname%3E%0A%3C%2Fclient%3E%0A%3Caddress%3E%0A%3Ccity%3ECaracas%3C%2Fcity%3E%0A%3Ccountry%3EVenezuela%3C%2Fcountry%3E%0A%3Clatitude%3E10.4493563318414%3C%2Flatitude%3E%0A%3Clongitude%3E-66.8719526074219%3C%2Flongitude%3E%0A%3Cname%3Eedi+prueba%3C%2Fname%3E%0A%3Cnickname%3EMi+Casa%3C%2Fnickname%3E%0A%3Cnumber%3E1%3C%2Fnumber%3E%0A%3Cstreet%3Ecalle+prueba%3C%2Fstreet%3E%0A%3Czip%3E1023%3C%2Fzip%3E%0A%3Czone%3EPRUEBAS%3C%2Fzone%3E%0A%3C%2Faddress%3E%0A%3Ccreditcard%3E%0A%3Ccode%3E111%3C%2Fcode%3E%0A%3Cexpdate%3E2013-05-01%3C%2Fexpdate%3E%0A%3Cname%3ESenor+Prueba%3C%2Fname%3E%0A%3Cnumber%3E5555555555555555%3C%2Fnumber%3E%0A%3C%2Fcreditcard%3E%0A%3Corder%3E%0A%3Ccity%3ECaracas%3C%2Fcity%3E%0A%3Ccountry%3EVenezuela%3C%2Fcountry%3E%0A%3Clatitude%3E10.4713014381042%3C%2Flatitude%3E%0A%3Clongitude%3E-66.9612165234375%3C%2Flongitude%3E%0A%3Cname%3EEdf.+Paez%3C%2Fname%3E%0A%3Cnumber%3E0%3C%2Fnumber%3E%0A%3Crecipient%3EMarco+Velasquez%3C%2Frecipient%3E%0A%3Cstreet%3ECalle+La+Deliciosa%3C%2Fstreet%3E%0A%3Czip%3E1080%3C%2Fzip%3E%0A%3Czone%3EMontalban+III%3C%2Fzone%3E%0A%3Cextra%3E10%3C%2Fextra%3E%0A%3C%2Forder%3E%0A%3Cpackage%3E%0A%3Cdescription%3EKit+del+Caracas+FC%3C%2Fdescription%3E%0A%3Cweight%3E3.0%3C%2Fweight%3E%0A%3C%2Fpackage%3E%0A%3C%2Fsupport_request%3E]
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 15:50:17) [POST]
+  Parameters: {"support_request"=>"<support_request>\n<client>\n<account>prueba@gmail.com</account>\n<birthday>1988-05-12</birthday>\n<firstname>prueba</firstname>\n<lastname>PRUEBA</lastname>\n<middlename></middlename>\n<phone>4142542019</phone>\n<surname></surname>\n</client>\n<address>\n<city>Caracas</city>\n<country>Venezuela</country>\n<latitude>10.4493563318414</latitude>\n<longitude>-66.8719526074219</longitude>\n<name>edi prueba</name>\n<nickname>Mi Casa</nickname>\n<number>1</number>\n<street>calle prueba</street>\n<zip>1023</zip>\n<zone>PRUEBAS</zone>\n</address>\n<creditcard>\n<code>111</code>\n<expdate>2013-05-01</expdate>\n<name>Senor Prueba</name>\n<number>5555555555555555</number>\n</creditcard>\n<order>\n<city>Caracas</city>\n<country>Venezuela</country>\n<latitude>10.4713014381042</latitude>\n<longitude>-66.9612165234375</longitude>\n<name>Edf. Paez</name>\n<number>0</number>\n<recipient>Marco Velasquez</recipient>\n<street>Calle La Deliciosa</street>\n<zip>1080</zip>\n<zone>Montalban III</zone>\n<extra>10</extra>\n</order>\n<package>\n<description>Kit del Caracas FC</description>\n<weight>3.0</weight>\n</package>\n</support_request>"}
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 15:50:44) [POST]
+  Parameters: {"support_request"=>"\n<client>\n<account>prueba@gmail.com</account>\n<birthday>1988-05-12</birthday>\n<firstname>prueba</firstname>\n<lastname>PRUEBA</lastname>\n<middlename></middlename>\n<phone>4142542019</phone>\n<surname></surname>\n</client>\n<address>\n<city>Caracas</city>\n<country>Venezuela</country>\n<latitude>10.4493563318414</latitude>\n<longitude>-66.8719526074219</longitude>\n<name>edi prueba</name>\n<nickname>Mi Casa</nickname>\n<number>1</number>\n<street>calle prueba</street>\n<zip>1023</zip>\n<zone>PRUEBAS</zone>\n</address>\n<creditcard>\n<code>111</code>\n<expdate>2013-05-01</expdate>\n<name>Senor Prueba</name>\n<number>5555555555555555</number>\n</creditcard>\n<order>\n<city>Caracas</city>\n<country>Venezuela</country>\n<latitude>10.4713014381042</latitude>\n<longitude>-66.9612165234375</longitude>\n<name>Edf. Paez</name>\n<number>0</number>\n<recipient>Marco Velasquez</recipient>\n<street>Calle La Deliciosa</street>\n<zip>1080</zip>\n<zone>Montalban III</zone>\n<extra>10</extra>\n</order>\n<package>\n<description>Kit del Caracas FC</description>\n<weight>3.0</weight>\n</package>"}
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 15:57:26) [POST]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:02:05) [POST]
+  Parameters: {"request_support"=>{"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:04:04) [POST]
+  Parameters: {"support_request"=>{"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:34:04', '2011-06-12 20:34:04', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Rendering web_service/support_request (created)
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:04:48) [POST]
+  Parameters: {"support_request"=>{"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:34:48', '2011-06-12 20:34:48', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Rendering web_service/support_request (created)
+Completed in 6ms (View: 1, DB: 3) | 201 Created [http://test.host/web_service/support_request?support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba]
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:05:59) [POST]
+  Parameters: {"support_request"=>"<client>\n<account>prueba@gmail.com</account>\n<birthday>1988-05-12</birthday>\n<firstname>prueba</firstname>\n<lastname>PRUEBA</lastname>\n<middlename></middlename>\n<phone>4142542019</phone>\n<surname></surname>\n</client>"}
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:07:57) [POST]
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:08:42) [POST]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:09:30) [POST]
+  Parameters: {"support_request"=>{"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:39:30', '2011-06-12 20:39:30', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Rendering web_service/support_request (created)
+Completed in 7ms (View: 1, DB: 3) | 201 Created [http://test.host/web_service/support_request?support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:17:39) [POST]
+  Parameters: {"support_request"=>{"address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:47:39', '2011-06-12 20:47:39', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 20:47:39', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 20:47:39', 'calle prueba', 980190963, -66.8719526074219)[0m
+Rendering web_service/support_request (created)
+Completed in 11ms (View: 1, DB: 4) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:22:36) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (1.3ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:52:36', '2011-06-12 20:52:36', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.2ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.2ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 20:52:36', 111, '2011-06-12 20:52:36', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.2ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 20:52:36', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 20:52:36', 'calle prueba', 980190963, -66.8719526074219)[0m
+Rendering web_service/support_request (created)
+Completed in 47ms (View: 2, DB: 20) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:25:52) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "creditcard_id"=>1}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;36;1mClient Create (0.4ms)[0m   [0;1mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:55:52', '2011-06-12 20:55:52', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;35;1mCreditcard Load (0.2ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;36;1mCreditcard Create (0.2ms)[0m   [0;1mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 20:55:52', 111, '2011-06-12 20:55:52', '2013-05-01', 980190963)[0m
+  [4;35;1mAddress Load (0.2ms)[0m   [0mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;36;1mAddress Create (0.2ms)[0m   [0;1mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 20:55:52', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 20:55:52', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;35;1mOrder Create (0.2ms)[0m   [0mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 20:55:52', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 20:55:52', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, NULL, 980190963, NULL)[0m
+Rendering web_service/support_request (created)
+Completed in 38ms (View: 2, DB: 36) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 16:26:39) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "creditcard_id"=>1}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;36;1mClient Create (0.6ms)[0m   [0;1mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 20:56:39', '2011-06-12 20:56:39', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;35;1mCreditcard Load (0.2ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;36;1mCreditcard Create (0.2ms)[0m   [0;1mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 20:56:39', 111, '2011-06-12 20:56:39', '2013-05-01', 980190963)[0m
+  [4;35;1mAddress Load (0.2ms)[0m   [0mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;36;1mAddress Create (0.2ms)[0m   [0;1mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 20:56:39', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 20:56:39', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;35;1mOrder Create (0.2ms)[0m   [0mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 20:56:39', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 20:56:39', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, NULL, 980190963, NULL)[0m
+Rendering web_service/support_request (created)
+Completed in 26ms (View: 2, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 17:48:37) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:18:37', '2011-06-12 22:18:37', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:18:37', 111, '2011-06-12 22:18:37', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:18:37', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:18:37', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:18:37', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:18:37', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, NULL, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:18:37', 980190963, '2011-06-12 22:18:37', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 17:50:48) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:20:48', '2011-06-12 22:20:48', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:20:48', 111, '2011-06-12 22:20:48', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.2ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.2ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:20:48', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:20:48', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:20:48', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:20:48', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:20:48', 980190963, '2011-06-12 22:20:48', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 20ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 17:57:09) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:27:09', '2011-06-12 22:27:09', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:27:09', 111, '2011-06-12 22:27:09', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:27:09', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:27:09', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:27:09', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:27:09', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:27:09', 980190963, '2011-06-12 22:27:09', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 20ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 17:58:32) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:28:32', '2011-06-12 22:28:32', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:28:32', 111, '2011-06-12 22:28:32', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:28:32', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:28:32', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:28:32', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:28:32', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:28:32', 980190963, '2011-06-12 22:28:32', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 19ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:11:10) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:41:10', '2011-06-12 22:41:10', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:41:10', 111, '2011-06-12 22:41:10', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:41:10', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:41:10', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:41:10', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:41:10', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.2ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:41:11', 980190963, '2011-06-12 22:41:11', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 20ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:11:23) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:41:23', '2011-06-12 22:41:23', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:41:23', 111, '2011-06-12 22:41:23', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:41:23', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:41:23', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:41:23', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:41:23', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:41:23', 980190963, '2011-06-12 22:41:23', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 19ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:11:31) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:41:31', '2011-06-12 22:41:31', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.2ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:41:31', 111, '2011-06-12 22:41:31', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:41:31', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:41:31', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:41:31', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:41:31', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:41:31', 980190963, '2011-06-12 22:41:31', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 19ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:11:47) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:41:47', '2011-06-12 22:41:47', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:41:47', 111, '2011-06-12 22:41:47', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:41:47', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:41:47', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:41:47', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:41:47', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.2ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:41:47', 980190963, '2011-06-12 22:41:47', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 20ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mPackage Load (0.2ms)[0m   [0mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:13:41) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:43:41', '2011-06-12 22:43:41', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:43:41', 111, '2011-06-12 22:43:41', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:43:41', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:43:41', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:43:41', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:43:41', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:43:41', 980190963, '2011-06-12 22:43:41', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 19ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:14:01) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:44:01', '2011-06-12 22:44:01', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:44:01', 111, '2011-06-12 22:44:01', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:44:01', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:44:01', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:44:01', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:44:01', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.2ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:44:01', 980190963, '2011-06-12 22:44:01', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 20ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:14:10) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:44:10', '2011-06-12 22:44:10', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:44:10', 111, '2011-06-12 22:44:10', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:44:10', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:44:10', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:44:10', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:44:10', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:44:10', 980190963, '2011-06-12 22:44:10', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 20ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-12 18:14:23) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "extra"=>10.0, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-12 22:44:23', '2011-06-12 22:44:23', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-12 22:44:23', 111, '2011-06-12 22:44:23', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-12 22:44:23', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-12 22:44:23', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-12 22:44:23', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-12 22:44:23', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, 10.0, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-12 22:44:23', 980190963, '2011-06-12 22:44:23', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 19ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bextra%5D=10.0&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-15 02:47:04) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-15 07:17:04', '2011-06-15 07:17:04', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 6ms (DB: 32) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-15 02:47:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.2ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (3.2ms)
+Completed in 11ms (View: 10, DB: 1) | 200 OK [http://test.host/clients/1]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.4ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-15 02:49:10) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-15 07:19:11', '2011-06-15 07:19:11', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-15 07:19:11', 111, '2011-06-15 07:19:11', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.2ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-15 07:19:11', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-15 07:19:11', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-15 07:19:11', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-15 07:19:11', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, NULL, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-15 07:19:11', 980190963, '2011-06-15 07:19:11', 1.5, 'MyString')[0m
+Rendering web_service/support_request (500)
+Completed in 21ms (View: 1, DB: 5) | 500 Internal Server Error [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5]
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.5ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.3ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-15 02:50:26) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "total"=>15, "order"=>{"number"=>1, "city"=>"ciudad", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "recipient"=>"destinatario prueba", "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "address_id"=>1, "client_id"=>1, "longitude"=>1.5, "status"=>1, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-15 07:20:26', '2011-06-15 07:20:26', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mCreditcard Load (0.1ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 5555555555555555) LIMIT 1[0m
+  [4;35;1mCreditcard Create (0.1ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(5555555555555555, 'Senor Prueba', '2011-06-15 07:20:26', 111, '2011-06-15 07:20:26', '2013-05-01', 980190963)[0m
+  [4;36;1mAddress Load (0.1ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casa' AND client_id =980190963 AND id !=NULL) LIMIT 1[0m
+  [4;35;1mAddress Create (0.1ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('edi prueba', '1', 'Caracas', 1023, 10.4493563318414, '2011-06-15 07:20:26', 'Venezuela', 'PRUEBAS', 'Mi Casa', '2011-06-15 07:20:26', 'calle prueba', 980190963, -66.8719526074219)[0m
+  [4;36;1mOrder Create (0.2ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-15 07:20:26', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-15 07:20:26', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 980190963, 980190963, NULL, NULL, 1.5, 0, NULL, NULL, 980190963, NULL)[0m
+  [4;35;1mPackage Create (0.1ms)[0m   [0mINSERT INTO "packages" ("price", "created_at", "order_id", "updated_at", "weight", "description") VALUES(7.5, '2011-06-15 07:20:26', 980190963, '2011-06-15 07:20:26', 1.5, 'MyString')[0m
+Rendering web_service/support_request (created)
+Completed in 20ms (View: 1, DB: 5) | 201 Created [http://test.host/web_service/support_request?support_request%5Baddress%5D%5Bcity%5D=Caracas&support_request%5Baddress%5D%5Bcountry%5D=Venezuela&support_request%5Baddress%5D%5Blatitude%5D=10.4493563318414&support_request%5Baddress%5D%5Blongitude%5D=-66.8719526074219&support_request%5Baddress%5D%5Bname%5D=edi+prueba&support_request%5Baddress%5D%5Bnickname%5D=Mi+Casa&support_request%5Baddress%5D%5Bnumber%5D=1&support_request%5Baddress%5D%5Bstreet%5D=calle+prueba&support_request%5Baddress%5D%5Bzip%5D=1023&support_request%5Baddress%5D%5Bzone%5D=PRUEBAS&support_request%5Bclient%5D%5Baccount%5D=usuario%40prueba.com&support_request%5Bclient%5D%5Bbirthday%5D=2011-04-15&support_request%5Bclient%5D%5Bfirstname%5D=usu&support_request%5Bclient%5D%5Blastname%5D=pru&support_request%5Bclient%5D%5Bmiddlename%5D=ario&support_request%5Bclient%5D%5Bphone%5D=1234567890&support_request%5Bclient%5D%5Bsurname%5D=eba&support_request%5Bcreditcard%5D%5Bcode%5D=111&support_request%5Bcreditcard%5D%5Bexpdate%5D=2013-05-01&support_request%5Bcreditcard%5D%5Bname%5D=Senor+Prueba&support_request%5Bcreditcard%5D%5Bnumber%5D=5555555555555555&support_request%5Border%5D%5Baddress_id%5D=1&support_request%5Border%5D%5Bcity%5D=ciudad&support_request%5Border%5D%5Bclient_id%5D=1&support_request%5Border%5D%5Bcollectiondate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bcountry%5D=pais&support_request%5Border%5D%5Bcreditcard_id%5D=1&support_request%5Border%5D%5Bdate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Bdeliverydate%5D=2011-04-16+13%3A56%3A05+UTC&support_request%5Border%5D%5Blatitude%5D=1.5&support_request%5Border%5D%5Blongitude%5D=1.5&support_request%5Border%5D%5Bname%5D=nombre&support_request%5Border%5D%5Bnumber%5D=1&support_request%5Border%5D%5Brecipient%5D=destinatario+prueba&support_request%5Border%5D%5Bstatus%5D=1&support_request%5Border%5D%5Bstreet%5D=calle&support_request%5Border%5D%5Bzip%5D=1111&support_request%5Border%5D%5Bzone%5D=zona&support_request%5Bpackage%5D%5Bdescription%5D=MyString&support_request%5Bpackage%5D%5Bweight%5D=1.5&support_request%5Btotal%5D=15]
+  [4;36;1mOrder Load (0.7ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;35;1mOrder Create (0.4ms)[0m   [0mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', 1, 'ciudad', 1.5, '2011-06-15 07:21:12', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-15 07:21:12', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 1, 1, NULL, NULL, 1.5, 1, NULL, NULL, 1, NULL)[0m
+  [4;36;1mOrder Load (0.4ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 980190963) [0m
+  [4;35;1mOrder Update (0.1ms)[0m   [0mUPDATE "orders" SET "updated_at" = '2011-06-15 07:21:12', "recipient" = 'recipient nuevo' WHERE "id" = 980190963[0m
+  [4;36;1mOrder Destroy (0.1ms)[0m   [0;1mDELETE FROM "orders" WHERE "id" = 980190963[0m
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mClient Create (0.4ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-15 07:21:20', '2011-06-15 07:21:20', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 980190963) [0m
+  [4;35;1mClient Update (0.1ms)[0m   [0mUPDATE "clients" SET "updated_at" = '2011-06-15 07:21:20', "account" = 'nuevo@correo.com' WHERE "id" = 980190963[0m
+  [4;36;1mClient Destroy (0.1ms)[0m   [0;1mDELETE FROM "clients" WHERE "id" = 980190963[0m
