@@ -9,30 +9,31 @@ class WebServiceController < ApplicationController
 
   
 
-  def perra #manda POST
+  def new_support_request #manda POST
     ord_id = params[:order_support_request_id]
     comp = params[:company_support_request_id]
+
     u = Ucab.new
+
     @a = u.solicitar_servicio(ord_id, comp)
 
     render "show"
+  end
+
+  def new_track_id_request
+
   end
 
 
   def track_id
 
 
-#    @error = true
-#    if re = request_exception
-#      re_name = re.name.to_s
-#      if re_name == "REXML::ParseException"
-#        xml = nil
-#      else
-#        xml = params[:support_request]
-#      end
-#    end
+    @error = true
+    if re = request_exception
+      re_name = re.name.to_s
+    end
 
-
+    #falta validar si la orden esta en la otra compania con el status 4
 
     @order = Order.first(:conditions => ["id =?", params[:id]])
     if @order and params[:id] != nil
