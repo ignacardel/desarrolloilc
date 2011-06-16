@@ -1,17 +1,31 @@
+<h1 align="center"><%= t 'home.title' %></h1>
+<%#*<table align="center" border="0">%>
+  <%#*<tr>%>
+    <%#*<td>%>
+      <%# form_tag '' do %>
+        <%#= hidden_field_tag 'locale','en' %>
+        <%#= image_submit_tag("/images/usa.png", :title => "Change Language to English", :border=>0, :index => nil) %>
+      <%# end %>
+    <%#*</td>%>
+    <%#*<td>%>
+      <%# form_tag '' do %>
+        <%#= hidden_field_tag 'locale','es' %>
+        <%#= image_submit_tag("/images/spain.png", :title => "Change Language to Spanish", :border=>0, :index => nil) %>
+      <%# end %>
+    <%#*</td>%>
+  <%#*</tr>%>
+<%#*</table>%>
 <% if session[:user] == nil %>
-  <h1 align="center">Welcome to mail boxes ucab!</h1>
-  <p>Mail Boxes Ucab commits its expertise in international express, air and ocean freight, road and rail transportation, contract logistics and international mail services to its customers. A global network composed of more than 20 countries and territories and 3,000 employees worldwide offers customers superior service quality and local knowledge to satisfy their supply chain requirements. Mail Boxes Ucab accepts its social responsibility by supporting climate protection, disaster management and education.</p>
+  <p><%= t 'home.paragraph' %></p>
   <p align="center"><img src="/images/anim.gif"></img></p>
 <%  else %>
-  <h1>Welcome to mail boxes ucab!</h1>
-
   <% if @number > 0 %>
-  <p><a href='/orders/notification/1'>You have <%=h @number%> notification(s)!</a></p>
+    <p><a href='/orders/notification/1'><%= t 'home.notification1' %> <%=h @number%> <%= t 'home.notification2' %></a></p>
   <%end%>
-  <p>Ship Online from Start to Finish</p>
-  <p>- Plan a Shipment</p>
-  <p>- Manage your Address Book</p>
-  <p>- Manage your Payment Options</p>
-  <p>- <i>Get it all done here!</i></p>
+  <p><%= t 'home.information1' %></p>
+  <p><%= t 'home.information2' %></p>
+  <p><%= t 'home.information3' %></p>
+  <p><%= t 'home.information4' %></p>
+  <p>- <i><%= t 'home.information5' %></i></p>
   <img src="/images/delivery.jpg"></img>
 <%  end %>

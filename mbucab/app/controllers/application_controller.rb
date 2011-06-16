@@ -10,6 +10,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   require 'socket'
 
+  before_filter :set_locale
+#  def set_locale
+#    session[:locale] = params[:locale] if params[:locale]
+#    I18n.locale = session[:locale]
+#  end
+
+  def set_locale
+    logger.info "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+    I18n.locale = extract_locale_from_accept_language_header
+    logger.info "* Locale set to '#{I18n.locale}'"
+  end
+
   #Metodo que redirecciona al API de Google OpenID cuando se trata de
   #un usuario nuevo. Si la autenticacion con Google es exitosa, redirecciona
   #a un formulario de nuevo usuario.
@@ -77,7 +89,9 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
   #Metodo que redirecciona al home en caso de que un usuario intente
   #ingresar una funcionalidad sin haber iniciado sesion
   def require_login

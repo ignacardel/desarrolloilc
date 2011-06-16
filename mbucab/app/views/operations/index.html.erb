@@ -1,19 +1,35 @@
-<h1>Mail Boxes Operations</h1>
+<h1 align="center"><%= t 'operations.title' %></h1>
+<%#*<table align="center" border="0">%>
+  <%#*<tr>%>
+    <%#*<td>%>
+      <%# form_tag '' do %>
+        <%#= hidden_field_tag 'locale','en' %>
+        <%#= image_submit_tag("/images/usa.png", :title => "Change Language to English", :border=>0, :index => nil) %>
+      <%# end %>
+    <%#*</td>%>
+    <%#*<td>%>
+      <%# form_tag '' do %>
+        <%#= hidden_field_tag 'locale','es' %>
+        <%#= image_submit_tag("/images/spain.png", :title => "Change Language to Spanish", :border=>0, :index => nil) %>
+      <%# end %>
+    <%#*</td>%>
+  <%#*</tr>%>
+<%#*</table>%>
 <% if session[:role] == 1 %>
-  <p>As an Administrator you can:</p>
-  <p>- Manage routes</p>
-  <p>- Manage employees</p>
-  <p>- Notify an order's pickup</p>
-  <p>- Simulate an order's delivery</p>
+  <p><%= t 'operations.administrator.information1' %></p>
+  <p><%= t 'operations.administrator.information2' %></p>
+  <p><%= t 'operations.administrator.information3' %></p>
+  <p><%= t 'operations.administrator.information4' %></p>
+  <p><%= t 'operations.administrator.information5' %></p>
 <%end%>
 <% if session[:role] == 2 %>
-  <p>As a Carrier you can:</p>
-  <p>- View your assigned route</p>
-  <p>- Notify an order's pickup</p>
+  <p><%= t 'operations.carrier.information1' %></p>
+  <p><%= t 'operations.carrier.information2' %></p>
+  <p><%= t 'operations.carrier.information3' %></p>
 <%end%>
 <% if session[:role] == 3%>
-  <p>As a Dispatcher you can:</p>
-  <p>- Manage routes</p>
+  <p><%= t 'operations.dispatcher.information1' %></p>
+  <p><%= t 'operations.dispatcher.information2' %></p>
 <%end%>
 <p><img src="/images/hub.jpg"></img></p>
 

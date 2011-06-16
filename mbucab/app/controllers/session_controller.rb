@@ -36,22 +36,22 @@ class SessionController < ApplicationController
           session[:user] = client.account
           session[:id]= client.id
           session[:type] = "client"
-          flash[:notice] = 'Your account has been reactivated. Welcome back! <br />' + client.firstname + " " + client.lastname + " (" + session[:user] + ") has logged in!"
+          flash[:notice] = t('home.flash.reactivated1') + client.firstname + " " + client.lastname + " (" + session[:user] + t('home.flash.reactivated2')
           redirect_to :controller => 'home', :action => 'index'
         else
           session[:user] = client.account
           session[:id]= client.id
           session[:type] = "client"
-          flash[:notice] = client.firstname + " " + client.lastname + " (" + session[:user] + ") has logged in!"
+          flash[:notice] = client.firstname + " " + client.lastname + " (" + session[:user] + t('home.flash.login')
           redirect_to :controller => 'home', :action => 'index'
         end
       else
-        flash[:error] = "\"" + @email + "\" is not in registered!"
+        flash[:error] = @email + t('notregistered')
         logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Failed customer login attempt from '+@email+' at '+Time.now.to_s
         redirect_to :controller => 'home', :action => 'index'
       end
     end
-    
+
   end
 
   #Metodo que finaliza la sesion del usuario cuando este hace logout
@@ -61,7 +61,7 @@ class SessionController < ApplicationController
     session[:user] = nil
     session[:type] = nil
     session[:id] = nil
-    flash[:notice] = 'You have successfully logged out'
+    flash[:notice] = t('home.flash.loggedout')
     redirect_to :controller => 'home', :action => 'index'
     #    else
     #    end
@@ -73,7 +73,7 @@ class SessionController < ApplicationController
     session[:user] = nil
     session[:type] = nil
     session[:id] = nil
-    flash[:notice] = 'Your account has been deactivated. <br /> To reactivate your account, log in using your Gmail account.'
+    flash[:notice] = t('home.flash.deactivated')
     redirect_to :controller => 'home', :action => 'index'
   end
 
@@ -88,15 +88,15 @@ class SessionController < ApplicationController
     employee= Employee.find(:first, :conditions => [" account = ? AND password = ?", params[:account],@hash])
 
     if employee
-  
+
       session[:employee] = employee.account
       session[:employeeid]= employee.id
       session[:role]=employee.role
-      flash[:notice] = employee.name + " " + employee.lastname + " (" + session[:employee] + ") has logged in!"
+      flash[:notice] = employee.name + " " + employee.lastname + " (" + session[:employee] + t('operations.flash.login')
       redirect_to :controller => 'operations', :action => 'index'
       logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Employee '+employee.account+' has succesfully logged in! at '+Time.now.to_s
     else
-      flash[:error] = "Login failed"
+      flash[:error] = t('operations.flash.loginfail')
       logger.info '****MAIL BOXES UCAB CUSTOM LOG ENTRY**** Failed employee login attempt from '+params[:account]+' at '+Time.now.to_s
       redirect_to :controller => 'operations', :action => 'index'
     end
@@ -109,7 +109,7 @@ class SessionController < ApplicationController
     session[:employee] = nil
     session[:employeeid] = nil
     session[:role] = nil
-    flash[:notice] = 'You have successfully logged out'
+    flash[:notice] = t('operations.flash.loggedout')
     redirect_to :controller => 'operations', :action => 'index'
   end
 end

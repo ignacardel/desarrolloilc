@@ -1,0 +1,79 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  home:
+    flash:
+      deactivated: "Tu cuenta fue desactivada. <br /> Para reactivar la cuenta, inicia sesion usando tu cuenta de Gmail."
+      loggedout: "Has cerrado sesion exitosamente"
+      login: ") ha iniciado sesion!"
+      reactivated1: "Tu cuenta fue reactivada. Bienvenido otra vez! <br />"
+      reactivated2: ") ha iniciado sesion!"
+      notregistered: "no se encuentra registrado!"
+    title: "Bienvenidos a Mail Boxes Ucab!"
+    paragraph: "Mail Boxes Ucab compromete su experiencia en envios internacionales mediante aviones y transporte marítimo, por carretera y transporte ferroviario, logística de contratos y servicios de correo internacional a sus clientes. Una red global compuesta por más de 20 países y territorios, y mas de 3.000 empleados en todo el mundo ofreciendole a los clientes la calidad del servicio y conocimiento local para satisfacer sus requerimientos de cadena de suministros. Mail Boxes Ucab acepta su responsabilidad social mediante el apoyo a la protección del ambiente, la gestión de desastres y la educación."
+    notification1: "Tiene(s)"
+    notification2: "notificacion(es)!"
+    information1: "Realiza tu envio online de principio a fin"
+    information2: "- Crea tu envio"
+    information3: "- Gestiona tu libreta de direcciones"
+    information4: "- Gestiona tus tarjetas de credito"
+    information5: "Puedes hacer de todo aqui!"
+  operations:
+    flash:
+      loggedout: "Has cerrado sesion exitosamente"
+      loginfail: "El inicio de sesion fallo"
+      login: ") ha iniciado sesion!"
+    title: "Operaciones de Mail Boxes Ucab"
+    administrator:
+      information1: "Como administrador tu puedes:"
+      information2: "- Gestionar rutas"
+      information3: "- Gestionar empleados"
+      information4: "- Notificar la recoleccion de una orden"
+      information5: "- Simular algun envio"
+    carrier:
+      information1: "Como recolector tu puedes:"
+      information2: "- Ver tu ruta asignada"
+      information3: "- Notificar la recoleccion de una orden"
+    dispatcher:
+      information1: "Como despachador tu puedes:"
+      information2: "- Gestionar rutas"
+  layout:
+    title: "mail boxes ucab"
+    subtitle: "Confianza y rapidez en sus envios"
+    footer: "Derechos de Autor © 2011. www.mailboxesucab.com. Todos los Derechos Reservados. Desarrollado por ILC."
+    customers:
+      menu1: "Inicio"
+      menu2: "Mis ordenes"
+      menu3: "Mi libreta de direcciones"
+      menu4: "Mis tarjetas de credito"
+      customers: "Clientes"
+      register: "Registrarse"
+      login: "Iniciar Sesion"
+      track: "Seguir un Envio"
+    employees:
+      menu1: "inicio"
+      menu2: "empleados"
+      menu3: "simulacion de envios"
+      menu4: "solicitud de apoyo"
+      menu5: "rutas"
+      menu6: "compañias"
+      employees: "empleados"
+      myassignedroute: "mi ruta asignada"
+      notifyorderpickup: "notificar recoleccion"
+      order: "Orden #:"
+      account: "Cuenta"
+      password: "Contraseña"
+
+
+
+
+  activerecord:
+    errors:
+      template:
+        body: "prueba"
+      models:
+        address:
+          attributes:
+            street:
+              blank: "prueba"
