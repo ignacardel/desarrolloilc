@@ -11,15 +11,17 @@ class ApplicationController < ActionController::Base
   require 'socket'
 
   before_filter :set_locale
-#  def set_locale
-#    session[:locale] = params[:locale] if params[:locale]
-#    I18n.locale = session[:locale]
-#  end
+  #  def set_locale
+  #    session[:locale] = params[:locale] if params[:locale]
+  #    I18n.locale = session[:locale]
+  #  end
 
   def set_locale
-    logger.info "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-    I18n.locale = extract_locale_from_accept_language_header
-    logger.info "* Locale set to '#{I18n.locale}'"
+    if request.env['HTTP_ACCEPT_LANGUAGE']!=nil
+      logger.info "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+      I18n.locale = extract_locale_from_accept_language_header
+      logger.info "* Locale set to '#{I18n.locale}'"
+    end
   end
 
   #Metodo que redirecciona al API de Google OpenID cuando se trata de
