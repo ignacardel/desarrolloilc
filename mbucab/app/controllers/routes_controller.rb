@@ -45,7 +45,7 @@ class RoutesController < ApplicationController
   def new
     @route = Route.new
     @addresses = Address.find_by_sql("select addresses.latitude,addresses.longitude,orders.id,orders.created_at,clients.firstname,clients.lastname from addresses, orders, clients where orders.address_id=addresses.id and orders.status=0 and orders.client_id = clients.id limit 10")
-    @employees = Employee.find_by_sql("select * from employees e where (e.role=2 or e.role=1) and e.id not in (select r.employee_id from routes r,orders o where r.employee_id=e.id and o.status=2 and o.route_id=r.id)")
+    @employees = Employee.find_by_sql("select * from employees e where (e.role=2 or e.role=1) and e.id not in (select r.employee_id from routes r,orders o where r.employee_id=e.id and o.status=2 and o.route_id=r.id)").map { |x| x.account }
     if @employees.size>0
       if @addresses.size>0
         respond_to do |format|
@@ -71,6 +71,10 @@ class RoutesController < ApplicationController
   # POST /routes.xml
   def create
     @route = Route.new(params[:route])
+    @employee=Employee.first(:conditions => ["account = ?", params[:employee_account]])
+    if @employee
+      @route.employee_id=@employee.id
+    end
     respond_to do |format|
       if @route.save
         Order.update_all(["route_id=?",@route.id],:id=>params[:order_id])
@@ -79,6 +83,9 @@ class RoutesController < ApplicationController
         format.html { redirect_to(@route) }
         format.xml  { render :xml => @route, :status => :created, :location => @route }
       else
+        @addresses = Address.find_by_sql("select addresses.latitude,addresses.longitude,orders.id,orders.created_at,clients.firstname,clients.lastname from addresses, orders, clients where orders.address_id=addresses.id and orders.status=0 and orders.client_id = clients.id limit 10")
+        @employees = Employee.find_by_sql("select * from employees e where (e.role=2 or e.role=1) and e.id not in (select r.employee_id from routes r,orders o where r.employee_id=e.id and o.status=2 and o.route_id=r.id)").map { |x| x.account }
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @route.errors, :status => :unprocessable_entity }
       end

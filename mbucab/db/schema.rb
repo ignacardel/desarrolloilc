@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611225431) do
+ActiveRecord::Schema.define(:version => 20110615204117) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20110611225431) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ip_address"
   end
 
   create_table "creditcards", :force => true do |t|

@@ -19,6 +19,12 @@
     <input id="count" type="hidden" value="<%=h @count%>" />
   </html>
 
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+  <link rel="stylesheet" href="/stylesheets/jquery.autocomplete.css" type="text/css" />
+
+  <script type="text/javascript" src="/javascripts/jquery.autocomplete.js"></script>
+
   <script type="text/javascript" charset="utf-8">
     $(document).ready(function(){
       var map = new GMap2($("#map").get(0));
@@ -136,12 +142,22 @@
   <div id="message" class="messages" style="display:none;">
   </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
   <p>
-  <h1><%= f.label :employee_id,"Assigned Carrier:" %>
-    <%= collection_select(:route ,:employee_id ,@employees, :id, :fullname) %></h1>
+  <h1><%= f.label :employee_id,"Assigned Carrier" %>
+  <input id="employee_account" name="employee_account"/></h1>
   </p>
   <p>
     <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), routes_path %>
     <a href="#" onclick="validate()"><img src="/images/new.png" title="Create Route"></img></a>
   </p>
 <% end %>
+
+<script>
+
+  $(document).ready(function(){
+    var data = <%= @employees.to_json %>;
+    $("#employee_account").autocomplete(data,{"mustMatch": true});
+  });
+
+</script>

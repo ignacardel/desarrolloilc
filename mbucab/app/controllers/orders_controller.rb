@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
       session[:order_step]   = nil
 
       client = Client.first(:conditions => [" account = ? ", session[:user]])
-      @addresses = Address.all(:conditions =>["client_id = ?", client.id])
+      @addresses = Address.find_by_sql("select * from addresses where client_id='"+client.id.to_s+"'").map { |x| x.nickname}
       1.times {@order.packages.build}
 
    
@@ -115,9 +115,21 @@ class OrdersController < ApplicationController
       session[:order_params] = nil
       session[:order_params] ||= {}
     end
+    if (session[:order_step]==nil || session[:order_step] == "packages")
+      @address = Address.first(:conditions => ["nickname =? AND client_id=?" , params[:address_nickname],session[:id]])
+      if @address
+        params[:order][:address_id]=@address.id
+      end
+    end
     session[:order_params].deep_merge!(params[:order]) if params[:order]
     @order = Order.new(session[:order_params])
     @order.current_step = session[:order_step]
+
+    
+    #      @address = Address.first(:conditions => ["nickname =?", params[:address_nickname]])
+    #      if @address
+    #        params[:order][:address_id]=@address.id
+    #      end
 
     if @order.current_step == "confirmation" and !params[:back_button]
       @order.client_id = session[:id]
@@ -144,7 +156,7 @@ class OrdersController < ApplicationController
       @total = 0
       if @order.current_step == "packages"
         client = Client.first(:conditions => [" account = ? ", session[:user]])
-        @addresses = Address.all(:conditions =>["client_id = ?", client.id])
+        @addresses = Address.find_by_sql("select * from addresses where client_id='"+session[:id].to_s+"'").map { |x| x.nickname}
         #1.times {@order.packages.build}
       end
       if @order.current_step == "payment"
@@ -230,6 +242,9 @@ class OrdersController < ApplicationController
       end
       if @order.status==0
         flash[:error] = "Order #"+@order.id.to_s+" has not been assigned for pickup yet"
+      end
+      if @order.status==4
+        flash[:error] = "Order #"+@order.id.to_s+" has been assigned for external pickup"
       end
       if @order.status==2
         @order.status=1
