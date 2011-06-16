@@ -260,13 +260,24 @@ class OrdersController < ApplicationController
   end
 
 
-  def track
- 
+    def track
+
 
     @order = Order.first(:conditions => ["id =?", params[:trackid]])
 
     if @order
-      # hacer que solo muestre el detail dependiendo del status
+
+      if @order.status = 4
+
+          u = Ucab.new
+          u.solicitar_track_id(@order.external, @order.company_id)
+        #llamar a metodo en ucab
+          puts "solicitar a la otra compania ##{@order.company_id} la orden ##{@order.external}"
+        respond_to do |format|
+          format.html # show.html.erb
+        end
+
+      else
 
       a0 = "Assigned for Pickup"
       a1 = "Arrival at Montalban UCAB Office"
@@ -300,6 +311,7 @@ class OrdersController < ApplicationController
         format.html # show.html.erb
       end
 
+     end#end del if status 4
     else
       flash[:error] = "Order not found"
       redirect_to :controller => 'home', :action => 'index'

@@ -72,30 +72,43 @@ class Ucab
     data ='<support_request>' + info + '</support_request>'
 
      # setea la informacion de la solicitud post
-     uri = URI.parse("http://192.168.20.51:3000/web_service/support_request")
+     uri = URI.parse("http://192.168.20.217:3000/web_service/support_request")
      http = Net::HTTP.new(uri.host, uri.port)
      headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
      post = Net::HTTP::Post.new(uri.path, headers)
-     response = http.request post, data
+     
+     begin
+          response = http.request post, data
 
-      xmlresponse = Hash.from_xml(response.body)
-      case response
-      when Net::HTTPCreated
-        @order.extra = xmlresponse["order"]["price"]
-        @order.order_type = 1
-        @order.external = xmlresponse["order"]["order_id"]
-        @order.save
-        @a = "Created a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-      when Net::HTTPSuccess
-        @order.extra = xmlresponse["order"]["price"]
-        @order.order_type = 1
-        @order.external = xmlresponse["order"]["order_id"]
-        @order.save
-        @a = "Succes a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-      else response.error!
-        @a = "error"
-      end
+          xmlresponse = Hash.from_xml(response.body)
 
+          case response
+            when Net::HTTPCreated
+              @order.extra = xmlresponse["order"]["price"]
+              @order.order_type = 1
+              @order.external = xmlresponse["order"]["order_id"]
+              @order.status = 4
+              @order.save
+              @a = "Created a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
+            when Net::HTTPSuccess
+              @order.extra = xmlresponse["order"]["price"]
+              @order.order_type = 1
+              @order.external = xmlresponse["order"]["order_id"]
+              @order.status = 4
+              @order.save
+              @a = "Succes a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
+            else response.error!
+              @a = "respuesta rara"
+          end
+     rescue
+       @a = "hubo un error de conexion"
+     end
+    
     return @a
+  end
+
+
+  def solicitar_track_id (ord_id,comp)
+
   end
 end
