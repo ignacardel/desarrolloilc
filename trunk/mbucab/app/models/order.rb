@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   #Validations
+  validates_presence_of :address_id , :if => lambda { |o| o.current_step == "packages" }
   validates_presence_of :recipient , :if => lambda { |o| o.current_step == "packages" }
-  #validates_presence_of :fulladdress , :if => lambda { |o| o.current_step == "packages" }
   validates_presence_of :latitude, :message=> 'must be set by picking a location in the map'
   validates_presence_of :street, :if => lambda { |o| o.current_step == "packages" }
   validates_presence_of :name, :if => lambda { |o| o.current_step == "packages" }
@@ -33,6 +33,7 @@ class Order < ActiveRecord::Base
     :zone => "Urbanization",
     :zip => "Zip code",
     :nickname => "Unique address nickname",
+    :address_id => "Pickup address"
   }
 
   def self.human_attribute_name(attr)

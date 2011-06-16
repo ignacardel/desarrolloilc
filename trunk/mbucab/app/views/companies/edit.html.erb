@@ -10,19 +10,23 @@
     </tr>
     <tr>
       <td><%= f.label :rif %></td>
-      <td><%= f.text_field :rif %></td>
+      <td><%= f.text_field(:rif,:maxlength => 9) %></td>
     </tr>
     <tr>
       <td><%= f.label :phone %></td>
-      <td><%= f.text_field :phone %></td>
+      <td><%= f.text_field(:phone,:maxlength => 10) %></td>
     </tr>
     <tr>
       <td><%= f.label :fax %></td>
-      <td><%= f.text_field :fax %></td>
+      <td><%= f.text_field(:fax,:maxlength => 10) %></td>
     </tr>
     <tr>
       <td><%= f.label :address %></td>
       <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :ip_address %></td>
+      <td><%= f.text_field :ip_address %></td>
     </tr>
   </table>
   <br/>
