@@ -3,14 +3,16 @@
   <h2><%= t('layout.subtitle') %></h2>
   <% if session[:employee] != nil %>
     <ul>
+      <% if session[:role] != 2 %>
       <li><a href="/operations/index" accesskey="1" title=""><%= t('layout.employees.menu1') %></a></li>
+      <%end%>
       <% if session[:role] == 1 %>
         <li><%= link_to t('layout.employees.menu2'), :controller => :employees, :action => :index %></li>
       <%end%>
-      <% if session[:role] == 1 %>
+      <% if session[:role] == 1 || session[:role] == 3%>
         <li><%= link_to t('layout.employees.menu3'), :controller => :orders, :action => :simulation %></li>
       <%end%>
-      <% if session[:role] == 1 %>
+      <% if session[:role] == 1  || session[:role] == 3%>
         <li><%= link_to t('layout.employees.menu4'), :controller => :orders, :action => :index_support_request %></li>
       <%end%>
       <% if session[:role] == 1 || session[:role] == 3%>
