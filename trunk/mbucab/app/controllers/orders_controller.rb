@@ -28,9 +28,14 @@ class OrdersController < ApplicationController
   #Metodo que se encarga de mostrar todas las ordenes
   def index_support_request
     @orders = Order.find_by_sql("select orders.*,companies.name FROM  orders, companies where (orders.order_type=1 or orders.order_type=2 or orders.order_type=3) and orders.company_id = companies.id")
-    respond_to do |format|
-      format.html # index_support_request.html.erb
-      format.xml  { render :xml => @orders }
+    if @orders.size>0
+      respond_to do |format|
+        format.html # index_support_request.html.erb
+        format.xml  { render :xml => @orders }
+      end
+    else
+      flash[:error] = "There were no orders found"
+      redirect_to :controller => 'operations', :action => 'index'
     end
   end
 
