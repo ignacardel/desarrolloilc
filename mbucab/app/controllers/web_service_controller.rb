@@ -58,14 +58,14 @@ class WebServiceController < ApplicationController
       when 1   #@actual_status = "Pickup complete"
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
-        @address2 = sede+" ,"+ @order.collectiondate.date.to_s # traer solo la fecha del dia en que se busco el paquete
+        @address2 = sede+" ,"+ @order.collectiondate.to_s # traer solo la fecha del dia en que se busco el paquete
       when 2   #@actual_status = "Assigned for pickup"
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
       when 3   #@actual_status = "Delivered"
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
-        @address2 = sede+" ,"+ @order.collectiondate.date.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.to_s
         @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
       end
 
@@ -108,7 +108,7 @@ class WebServiceController < ApplicationController
              @address = Address.find(:first, :conditions => [" nickname = ?", xml["address"]])
              @creditcard = Creditcard.find(:first, :conditions => [" number = ?", xml["creditcard"]])
 
-             if @address and @creditcard # si se econtro la tarjeta y la direccion
+        if @address and @creditcard and @address.client_id == @client.id and @creditcard.client_id == @client.id# si se econtro la tarjeta y la direccion
 
                 Order.transaction do # Order.transaction
                       @order = Order.new(xml["order"])
@@ -152,7 +152,7 @@ class WebServiceController < ApplicationController
   end
 
 
-  def support_request_format
+  def format
 
     if re = request_exception 
       r = re.name.to_s
