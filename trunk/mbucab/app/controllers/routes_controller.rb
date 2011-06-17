@@ -1,7 +1,6 @@
 class RoutesController < ApplicationController
   before_filter :require_dispatcher,:except => :my_route
   before_filter :require_carrier,:only => :my_route
-  before_filter :require_admin,:except=> :my_route
   layout 'operationsmapmarker'
   # GET /routes
   # GET /routes.xml

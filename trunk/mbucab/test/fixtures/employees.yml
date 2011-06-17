@@ -13,3 +13,17 @@ two:
   name: MyString
   lastname: MyString
   role: 1
+
+borjas:
+  account: luisrafael83
+  password: 123
+  name: luis
+  lastname: borjas
+  role: 1
+
+sol:
+  account: solsi
+  password: 123
+  name: solsire
+  lastname: torres
+  role: 1

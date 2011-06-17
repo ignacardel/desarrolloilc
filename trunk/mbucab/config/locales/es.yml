@@ -54,8 +54,8 @@ es:
     employees:
       menu1: "inicio"
       menu2: "empleados"
-      menu3: "simulacion de envios"
-      menu4: "solicitud de apoyo"
+      menu3: "despacho"
+      menu4: "historial de solicitud de apoyo"
       menu5: "rutas"
       menu6: "compañias"
       employees: "empleados"

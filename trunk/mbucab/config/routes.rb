@@ -36,6 +36,8 @@ ActionController::Routing::Routes.draw do |map|
   map.track '/track/:trackid' , :controller => 'orders', :action => 'track', :via=> 'get'
 
   map.simulate '/simulate/:id' , :controller => 'orders', :action => 'simulate', :via=> 'get'
+
+  map.new_support_request '/new_support_request/:id' , :controller => 'orders', :action=> 'new_support_request', :via=> 'get'
   
   map.operations '/operations', :controller => 'operations'
   # The priority is based upon order of creation: first created -> highest priority.
