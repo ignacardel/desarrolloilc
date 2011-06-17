@@ -4,7 +4,8 @@
 #ordenes de servicio. Ej: Crear, Modificar, Eliminar, Mostrar.
 class OrdersController < ApplicationController
   before_filter :require_login,:except => [:show,:pickup,:notify,:track,:simulate,:simulation,:index_support_request,:new_support_request]
-  before_filter :require_admin,:only => [:simulate,:simulation,:index_support_request,:new_support_request]
+  before_filter :require_dispatcher,:only => [:simulate,:simulation,:index_support_request,:new_support_request]
+  before_filter :require_carrier,:only => [:notify]
   layout :choose_layout
 
   require 'xmlsimple'
@@ -37,7 +38,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.xml
   # Renderiza el formulario para crear una nueva orden
   def new_support_request
-    @orders = Order.find_by_sql("Select * from orders where status=0 and company_id is null")
+    @order = Order.find(params[:id])
     @companies = Company.find_by_sql("Select * from companies")
 
     respond_to do |format|
@@ -246,6 +247,9 @@ class OrdersController < ApplicationController
       if @order.status==4
         flash[:error] = "Order #"+@order.id.to_s+" has been assigned for external pickup"
       end
+      if @order.status==3
+        flash[:error] = "Order #"+@order.id.to_s+" has already been delivered"
+      end
       if @order.status==2
         @order.status=1
         @order.collectiondate=Time.now
@@ -260,58 +264,58 @@ class OrdersController < ApplicationController
   end
 
 
-    def track
+  def track
 
 
     @order = Order.first(:conditions => ["id =?", params[:trackid]])
 
     if @order
 
-      if @order.status = 4
+      if @order.status == 4
 
-          u = Ucab.new
-          u.solicitar_track_id(@order.external, @order.company_id)
+        u = Ucab.new
+        u.solicitar_track_id(@order.external, @order.company_id)
         #llamar a metodo en ucab
-          puts "solicitar a la otra compania ##{@order.company_id} la orden ##{@order.external}"
+        puts "solicitar a la otra compania ##{@order.company_id} la orden ##{@order.external}"
         respond_to do |format|
           format.html # show.html.erb
         end
 
       else
 
-      a0 = "Assigned for Pickup"
-      a1 = "Arrival at Montalban UCAB Office"
-      a2 = "Arrival at Los Teques UCAB Office"
-      a3 = "Arrival at San Ignacio UCAB Office"
+        a0 = "Assigned for Pickup"
+        a1 = "Arrival at Montalban UCAB Office"
+        a2 = "Arrival at Los Teques UCAB Office"
+        a3 = "Arrival at San Ignacio UCAB Office"
 
-      if (@order.id.to_s.end_with?("0") || @order.id.to_s.end_with?("3") || @order.id.to_s.end_with?("6") || @order.id.to_s.end_with?("9"))
-        sede = a1 end
-      if (@order.id.to_s.end_with?("1") || @order.id.to_s.end_with?("4") || @order.id.to_s.end_with?("7"))
-        sede = a2 end
-      if (@order.id.to_s.end_with?("2") || @order.id.to_s.end_with?("5") || @order.id.to_s.end_with?("8"))
-        sede = a3 end
+        if (@order.id.to_s.end_with?("0") || @order.id.to_s.end_with?("3") || @order.id.to_s.end_with?("6") || @order.id.to_s.end_with?("9"))
+          sede = a1 end
+        if (@order.id.to_s.end_with?("1") || @order.id.to_s.end_with?("4") || @order.id.to_s.end_with?("7"))
+          sede = a2 end
+        if (@order.id.to_s.end_with?("2") || @order.id.to_s.end_with?("5") || @order.id.to_s.end_with?("8"))
+          sede = a3 end
 
-      case @order.status
-      when 1   #@actual_status = "Pickup complete"
-        route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at.to_s
-        @address2 = sede+" ,"+ @order.collectiondate.to_s
-        #@order.collectiondate.year.to_s+"-"+@order.collectiondate.month.to_s+"-"+@order.collectiondate.day.to_s # traer solo la fecha del dia en que se busco el paquete
-      when 2   #@actual_status = "Assigned for pickup"
-        route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at.to_s
-      when 3   #@actual_status = "Delivered"
-        route = Route.first(:conditions => ["id =?", @order.route_id])
-        @address1 = a0+" ,"+ route.created_at.to_s
-        @address2 = sede+" ,"+ @order.collectiondate.to_s
-        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
-      end
+        case @order.status
+        when 1   #@actual_status = "Pickup complete"
+          route = Route.first(:conditions => ["id =?", @order.route_id])
+          @address1 = a0+" ,"+ route.created_at.to_s
+          @address2 = sede+" ,"+ @order.collectiondate.to_s
+          #@order.collectiondate.year.to_s+"-"+@order.collectiondate.month.to_s+"-"+@order.collectiondate.day.to_s # traer solo la fecha del dia en que se busco el paquete
+        when 2   #@actual_status = "Assigned for pickup"
+          route = Route.first(:conditions => ["id =?", @order.route_id])
+          @address1 = a0+" ,"+ route.created_at.to_s
+        when 3   #@actual_status = "Delivered"
+          route = Route.first(:conditions => ["id =?", @order.route_id])
+          @address1 = a0+" ,"+ route.created_at.to_s
+          @address2 = sede+" ,"+ @order.collectiondate.to_s
+          @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
+        end
 
-      respond_to do |format|
-        format.html # show.html.erb
-      end
+        respond_to do |format|
+          format.html # show.html.erb
+        end
 
-     end#end del if status 4
+      end#end del if status 4
     else
       flash[:error] = "Order not found"
       redirect_to :controller => 'home', :action => 'index'
@@ -347,7 +351,7 @@ class OrdersController < ApplicationController
         format.xml  { render :xml => @orders }
       end
     else
-      flash[:error] = "There are no orders available for simulation"
+      flash[:error] = "There are no orders available for dispatch"
       redirect_to :controller => 'operations', :action => 'index'
     end
   end

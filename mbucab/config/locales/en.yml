@@ -54,8 +54,8 @@ en:
     employees:
       menu1: "home"
       menu2: "employees"
-      menu3: "delivery simulation"
-      menu4: "support request"
+      menu3: "dispatch"
+      menu4: "support request history"
       menu5: "routes"
       menu6: "companies"
       employees: "employees"

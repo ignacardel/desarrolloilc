@@ -1,5 +1,5 @@
 <h1>
-  Order Delivery Simulation</h1>
+  Order Delivery Simulation/Support Request</h1>
 
 <table>
   <tr>
@@ -32,6 +32,7 @@
     <td align="center">$ <%=h total + (total * 0.1 )%></td>
     <td align="center">&nbsp;</td>
     <td align="center"><a href="/simulate/<%=h order.id %>"><img alt="Zoom-icon" border="0"src="/images/delivery.png" title="Simulate delivery"/></a></td>
+    <td align="center"><a href="/new_support_request/<%=h order.id %>"><img alt="Zoom-icon" border="0"src="/images/support.png" title="Request support"/></a></td>
   </tr>
 <% end %>
 </table>
