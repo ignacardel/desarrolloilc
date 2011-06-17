@@ -18,40 +18,13 @@ class WebServiceControllerTest < ActionController::TestCase
       #verifica que la respuesta de la peticion sea succes y se haya creado bien la solicitud de apoyo
       #por ultimo verifica que la vista renderizada sea la respuesta en xml para el web_service
 
-      cliente = {'account' => clients(:usuario).account,
-                 'firstname' => clients(:usuario).firstname,
-                 'middlename' => clients(:usuario).middlename,
-                 'lastname' => clients(:usuario).lastname,
-                 'surname' => clients(:usuario).surname,
-                 'birthday' => clients(:usuario).birthday ,
-                 'phone' => clients(:usuario).phone}
+      cliente =  clients(:usuario).account
                
-      direccion = {'city' => 'Caracas',
-                   'country' => 'Venezuela',
-                   'latitude' => 10.4493563318414,
-                   'longitude' => -66.8719526074219,
-                   'name' => 'edi prueba',
-                   'nickname' => 'Mi Casa',
-                   'number' => '1',
-                   'street' =>'calle prueba',
-                   'zip' => 1023,
-                   'zone' => 'PRUEBAS'}
+      direccion = 'micasa'
 
-      tarjeta = {'code' => 111,
-                 'expdate' => '2013-05-01',
-                 'name' => 'Senor Prueba',
-                 'number' => 5555555555555555}
+      tarjeta = 1234567890123456
 
         orden =   {         :recipient => orders(:testorder).recipient,
-                            :longitude => orders(:testorder).longitude,
-                            :latitude => orders(:testorder).latitude,
-                            :status => orders(:testorder).status,
-                            :collectiondate => orders(:testorder).collectiondate,
-                            :deliverydate => orders(:testorder).deliverydate,
-                            :address_id => orders(:testorder).address_id,
-                            :client_id => orders(:testorder).client_id,
-                            :creditcard_id => orders(:testorder).creditcard_id,
-                            :date => orders(:testorder).date,
                             :street => orders(:testorder).street,
                             :name => orders(:testorder).name,
                             :number => orders(:testorder).number,
@@ -67,7 +40,7 @@ class WebServiceControllerTest < ActionController::TestCase
 
 
 
-      parametros = {'client'=> cliente, 'address' => direccion, 'creditcard' => tarjeta, 'order' => orden, 'total' => 15, 'package' => paquete}
+      parametros = {'client'=> cliente, 'address' => direccion, 'creditcard' => tarjeta, 'order' => orden, 'package' => paquete}
       post(:support_request,{'support_request' => parametros})
       assert_not_nil assigns(:client)
       assert_not_nil assigns(:address)

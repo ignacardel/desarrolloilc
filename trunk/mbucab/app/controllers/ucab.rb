@@ -18,9 +18,9 @@ class Ucab
     @package = Package.first(:conditions => ["order_id =?", @order.id])
 
 
-    cliente_xml = '<client>ilc@gmail.com</client>'
+    cliente_xml = '<client>mailboxesucab@gmail.com</client>'
 
-    direccion_xml = '<address>ucab</address>'
+    direccion_xml = '<address>ucabcss</address>'
 
     tarjeta_xml = '<creditcard>1234567890123456</creditcard>'
 
