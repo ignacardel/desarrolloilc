@@ -5,8 +5,7 @@ xml.order do
   if @error == false
     xml.order_id @order.id
     xml.price @ourtotal
-    xml.total @total
   else
-    xml.order "Errors in xml!"+@p.to_s
+    xml.order "Errors in xml!"
   end
 end

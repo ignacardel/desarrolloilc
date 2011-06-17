@@ -22,6 +22,9 @@ class WebServiceController < ApplicationController
 
   def new_track_id_request
 
+
+    # aqui se llama a la clase que tenga el metodo correcto para cada empresa.
+    #esto es para consultar el track_id a otra empresa por web_Service
   end
 
 
@@ -98,22 +101,23 @@ class WebServiceController < ApplicationController
         xml = params[:support_request]
       end
     end
-      if xml != nil
-        @client = Client.new(xml["client"])
-        @client.active=1
-        Order.transaction do
-          if @client.save
-              @creditcard = Creditcard.new(xml["creditcard"])
-              @creditcard.client_id=@client.id
-              if @creditcard.save
-                  @address = Address.new(xml["address"])
-                  @address.client_id=@client.id
-                  if @address.save
+      if xml != nil    ############### desde aqui
+        @client = Client.find(:first, :conditions => [" account = ?", xml["client"] ])
+
+        if @client and @client.active == 1 # si consigue al cliente(compania) y esta activo
+             @address = Address.find(:first, :conditions => [" nickname = ?", xml["address"]])
+             @creditcard = Creditcard.find(:first, :conditions => [" number = ?", xml["creditcard"]])
+
+             if @address and @creditcard # si se econtro la tarjeta y la direccion
+
+                Order.transaction do # Order.transaction
                       @order = Order.new(xml["order"])
                       @order.client_id = @client.id
                       @order.address_id = @address.id
                       @order.creditcard_id = @creditcard.id
                       @order.status = 0
+                      @order.latitude = 0
+                      @order.longitude = 0
                       if @order.save
                           @package = Package.new(xml["package"])
                           @package.order_id = @order.id
@@ -121,23 +125,21 @@ class WebServiceController < ApplicationController
                           if @package.save
                               @package.price = @package.weight * 5
                               @package.save
-                              if xml["total"] != nil and xml["total"].to_f > 0
-                                @t = xml["total"]
-                                @ourtotal = @package.price + ( @package.price * 0.1 )
-                                @total = @t.to_f + @ourtotal
-                                @error = false
-                              end
+                                            
+                              @ourtotal = @package.price + ( @package.price * 0.1 )
+                              @error = false
                           end
                       end
-                  end
-              end
-          end
-          if @error == true
-             raise ActiveRecord::Rollback
-          end
-        end
+                   if @error == true
+                     raise ActiveRecord::Rollback
+                   end
 
-     end
+                 end # Order.transaction
+             end # si se econtro la tarjeta y la direccion
+
+        end   # si consigue al cliente(compania) y esta activo
+
+     end             ############# hasta aqui es la logica del web service para recibir
 
      respond_to do |format|
        if @error == true
