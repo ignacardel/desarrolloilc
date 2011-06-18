@@ -25,3 +25,17 @@ two:
   longitude: 1.5
   nickname: MyString
   client_id: 1
+
+home:
+  id: 2
+  street: av paez
+  name: zulia
+  number: 15
+  zone: paraiso
+  city: caracas
+  country: venezuela
+  zip: 1020
+  latitude: 1.5
+  longitude: 1.5
+  nickname: home
+  client_id: 1

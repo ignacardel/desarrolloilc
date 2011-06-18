@@ -13,3 +13,11 @@ two:
   code: 1
   name: MyString
   client_id: 1
+
+visa:
+  id: 2
+  number: 8888888888888888
+  expdate: 2011-09-15
+  code: 888
+  name: Jose Perez
+  client_id: 1
