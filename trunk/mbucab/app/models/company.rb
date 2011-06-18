@@ -5,6 +5,7 @@ class Company < ActiveRecord::Base
   validates_presence_of :fax;
   validates_presence_of :address;
   validates_presence_of :ip_address;
+  validates_uniqueness_of :rif;
 
   validates_size_of :phone, :is => 10, :message=> 'must have 10 digits'
   validates_numericality_of :phone
