@@ -1,0 +1,25 @@
+<p>
+<h2><%=h @employee.account %></h2>
+</p>
+<p>
+  <b>Name:</b>
+  <%=h @employee.name %>
+</p>
+<p>
+  <b>Last name:</b>
+  <%=h @employee.lastname %>
+</p>
+<p>
+  <b>Role:</b>
+  <%=h @employee.actual_role %>
+</p>
+<br />
+<br />
+<br />
+<br />
+<% if session[:role] == 1 %>
+  <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), employees_path %>
+<% else %>
+  <a href="/operations/index" ><img src="/images/back.png" title="Back" </img></a>
+<%end%>
+<%= link_to image_tag("/images/edit.png", :title => "Edit Employee", :border=>0), edit_employee_path(@employee) %>

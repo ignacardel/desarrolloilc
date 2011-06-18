@@ -1,0 +1,34 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account: MyString
+  firstname: MyString
+  middlename: MyString
+  lastname: MyString
+  surname: MyString
+  birthday: 2011-04-15
+  phone: 1
+  active: 1
+
+two:
+  account: MyString
+  firstname: MyString
+  middlename: MyString
+  lastname: MyString
+  surname: MyString
+  birthday: 2011-04-15
+  phone: 1
+  active: 1
+
+usuario:
+  id: 1
+  account: usuario@prueba.com
+  firstname: usu
+  middlename: ario
+  lastname: pru
+  surname: eba
+  birthday: 2011-04-15
+  phone: 1234567890
+  active: 1
+
+

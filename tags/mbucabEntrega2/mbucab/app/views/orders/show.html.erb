@@ -1,0 +1,59 @@
+<p>
+<h1>Order Details</h1>
+
+<p>
+  <b>Order #:</b>
+  <%=h @order.id %>
+</p>
+
+<p>
+  <b>Order Placed:</b>
+  <%=h @order.created_at %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%=h @name %>
+</p>
+
+<p>
+  <b>Pickup Address:</b>
+  <%=h @address.nickname %>
+</p>
+
+<p>
+  <b>Recipient:</b>
+  <%=h @order.recipient %>
+</p>
+
+<p>
+  <b>Delivery address:</b>
+  <%=h @order.fulladdress %>
+</p>
+
+<p>
+  <b>Credit card:</b>
+  <%=h @creditcard.four_numbers %>
+</p>
+<b>Packages list:</b>
+
+  <ol>
+    <%for package in @order.packages %>
+     <li>Description: <%=h package.description %>
+       <br />Weight: <%=h package.weight %> Kg
+       <br />Price: $ <%=h package.price %></li>
+    <% end %>
+  </ol>
+</p>
+
+  <p>
+   <b>Total before Taxes: </b>$ <%= @total %><br />
+   <b>Taxes: </b>$ <%= @total * 0.1 %><br />
+   <b>Grand Total:  </b>$ <%= @total + (@total * 0.1) %>
+  </p>
+
+  <p>
+    <img src=<%= @qr %>>
+  </p>
+  <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), orders_path %>
+<a href="/orders/<%= @order.id %>.pdf" target ="blank"><img src="/images/pdf.png" title="Print Invoice"</img></a>

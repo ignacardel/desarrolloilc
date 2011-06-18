@@ -1,0 +1,57 @@
+<% if @orders.length > 0 %>
+<h1>Notifications</h1>
+
+<table>
+  <tr>
+    <th align="center"><h2>#</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Order Placed</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Status</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Old Price</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Extra Charge</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Total</h2></th>
+    <th align="center">&nbsp;</th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td align="center"><%=h order.id %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h order.created_at.year %>-<%=h order.created_at.month %>-<%=h order.created_at.day %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h order.actual_status %></td>
+    <td align="center">&nbsp;</td>
+        <%  total = 0 %>
+        <%for package in order.packages %>
+         <% total = package.price + total %>
+        <% end %>
+    <td align="center">$ <%=h total + (total * 0.1 )%></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">$ <%=h order.extra %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">$ <%=h order.extra + total + (total * 0.1 )%></td>
+    <td align="center">&nbsp;</td>
+       <% if order.order_type == 1  %>
+    <td align="center"><%= link_to "Accept", :controller => :orders, :action => :accept_charge, :id => order.id, :option => 1 %></td>
+    <td align="center"><%= link_to "Reject", :controller => :orders, :action => :accept_charge, :id => order.id, :option => 2 %></td>
+       <% else  %>
+          <% if order.order_type == 2  %>
+           <td align="center">Accepted</td>
+          <% else  %>
+           <td align="center">Rejected</td>
+          <% end  %>
+          
+       
+       <%  end  %>
+  </tr>
+<% end %>
+</table>
+
+<%  else %>
+<h1>No More Notifications</h1>
+
+<%  end  %>

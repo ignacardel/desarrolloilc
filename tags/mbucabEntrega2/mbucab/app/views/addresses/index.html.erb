@@ -1,0 +1,23 @@
+<h1><%= link_to image_tag("/images/new.png", :title => "New Address", :border=>0), new_address_path %>
+My address book</h1>
+<table>
+  <% @addresses.each do |address| %>
+    <tr>
+      <td><h2><%=h address.nickname %></h2></td>
+    </tr>
+    <tr>
+      <td><%=h address.street %> <%=h address.name %> <%=h address.number %></td>
+    </tr>
+    <tr>
+      <td><%=h address.zone %></td>
+    </tr>
+    <tr>
+      <td><%=h address.city %> <%=h address.zip %></td>
+    </tr>
+    <tr>
+      <td><%=h address.country %></td>
+      <td><%= link_to image_tag("/images/good.png", :title => "Show Address", :border=>0), address %></td>
+      <td><%= link_to image_tag("/images/edit.png", :title => "Edit Address", :border=>0), edit_address_path(address) %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,38 @@
+<h1><%= link_to image_tag("/images/new.png", :title => "New Order", :border=>0), new_order_path %>
+  My shipment orders</h1>
+
+<table>
+  <tr>
+    <th align="center"><h2>#</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Order Placed</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Recipient</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Status</h2></th>
+    <th align="center">&nbsp;</th>
+    <th align="center"><h2>Total</h2></th>
+    <th align="center">&nbsp;</th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td align="center"><%=h order.id %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h order.created_at.year %>-<%=h order.created_at.month %>-<%=h order.created_at.day %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h order.recipient %></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%=h order.actual_status %></td>
+    <td align="center">&nbsp;</td>
+        <%  total = 0 %>
+        <%for package in order.packages %>
+         <% total = package.price + total %>
+        <% end %>
+    <td align="center">$ <%=h total + (total * 0.1 )%></td>
+    <td align="center">&nbsp;</td>
+    <td align="center"><%= link_to image_tag("/images/good.png", :title => "Show Order", :border=>0), order %></td>
+    <td align="center"><a href="/track/<%=h order.id %>"><img alt="Zoom-icon" border="0"src="/images/Zoom-icon.png" title="Track"/></a></td>
+  </tr>
+<% end %>
+</table>

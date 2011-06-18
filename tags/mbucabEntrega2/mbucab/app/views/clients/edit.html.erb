@@ -1,0 +1,51 @@
+<script type="text/javascript" src="/javascripts/dhtmlgoodies_calendar.js"></script>
+<link href="/stylesheets/dhtmlgoodies_calendar.css" rel="stylesheet" type="text/css" />
+
+  <% form_for(@client) do |f| %>
+  <%#= f.error_messages %>
+
+    <%= error_messages_for 'client', :header_message => nil %>
+
+    <table align="center" class="sample" border="0">
+      <tr>
+        <td colspan="2"><h3>Edit account settings</h3></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:account,"Gmail account") %></td>
+        <td><%= f.text_field :account,:readonly => true %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :first_name %></td>
+        <td><%= f.text_field :firstname,:readonly => true %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :middle_name %></td>
+        <td><%= f.text_field :middlename %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :last_name %></td>
+        <td><%= f.text_field :lastname,:readonly => true %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :sur_name %></td>
+        <td><%= f.text_field :surname %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :birthday %></td>
+        <td><%= f.text_field :birthday,:readonly => true %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><a href="#" onClick="displayCalendar(document.getElementById('client_birthday'),'yyyy-mm-dd',this)"><img src="/images/calendar.png"></img></a></td>
+      </tr>
+      <tr>
+        <td><%= f.label(:phone,"Phone no.") %></td>
+        <td><%= f.text_field(:phone ,:maxlength => 10) %> (E.g. 2128888888)</td>
+      </tr>
+    </table>
+    <p>
+      <a href="/clients/<%= session[:id] %>" ><img src="/images/back.png" title="Back" </img></a>
+      <%= image_submit_tag("/images/edit.png", :title => "Update Account", :border=>0) %>
+    </p>
+  <% end %>
+

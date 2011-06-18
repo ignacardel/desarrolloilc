@@ -1,0 +1,61 @@
+<div id="header">
+  <h1><%= t('layout.title') %></h1>
+  <h2><%= t('layout.subtitle') %></h2>
+  <% if session[:user] != nil %>
+    <ul>
+      <li><a href="/home/index" accesskey="1" title=""><%= t('layout.customers.menu1') %></a></li>
+      <li><a href="/orders" accesskey="2" title=""><%= t('layout.customers.menu2') %></a></li>
+      <li><a href="/addresses" accesskey="3" title=""><%= t('layout.customers.menu3') %></a></li>
+      <li><a href="/creditcards" accesskey="4" title=""><%= t('layout.customers.menu4') %></a></li>
+    </ul>
+  <% end %>
+</div>
+<div id="content">
+  <div id="colOne">
+    <h3><%= t('layout.customers.customers') %></h3>
+    <div class="bg1">
+      <% if session[:user] == nil %>
+        <ul>
+          <li><img alt="key"  src="/images/googlekey.png" width="25px" height="25px"></img> <%= link_to  t('layout.customers.register'), :controller => :application, :action => :gotogoogle %></li>
+          <li><img alt="key"  src="/images/googlekey.png" width="25px" height="25px"></img> <%= link_to t('layout.customers.login'), :controller => :application, :action => :clientgotogoogle %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li align="center"><a href="/clients/<%= session[:id] %>"><%= session[:user] %></li>
+          <li align="center"><a href="#" onclick="openlogout()"><img src="/images/logout.png" width="40px" height="40px" title="Logout"></img></a></li>
+        </ul>
+      <% end %>
+    </div>
+    <h3><%= t('layout.customers.track') %></h3>
+    <div class="bg1">
+      <ul>
+        <% form_tag :controller => "orders", :action => "track",:html => {:id => 'main_input' }, :method => "get" do -%>
+          <li class="first"> <%= text_field_tag "trackid", @trackid,:class=>"field text" %></li>
+          <p align="center"><%= image_submit_tag("/images/Zoom48.png", :title => "Track", :border=>0) %></p>
+        <%  end -%>
+      </ul>
+    </div>
+  </div>
+  <div id="colThree">
+    <img src="/images/ucab.jpg" width="152px" height="164px" alt="boxes" align="right"></img>
+    <img src="/images/boxes.jpg" width="152px" height="202px" alt="boxes"></img>
+
+    <% if session[:user]!=nil %>
+      <img style="display:none;"
+
+           src="https://mail.google.com/mail/photos/static/AD34hIhNx1pdsCxEpo6LavSR8dYSmSi0KTM1pGxAjRio47pofmE9RH7bxPwelO8tlvpX3sbYkNfXT7HDAZJM_uf5qU2cvDJzlAWxu7-jaBPbDXAjVL8YGpI"
+           />
+         <% end %>
+  </div>
+  <div id="colTwo">
+    <div class="bg2">
+      <p style="color: green"><%= flash[:notice] %></p>
+      <p style="color: red"><%= flash[:error] %></p>
+      <%= yield -%>
+    </div>
+  </div>
+
+</div>
+<div id="footer">
+  <div class="bg2"><p><%= t('layout.footer') %></p></div>
+</div>
