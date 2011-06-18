@@ -9,6 +9,7 @@ class Ucab
 
   def solicitar_servicio (ord_id,comp)
 
+    @company = Company.first(:conditions => ["id =?",comp])
     @order = Order.first(:conditions => ["id =?",ord_id])
     @order.company_id = comp
     
@@ -20,7 +21,7 @@ class Ucab
 
     cliente_xml = '<client>mailboxesucab@gmail.com</client>'
 
-    direccion_xml = '<address>ucabcss</address>'
+    direccion_xml = '<address>ucabccs</address>'
 
     tarjeta_xml = '<creditcard>1234567890123456</creditcard>'
 
@@ -44,7 +45,8 @@ class Ucab
     data ='<support_request>' + info + '</support_request>'
 
      # setea la informacion de la solicitud post
-     uri = URI.parse("http://192.168.1.101:3000/web_service/support_request")
+
+     uri = URI.parse("http://"+@company.ip_address+":3000/web_service/support_request")
      http = Net::HTTP.new(uri.host, uri.port)
      headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
      post = Net::HTTP::Post.new(uri.path, headers)
