@@ -17,6 +17,7 @@ ejecutar los siguientes comandos:
 	- gem install sqlite3-ruby
 	- gem install prawn
 	- gem install i18n -v0.4.2
+	- gem install xml-simple
 
 Copiar el archivo sqlite3.def y slite3.dll en la carpeta 
 "C:\Ruby187\bin"
