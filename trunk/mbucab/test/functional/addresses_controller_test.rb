@@ -1,45 +1,43 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
+require 'addresses_controller'
 
 class AddressesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:addresses)
+  fixtures :addresses
+
+  def setup
+    @controller = AddressesController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
+  def test_show_address
+    get(:show, {'id' => 2}, {'id' => 1, 'user' => 'usuario@prueba.com' })
+    assert_not_nil assigns(:address)
+    assert_equal addresses(:home).nickname, assigns(:address).nickname
+    assert_template 'addresses/show.html.erb'
   end
 
-  test "should create address" do
-    assert_difference('Address.count') do
-      post :create, :address => { }
-    end
+#  def test_create_address
+#    a = {'street' => addresses(:home).street,
+#          'name' => addresses(:home).name,
+#          'number' => addresses(:home).number,
+#          'zone' => addresses(:home).zone,
+#          'city' => addresses(:home).city,
+#          'country' => addresses(:home).country,
+#          'zip' => addresses(:home).zip,
+#          'latitude' => addresses(:home).latitude,
+#          'longitude' => addresses(:home).longitude,
+#          'nickname' => 'perra',
+#          'client_id' => addresses(:home).client_id}
+#
+#    post(:create, nil, {'id' => 1, 'user' => 'usuario@prueba.com'})
+#    assert_assign assigns(:address).nickname, 'perra'
+#    assert_equal 'Address was successfully created.', flash[:notice]
+#  end
 
-    assert_redirected_to address_path(assigns(:address))
-  end
-
-  test "should show address" do
-    get :show, :id => addresses(:one).to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => addresses(:one).to_param
-    assert_response :success
-  end
-
-  test "should update address" do
-    put :update, :id => addresses(:one).to_param, :address => { }
-    assert_redirected_to address_path(assigns(:address))
-  end
-
-  test "should destroy address" do
-    assert_difference('Address.count', -1) do
-      delete :destroy, :id => addresses(:one).to_param
-    end
-
-    assert_redirected_to addresses_path
+  def teardown
+    @controller = nil
+    @request = nil
+    @response = nil
   end
 end

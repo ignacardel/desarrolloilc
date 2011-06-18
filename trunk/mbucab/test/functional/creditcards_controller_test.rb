@@ -1,45 +1,26 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
+require 'creditcards_controller'
 
 class CreditcardsControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:creditcards)
+  fixtures :creditcards
+
+  def setup
+    @controller = CreditcardsController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
+  def test_show_creditcard
+    get(:show, {'id' => 2}, {'id' => 1, 'user' => 'usuario@prueba.com' })
+    assert_not_nil assigns(:creditcard)
+    assert_equal creditcards(:visa).name, assigns(:creditcard).name
+    assert_valid assigns(:creditcard)
+    assert_template 'creditcards/show.html.erb'
   end
 
-  test "should create creditcard" do
-    assert_difference('Creditcard.count') do
-      post :create, :creditcard => { }
-    end
-
-    assert_redirected_to creditcard_path(assigns(:creditcard))
-  end
-
-  test "should show creditcard" do
-    get :show, :id => creditcards(:one).to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => creditcards(:one).to_param
-    assert_response :success
-  end
-
-  test "should update creditcard" do
-    put :update, :id => creditcards(:one).to_param, :creditcard => { }
-    assert_redirected_to creditcard_path(assigns(:creditcard))
-  end
-
-  test "should destroy creditcard" do
-    assert_difference('Creditcard.count', -1) do
-      delete :destroy, :id => creditcards(:one).to_param
-    end
-
-    assert_redirected_to creditcards_path
+  def teardown
+    @controller = nil
+    @request = nil
+    @response = nil
   end
 end

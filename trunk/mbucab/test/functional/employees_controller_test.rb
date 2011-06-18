@@ -1,45 +1,28 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
+require 'employees_controller'
 
 class EmployeesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:employees)
+  fixtures :employees
+
+  def setup
+    @controller = EmployeesController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
+  def test_index_employee
+    get(:index , { 'id' => employees(:borjas).id}, { 'role' => employees(:borjas).role})
+    assert_template 'employees/index.html.erb'
   end
 
-  test "should create employee" do
-    assert_difference('Employee.count') do
-      post :create, :employee => { }
-    end
-
-    assert_redirected_to employee_path(assigns(:employee))
+  def test_invalid_role_index_employee
+    get(:index , { 'id' => employees(:sol).id}, { 'role' => employees(:sol).role})
+    assert_redirected_to :controller => 'operations', :action => 'index'
   end
 
-  test "should show employee" do
-    get :show, :id => employees(:one).to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => employees(:one).to_param
-    assert_response :success
-  end
-
-  test "should update employee" do
-    put :update, :id => employees(:one).to_param, :employee => { }
-    assert_redirected_to employee_path(assigns(:employee))
-  end
-
-  test "should destroy employee" do
-    assert_difference('Employee.count', -1) do
-      delete :destroy, :id => employees(:one).to_param
-    end
-
-    assert_redirected_to employees_path
+  def teardown
+    @controller = nil
+    @request = nil
+    @response = nil
   end
 end

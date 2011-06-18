@@ -15,6 +15,7 @@ two:
   role: 1
 
 borjas:
+  id: 2
   account: luisrafael83
   password: 123
   name: luis
@@ -22,8 +23,9 @@ borjas:
   role: 1
 
 sol:
+  id: 3
   account: solsi
   password: 123
   name: solsire
   lastname: torres
-  role: 1
+  role: 2
