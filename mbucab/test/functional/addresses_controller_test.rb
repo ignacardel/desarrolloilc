@@ -17,24 +17,6 @@ class AddressesControllerTest < ActionController::TestCase
     assert_template 'addresses/show.html.erb'
   end
 
-#  def test_create_address
-#    a = {'street' => addresses(:home).street,
-#          'name' => addresses(:home).name,
-#          'number' => addresses(:home).number,
-#          'zone' => addresses(:home).zone,
-#          'city' => addresses(:home).city,
-#          'country' => addresses(:home).country,
-#          'zip' => addresses(:home).zip,
-#          'latitude' => addresses(:home).latitude,
-#          'longitude' => addresses(:home).longitude,
-#          'nickname' => 'perra',
-#          'client_id' => addresses(:home).client_id}
-#
-#    post(:create, nil, {'id' => 1, 'user' => 'usuario@prueba.com'})
-#    assert_assign assigns(:address).nickname, 'perra'
-#    assert_equal 'Address was successfully created.', flash[:notice]
-#  end
-
   def teardown
     @controller = nil
     @request = nil
