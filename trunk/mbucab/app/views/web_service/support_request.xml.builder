@@ -1,11 +1,12 @@
 xml.instruct!
-xml.comment! "http://localhost:3000/web_service/support_request_format"
+xml.comment! "http://localhost:3000/web_service/format"
 
-xml.order do
+
   if @error == false
-    xml.order_id @order.id
-    xml.price @ourtotal
+    xml.order do
+      xml.order_id @order.id
+      xml.price @ourtotal
+    end
   else
-    xml.order "Errors in xml!"
+    xml.error "Errors in xml!"
   end
-end
