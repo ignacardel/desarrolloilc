@@ -1,5 +1,5 @@
 xml.instruct!
-xml.comment! "http://localhost:3000/web_service/format"
+xml.comment! "http://localhost:3000/web_service/support_request_format"
 
 if @error == false
 xml.order do

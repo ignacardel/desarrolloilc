@@ -1444,3 +1444,2209 @@ WARNING: Can't mass-assign these protected attributes: id
   [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 980190963) [0m
   [4;35;1mClient Update (0.1ms)[0m   [0mUPDATE "clients" SET "updated_at" = '2011-06-15 07:21:20', "account" = 'nuevo@correo.com' WHERE "id" = 980190963[0m
   [4;36;1mClient Destroy (0.1ms)[0m   [0;1mDELETE FROM "clients" WHERE "id" = 980190963[0m
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mClient Create (0.0ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-16 13:14:56', '2011-06-16 13:14:56', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 980190963) [0m
+  [4;35;1mClient Update (0.0ms)[0m   [0mUPDATE "clients" SET "account" = 'nuevo@correo.com' WHERE "id" = 980190963[0m
+  [4;36;1mClient Destroy (0.0ms)[0m   [0;1mDELETE FROM "clients" WHERE "id" = 980190963[0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mOrder Create (0.0ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', '1', 'ciudad', 1.5, '2011-06-16 13:14:56', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-16 13:14:56', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 1, 1, NULL, NULL, 1.5, 1, NULL, NULL, 1, NULL)[0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 980190963) [0m
+  [4;36;1mOrder Update (0.0ms)[0m   [0;1mUPDATE "orders" SET "updated_at" = '2011-06-16 13:14:56', "recipient" = 'recipient nuevo' WHERE "id" = 980190963[0m
+  [4;35;1mOrder Destroy (0.0ms)[0m   [0mDELETE FROM "orders" WHERE "id" = 980190963[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "addresses" [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-16 08:45:03) [POST]
+  Parameters: {"address"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "addresses" [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#destroy (for 0.0.0.0 at 2011-06-16 08:45:03) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#edit (for 0.0.0.0 at 2011-06-16 08:45:03) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing AddressesController#index (for 0.0.0.0 at 2011-06-16 08:45:03) [GET]
+* Accept-Language: 
+
+
+Processing AddressesController#new (for 0.0.0.0 at 2011-06-16 08:45:04) [GET]
+* Accept-Language: 
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-16 08:45:04) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#update (for 0.0.0.0 at 2011-06-16 08:45:04) [PUT]
+  Parameters: {"address"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-16 08:45:04) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+* Accept-Language: 
+  [4;35;1mClient Load (0.0ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-16 08:45:04) [GET]
+  Parameters: {"id"=>"1"}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "companies" [0m
+
+
+Processing CompaniesController#create (for 0.0.0.0 at 2011-06-16 08:45:04) [POST]
+  Parameters: {"company"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "companies" [0m
+  [4;36;1mCompany Load (0.0ms)[0m   [0;1mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#destroy (for 0.0.0.0 at 2011-06-16 08:45:04) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCompany Load (0.0ms)[0m   [0mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#edit (for 0.0.0.0 at 2011-06-16 08:45:04) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing CompaniesController#index (for 0.0.0.0 at 2011-06-16 08:45:05) [GET]
+* Accept-Language: 
+
+
+Processing CompaniesController#new (for 0.0.0.0 at 2011-06-16 08:45:05) [GET]
+* Accept-Language: 
+  [4;36;1mCompany Load (0.0ms)[0m   [0;1mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#show (for 0.0.0.0 at 2011-06-16 08:45:05) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCompany Load (0.0ms)[0m   [0mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#update (for 0.0.0.0 at 2011-06-16 08:45:05) [PUT]
+  Parameters: {"company"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "creditcards" [0m
+
+
+Processing CreditcardsController#create (for 0.0.0.0 at 2011-06-16 08:45:05) [POST]
+  Parameters: {"creditcard"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "creditcards" [0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#destroy (for 0.0.0.0 at 2011-06-16 08:45:05) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#edit (for 0.0.0.0 at 2011-06-16 08:45:05) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing CreditcardsController#index (for 0.0.0.0 at 2011-06-16 08:45:06) [GET]
+* Accept-Language: 
+
+
+Processing CreditcardsController#new (for 0.0.0.0 at 2011-06-16 08:45:06) [GET]
+* Accept-Language: 
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 08:45:06) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#update (for 0.0.0.0 at 2011-06-16 08:45:06) [PUT]
+  Parameters: {"creditcard"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "employees" [0m
+
+
+Processing EmployeesController#create (for 0.0.0.0 at 2011-06-16 08:45:06) [POST]
+  Parameters: {"employee"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "employees" [0m
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#destroy (for 0.0.0.0 at 2011-06-16 08:45:06) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#edit (for 0.0.0.0 at 2011-06-16 08:45:06) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-16 08:45:06) [GET]
+* Accept-Language: 
+
+
+Processing EmployeesController#new (for 0.0.0.0 at 2011-06-16 08:45:06) [GET]
+* Accept-Language: 
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#show (for 0.0.0.0 at 2011-06-16 08:45:07) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#update (for 0.0.0.0 at 2011-06-16 08:45:07) [PUT]
+  Parameters: {"employee"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+
+
+Processing OrdersController#create (for 0.0.0.0 at 2011-06-16 08:45:07) [POST]
+  Parameters: {"order"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "orders" [0m
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#destroy (for 0.0.0.0 at 2011-06-16 08:45:07) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#edit (for 0.0.0.0 at 2011-06-16 08:45:07) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing OrdersController#index (for 0.0.0.0 at 2011-06-16 08:45:07) [GET]
+* Accept-Language: 
+
+
+Processing OrdersController#new (for 0.0.0.0 at 2011-06-16 08:45:07) [GET]
+* Accept-Language: 
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#show (for 0.0.0.0 at 2011-06-16 08:45:07) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#update (for 0.0.0.0 at 2011-06-16 08:45:08) [PUT]
+  Parameters: {"order"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "packages" [0m
+
+
+Processing PackagesController#create (for 0.0.0.0 at 2011-06-16 08:45:08) [POST]
+  Parameters: {"package"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "packages" [0m
+  [4;36;1mPackage Load (0.0ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#destroy (for 0.0.0.0 at 2011-06-16 08:45:08) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mPackage Load (0.0ms)[0m   [0mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#edit (for 0.0.0.0 at 2011-06-16 08:45:08) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing PackagesController#index (for 0.0.0.0 at 2011-06-16 08:45:08) [GET]
+* Accept-Language: 
+
+
+Processing PackagesController#new (for 0.0.0.0 at 2011-06-16 08:45:08) [GET]
+* Accept-Language: 
+  [4;36;1mPackage Load (0.0ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#show (for 0.0.0.0 at 2011-06-16 08:45:08) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mPackage Load (0.0ms)[0m   [0mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#update (for 0.0.0.0 at 2011-06-16 08:45:08) [PUT]
+  Parameters: {"id"=>"980190962", "package"=>{}}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "routes" [0m
+
+
+Processing RoutesController#create (for 0.0.0.0 at 2011-06-16 08:45:08) [POST]
+  Parameters: {"route"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "routes" [0m
+  [4;36;1mRoute Load (0.0ms)[0m   [0;1mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#destroy (for 0.0.0.0 at 2011-06-16 08:45:08) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mRoute Load (0.0ms)[0m   [0mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#edit (for 0.0.0.0 at 2011-06-16 08:45:08) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing RoutesController#index (for 0.0.0.0 at 2011-06-16 08:45:08) [GET]
+* Accept-Language: 
+
+
+Processing RoutesController#new (for 0.0.0.0 at 2011-06-16 08:45:09) [GET]
+* Accept-Language: 
+  [4;36;1mRoute Load (0.0ms)[0m   [0;1mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#show (for 0.0.0.0 at 2011-06-16 08:45:09) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mRoute Load (0.0ms)[0m   [0mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#update (for 0.0.0.0 at 2011-06-16 08:45:09) [PUT]
+  Parameters: {"route"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.0ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-16 08:45:09) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "total"=>15, "order"=>{"city"=>"ciudad", "number"=>"1", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "recipient"=>"destinatario prueba", "client_id"=>1, "address_id"=>1, "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "longitude"=>1.5, "status"=>1, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+* Accept-Language: 
+  [4;36;1mClient Load (1.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mClient Create (2.0ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-16 20:30:28', '2011-06-16 20:30:28', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 980190963) [0m
+  [4;35;1mClient Update (0.0ms)[0m   [0mUPDATE "clients" SET "updated_at" = '2011-06-16 20:30:28', "account" = 'nuevo@correo.com' WHERE "id" = 980190963[0m
+  [4;36;1mClient Destroy (0.0ms)[0m   [0;1mDELETE FROM "clients" WHERE "id" = 980190963[0m
+  [4;35;1mCreditcard Load (1.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;35;1mOrder Load (1.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mOrder Create (2.0ms)[0m   [0;1mINSERT INTO "orders" ("name", "number", "city", "latitude", "created_at", "zip", "country", "collectiondate", "updated_at", "zone", "date", "recipient", "street", "deliverydate", "address_id", "client_id", "external", "company_id", "longitude", "status", "order_type", "extra", "creditcard_id", "route_id") VALUES('nombre', '1', 'ciudad', 1.5, '2011-06-16 20:30:28', 1111, 'pais', '2011-04-16 13:56:05', '2011-06-16 20:30:28', 'zona', '2011-04-16 13:56:05', 'destinatario prueba', 'calle', '2011-04-16 13:56:05', 1, 1, NULL, NULL, 1.5, 1, NULL, NULL, 1, NULL)[0m
+  [4;35;1mOrder Load (1.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 980190963) [0m
+  [4;36;1mOrder Update (0.0ms)[0m   [0;1mUPDATE "orders" SET "updated_at" = '2011-06-16 20:30:28', "recipient" = 'recipient nuevo' WHERE "id" = 980190963[0m
+  [4;35;1mOrder Destroy (0.0ms)[0m   [0mDELETE FROM "orders" WHERE "id" = 980190963[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "addresses" [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-16 16:00:35) [POST]
+  Parameters: {"address"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "addresses" [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#destroy (for 0.0.0.0 at 2011-06-16 16:00:35) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#edit (for 0.0.0.0 at 2011-06-16 16:00:35) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing AddressesController#index (for 0.0.0.0 at 2011-06-16 16:00:35) [GET]
+* Accept-Language: 
+
+
+Processing AddressesController#new (for 0.0.0.0 at 2011-06-16 16:00:35) [GET]
+* Accept-Language: 
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-16 16:00:36) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190962) [0m
+
+
+Processing AddressesController#update (for 0.0.0.0 at 2011-06-16 16:00:36) [PUT]
+  Parameters: {"address"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-16 16:00:36) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+* Accept-Language: 
+  [4;35;1mClient Load (1.0ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-16 16:00:36) [GET]
+  Parameters: {"id"=>"1"}
+* Accept-Language: 
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "companies" [0m
+
+
+Processing CompaniesController#create (for 0.0.0.0 at 2011-06-16 16:00:36) [POST]
+  Parameters: {"company"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "companies" [0m
+  [4;36;1mCompany Load (0.0ms)[0m   [0;1mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#destroy (for 0.0.0.0 at 2011-06-16 16:00:36) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCompany Load (0.0ms)[0m   [0mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#edit (for 0.0.0.0 at 2011-06-16 16:00:37) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing CompaniesController#index (for 0.0.0.0 at 2011-06-16 16:00:37) [GET]
+* Accept-Language: 
+
+
+Processing CompaniesController#new (for 0.0.0.0 at 2011-06-16 16:00:37) [GET]
+* Accept-Language: 
+  [4;36;1mCompany Load (1.0ms)[0m   [0;1mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#show (for 0.0.0.0 at 2011-06-16 16:00:37) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCompany Load (1.0ms)[0m   [0mSELECT * FROM "companies" WHERE ("companies"."id" = 980190962) [0m
+
+
+Processing CompaniesController#update (for 0.0.0.0 at 2011-06-16 16:00:37) [PUT]
+  Parameters: {"company"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "creditcards" [0m
+
+
+Processing CreditcardsController#create (for 0.0.0.0 at 2011-06-16 16:00:38) [POST]
+  Parameters: {"creditcard"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "creditcards" [0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#destroy (for 0.0.0.0 at 2011-06-16 16:00:38) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#edit (for 0.0.0.0 at 2011-06-16 16:00:38) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing CreditcardsController#index (for 0.0.0.0 at 2011-06-16 16:00:38) [GET]
+* Accept-Language: 
+
+
+Processing CreditcardsController#new (for 0.0.0.0 at 2011-06-16 16:00:38) [GET]
+* Accept-Language: 
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 16:00:38) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190962) [0m
+
+
+Processing CreditcardsController#update (for 0.0.0.0 at 2011-06-16 16:00:38) [PUT]
+  Parameters: {"creditcard"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "employees" [0m
+
+
+Processing EmployeesController#create (for 0.0.0.0 at 2011-06-16 16:00:39) [POST]
+  Parameters: {"employee"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "employees" [0m
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#destroy (for 0.0.0.0 at 2011-06-16 16:00:39) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#edit (for 0.0.0.0 at 2011-06-16 16:00:39) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-16 16:00:39) [GET]
+* Accept-Language: 
+
+
+Processing EmployeesController#new (for 0.0.0.0 at 2011-06-16 16:00:39) [GET]
+* Accept-Language: 
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#show (for 0.0.0.0 at 2011-06-16 16:00:40) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" WHERE ("employees"."id" = 980190962) [0m
+
+
+Processing EmployeesController#update (for 0.0.0.0 at 2011-06-16 16:00:40) [PUT]
+  Parameters: {"employee"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+
+
+Processing OrdersController#create (for 0.0.0.0 at 2011-06-16 16:00:40) [POST]
+  Parameters: {"order"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "orders" [0m
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#destroy (for 0.0.0.0 at 2011-06-16 16:00:40) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mOrder Load (1.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#edit (for 0.0.0.0 at 2011-06-16 16:00:40) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing OrdersController#index (for 0.0.0.0 at 2011-06-16 16:00:40) [GET]
+* Accept-Language: 
+
+
+Processing OrdersController#new (for 0.0.0.0 at 2011-06-16 16:00:40) [GET]
+* Accept-Language: 
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#show (for 0.0.0.0 at 2011-06-16 16:00:40) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 980190962) [0m
+
+
+Processing OrdersController#update (for 0.0.0.0 at 2011-06-16 16:00:40) [PUT]
+  Parameters: {"order"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "packages" [0m
+
+
+Processing PackagesController#create (for 0.0.0.0 at 2011-06-16 16:00:40) [POST]
+  Parameters: {"package"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "packages" [0m
+  [4;36;1mPackage Load (0.0ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#destroy (for 0.0.0.0 at 2011-06-16 16:00:41) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mPackage Load (0.0ms)[0m   [0mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#edit (for 0.0.0.0 at 2011-06-16 16:00:41) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing PackagesController#index (for 0.0.0.0 at 2011-06-16 16:00:41) [GET]
+* Accept-Language: 
+
+
+Processing PackagesController#new (for 0.0.0.0 at 2011-06-16 16:00:41) [GET]
+* Accept-Language: 
+  [4;36;1mPackage Load (0.0ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#show (for 0.0.0.0 at 2011-06-16 16:00:42) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mPackage Load (0.0ms)[0m   [0mSELECT * FROM "packages" WHERE ("packages"."id" = 980190962) [0m
+
+
+Processing PackagesController#update (for 0.0.0.0 at 2011-06-16 16:00:42) [PUT]
+  Parameters: {"id"=>"980190962", "package"=>{}}
+* Accept-Language: 
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "routes" [0m
+
+
+Processing RoutesController#create (for 0.0.0.0 at 2011-06-16 16:00:42) [POST]
+  Parameters: {"route"=>{}}
+* Accept-Language: 
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "routes" [0m
+  [4;36;1mRoute Load (0.0ms)[0m   [0;1mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#destroy (for 0.0.0.0 at 2011-06-16 16:00:42) [DELETE]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mRoute Load (0.0ms)[0m   [0mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#edit (for 0.0.0.0 at 2011-06-16 16:00:42) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+
+
+Processing RoutesController#index (for 0.0.0.0 at 2011-06-16 16:00:42) [GET]
+* Accept-Language: 
+
+
+Processing RoutesController#new (for 0.0.0.0 at 2011-06-16 16:00:42) [GET]
+* Accept-Language: 
+  [4;36;1mRoute Load (0.0ms)[0m   [0;1mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#show (for 0.0.0.0 at 2011-06-16 16:00:43) [GET]
+  Parameters: {"id"=>"980190962"}
+* Accept-Language: 
+  [4;35;1mRoute Load (1.0ms)[0m   [0mSELECT * FROM "routes" WHERE ("routes"."id" = 980190962) [0m
+
+
+Processing RoutesController#update (for 0.0.0.0 at 2011-06-16 16:00:43) [PUT]
+  Parameters: {"route"=>{}, "id"=>"980190962"}
+* Accept-Language: 
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."id" = 1) [0m
+  [4;36;1mPackage Load (0.0ms)[0m   [0;1mSELECT * FROM "packages" WHERE ("packages"."id" = 298486374) [0m
+
+
+Processing WebServiceController#support_request (for 0.0.0.0 at 2011-06-16 16:00:43) [POST]
+  Parameters: {"support_request"=>{"creditcard"=>{"number"=>5555555555555555, "name"=>"Senor Prueba", "code"=>111, "expdate"=>"2013-05-01"}, "address"=>{"number"=>"1", "name"=>"edi prueba", "city"=>"Caracas", "zip"=>1023, "latitude"=>10.4493563318414, "country"=>"Venezuela", "zone"=>"PRUEBAS", "nickname"=>"Mi Casa", "street"=>"calle prueba", "longitude"=>-66.8719526074219}, "total"=>15, "order"=>{"city"=>"ciudad", "number"=>"1", "name"=>"nombre", "zip"=>1111, "latitude"=>1.5, "country"=>"pais", "zone"=>"zona", "collectiondate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "street"=>"calle", "date"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "recipient"=>"destinatario prueba", "client_id"=>1, "address_id"=>1, "deliverydate"=>Sat, 16 Apr 2011 13:56:05 UTC +00:00, "longitude"=>1.5, "status"=>1, "creditcard_id"=>1}, "package"=>{"weight"=>1.5, "description"=>"MyString"}, "client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}}
+* Accept-Language: 
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 7777777777777777) LIMIT 1[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 7777777777777777) LIMIT 1[0m
+  [4;36;1mCreditcard Create (1.0ms)[0m   [0;1mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(7777777777777777, 'Jose Perez', '2011-06-16 20:38:35', 888, '2011-06-16 20:38:35', '2011-09-15', 1)[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190963) [0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 7777777777777777 AND "creditcards".id <> 980190963) LIMIT 1[0m
+  [4;35;1mCreditcard Update (0.0ms)[0m   [0mUPDATE "creditcards" SET "updated_at" = '2011-06-16 20:38:35', "name" = 'Francisco Perez' WHERE "id" = 980190963[0m
+  [4;36;1mCreditcard Destroy (0.0ms)[0m   [0;1mDELETE FROM "creditcards" WHERE "id" = 980190963[0m
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889) LIMIT 1[0m
+  [4;36;1mCreditcard Create (1.0ms)[0m   [0;1mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(8888888888888889, 'Jose Perez', '2011-06-16 20:43:56', 888, '2011-06-16 20:43:56', '2011-09-15', 1)[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190963) [0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889 AND "creditcards".id <> 980190963) LIMIT 1[0m
+  [4;35;1mCreditcard Update (0.0ms)[0m   [0mUPDATE "creditcards" SET "updated_at" = '2011-06-16 20:43:56', "name" = 'Francisco Perez' WHERE "id" = 980190963[0m
+  [4;36;1mCreditcard Destroy (0.0ms)[0m   [0;1mDELETE FROM "creditcards" WHERE "id" = 980190963[0m
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (1.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889) LIMIT 1[0m
+  [4;35;1mCreditcard Create (1.0ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(8888888888888889, 'Jose Perez', '2011-06-16 20:47:20', 888, '2011-06-16 20:47:20', '2011-09-15', 1)[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190963) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889 AND "creditcards".id <> 980190963) LIMIT 1[0m
+  [4;36;1mCreditcard Update (0.0ms)[0m   [0;1mUPDATE "creditcards" SET "updated_at" = '2011-06-16 20:47:20', "name" = 'Francisco Perez' WHERE "id" = 980190963[0m
+  [4;35;1mCreditcard Destroy (0.0ms)[0m   [0mDELETE FROM "creditcards" WHERE "id" = 980190963[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889) LIMIT 1[0m
+  [4;35;1mCreditcard Create (1.0ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(8888888888888889, 'Jose Perez', '2011-06-16 20:49:44', 888, '2011-06-16 20:49:44', '2011-09-15', 1)[0m
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190963) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889 AND "creditcards".id <> 980190963) LIMIT 1[0m
+  [4;36;1mCreditcard Update (0.0ms)[0m   [0;1mUPDATE "creditcards" SET "updated_at" = '2011-06-16 20:49:44', "name" = 'Francisco Perez' WHERE "id" = 980190963[0m
+  [4;35;1mCreditcard Destroy (1.0ms)[0m   [0mDELETE FROM "creditcards" WHERE "id" = 980190963[0m
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 380742408) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888) LIMIT 1[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889) LIMIT 1[0m
+  [4;35;1mCreditcard Create (1.0ms)[0m   [0mINSERT INTO "creditcards" ("number", "name", "created_at", "code", "updated_at", "expdate", "client_id") VALUES(8888888888888889, 'Jose Perez', '2011-06-16 20:49:53', 888, '2011-06-16 20:49:53', '2011-09-15', 1)[0m
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 980190963) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888889 AND "creditcards".id <> 980190963) LIMIT 1[0m
+  [4;36;1mCreditcard Update (0.0ms)[0m   [0;1mUPDATE "creditcards" SET "updated_at" = '2011-06-16 20:49:53', "name" = 'Francisco Perez' WHERE "id" = 980190963[0m
+  [4;35;1mCreditcard Destroy (0.0ms)[0m   [0mDELETE FROM "creditcards" WHERE "id" = 980190963[0m
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-16 17:10:34) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+* Accept-Language: 
+  [4;35;1mClient Load (0.0ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-16 17:10:34) [GET]
+  Parameters: {"id"=>"1"}
+* Accept-Language: 
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:13:33) [GET]
+  Parameters: {"id"=>"1"}
+* Accept-Language: 
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:15:48) [GET]
+  Parameters: {"id"=>"1"}
+* Accept-Language: 
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-16 17:16:09) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+* Accept-Language: 
+  [4;35;1mClient Load (0.0ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-16 17:16:09) [GET]
+  Parameters: {"id"=>"1"}
+* Accept-Language: 
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-16 17:16:28) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+* Accept-Language: 
+  [4;35;1mClient Load (0.0ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-16 17:16:28) [GET]
+  Parameters: {"id"=>"1"}
+* Accept-Language: 
+  [4;36;1mClient Load (1.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#create (for 0.0.0.0 at 2011-06-16 17:26:23) [POST]
+  Parameters: {"client"=>{"middlename"=>"ario", "account"=>"usuario@prueba.com", "lastname"=>"pru", "phone"=>1234567890, "birthday"=>Fri, 15 Apr 2011, "firstname"=>"usu", "surname"=>"eba"}}
+  [4;35;1mClient Create (1.0ms)[0m   [0mINSERT INTO "clients" ("created_at", "updated_at", "account", "middlename", "lastname", "firstname", "birthday", "phone", "surname", "active") VALUES('2011-06-16 21:56:23', '2011-06-16 21:56:23', 'usuario@prueba.com', 'ario', 'pru', 'usu', '2011-04-15', 1234567890, 'eba', 1)[0m
+Redirected to http://test.host/clients/980190963
+Completed in 6ms (DB: 5) | 302 Found [http://test.host/clients?client%5Baccount%5D=usuario%40prueba.com&client%5Bbirthday%5D=2011-04-15&client%5Bfirstname%5D=usu&client%5Blastname%5D=pru&client%5Bmiddlename%5D=ario&client%5Bphone%5D=1234567890&client%5Bsurname%5D=eba]
+  [4;36;1mClient Load (0.0ms)[0m   [0;1mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+
+
+Processing ClientsController#show (for 0.0.0.0 at 2011-06-16 17:26:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mClient Load (0.0ms)[0m   [0mSELECT * FROM "clients" WHERE ("clients"."id" = 1) [0m
+Rendering template within layouts/standardmapmarker
+Rendering clients/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 17ms (View: 16, DB: 0) | 200 OK [http://test.host/clients/1]
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:27:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '1') LIMIT 1[0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:27:31) [GET]
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 0ms (DB: 3) | 302 Found [http://test.host/creditcards/1]
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:28:08) [GET]
+  Parameters: {"id"=>"2"}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/creditcards/2]
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:29:10) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+Redirected to http://test.host/
+Completed in 5ms (DB: 4) | 302 Found [http://test.host/creditcards/2]
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:30:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+Rendering template within layouts/standard
+Rendering creditcards/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 16ms (View: 12, DB: 2) | 200 OK [http://test.host/creditcards/2]
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:31:53) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+Rendering template within layouts/standard
+Rendering creditcards/show
+Rendered layouts/_partial_standard (5.0ms)
+Completed in 18ms (View: 13, DB: 4) | 200 OK [http://test.host/creditcards/2]
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:32:20) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+Rendering template within layouts/standard
+Rendering creditcards/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 16ms (View: 12, DB: 3) | 200 OK [http://test.host/creditcards/2]
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:32:50) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mCreditcard Load (1.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+Rendering template within layouts/standard
+Rendering creditcards/show
+Rendered layouts/_partial_standard (5.0ms)
+Completed in 22ms (View: 16, DB: 3) | 200 OK [http://test.host/creditcards/2]
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:34:07) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+Rendering template within layouts/standard
+Rendering creditcards/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 18ms (View: 14, DB: 5) | 200 OK [http://test.host/creditcards/2]
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888 AND "creditcards".id <> 2) LIMIT 1[0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:34:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+Rendering template within layouts/standard
+Rendering creditcards/show
+Rendered layouts/_partial_standard (3.0ms)
+Completed in 16ms (View: 12, DB: 1) | 200 OK [http://test.host/creditcards/2]
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888 AND "creditcards".id <> 2) LIMIT 1[0m
+
+
+Processing CreditcardsController#show (for 0.0.0.0 at 2011-06-16 17:35:16) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCreditcard Load (1.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+Rendering template within layouts/standard
+Rendering creditcards/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 18ms (View: 13, DB: 4) | 200 OK [http://test.host/creditcards/2]
+  [4;36;1mCreditcard Load (0.0ms)[0m   [0;1mSELECT * FROM "creditcards" WHERE ("creditcards"."id" = 2) [0m
+  [4;35;1mCreditcard Load (0.0ms)[0m   [0mSELECT "creditcards".id FROM "creditcards" WHERE ("creditcards"."number" = 8888888888888888 AND "creditcards".id <> 2) LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 836111569) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( nickname ='home' AND client_id =1 AND id !=NULL) LIMIT 1[0m
+  [4;36;1mAddress Create (1.0ms)[0m   [0;1mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('zulia', '15', 'caracas', 1020, 1.5, '2011-06-17 19:16:12', 'venezuela', 'paraiso', 'home', '2011-06-17 19:16:12', 'av paez', 1, 1.5)[0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190963) [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( nickname ='Mi Casita' AND client_id =1 AND id !=980190963) LIMIT 1[0m
+  [4;35;1mAddress Update (0.0ms)[0m   [0mUPDATE "addresses" SET "updated_at" = '2011-06-17 19:16:12', "nickname" = 'Mi Casita' WHERE "id" = 980190963[0m
+  [4;36;1mAddress Destroy (0.0ms)[0m   [0;1mDELETE FROM "addresses" WHERE "id" = 980190963[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 836111569) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 836111569) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('home') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('MyString') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 836111569) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('MyString') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('home') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 836111569) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('MyString') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('Mi casita') AND client_id =1) LIMIT 1[0m
+  [4;35;1mAddress Create (1.0ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('zulia', '15', 'caracas', 1020, 1.5, '2011-06-17 19:28:09', 'venezuela', 'paraiso', 'Mi casita', '2011-06-17 19:28:09', 'av paez', 1, 1.5)[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190963) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('Mi Casita') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 836111569) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('MyString') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('Mi casita') AND client_id =1) LIMIT 1[0m
+  [4;35;1mAddress Create (1.0ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('zulia', '15', 'caracas', 1020, 1.5, '2011-06-17 19:28:39', 'venezuela', 'paraiso', 'Mi casita', '2011-06-17 19:28:39', 'av paez', 1, 1.5)[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190963) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('Mi Casita Nueva') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Update (0.0ms)[0m   [0;1mUPDATE "addresses" SET "updated_at" = '2011-06-17 19:28:39', "nickname" = 'Mi Casita Nueva' WHERE "id" = 980190963[0m
+  [4;35;1mAddress Destroy (0.0ms)[0m   [0mDELETE FROM "addresses" WHERE "id" = 980190963[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('MyString') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('Mi casita') AND client_id =1) LIMIT 1[0m
+  [4;35;1mAddress Create (1.0ms)[0m   [0mINSERT INTO "addresses" ("name", "number", "city", "zip", "latitude", "created_at", "country", "zone", "nickname", "updated_at", "street", "client_id", "longitude") VALUES('zulia', '15', 'caracas', 1020, 1.5, '2011-06-17 20:05:39', 'venezuela', 'paraiso', 'Mi casita', '2011-06-17 20:05:39', 'av paez', 1, 1.5)[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 980190963) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('Mi Casita Nueva') AND client_id =1) LIMIT 1[0m
+  [4;36;1mAddress Update (0.0ms)[0m   [0;1mUPDATE "addresses" SET "updated_at" = '2011-06-17 20:05:39', "nickname" = 'Mi Casita Nueva' WHERE "id" = 980190963[0m
+  [4;35;1mAddress Destroy (0.0ms)[0m   [0mDELETE FROM "addresses" WHERE "id" = 980190963[0m
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 15:36:03) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 21ms (View: 16, DB: 3) | 200 OK [http://test.host/addresses/2]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 15:36:34) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 19ms (View: 14, DB: 3) | 200 OK [http://test.host/addresses/2]
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('home') AND client_id =1) LIMIT 1[0m
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 15:37:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 19ms (View: 14, DB: 2) | 200 OK [http://test.host/addresses/2]
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER('home') AND client_id =1) LIMIT 1[0m
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 15:46:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (6.0ms)
+Completed in 26ms (View: 20, DB: 6) | 200 OK [http://test.host/addresses/2]
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:22:27) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 2) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:24:01) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:24:29) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:24:47) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:25:14) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 6) | 302 Found [http://test.host/employees]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:25:46) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:26:34) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 3) | 302 Found [http://test.host/employees]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:27:11) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:28:59) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/employees]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:29:28) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/employees]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:29:46) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 2ms (DB: 7) | 302 Found [http://test.host/employees]
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:30:37) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:31:06) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:31:28) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 8) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:38:02) [GET]
+  Parameters: {"role"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 6) | 302 Found [http://test.host/employees?role=3]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:38:25) [GET]
+  Parameters: {"role"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/employees?role=3]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:39:18) [GET]
+  Parameters: {"role"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/employees?role=3]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:40:32) [GET]
+  Parameters: {"role"=>"3"}
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (6.0ms)
+Completed in 28ms (View: 25, DB: 5) | 200 OK [http://test.host/employees?role=3]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:40:48) [GET]
+  Parameters: {"role"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 2ms (DB: 2) | 302 Found [http://test.host/employees?role=3]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:41:59) [GET]
+  Parameters: {"role"=>"1"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees?role=1]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:43:05) [GET]
+  Parameters: {"role"=>"1", "account"=>"solsi"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 6) | 302 Found [http://test.host/employees?account=solsi&role=1]
+
+
+Processing EmployeesController#show (for 0.0.0.0 at 2011-06-17 17:45:58) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/show
+Rendered layouts/_partial_operations (5.0ms)
+Completed in 18ms (View: 16, DB: 5) | 200 OK [http://test.host/employees/2]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:46:20) [GET]
+  Parameters: {"id"=>"2"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 4) | 302 Found [http://test.host/employees?id=2]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:46:49) [GET]
+  Parameters: {"role"=>"1"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees?role=1]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:47:45) [GET]
+  Parameters: {"role"=>"1"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 2) | 302 Found [http://test.host/employees?role=1]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:48:13) [GET]
+  Parameters: {"role"=>"1"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 2) | 302 Found [http://test.host/employees?role=1]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:50:21) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 6) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:52:22) [GET]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (5.0ms)
+Completed in 25ms (View: 21, DB: 2) | 200 OK [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:52:35) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:54:33) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:57:57) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/employees]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (3.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:58:21) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/employees]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:58:53) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 17:59:53) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:00:16) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 5) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:00:36) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:00:49) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 2ms (DB: 6) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:01:09) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 3) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:01:26) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 0ms (DB: 2) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:01:55) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:02:14) [GET]
+  Parameters: {"role"=>"1"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 7) | 302 Found [http://test.host/employees?role=1]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:03:00) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:03:21) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:03:46) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:05:07) [GET]
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:05:45) [GET]
+  Parameters: {"role"=>"1"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/employees?role=1]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:06:08) [GET]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (11.0ms)
+Completed in 35ms (View: 31, DB: 4) | 200 OK [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:06:38) [GET]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (8.0ms)
+Completed in 27ms (View: 24, DB: 4) | 200 OK [http://test.host/employees]
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:09:15) [GET]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (7.0ms)
+Completed in 25ms (View: 22, DB: 2) | 200 OK [http://test.host/employees]
+
+
+Processing EmployeesController#show (for 0.0.0.0 at 2011-06-17 18:10:12) [GET]
+  Parameters: {"id"=>"124916"}
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 124916) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#show (for 0.0.0.0 at 2011-06-17 18:12:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEmployee Load (1.0ms)[0m   [0mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/show
+Rendered layouts/_partial_operations (6.0ms)
+Completed in 20ms (View: 17, DB: 4) | 200 OK [http://test.host/employees/2]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#show (for 0.0.0.0 at 2011-06-17 18:13:03) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/show
+Rendered layouts/_partial_operations (5.0ms)
+Completed in 18ms (View: 16, DB: 7) | 200 OK [http://test.host/employees/2]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:14:02) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEmployee Load (1.0ms)[0m   [0mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (9.0ms)
+Completed in 27ms (View: 24, DB: 5) | 200 OK [http://test.host/employees?id=2]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 3) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:15:06) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/employees?id=3]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 3) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:15:20) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/employees?id=3]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:15:41) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (10.0ms)
+Completed in 31ms (View: 28, DB: 4) | 200 OK [http://test.host/employees?id=2]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:17:38) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (7.0ms)
+Completed in 23ms (View: 20, DB: 2) | 200 OK [http://test.host/employees?id=2]
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 3) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:17:38) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/employees?id=3]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:19:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (7.0ms)
+Completed in 22ms (View: 20, DB: 3) | 200 OK [http://test.host/employees?id=2]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 3) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:19:24) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/employees?id=3]
+  [4;36;1mEmployee Load (0.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 2) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:20:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEmployee Load (0.0ms)[0m   [0mSELECT * FROM "employees" [0m
+Rendering template within layouts/operationsmapmarker
+Rendering employees/index
+Rendered layouts/_partial_operations (7.0ms)
+Completed in 22ms (View: 20, DB: 5) | 200 OK [http://test.host/employees?id=2]
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT * FROM "employees" WHERE ("employees"."id" = 3) [0m
+
+
+Processing EmployeesController#index (for 0.0.0.0 at 2011-06-17 18:20:45) [GET]
+  Parameters: {"id"=>"3"}
+Redirected to http://test.host/operations
+Filter chain halted as [:require_admin] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/employees?id=3]
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 18:41:51) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"MyString", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=MyString&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 18:41:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 17ms (View: 14, DB: 0) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 18:42:33) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"MyString", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=MyString&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 18:42:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 17ms (View: 14, DB: 0) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 18:43:42) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"MyString", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=MyString&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 18:43:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (6.0ms)
+Completed in 22ms (View: 18, DB: 1) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 18:46:24) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"MyString", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 0ms (DB: 5) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=MyString&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 18:46:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 17ms (View: 14, DB: 1) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 18:54:04) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"perra", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 5) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=perra&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 18:54:04) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (5.0ms)
+Completed in 19ms (View: 16, DB: 1) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 19:54:20) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"perra", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 0ms (DB: 2) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=perra&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 19:54:20) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (5.0ms)
+Completed in 20ms (View: 17, DB: 0) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 19:58:20) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"perra", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 1ms (DB: 7) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=perra&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 19:58:20) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (7.0ms)
+Completed in 25ms (View: 21, DB: 1) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 19:59:26) [POST]
+  Parameters: {"address"=>{"city"=>"caracas", "number"=>"15", "name"=>"zulia", "latitude"=>1.5, "zip"=>1020, "country"=>"venezuela", "nickname"=>"perra", "zone"=>"paraiso", "street"=>"av paez", "client_id"=>1, "longitude"=>1.5}}
+Redirected to http://test.host/
+Filter chain halted as [:require_login] rendered_or_redirected.
+Completed in 0ms (DB: 4) | 302 Found [http://test.host/addresses?address%5Bcity%5D=caracas&address%5Bclient_id%5D=1&address%5Bcountry%5D=venezuela&address%5Blatitude%5D=1.5&address%5Blongitude%5D=1.5&address%5Bname%5D=zulia&address%5Bnickname%5D=perra&address%5Bnumber%5D=15&address%5Bstreet%5D=av+paez&address%5Bzip%5D=1020&address%5Bzone%5D=paraiso]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 19:59:26) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (1.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 17ms (View: 14, DB: 1) | 200 OK [http://test.host/addresses/2]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 19:59:52) [POST]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER(NULL) AND client_id =1) LIMIT 1[0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/new
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 41ms (View: 38, DB: 6) | 200 OK [http://test.host/addresses?id=2]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 19:59:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (2.0ms)
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://test.host/addresses/2]
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 20:01:02) [POST]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER(NULL) AND client_id =1) LIMIT 1[0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/new
+Rendered layouts/_partial_standard (4.0ms)
+Completed in 40ms (View: 37, DB: 5) | 200 OK [http://test.host/addresses]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 20:01:02) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (2.0ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://test.host/addresses/2]
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+
+
+Processing AddressesController#create (for 0.0.0.0 at 2011-06-17 20:02:24) [POST]
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE (UPPER(nickname) = UPPER(NULL) AND client_id =1) LIMIT 1[0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/new
+Rendered layouts/_partial_standard (5.0ms)
+Completed in 43ms (View: 40, DB: 7) | 200 OK [http://test.host/addresses]
+
+
+Processing AddressesController#show (for 0.0.0.0 at 2011-06-17 20:02:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAddress Load (1.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ( id = '2') LIMIT 1[0m
+  [4;35;1mAddress Load (0.0ms)[0m   [0mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+Rendering template within layouts/standardmapmarker
+Rendering addresses/show
+Rendered layouts/_partial_standard (2.0ms)
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/addresses/2]
+  [4;36;1mAddress Load (0.0ms)[0m   [0;1mSELECT * FROM "addresses" WHERE ("addresses"."id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (32.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
