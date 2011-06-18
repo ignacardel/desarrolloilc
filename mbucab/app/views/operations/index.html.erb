@@ -1,20 +1,4 @@
 <h1 align="center"><%= t 'operations.title' %></h1>
-<%#*<table align="center" border="0">%>
-  <%#*<tr>%>
-    <%#*<td>%>
-      <%# form_tag '' do %>
-        <%#= hidden_field_tag 'locale','en' %>
-        <%#= image_submit_tag("/images/usa.png", :title => "Change Language to English", :border=>0, :index => nil) %>
-      <%# end %>
-    <%#*</td>%>
-    <%#*<td>%>
-      <%# form_tag '' do %>
-        <%#= hidden_field_tag 'locale','es' %>
-        <%#= image_submit_tag("/images/spain.png", :title => "Change Language to Spanish", :border=>0, :index => nil) %>
-      <%# end %>
-    <%#*</td>%>
-  <%#*</tr>%>
-<%#*</table>%>
 <% if session[:role] == 1 %>
   <p><%= t 'operations.administrator.information1' %></p>
   <p><%= t 'operations.administrator.information2' %></p>
