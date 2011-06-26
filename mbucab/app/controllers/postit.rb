@@ -20,32 +20,33 @@ class Postit
 
     cliente_xml = '<UserEmail>mailboxesucab</UserEmail>' #correo sin @gmail.com
 
-    origen_xml = '<Origin><Alias>ucabccs</Alias></Origin>'
+    origen_xml = '<d2p1:Origin><d2p1:Alias>ucabccs</d2p1:Alias></d2p1:Origin>'
 
-    receptor_xml =  '<ReceiverName>'+@order.recipient+'</ReceiverName>'
+    receptor_xml =  '<d2p1:ReceiverName>'+@order.recipient+'</d2p1:ReceiverName>'
 
-    destino_xml = '<Destiny><City>'+@order.city+'</City>
-                          <Country>'+@order.country+'</Country>
-                          <Street>'+@order.street+'</Street>
-                          <ZipCode>'+@order.zip.to_s+'</ZipCode>
-                          <HouseName>'+@order.name+'</HouseName>
-                          <HouseNumber>'+@order.number+'</HouseNumber>
-                 </Destiny>'
+    destino_xml = '<d2p1:Destiny><d2p1:City>'+@order.city+'</d2p1:City>
+                          <d2p1:Country>'+@order.country+'</d2p1:Country>
+                          <d2p1:Street>'+@order.street+'</d2p1:Street>
+                          <d2p1:ZipCode>'+@order.zip.to_s+'</d2p1:ZipCode>
+                          <d2p1:HouseName>'+@order.name+'</d2p1:HouseName>
+                          <d2p1:HouseNumber>'+@order.number+'</d2p1:HouseNumber>
+                 </d2p1:Destiny>'
 
-    paquete_xml = '<Packages><Package>
-                             <Content>'+@package.description+'</Content>
-                             <Height>1</Height>
-                             <Thicknes>1</Thicknes>
-                             <weight>'+@package.weight.to_s+'</weight>
-                             <Width>1</Width>
-                   </Package></Packages>'
+    paquete_xml = '<d2p1:Packages><d2p1:Package>
+                             <d2p1:Content>'+@package.description+'</d2p1:Content>
+                             <d2p1:Height>1</d2p1:Height>
+                             <d2p1:Thicknes>1</d2p1:Thicknes>
+                             <d2p1:Weight>'+@package.weight.to_s+'</d2p1:Weight>
+                             <d2p1:Width>1</d2p1:Width>
+                   </d2p1:Package></d2p1:Packages>'
 
-    orden_xml = '<Order>'+ destino_xml + origen_xml + paquete_xml + receptor_xml +'</Order>'
+    orden_xml = '<Order xmlns:d2p1="http://schemas.datacontract.org/2004/07/PostIt.Models.Core">'+ destino_xml + origen_xml + paquete_xml + receptor_xml +'</Order>'
 
     info = orden_xml + cliente_xml
 
 
-    data ='<SupportRequest>' + info + '</SupportRequest>'
+    data ='<SupportRequest xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://schemas.datacontract.org/2004/07/PostIt.Models.Adapter">' + info + '</SupportRequest>'
 
      # setea la informacion de la solicitud post
 
@@ -53,7 +54,7 @@ class Postit
 
 
      http = Net::HTTP.new(uri.host, uri.port)
-     headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
+     headers = { 'Content-Type'=>'text/xml', 'Content-Length'=>data.size.to_s }
      post = Net::HTTP::Post.new(uri.path, headers)
 
      begin
