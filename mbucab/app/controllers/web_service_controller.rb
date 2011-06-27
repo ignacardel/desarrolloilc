@@ -104,9 +104,11 @@ class WebServiceController < ApplicationController
         xml = nil
       else
         xml = params[:support_request]
+        puts "toy aki1"+xml.to_s
       end
     end
     if xml != nil    ############### desde aqui
+      puts "toy aki2 "+xml.to_s
       @client = Client.find(:first, :conditions => [" account = ?", xml["client"] ])
 
       if @client and @client.active == 1 # si consigue al cliente(compania) y esta activo
