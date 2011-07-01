@@ -276,51 +276,92 @@ class OrdersController < ApplicationController
 
     if @order
 
-      if @order.status == 4
+      #      if @order.status == 4
+      #
+      #        u = Ucab.new
+      #        u.solicitar_track_id(@order.external, @order.company_id)
+      #        llamar a metodo en ucab
+      #        puts "solicitar a la otra compania ##{@order.company_id} la orden ##{@order.external}"
+      #        respond_to do |format|
+      #          format.html # show.html.erb
+      #        end
+      #
+      #      else
 
-        u = Ucab.new
-        u.solicitar_track_id(@order.external, @order.company_id)
-        #llamar a metodo en ucab
-        puts "solicitar a la otra compania ##{@order.company_id} la orden ##{@order.external}"
-        respond_to do |format|
-          format.html # show.html.erb
+      a0 = "Assigned for Pickup"
+      a1 = "Arrival at Montalban UCAB Office"
+      a2 = "Arrival at Los Teques UCAB Office"
+      a3 = "Arrival at San Ignacio UCAB Office"
+
+      if (@order.id.to_s.end_with?("0") || @order.id.to_s.end_with?("3") || @order.id.to_s.end_with?("6") || @order.id.to_s.end_with?("9"))
+        sede = a1 end
+      if (@order.id.to_s.end_with?("1") || @order.id.to_s.end_with?("4") || @order.id.to_s.end_with?("7"))
+        sede = a2 end
+      if (@order.id.to_s.end_with?("2") || @order.id.to_s.end_with?("5") || @order.id.to_s.end_with?("8"))
+        sede = a3 end
+
+      case @order.status
+      when 1   #@actual_status = "Pickup complete"
+        route = Route.first(:conditions => ["id =?", @order.route_id])
+        @address1 = a0+" ,"+ route.created_at.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.to_s
+        #@order.collectiondate.year.to_s+"-"+@order.collectiondate.month.to_s+"-"+@order.collectiondate.day.to_s # traer solo la fecha del dia en que se busco el paquete
+      when 2   #@actual_status = "Assigned for pickup"
+        route = Route.first(:conditions => ["id =?", @order.route_id])
+        @address1 = a0+" ,"+ route.created_at.to_s
+      when 3   #@actual_status = "Delivered"
+        ext=@order.company_id
+        case ext
+        when 2 #mbucab
+          u = Ucab.new
+          @a=u.solicitar_track_id(@order.external, @order.company_id)
+        when 3
+          u=Postit.new
+          @a=u.solicitar_track_id(@order.external, @order.company_id)
         end
-
-      else
-
-        a0 = "Assigned for Pickup"
-        a1 = "Arrival at Montalban UCAB Office"
-        a2 = "Arrival at Los Teques UCAB Office"
-        a3 = "Arrival at San Ignacio UCAB Office"
-
-        if (@order.id.to_s.end_with?("0") || @order.id.to_s.end_with?("3") || @order.id.to_s.end_with?("6") || @order.id.to_s.end_with?("9"))
-          sede = a1 end
-        if (@order.id.to_s.end_with?("1") || @order.id.to_s.end_with?("4") || @order.id.to_s.end_with?("7"))
-          sede = a2 end
-        if (@order.id.to_s.end_with?("2") || @order.id.to_s.end_with?("5") || @order.id.to_s.end_with?("8"))
-          sede = a3 end
-
-        case @order.status
-        when 1   #@actual_status = "Pickup complete"
-          route = Route.first(:conditions => ["id =?", @order.route_id])
-          @address1 = a0+" ,"+ route.created_at.to_s
-          @address2 = sede+" ,"+ @order.collectiondate.to_s
-          #@order.collectiondate.year.to_s+"-"+@order.collectiondate.month.to_s+"-"+@order.collectiondate.day.to_s # traer solo la fecha del dia en que se busco el paquete
-        when 2   #@actual_status = "Assigned for pickup"
-          route = Route.first(:conditions => ["id =?", @order.route_id])
-          @address1 = a0+" ,"+ route.created_at.to_s
-        when 3   #@actual_status = "Delivered"
-          route = Route.first(:conditions => ["id =?", @order.route_id])
-          @address1 = a0+" ,"+ route.created_at.to_s
-          @address2 = sede+" ,"+ @order.collectiondate.to_s
-          @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
+        route = Route.first(:conditions => ["id =?", @order.route_id])
+        @address1 = a0+" ,"+ route.created_at.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.to_s
+        if @order.deliverydate.to_s==nil
+          @p=@order.deliverydate.to_s
+        else
+          @p=@order.updated_at.to_s
         end
-
-        respond_to do |format|
-          format.html # show.html.erb
+        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @p
+      when 4 #actual_status="External Pickup"
+        route = Route.first(:conditions => ["id =?", @order.route_id])
+        @address1 = a0+" ,"+ route.created_at.to_s
+        @address2 = sede+" ,"+ @order.collectiondate.to_s
+        if @order.deliverydate.to_s==nil
+          @p=@order.deliverydate.to_s
+        else
+          @p=@order.updated_at.to_s
         end
+        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @p
+        ext=@order.company_id
+        case ext
+        when 2 #mbucab
+          u = Ucab.new
+          @a=u.solicitar_track_id(@order.external, @order.company_id)
+          if (@a!="no ha llegado")
+            @order.update_attribute(:status, 3)
+            @order.save
+          end
+        when 3
+          u=Postit.new
+          @a=u.solicitar_track_id(@order.external, @order.company_id)
+          if (@a!="no ha llegado")
+            @order.update_attribute(:status, 3)
+            @order.save
+          end
+        end
+      end
 
-      end#end del if status 4
+      respond_to do |format|
+        format.html # show.html.erb
+      end
+
+      #end#end del if status 4
     else
       flash[:error] = "Order not found"
       redirect_to :controller => 'home', :action => 'index'

@@ -44,45 +44,89 @@ class Ucab
     info = cliente_xml + direccion_xml + tarjeta_xml + orden_xml + paquete_xml
     data ='<support_request>' + info + '</support_request>'
 
-     # setea la informacion de la solicitud post
+    # setea la informacion de la solicitud post
 
-     uri = URI.parse("http://"+@company.ip_address+":3000/web_service/support_request")
-     http = Net::HTTP.new(uri.host, uri.port)
-     headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
-     post = Net::HTTP::Post.new(uri.path, headers)
+    uri = URI.parse("http://"+@company.ip_address+":3000/web_service/support_request")
+    http = Net::HTTP.new(uri.host, uri.port)
+    headers = { 'Content-Type'=>'application/xml', 'Content-Length'=>data.size.to_s }
+    post = Net::HTTP::Post.new(uri.path, headers)
      
-     begin
-          response = http.request post, data
+    begin
+      response = http.request post, data
 
-          xmlresponse = Hash.from_xml(response.body)
+      xmlresponse = Hash.from_xml(response.body)
 
-          case response
-            when Net::HTTPCreated
-              @order.extra = xmlresponse["order"]["price"]
-              @order.order_type = 1
-              @order.external = xmlresponse["order"]["order_id"]
-              @order.status = 4
-              @order.save
-              @a = "Created a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-            when Net::HTTPSuccess
-              @order.extra = xmlresponse["order"]["price"]
-              @order.order_type = 1
-              @order.external = xmlresponse["order"]["order_id"]
-              @order.status = 4
-              @order.save
-              @a = "Succes a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
-            else response.error!
-              @a = "respuesta rara"
-          end
-     rescue
-       @a = "hubo un error de conexion"
-     end
+      case response
+      when Net::HTTPCreated
+        total = 0 
+        for package in @order.packages 
+          total = package.price + total 
+        end
+        total=total+(total*0.1)
+        puts "EPALETOTAL"+total.to_s
+        puts "EPALEEXTERNO"+xmlresponse["order"]["price"]
+        if xmlresponse["order"]["price"]>total.to_s
+          puts "ENTRE AL IF"
+          @order.extra = xmlresponse["order"]["price"]
+          @order.order_type = 1
+        end
+        @order.external = xmlresponse["order"]["order_id"]
+        @order.status = 4
+        @order.save
+        @a = "Created a new order with id " + xmlresponse["order"]["order_id"].to_s + " ,extra charge: " +  xmlresponse["order"]["price"].to_s
+      when Net::HTTPSuccess
+        total = 0
+        for packagex in @order.packages
+          total = packagex.price + total
+        end
+        total=total+(total*0.1)
+        puts "EPALETOTAL"+total.to_s
+        puts "EPALEEXTERNO"+xmlresponse["order"]["price"]
+        if xmlresponse["order"]["price"]>total.to_s
+          puts "ENTRE AL IF"
+          @order.extra = xmlresponse["order"]["price"]
+          @order.order_type = 1
+        end
+        @order.external = xmlresponse["order"]["order_id"]
+        @order.status = 4
+        @order.save
+        @a = "Support request successfull. External id " + xmlresponse["order"]["order_id"].to_s + " , Price: " +  xmlresponse["order"]["price"].to_s
+      else response.error!
+        @a = "respuesta rara"
+      end
+    rescue
+      @a = "Connection error"
+    end
     
     return @a
   end
 
 
   def solicitar_track_id (ord_id,comp)
+    @company = Company.first(:conditions => ["id =?",comp])
+    uri = URI.parse("http://"+@company.ip_address+":3000/web_service/track_id/"+ord_id.to_s)
+    http = Net::HTTP.new(uri.host, uri.port)
+    headers = { 'Content-Type'=>'application/xml'}
+    get = Net::HTTP::Get.new(uri.path, headers)
+    begin
+      response = http.request get
 
+      xmlresponse = Hash.from_xml(response.body)
+
+      case response
+      when Net::HTTPOK
+        status=xmlresponse["order"]["status"]
+        if status=="Delivered"
+          @a="<tr><td>&nbsp;</td><td>- "+xmlresponse["order"]["detail"]["address2"]+"</td></tr>"
+        else
+          @a="no ha llegado"
+        end
+      else response.error!
+        @a = "no ha llegado"
+      end
+    rescue
+      @a = "no ha llegado"
+    end
+    return @a
   end
 end
