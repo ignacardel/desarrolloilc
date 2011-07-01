@@ -1,0 +1,39 @@
+<p>
+  <h2><%=h @client.account %></h2>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @client.firstname %>
+</p>
+<% if @client.middlename != "" %>
+<p>
+  <b>Middle name:</b>
+  <%=h @client.middlename %>
+</p>
+<%  end %>
+<p>
+  <b>Last name:</b>
+  <%=h @client.lastname %>
+</p>
+<% if @client.surname != "" %>
+<p>
+  <b>Sur name:</b>
+  <%=h @client.surname %>
+</p>
+<%  end %>
+<p>
+  <b>Birthday:</b>
+  <%=h @client.birthday %>
+</p>
+
+<p>
+  <b>Phone no.:</b>
+  <%=h @client.phone %>
+</p>
+<br />
+<br />
+<br />
+<a href="/home/index" ><img src="/images/back.png" title="Back" </img></a>          
+<%= link_to image_tag("/images/delete.png", :title => "Deactivate Account", :border=>0), @client, :confirm => 'Are you sure?', :method => :delete %>          
+<%= link_to image_tag("/images/edit.png", :title => "Edit Account", :border=>0), edit_client_path(@client) %>

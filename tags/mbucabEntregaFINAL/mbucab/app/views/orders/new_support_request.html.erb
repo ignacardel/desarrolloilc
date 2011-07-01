@@ -1,0 +1,60 @@
+<% form_tag :controller => "web_service", :action => "new_support_request",:html => {:id => 'main_input' }, :method => "get" do -%>
+  <table align="center" class="sample" border="0">
+    <tr>
+      <td colspan="4"><h3>New Support Request</h3></td>
+    </tr>
+    <tr>
+      <td>
+        Order #
+      </td>
+      <td>
+        <%=h @order.id%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Placed
+      </td>
+      <td>
+        <%=h @order.created_at.year %>-<%=h @order.created_at.month %>-<%=h @order.created_at.day %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Recipient
+      </td>
+      <td>
+        <%=h @order.recipient %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Extra charge reason:
+      </td>
+      <td>
+      <input name="reason" id="reason" size="50" maxlength="50"></input>
+      </td>
+    </tr>
+    <tr>
+      <td>Company</td>
+      <td>
+        <select id="company_support_request_id" name="company_support_request_id">
+          <% @companies.each do |company|  %>
+            <option value="<%=h company.id%>"><%=h company.name%></option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <input id="order_support_request_id" name="order_support_request_id" type="hidden" value="<%=h @order.id %>"/>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <p>
+    <a href="/simulation" ><img src="/images/back.png" title="Back" </img></a>
+    <%= image_submit_tag("/images/new.png", :title => "Create New Support Request", :border=>0) %>
+  </p>
+<% end %>

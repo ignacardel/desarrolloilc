@@ -1,0 +1,44 @@
+<p>
+<h4>Confirmation</h4>
+
+<p>
+  <b>Client:</b>
+  <%=h @name %>
+</p>
+
+<p>
+  <b>Pickup Address:</b>
+  <%=h @address.nickname %>
+</p>
+
+<p>
+  <b>Recipient:</b>
+  <%=h @order.recipient %>
+</p>
+
+<p>
+  <b>Delivery address:</b>
+  <%=h @order.fulladdress %>
+</p>
+
+<p>
+  <b>Credit card:</b>
+  <%=h @creditcard.four_numbers %>
+</p>
+
+<b>Packages list:</b>
+
+  <ol>
+    <%for package in @order.packages %>
+     <li>Description: <%=h package.description %>
+       <br />Weight: <%=h package.weight %> Kg
+       <br />Price: $ <%=h package.price %> </li>
+    <% end %>
+  </ol>
+
+  <p>
+   <b>Total before Taxes: </b>$ <%= @total %> <br />
+   <b>Taxes: </b>$ <%= @total * 0.1 %> <br />
+   <b>Grand Total: </b>$ <%= @total + (@total * 0.1) %>
+  </p>
+</p>

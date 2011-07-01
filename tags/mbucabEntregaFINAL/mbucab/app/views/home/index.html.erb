@@ -1,0 +1,15 @@
+<h1 align="center"><%= t 'home.title' %></h1>
+<% if session[:user] == nil %>
+  <p><%= t 'home.paragraph' %></p>
+  <p align="center"><img src="/images/anim.gif"></img></p>
+<%  else %>
+  <% if @number > 0 %>
+    <p><a href='/orders/notification/1'><%= t 'home.notification1' %> <%=h @number%> <%= t 'home.notification2' %></a></p>
+  <%end%>
+  <p><%= t 'home.information1' %></p>
+  <p><%= t 'home.information2' %></p>
+  <p><%= t 'home.information3' %></p>
+  <p><%= t 'home.information4' %></p>
+  <p>- <i><%= t 'home.information5' %></i></p>
+  <img src="/images/delivery.jpg"></img>
+<%  end %>

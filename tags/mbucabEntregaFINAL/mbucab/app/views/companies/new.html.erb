@@ -1,0 +1,36 @@
+<% form_for(@company) do |f| %>
+  <%= f.error_messages %>
+  <table align="center" class="sample" border="0">
+    <tr>
+      <td colspan="2"><h3>New company</h3></td>
+    </tr>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :rif %></td>
+      <td><%= f.text_field(:rif,:maxlength => 9) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :phone %></td>
+      <td><%= f.text_field(:phone,:maxlength => 10) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :fax %></td>
+      <td><%= f.text_field(:fax,:maxlength => 10) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :address %></td>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :ip_address %></td>
+      <td><%= f.text_field :ip_address %></td>
+    </tr>
+  </table>
+  <p>
+    <%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), companies_path %>
+    <%= image_submit_tag("/images/new.png", :title => "Create Company", :border=>0) %>
+  </p>
+<% end %>

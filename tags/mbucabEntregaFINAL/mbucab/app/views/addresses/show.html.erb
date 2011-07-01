@@ -1,0 +1,59 @@
+<% content_for :googlemaps do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+    var myLatlng = new google.maps.LatLng(<%= @address.latitude %>,<%= @address.longitude %>);
+
+    function initialize() {
+      var myOptions = {
+        zoom: 14,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+      var marker = new google.maps.Marker({
+        icon: "/images/car.png",
+        position: myLatlng,
+        title:"<%= @address.nickname %>"
+      });
+       marker.setMap(map);
+    }
+   
+  </script>
+<% end %>
+<h2><%=h @address.nickname %></h2>
+<table border="0"
+<tr>
+    <td><b>Avenue/Street:</b>
+  <%=h @address.street %></td>
+</tr>
+<tr>
+  <td><b>Residence/House name:</b>
+  <%=h @address.name %></td>
+</tr>
+<tr>
+  <td><b>Apartment/House number:</b>
+  <%=h @address.number %></td>
+</tr>
+<tr>
+  <td><b>Urbanization:</b>
+  <%=h @address.zone %></td>
+</tr>
+<tr>
+  <td><b>City:</b>
+  <%=h @address.city %></td>
+</tr>
+<tr>
+  <td><b>Zip code:</b>
+  <%=h @address.zip %></td>
+</tr>
+<tr>
+  <td><b>Country:</b>
+  <%=h @address.country %></td>
+</tr>
+</table>
+<div id="map_canvas" style="width:400px; height:210px"></div>
+<br/>
+<%= link_to image_tag("/images/back.png", :title => "Back", :border=>0), addresses_path %>          
+<%= link_to image_tag("/images/edit.png", :title => "Edit Address", :border=>0), edit_address_path(@address) %>

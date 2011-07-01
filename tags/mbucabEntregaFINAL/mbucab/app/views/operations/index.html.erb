@@ -1,0 +1,19 @@
+<h1 align="center"><%= t 'operations.title' %></h1>
+<% if session[:role] == 1 %>
+  <p><%= t 'operations.administrator.information1' %></p>
+  <p><%= t 'operations.administrator.information2' %></p>
+  <p><%= t 'operations.administrator.information3' %></p>
+  <p><%= t 'operations.administrator.information4' %></p>
+  <p><%= t 'operations.administrator.information5' %></p>
+<%end%>
+<% if session[:role] == 2 %>
+  <p><%= t 'operations.carrier.information1' %></p>
+  <p><%= t 'operations.carrier.information2' %></p>
+  <p><%= t 'operations.carrier.information3' %></p>
+<%end%>
+<% if session[:role] == 3%>
+  <p><%= t 'operations.dispatcher.information1' %></p>
+  <p><%= t 'operations.dispatcher.information2' %></p>
+<%end%>
+<p><img src="/images/hub.jpg"></img></p>
+

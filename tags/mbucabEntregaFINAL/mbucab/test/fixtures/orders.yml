@@ -1,0 +1,42 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2011-04-16 13:56:05
+  recipient: MyString
+  longitude: 1.5
+  latitude: 1.5
+  status: 1
+  collectiondate: 2011-04-16 13:56:05
+  deliverydate: 2011-04-16 13:56:05
+  address_id: 1
+  client_id: 1
+  creditcard_id: 1
+  street: calle
+  name: nombre
+  number: 1
+  zone: zona
+  city: ciudad
+  country: pais
+  zip: 1111
+  extra: 10
+
+testorder:
+  id: 1
+  date: 2011-04-16 13:56:05
+  recipient: destinatario prueba
+  longitude: 1.5
+  latitude: 1.5
+  status: 1
+  collectiondate: 2011-04-16 13:56:05
+  deliverydate: 2011-04-16 13:56:05
+  address_id: 1
+  client_id: 1
+  creditcard_id: 1
+  street: calle
+  name: nombre
+  number: 1
+  zone: zona
+  city: ciudad
+  country: pais
+  zip: 1111
+  extra: 10

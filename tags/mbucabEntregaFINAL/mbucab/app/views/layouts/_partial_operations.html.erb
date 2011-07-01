@@ -1,0 +1,83 @@
+<div id="header">
+  <h1><%= t('layout.title') %></h1>
+  <h2><%= t('layout.subtitle') %></h2>
+  <% if session[:employee] != nil %>
+    <ul>
+      <% if session[:role] != 2 %>
+      <li><a href="/operations/index" accesskey="1" title=""><%= t('layout.employees.menu1') %></a></li>
+      <%end%>
+      <% if session[:role] == 1 %>
+        <li><%= link_to t('layout.employees.menu2'), :controller => :employees, :action => :index %></li>
+      <%end%>
+      <% if session[:role] == 1 || session[:role] == 3%>
+        <li><%= link_to t('layout.employees.menu3'), :controller => :orders, :action => :simulation %></li>
+      <%end%>
+      <% if session[:role] == 1  || session[:role] == 3%>
+        <li><%= link_to t('layout.employees.menu4'), :controller => :orders, :action => :index_support_request %></li>
+      <%end%>
+      <% if session[:role] == 1 || session[:role] == 3%>
+        <li><%= link_to t('layout.employees.menu5'), :controller => :routes, :action => :index%></li>
+      <%end%>
+      <% if session[:role] == 1 || session[:role] == 3%>
+        <li><%= link_to t('layout.employees.menu6'), :controller => :companies, :action => :index%></li>
+      <%end%>
+    </ul>
+  <%end%>
+</div>
+<div id="content">
+  <div id="colOne">
+    <h3><%= t('layout.employees.employees') %></h3>
+    <div class="bg1">
+      <% if session[:employee] == nil %>
+        <ul>
+          <% form_tag :controller => "session", :action => "employee_login",:html => {:id => 'main_input' }, :method => "get" do -%>
+            <p><%= label_tag t('layout.employees.account'),nil, :class=> "label-login" %>
+              <%= text_field_tag "account", @account,:class=>"field text" %></p>
+            <p><%= label_tag t('layout.employees.password') %>
+              <%= password_field_tag "password", nil,:class=>"field text" %></p>
+            <p style="padding-left: 30px;"><%= image_submit_tag("/images/login.png", :title => "Login", :border=>0) %></p>
+          <% end -%>
+        </ul>
+      <% else %>
+        <ul>
+          <li align="center"><a href="/employees/<%= session[:employeeid] %>"><%= session[:employee] %></li>
+          <li align="center"><%= link_to image_tag("/images/logout.png",:size => "40x40", :title => "Logout", :border=>0),:controller => :session, :action => :employee_logout%></li>
+        </ul>
+      <%  end %>
+    </div>
+    <% if session[:role] == 1 || session[:role] == 2 %>
+      <h3><%= t('layout.employees.myassignedroute') %></h3>
+      <div class="bg1">
+        <ul>
+          <li align="center"><%= link_to image_tag("/images/task.png", :size => "40x40", :title => "Show My Assigned Route", :border=>0), :controller => :routes, :action => :my_route%></li>
+        </ul>
+      </div>
+    <%end%>
+    <% if session[:role] == 1 || session[:role]==2 %>
+      <h3><%= t('layout.employees.notifyorderpickup') %></h3>
+      <div class="bg1">
+        <ul>
+          <% form_tag :controller => "orders", :action => "notify",:html => {:id => 'main_input' }, :method => "get" do -%>
+            <p><%= label_tag t('layout.employees.order'),nil %>
+              <%= text_field_tag "id", @id,:class=>"field text",:maxlength =>5, :size =>3%>
+              <%= image_submit_tag("/images/good.png", :title => "Notify", :border=>0) %></p>
+          <% end -%>
+        </ul>
+      </div>
+    <%end%>
+  </div>
+  <div id="colThree">
+    <img src="/images/ucab.jpg" width="152px" height="164px" alt="boxes" align="right"></img>
+    <img src="/images/boxes.jpg" width="152px" height="202px" alt="boxes"></img>
+  </div>
+  <div id="colTwo">
+    <div class="bg2">
+      <p style="color: green"><%= flash[:notice] %></p>
+      <p style="color: red"><%= flash[:error] %></p>
+      <%= yield -%>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="bg2"><p><%= t('layout.footer') %></p></div>
+</div>

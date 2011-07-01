@@ -1,0 +1,417 @@
+<% content_for :googlemaps do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+    var stockholm = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+    var parliament = new google.maps.LatLng(10.463536424076864, -66.97718103149418);
+    var marker;
+    var map;
+    var point;
+
+    function initialize() {
+      var mapOptions = {
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: stockholm
+      };
+
+      map = new google.maps.Map(document.getElementById("map_canvas"),
+      mapOptions);
+
+      marker = new google.maps.Marker({
+        map:map,
+        draggable:true,
+        animation: google.maps.Animation.DROP,
+        icon: "/images/car.png",
+        position: parliament
+      });
+      google.maps.event.addListener(marker, 'click', toggleBounce);
+      google.maps.event.addListener(marker, 'dragend', coordinates);
+    }
+
+    function toggleBounce() {
+      if (marker.getAnimation() != null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
+    function coordinates() {
+      var point = new google.maps.LatLng(marker.getPosition().lat(),marker.getPosition().lng(),true);
+      map.panTo(point);
+      document.getElementById("client_addresses_attributes_0_latitude").value = point.lat();
+      document.getElementById("client_addresses_attributes_0_longitude").value = point.lng();
+    }
+  </script>
+<% end %>
+
+<script type="text/javascript" src="/javascripts/dhtmlgoodies_calendar.js"></script>
+<link href="/stylesheets/dhtmlgoodies_calendar.css" rel="stylesheet" type="text/css" />
+
+  <% form_for(@client) do |f| %>
+  <%#= f.error_messages %>
+
+    <%= error_messages_for 'client', :header_message => nil %>
+    <table align="center" border="0"
+           <tr>
+        <td>
+          <table class="sample" border="0">
+            <tr>
+              <td colspan="2"><h3>Account settings</h3></td>
+            </tr>
+            <tr>
+              <td><%= f.label(:account,"Gmail account") %></td>
+              <td><%= f.text_field :account,:readonly => true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :first_name %></td>
+              <td><%= f.text_field :firstname,:readonly => true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :middle_name %></td>
+              <td><%= f.text_field :middlename %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :last_name %></td>
+              <td><%= f.text_field :lastname,:readonly => true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :sur_name %></td>
+              <td><%= f.text_field :surname %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :birthday %></td>
+              <td><%= f.text_field :birthday,:readonly => true %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><a href="#" onClick="displayCalendar(document.getElementById('client_birthday'),'yyyy-mm-dd',this)"><img src="/images/calendar.png"></img></a></td>
+            </tr>
+            <tr>
+              <td><%= f.label(:phone,"Phone no.") %></td>
+              <td><%= f.text_field(:phone ,:maxlength => 10) %> (E.g. 2128888888)</td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          <% f.fields_for :creditcards do |c| %>
+            <table class="sample" border="0">
+              <tr>
+                <td colspan="2"><h3>Payment Method info</h3></td>
+              </tr>
+              <tr>
+                <td><%= c.label(:name,"Cardholder's Name") %></td>
+                <td><%= c.text_field :name %></td>
+              </tr>
+              <tr>
+                <td><%= c.label(:number,"Credit card number") %></td>
+                <td><%= c.text_field(:number, :maxlength =>16, :size =>20) %><br /></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><%= image_tag "creditcards.jpg" %></td>
+              </tr>
+              <tr>
+                <td><%= c.label(:expdate,"Expiration date") %></td>
+                <td><%= c.date_select :expdate, :discard_day => true, :start_year => Date.current.year, :end_year => 2037 %></td>
+              </tr>
+              <tr>
+                <td><%= c.label(:code,"Security code") %></td>
+                <td><%= c.password_field(:code, :maxlength => 3) %>
+                  <a href="http://localhost:3000/code" onclick="window.open(this.href,'new_window','height=160,width=220');return false;">What's a security code?</a></td>
+              </tr>
+            </table>
+          <%end%>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <% f.fields_for :addresses do |a| %>
+      <table class="sample" border="0">
+        <tr>
+          <td colspan="3"><h3>Address info</h3></td>
+        </tr>
+        <tr>
+          <td><%= a.label(:street,"Avenue/Street") %></td>
+          <td><%= a.text_field :street %></td>
+          <td rowspan="8"><%= a.label(:latitude,"Address Coordinates")%><br/>(Drag the marker to a location approximate to your address in the map below)
+            <div  id="map_canvas" style="width:400px; height:210px"> </div></td>
+        </tr>
+        <tr>
+          <td><%= a.label(:name,"Residence/House name") %></td>
+          <td><%= a.text_field :name %></td>
+        </tr>
+        <tr>
+          <td><%= a.label(:number,"Apartment/House number") %></td>
+          <td><%= a.text_field :number %></td>
+        </tr>
+        <tr>
+          <td><%= a.label(:zone,"Urbanization") %></td>
+          <td><%= a.text_field :zone %></td>
+        </tr>
+        <tr>
+          <td><%= a.label :city%></td>
+          <td><%= a.text_field :city %></td>
+        </tr>
+        <tr>
+          <td><%= a.label(:zip,"Zip code") %></td>
+          <td><%= a.text_field :zip %></td>
+        </tr>
+        <tr>
+          <td><%= a.label :country%></td>
+          <td><%= a.select :country, ['Venezuela',
+          'Afghanistan',
+          'Albania',
+          'Algeria',
+          'American Samoa',
+          'Andorra',
+          'Angola',
+          'Anguilla',
+          'Antarctica',
+          'Antigua and Barbuda',
+          'Argentina',
+          'Armenia',
+          'Aruba',
+          'Australia',
+          'Austria',
+          'Azerbaijan',
+          'Bahamas',
+          'Bahrain',
+          'Bangladesh',
+          'Barbados',
+          'Belarus',
+          'Belgium',
+          'Belize',
+          'Benin',
+          'Bermuda',
+          'Bhutan',
+          'Bolivia',
+          'Bosnia and Herzegovina',
+          'Botswana',
+          'Bouvet Island',
+          'Brazil',
+          'British Indian Ocean Territory',
+          'Brunei Darussalam',
+          'Bulgaria',
+          'Burkina Faso',
+          'Burundi',
+          'Cambodia',
+          'Cameroon',
+          'Canada',
+          'Cape Verde',
+          'Cayman Islands',
+          'Central African Republic',
+          'Chad',
+          'Chile',
+          'China',
+          'Christmas Island',
+          'Cocos Islands',
+          'Colombia',
+          'Comoros',
+          'Congo',
+          'Congo, Democratic Republic of the',
+          'Cook Islands',
+          'Costa Rica',
+          'Cote d\'Ivoire',
+          'Croatia',
+          'Cuba',
+          'Cyprus',
+          'Czech Republic',
+          'Denmark',
+          'Djibouti',
+          'Dominica',
+          'Dominican Republic',
+          'Ecuador',
+          'Egypt',
+          'El Salvador',
+          'Equatorial Guinea',
+          'Eritrea',
+          'Estonia',
+          'Ethiopia',
+          'Falkland Islands',
+          'Faroe Islands',
+          'Fiji',
+          'Finland',
+          'France',
+          'French Guiana',
+          'French Polynesia',
+          'Gabon',
+          'Gambia',
+          'Georgia',
+          'Germany',
+          'Ghana',
+          'Gibraltar',
+          'Greece',
+          'Greenland',
+          'Grenada',
+          'Guadeloupe',
+          'Guam',
+          'Guatemala',
+          'Guinea',
+          'Guinea-Bissau',
+          'Guyana',
+          'Haiti',
+          'Heard Island and McDonald Islands',
+          'Honduras',
+          'Hong Kong',
+          'Hungary',
+          'Iceland',
+          'India',
+          'Indonesia',
+          'Iran',
+          'Iraq',
+          'Ireland',
+          'Israel',
+          'Italy',
+          'Jamaica',
+          'Japan',
+          'Jordan',
+          'Kazakhstan',
+          'Kenya',
+          'Kiribati',
+          'Kuwait',
+          'Kyrgyzstan',
+          'Laos',
+          'Latvia',
+          'Lebanon',
+          'Lesotho',
+          'Liberia',
+          'Libya',
+          'Liechtenstein',
+          'Lithuania',
+          'Luxembourg',
+          'Macao',
+          'Madagascar',
+          'Malawi',
+          'Malaysia',
+          'Maldives',
+          'Mali',
+          'Malta',
+          'Marshall Islands',
+          'Martinique',
+          'Mauritania',
+          'Mauritius',
+          'Mayotte',
+          'Mexico',
+          'Micronesia',
+          'Moldova',
+          'Monaco',
+          'Mongolia',
+          'Montenegro',
+          'Montserrat',
+          'Morocco',
+          'Mozambique',
+          'Myanmar',
+          'Namibia',
+          'Nauru',
+          'Nepal',
+          'Netherlands',
+          'Netherlands Antilles',
+          'New Caledonia',
+          'New Zealand',
+          'Nicaragua',
+          'Niger',
+          'Nigeria',
+          'Norfolk Island',
+          'North Korea',
+          'Norway',
+          'Oman',
+          'Pakistan',
+          'Palau',
+          'Palestinian Territory',
+          'Panama',
+          'Papua New Guinea',
+          'Paraguay',
+          'Peru',
+          'Philippines',
+          'Pitcairn',
+          'Poland',
+          'Portugal',
+          'Puerto Rico',
+          'Qatar',
+          'Romania',
+          'Russian Federation',
+          'Rwanda',
+          'Saint Helena',
+          'Saint Kitts and Nevis',
+          'Saint Lucia',
+          'Saint Pierre and Miquelon',
+          'Saint Vincent and the Grenadines',
+          'Samoa',
+          'San Marino',
+          'Sao Tome and Principe',
+          'Saudi Arabia',
+          'Senegal',
+          'Serbia',
+          'Seychelles',
+          'Sierra Leone',
+          'Singapore',
+          'Slovakia',
+          'Slovenia',
+          'Solomon Islands',
+          'Somalia',
+          'South Africa',
+          'South Georgia',
+          'South Korea',
+          'Spain',
+          'Sri Lanka',
+          'Sudan',
+          'Suriname',
+          'Svalbard and Jan Mayen',
+          'Swaziland',
+          'Sweden',
+          'Switzerland',
+          'Syrian Arab Republic',
+          'Taiwan',
+          'Tajikistan',
+          'Tanzania',
+          'Thailand',
+          'Timor-Leste',
+          'Togo',
+          'Tokelau',
+          'Tonga',
+          'Trinidad and Tobago',
+          'Tunisia',
+          'Turkey',
+          'Turkmenistan',
+          'Tuvalu',
+          'Uganda',
+          'Ukraine',
+          'United Arab Emirates',
+          'United Kingdom',
+          'United States',
+          'Uruguay',
+          'Uzbekistan',
+          'Vanuatu',
+          'Vatican City',
+          'Venezuela',
+          'Vietnam',
+          'Virgin Islands, British',
+          'Virgin Islands, U.S.',
+          'Wallis and Futuna',
+          'Western Sahara',
+          'Yemen',
+          'Zambia',
+          'Zimbabwe'] %></td>
+        </tr>
+        <tr>
+          <td><%= a.label(:nickname,"Unique address nickname") %></td>
+          <td><%= a.text_field :nickname %></td>
+        </tr>
+      </table>
+      <%= a. hidden_field(:longitude) %><%= a. hidden_field(:latitude)%>
+    <%end%>
+
+    <br />
+    <p>
+      <a href="/home/index" ><img src="/images/delete.png" title="Cancel" </img></a>
+      <%= image_submit_tag("/images/new.png", :title => "Register New Account", :border=>0) %>
+    </p>
+  <% end %>
+

@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account: MyString
+  password: MyString
+  name: MyString
+  lastname: MyString
+  role: 1
+
+two:
+  account: MyString
+  password: MyString
+  name: MyString
+  lastname: MyString
+  role: 1
+
+borjas:
+  id: 2
+  account: luisrafael83
+  password: 123
+  name: luis
+  lastname: borjas
+  role: 1
+
+sol:
+  id: 3
+  account: solsi
+  password: 123
+  name: solsire
+  lastname: torres
+  role: 2

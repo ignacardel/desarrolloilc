@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  expdate: 2011-04-15
+  code: 1
+  name: MyString
+  client_id: 1
+
+two:
+  number: 1
+  expdate: 2011-04-15
+  code: 1
+  name: MyString
+  client_id: 1
+
+visa:
+  id: 2
+  number: 8888888888888888
+  expdate: 2011-09-15
+  code: 888
+  name: Jose Perez
+  client_id: 1
