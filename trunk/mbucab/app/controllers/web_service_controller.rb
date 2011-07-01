@@ -1,5 +1,5 @@
 class WebServiceController < ApplicationController
-
+  layout 'operationsmapmarker'
   require 'uri'
   require 'net/https'
   require 'open-uri'
@@ -138,6 +138,7 @@ class WebServiceController < ApplicationController
               end
             end
             if @error == true
+              puts "falle"
               raise ActiveRecord::Rollback
             end
 

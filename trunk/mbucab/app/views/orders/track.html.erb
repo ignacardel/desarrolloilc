@@ -19,7 +19,7 @@
     <td>Status:</td>
     <td>- <%=h @order.actual_status %></td>
   </tr>
-  <% if @order.status == 1 %>
+  <% if (@order.status == 1)||(@order.status == 4) %>
     <tr>
       <td>Detailed Results</td>
       <td>- <%=h @address1%></td>
@@ -36,18 +36,34 @@
     </tr>
   <% end %>
   <% if @order.status == 3 %>
-    <tr>
-      <td>Detailed Results</td>
-      <td>- <%=h @address1%></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>- <%=h @address2%></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>- <%=h @address3%></td>
-    </tr>
+    <% if @order.company_id == nil %>
+      <tr>
+        <td>Detailed Results</td>
+        <td>- <%=h @address1%></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>- <%=h @address2%></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>- <%=h @address3%></td>
+      </tr>
+    <% else %>
+      <tr>
+        <td>Detailed Results</td>
+        <td>- <%=h @address1%></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>- <%=h @address2%></td>
+      </tr>
+      <%= @a%>
+      <tr>
+        <td>&nbsp;</td>
+        <td>- <%=h @address3%></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
 <br/>

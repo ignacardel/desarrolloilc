@@ -6,7 +6,7 @@ class Postit
     
   end
 
-    def solicitar_servicio (ord_id,comp)
+  def solicitar_servicio (ord_id,comp)
 
     @company = Company.first(:conditions => ["id =?",comp])
     @order = Order.first(:conditions => ["id =?",ord_id])
@@ -24,7 +24,9 @@ class Postit
 
     receptor_xml =  '<d2p1:ReceiverName>'+@order.recipient+'</d2p1:ReceiverName>'
 
-    destino_xml = '<d2p1:Destiny><d2p1:City>'+@order.city+'</d2p1:City>
+    destino_xml = '<d2p1:Destiny>
+                          <d2p1:Alias>Entrega</d2p1:Alias>
+                          <d2p1:City>'+@order.city+'</d2p1:City>
                           <d2p1:Country>'+@order.country+'</d2p1:Country>
                           <d2p1:Street>'+@order.street+'</d2p1:Street>
                           <d2p1:ZipCode>'+@order.zip.to_s+'</d2p1:ZipCode>
@@ -45,51 +47,107 @@ class Postit
     info = orden_xml + cliente_xml
 
 
-    data ='<SupportRequest xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://schemas.datacontract.org/2004/07/PostIt.Models.Adapter">' + info + '</SupportRequest>'
+    data ='<SupportRequest xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PostIt.Models.Adapter.PostIt">' + info + '</SupportRequest>'
 
-     # setea la informacion de la solicitud post
+    puts "JABIBIIII"
+    puts data
+    # setea la informacion de la solicitud post
 
-     uri = URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/Create")
+    uri = URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/Create")
 
 
-     http = Net::HTTP.new(uri.host, uri.port)
-     headers = { 'Content-Type'=>'text/xml', 'Content-Length'=>data.size.to_s }
-     post = Net::HTTP::Post.new(uri.path, headers)
+    http = Net::HTTP.new(uri.host, uri.port)
+    headers = { 'Content-Type'=>'text/xml', 'Content-Length'=>data.size.to_s }
+    post = Net::HTTP::Post.new(uri.path, headers)
 
-     begin
-          response = http.request post, data
+    begin
+      response = http.request post, data
 
-          xmlresponse = Hash.from_xml(response.body)
+      xmlresponse = Hash.from_xml(response.body)
 
-          case response
-            when Net::HTTPCreated
-              @order.extra = xmlresponse["OrderRequestResult"]["Price"]
-              @order.order_type = 1
-              @order.external = xmlresponse["OrderRequestResult"]["Tracking"]
-              @order.status = 4
-              @order.save
-              @a = "Created a new order with id " + xmlresponse["OrderRequestResult"]["Tracking"].to_s + " ,extra charge: " +  xmlresponse["OrderRequestResult"]["Price"].to_s
-            when Net::HTTPSuccess
-              @order.extra = xmlresponse["OrderRequestResult"]["Price"]
-              @order.order_type = 1
-              @order.external = xmlresponse["OrderRequestResult"]["Tracking"]
-              @order.status = 4
-              @order.save
-              @a = "Succes a new order with id " + xmlresponse["OrderRequestResult"]["Tracking"].to_s + " ,extra charge: " +  xmlresponse["OrderRequestResult"]["Price"].to_s
-            else response.error!
-              @a = "Error " + xmlresponse["OrderRequestResult"]["ErrorCode"]
-          end
-     rescue
-       @a = "hubo un error de conexion"
-     end
+      case response
+      when Net::HTTPCreated
+        total = 0
+        for package in @order.packages
+          total = package.price + total
+        end
+        total=total+(total*0.1)
+        puts "EPALETOTAL"+total.to_s
+        puts "EPALEEXTERNO"+xmlresponse["OrderRequestResult"]["Price"]
+        if xmlresponse["OrderRequestResult"]["Price"]>total.to_s
+          puts "ENTRE AL IF"
+          @order.extra = xmlresponse["OrderRequestResult"]["Price"]
+          @order.order_type = 1
+        end
+        @order.external = xmlresponse["OrderRequestResult"]["Tracking"]
+        @order.status = 4
+        @order.save
+        @a = "Created a new order with id " + xmlresponse["OrderRequestResult"]["Tracking"].to_s + " ,extra charge: " +  xmlresponse["OrderRequestResult"]["Price"].to_s
+      when Net::HTTPSuccess
+        total = 0
+        for packagex in @order.packages
+          total = packagex.price + total
+        end
+        total=total+(total*0.1)
+        puts "EPALETOTAL"+total.to_s
+        puts "EPALEEXTERNO"+xmlresponse["OrderRequestResult"]["Price"]
+        if xmlresponse["OrderRequestResult"]["Price"]>total.to_s
+          puts "ENTRE AL IF"
+          @order.extra = xmlresponse["OrderRequestResult"]["Price"]
+          @order.order_type = 1
+        end
+        @order.external = xmlresponse["OrderRequestResult"]["Tracking"]
+        @order.status = 4
+        @order.save
+        @a = "Support request successfull. External id " + xmlresponse["OrderRequestResult"]["Tracking"].to_s + " ,Price: " +  xmlresponse["OrderRequestResult"]["Price"].to_s
+      else response.error!
+        @a = "Error " + xmlresponse["OrderRequestResult"]["ErrorCode"]
+      end
+    rescue
+      @a = "Connection error"
+    end
 
     return @a
   end
 
 
   def solicitar_track_id (ord_id,comp)
+    @company = Company.first(:conditions => ["id =?",comp])
+    #    uri = URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/GetStops?OrderTracking="+ord_id.to_s)
+    #    http = Net::HTTP.new(uri.host, uri.port)
+    #    headers = { 'Content-Type'=>'text/xml'}
+    #    get = Net::HTTP::Get.new(uri.path, headers)
 
+    xml_result_set = Net::HTTP.get_response(URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/GetStops?OrderTracking="+ord_id.to_s))
+
+    xml_result_set2 = Net::HTTP.get_response(URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/GetStatus?OrderTracking="+ord_id.to_s))
+
+   
+    begin
+
+      xmlresponse2=Hash.from_xml(xml_result_set2.body)
+      if xmlresponse2["RequestResult"]["Message"]=="Entregada"
+        
+        @a=""
+        xmlresponse = Hash.from_xml(xml_result_set.body)
+        
+        xmlresponse["ArrayOfStop"]["Stop"].each do |key,value|
+          puts key["Alias"]
+          puts key["City"]
+          puts key["Country"]
+          puts key["State"]
+          @a=@a+"<tr><td>&nbsp;</td><td>- Transit at "+key["Alias"]+","+key["City"]+","+key["State"]+","+key["Country"]+"</td></tr>"
+        end
+      else
+        @a = "no ha llegado"
+      end
+
+
+    rescue Exception => e
+      @a = "no ha llegado"
+      puts 'Connection error: ' + e.message
+    end
+    return @a
   end
 
 

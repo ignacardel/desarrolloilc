@@ -77,7 +77,7 @@ class Order < ActiveRecord::Base
     when 3
       @actual_status = "Delivered"
     when 4
-      @actual_status = "Waiting for external pickup"
+      @actual_status = "Waiting for pickup"
     end
 
   end
