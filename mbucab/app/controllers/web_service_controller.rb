@@ -71,7 +71,12 @@ class WebServiceController < ApplicationController
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
         @address2 = sede+" ,"+ @order.collectiondate.to_s
-        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
+        @a=""
+        if @order.company_id!=nil
+          u=Postit.new
+          @a=u.solicitar_track_id2(@order.external, @order.company_id)
+        end
+        @address3 = @a+"Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
       end
 
       @error = false

@@ -150,5 +150,44 @@ class Postit
     return @a
   end
 
+  def solicitar_track_id2 (ord_id,comp)
+    @company = Company.first(:conditions => ["id =?",comp])
+    #    uri = URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/GetStops?OrderTracking="+ord_id.to_s)
+    #    http = Net::HTTP.new(uri.host, uri.port)
+    #    headers = { 'Content-Type'=>'text/xml'}
+    #    get = Net::HTTP::Get.new(uri.path, headers)
+
+    xml_result_set = Net::HTTP.get_response(URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/GetStops?OrderTracking="+ord_id.to_s))
+
+    xml_result_set2 = Net::HTTP.get_response(URI.parse("http://"+@company.ip_address+"/PostIt/API/Order/GetStatus?OrderTracking="+ord_id.to_s))
+
+
+    begin
+
+      xmlresponse2=Hash.from_xml(xml_result_set2.body)
+      if xmlresponse2["RequestResult"]["Message"]=="Entregada"
+
+        @a=""
+        xmlresponse = Hash.from_xml(xml_result_set.body)
+
+        xmlresponse["ArrayOfStop"]["Stop"].each do |key,value|
+          puts key["Alias"]
+          puts key["City"]
+          puts key["Country"]
+          puts key["State"]
+          @a=@a+"Transit at "+key["Alias"]+","+key["City"]+","+key["State"]+","+key["Country"]+"||"
+        end
+      else
+        @a = "no ha llegado"
+      end
+
+
+    rescue Exception => e
+      @a = "no ha llegado"
+      puts 'Connection error: ' + e.message
+    end
+    return @a
+  end
+
 
 end
