@@ -318,6 +318,9 @@ class OrdersController < ApplicationController
         when 3
           u=Postit.new
           @a=u.solicitar_track_id(@order.external, @order.company_id)
+        when 4
+          u=Envios.new
+          @a=u.solicitar_track_id(@order.external, @order.company_id)
         end
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
@@ -351,6 +354,13 @@ class OrdersController < ApplicationController
           u=Postit.new
           @a=u.solicitar_track_id(@order.external, @order.company_id)
           if (@a!="no ha llegado")
+            @order.update_attribute(:status, 3)
+            @order.save
+          end
+        when 4
+          u=Envios.new
+          @a=u.solicitar_track_id(@order.external, @order.company_id)
+          if (@a!="No se ha simulado el envio del paquete o no se encuentra registrado en la bd")
             @order.update_attribute(:status, 3)
             @order.save
           end
