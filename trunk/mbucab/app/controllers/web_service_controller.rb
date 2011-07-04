@@ -20,6 +20,9 @@ class WebServiceController < ApplicationController
     when "3"   #PostIt
       u = Postit.new
       @a = u.solicitar_servicio(ord_id, comp)
+    when "4"
+      u=Envios.new
+      @a=u.solicitar_servicio(ord_id, comp)
     end
 
     render "show"
@@ -71,7 +74,18 @@ class WebServiceController < ApplicationController
         route = Route.first(:conditions => ["id =?", @order.route_id])
         @address1 = a0+" ,"+ route.created_at.to_s
         @address2 = sede+" ,"+ @order.collectiondate.to_s
-        @address3 = "Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
+        @a=""
+        if @order.company_id!=nil
+          case @order.company_id.to_s
+          when "3"
+            u=Postit.new
+            @a=u.solicitar_track_id2(@order.external, @order.company_id)
+          when "4"
+            u=Envios.new
+            @a=u.solicitar_track_id2(@order.external, @order.company_id)
+          end
+        end
+        @address3 = @a+"Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
       end
 
       @error = false
