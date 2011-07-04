@@ -20,6 +20,9 @@ class WebServiceController < ApplicationController
     when "3"   #PostIt
       u = Postit.new
       @a = u.solicitar_servicio(ord_id, comp)
+    when "4"
+      u=Envios.new
+      @a=u.solicitar_servicio(ord_id, comp)
     end
 
     render "show"
@@ -73,8 +76,14 @@ class WebServiceController < ApplicationController
         @address2 = sede+" ,"+ @order.collectiondate.to_s
         @a=""
         if @order.company_id!=nil
-          u=Postit.new
-          @a=u.solicitar_track_id2(@order.external, @order.company_id)
+          case @order.company_id.to_s
+          when "3"
+            u=Postit.new
+            @a=u.solicitar_track_id2(@order.external, @order.company_id)
+          when "4"
+            u=Envios.new
+            @a=u.solicitar_track_id2(@order.external, @order.company_id)
+          end
         end
         @address3 = @a+"Delivered, " + @order.fulladdress + " ,"+ @order.deliverydate.to_s
       end
