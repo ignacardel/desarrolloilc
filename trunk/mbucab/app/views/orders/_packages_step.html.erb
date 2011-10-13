@@ -290,10 +290,10 @@
   <%= render 'package_fields', :f => a %>
 <%end%>
 <script>
-
-  $(document).ready(function(){
+jQuery.noConflict(); //Necesario porque si no jQuery tiene conflictos con Prototype.js (usado por add_fields y remove_fields)
+  jQuery(document).ready(function(){
     var data = <%= @addresses.to_json %>;
-    $("#address_nickname").autocomplete(data,{"mustMatch": true});
+    jQuery("#address_nickname").autocomplete(data,{"mustMatch": true});
   });
 
 </script>
